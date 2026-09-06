@@ -1,11 +1,15 @@
 # Hogarex Barcelona
 
 Sitio web de Hogarex operando en Barcelona (España) para fontanería,
-electricidad y gas. **No es un marketplace**: el modelo es de generación de
-leads con gestión directa — el cliente contacta a Hogarex (WhatsApp, teléfono
-o formulario) y Hogarex coordina internamente al profesional de su red que
+electricidad, gas, pintura, carpintería y aire acondicionado/calefacción.
+**No es un marketplace**: el modelo es de generación de leads con gestión
+directa — el cliente contacta a Hogarex (formulario de solicitud, WhatsApp o
+teléfono) y Hogarex coordina internamente al profesional de su red que
 resuelve el trabajo. No hay perfiles públicos de profesionales ni sistema de
 búsqueda para el usuario final.
+
+Todo el copy está escrito en **castellano de España** (tuteo: "tú",
+"cuéntanos", "contacta con nosotros"), no en español rioplatense/voseo.
 
 ## Stack técnico
 
@@ -14,13 +18,15 @@ búsqueda para el usuario final.
   degradado violeta/celeste genérico) definida en `tailwind.config.ts`.
 - **SSG/ISR en todas las páginas de contenido**: home, servicios, zonas,
   precios, blog, etc. son componentes de servidor que generan HTML estático
-  en build time (`generateStaticParams` en las rutas dinámicas). El único
-  componente cliente (`"use client"`) es el formulario de contacto
-  (`components/LeadForm.tsx`); el resto de la interactividad (acordeón de
-  FAQ) usa `<details>/<summary>` nativos para que el contenido esté en el
+  en build time (`generateStaticParams` en las rutas dinámicas). Los
+  componentes cliente (`"use client"`) son solo los que necesitan
+  interactividad: el formulario de contacto (`components/LeadForm.tsx`), el
+  wizard de solicitud (`components/SolicitudWizard.tsx`) y la navegación
+  (`components/NavMenu.tsx`, `components/MobileBottomBar.tsx`). El acordeón
+  de FAQ usa `<details>/<summary>` nativos para que el contenido esté en el
   HTML sin depender de JavaScript.
-- **next/image** listo para usarse (configurado en `next.config.mjs`) en
-  cuanto se agreguen fotos reales.
+- **next/image** con ilustraciones locales en SVG (`public/images/`, ver
+  sección de imágenes más abajo).
 - **next/font/google** (Inter + Manrope) para tipografía, cargada en
   `app/layout.tsx`.
 - **SEO técnico**: metadata por página (`lib/metadata.ts`), `sitemap.xml`
@@ -34,24 +40,87 @@ búsqueda para el usuario final.
   FAQ están en HTML plano (no detrás de JS) para que los motores generativos
   puedan citarlas directamente.
 
+## Navegación
+
+- **Escritorio (`lg` y superior)**: menú horizontal completo en el header
+  más un botón destacado "Pedir presupuesto". Por debajo de `lg` (tablet y
+  móvil) el header muestra un botón de menú hamburguesa que abre un panel
+  lateral con todos los enlaces (`components/NavMenu.tsx`).
+- **Móvil (por debajo de `md`)**: barra inferior fija estilo app
+  (`components/MobileBottomBar.tsx`) con accesos directos a Inicio,
+  Servicios, un botón central elevado "Solicitar" (a `/solicitud`),
+  WhatsApp y Llamar. Convive con el menú hamburguesa del header, que sigue
+  dando acceso a Zonas, Precios, Blog, Sobre nosotros y las páginas legales.
+
+## Página de solicitud (`/solicitud`)
+
+Es la página de conversión principal del sitio: un formulario en varios
+pasos (`components/SolicitudWizard.tsx`, con las preguntas por rubro
+definidas en `lib/wizard-data.ts`) que:
+
+1. Pregunta el rubro (fontanero, electricista, gasista, pintor, carpintero,
+   aire acondicionado/calefacción) con tarjetas visuales.
+2. Adapta la siguiente pregunta ("¿qué tipo de problema tienes?") según el
+   rubro elegido.
+3. Para varios rubros añade una pregunta de detalle adicional (m² a pintar,
+   si hay medidas tomadas, tipo de equipo de climatización, nivel de riesgo
+   eléctrico, etc.).
+4. Marca automáticamente la solicitud como urgente en casos de seguridad
+   (por ejemplo, "huelo a gas ahora mismo" o riesgo eléctrico inmediato) y
+   muestra un aviso de seguridad.
+5. Pide zona/barrio, dirección opcional, datos de contacto y horario
+   preferido.
+6. Muestra un resumen y envía la solicitud abriendo WhatsApp con el mensaje
+   ya redactado (mismo patrón sin backend que `LeadForm`).
+
+Se puede enlazar con el rubro preseleccionado usando
+`/solicitud?rubro=<slug-del-servicio>` (por ejemplo, desde cada página de
+servicio). Ese parámetro se lee en `components/SolicitudWizardEntry.tsx` con
+`useSearchParams`, envuelto en `<Suspense>` en `app/solicitud/page.tsx` como
+exige Next.js App Router.
+
+## Imágenes
+
+No hay fotografías reales todavía. En su lugar, `public/images/` contiene
+ilustraciones SVG propias (duotono terracota/crema, coherentes con la
+paleta de marca) que:
+
+- `services/*.svg`: una por cada rubro, usadas en las tarjetas de servicio y
+  en la cabecera de cada página de servicio.
+- `work/*.svg`: seis escenas de "trabajo finalizado" (con insignia de check)
+  usadas en la sección "Trabajos gestionados en Barcelona" de la home, cada
+  una con su rubro y zona.
+- `trust/equipo-hogarex.svg`: ilustración de coordinación usada en "Sobre
+  nosotros".
+- `hero/hero-hogar.svg`: ilustración de portada de la home.
+
+`next.config.mjs` habilita `dangerouslyAllowSVG` porque estos SVG son
+propios (no subidos por usuarios). **Antes de publicar, sustituir estas
+ilustraciones por fotografías reales de trabajos y del equipo** manteniendo
+las mismas rutas y proporciones (o actualizando las referencias en
+`lib/services-data.ts` y `app/page.tsx`).
+
 ## Estructura
 
 ```
 app/
-  layout.tsx              Layout raíz, fuentes, header/footer, JSON-LD de negocio
-  page.tsx                Home
-  servicios/              Índice + páginas por servicio (fontanería, electricidad, gas)
+  layout.tsx              Layout raíz, fuentes, header/footer, barra móvil, JSON-LD de negocio
+  page.tsx                Home (hero, cómo funciona, servicios, trabajos, zonas, confianza, testimonios, FAQ)
+  solicitud/               Wizard de solicitud multi-paso (página de conversión principal)
+  servicios/              Índice + páginas por servicio (6 rubros)
   zonas/                  Índice + páginas por distrito de Barcelona
   precios/                Guía de precios orientativos
   urgencias-24h/          Landing de urgencias
-  contacto/               Formulario de contacto (WhatsApp) + datos directos
+  contacto/               Formulario rápido de contacto (WhatsApp) + datos directos
   sobre-nosotros/         Explicación del modelo (no marketplace)
   blog/                   Índice + posts de ejemplo
   aviso-legal/, politica-privacidad/, politica-cookies/
   sitemap.ts, robots.ts, manifest.ts, opengraph-image.tsx, llms.txt/route.ts
-components/               Header, Footer, Hero, CTAs, FaqAccordion, LeadForm, etc.
+components/               Header, NavMenu, MobileBottomBar, Footer, Hero, CTAs,
+                          FaqAccordion, LeadForm, SolicitudWizard(Entry), etc.
 lib/                      site-config.ts, services-data.ts, zones-data.ts,
-                          blog-data.ts, metadata.ts, schema.ts
+                          blog-data.ts, wizard-data.ts, metadata.ts, schema.ts
+public/images/            Ilustraciones SVG (servicios, trabajos, confianza, hero)
 ```
 
 ## Cómo correr el proyecto
@@ -89,6 +158,8 @@ antes de salir a producción:
       en `public/favicon.svg`). Si hay guía de marca, tipografías o colores
       corporativos, deben priorizarse sobre la paleta actual
       (`tailwind.config.ts`).
+- [ ] Fotografías reales de trabajos y del equipo (ver sección "Imágenes"
+      más arriba) en sustitución de las ilustraciones SVG actuales.
 - [ ] Revisión legal de `app/aviso-legal`, `app/politica-privacidad` y
       `app/politica-cookies` (textos modelo, marcados explícitamente como
       pendientes de validar con un asesor legal, con placeholders de CIF y
@@ -96,14 +167,17 @@ antes de salir a producción:
 - [ ] Precios orientativos (`lib/services-data.ts`, campo `pricing`): son
       valores de ejemplo razonables para Barcelona, deben confirmarse con
       datos reales del negocio.
-- [ ] Fotos reales de los servicios/zonas (hoy no hay imágenes, solo
-      ilustración tipográfica) — reemplazar usando `next/image`.
-- [ ] Conectar el formulario de contacto a un backend/CRM real: hoy
-      `components/LeadForm.tsx` abre WhatsApp con el mensaje precompletado
-      (no requiere backend), lo cual es funcional pero limitado. Si se
-      quiere registrar leads en una base de datos o enviar email además del
-      WhatsApp, hay que añadir una API route (por ejemplo con Resend,
-      Formspree o un CRM propio).
+- [ ] Testimonios de ejemplo en `app/page.tsx` (`testimonials`): sustituir
+      por reseñas reales de clientes (por ejemplo, importadas de Google
+      Business Profile) antes de publicar. Deliberadamente no se les añadió
+      marcado JSON-LD de reseñas para no presentar datos de ejemplo como
+      reseñas verificadas ante buscadores.
+- [ ] Conectar el formulario de contacto y el wizard de solicitud a un
+      backend/CRM real: hoy ambos abren WhatsApp con el mensaje
+      precompletado (no requieren backend), lo cual es funcional pero
+      limitado. Si se quiere registrar leads en una base de datos o enviar
+      email además del WhatsApp, hay que añadir una API route (por ejemplo
+      con Resend, Formspree o un CRM propio).
 - [ ] Definir si se necesita banner de cookies (hoy el sitio no usa cookies
       de analítica/marketing; en cuanto se agregue Google Analytics, Meta
       Pixel, etc. hay que añadir gestión de consentimiento antes de cargarlas).
@@ -113,8 +187,14 @@ antes de salir a producción:
 Todo el copy del sitio está escrito para reforzar que Hogarex Barcelona
 **gestiona** el servicio, no lo intermedia como marketplace:
 
-- Nunca usar frases como "elegí tu profesional" o "explorá perfiles".
-- Siempre "contactanos / nos contás el problema / nosotros coordinamos al
-  profesional de nuestra red".
+- Nunca usar frases como "elige tu profesional" o "explora perfiles".
+- Siempre "contacta con nosotros / cuéntanos el problema / nosotros
+  coordinamos al profesional de nuestra red".
 - No agregar páginas de perfiles públicos de profesionales ni buscadores/
   filtros de profesionales visibles al usuario final.
+- Los 6 rubros son: fontanero, electricista, gasista, pintor, carpintero y
+  aire acondicionado/calefacción (`lib/services-data.ts`). Añadir un rubro
+  nuevo implica: un objeto nuevo en `services`, una configuración en
+  `lib/wizard-data.ts` (`rubroWizardConfigs`) y una imagen en
+  `public/images/services/`; el resto del sitio (footer, sitemap, llms.txt,
+  home, wizard) se actualiza automáticamente al recorrer el array.

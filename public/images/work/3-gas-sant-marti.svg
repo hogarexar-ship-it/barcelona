@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Instalación de caldera resuelta en Sant Martí, Barcelona">
+  <defs>
+    <linearGradient id="w3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FDF3EE"/>
+      <stop offset="1" stop-color="#E89F72"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#w3)"/>
+
+  <rect x="310" y="160" width="180" height="300" rx="16" fill="#FDFBF7" stroke="#2A2620" stroke-width="5"/>
+  <circle cx="400" cy="230" r="40" fill="#E7E5E2" stroke="#443F38" stroke-width="4"/>
+  <circle cx="400" cy="230" r="7" fill="#C55F2C"/>
+  <rect x="336" y="300" width="128" height="16" rx="8" fill="#E7E5E2"/>
+  <rect x="336" y="330" width="128" height="16" rx="8" fill="#E7E5E2"/>
+  <rect x="336" y="360" width="80" height="16" rx="8" fill="#E7E5E2"/>
+
+  <circle cx="640" cy="110" r="46" fill="#C55F2C"/>
+  <path d="M618 112 L634 128 L664 92" fill="none" stroke="#FDFBF7" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="32" y="504" width="380" height="64" rx="16" fill="#FDFBF7" opacity="0.94"/>
+  <text x="56" y="533" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#1B1814">Instalación de caldera</text>
+  <text x="56" y="556" font-family="Arial, sans-serif" font-size="16" fill="#6B655D">Sant Martí, Barcelona</text>
+</svg>

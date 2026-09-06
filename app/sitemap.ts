@@ -7,6 +7,7 @@ import { blogPosts } from "@/lib/blog-data";
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "",
+    "/solicitud",
     "/servicios",
     "/zonas",
     "/precios",
@@ -21,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${siteConfig.url}${path}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
-    priority: path === "" ? 1 : 0.7,
+    priority: path === "" ? 1 : path === "/solicitud" ? 0.95 : 0.7,
   }));
 
   const serviceRoutes = services.map((service) => ({

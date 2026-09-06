@@ -67,15 +67,6 @@ export function EmergencyBadge() {
   );
 }
 
-export function StickyMobileCta() {
-  return (
-    <div className="fixed inset-x-0 bottom-0 z-40 flex gap-2 border-t border-ink-100 bg-white/95 p-3 backdrop-blur sm:hidden">
-      <CallButton variant="primary" className="flex-1" label="Llamar" />
-      <WhatsAppButton variant="primary" className="flex-1" label="WhatsApp" />
-    </div>
-  );
-}
-
 function WhatsAppIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden="true">

@@ -53,7 +53,7 @@ export default function PoliticaCookiesPage() {
           <div>
             <h2 className="font-display text-lg font-bold text-ink-900">4. Contacto</h2>
             <p className="mt-2">
-              Ante cualquier duda sobre esta política, escribinos a {siteConfig.email}.
+              Ante cualquier duda sobre esta política, escríbenos a {siteConfig.email}.
             </p>
           </div>
         </div>

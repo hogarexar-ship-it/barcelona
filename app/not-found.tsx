@@ -11,8 +11,8 @@ export default function NotFound() {
           No encontramos esta página
         </h1>
         <p className="mt-3 text-ink-600">
-          Puede que el enlace esté roto o la página se haya movido. Volvé al inicio o contactanos
-          directamente si necesitás un servicio.
+          Puede que el enlace esté roto o la página se haya movido. Vuelve al inicio o contacta con nosotros
+          directamente si necesitas un servicio.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link

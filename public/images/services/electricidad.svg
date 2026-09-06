@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Ilustración de un trabajo de electricidad">
+  <defs>
+    <linearGradient id="bgE" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FAF5EC"/>
+      <stop offset="1" stop-color="#F3E9D8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bgE)"/>
+  <circle cx="640" cy="120" r="150" fill="#C55F2C" opacity="0.12"/>
+  <circle cx="90" cy="500" r="130" fill="#1B1814" opacity="0.06"/>
+
+  <!-- cuadro eléctrico -->
+  <rect x="230" y="140" width="340" height="380" rx="18" fill="#FDFBF7" stroke="#2A2620" stroke-width="6"/>
+  <rect x="260" y="176" width="280" height="60" rx="8" fill="#E7E5E2"/>
+  <g>
+    <rect x="270" y="260" width="46" height="90" rx="6" fill="#443F38"/>
+    <rect x="330" y="260" width="46" height="90" rx="6" fill="#C55F2C"/>
+    <rect x="390" y="260" width="46" height="90" rx="6" fill="#443F38"/>
+    <rect x="450" y="260" width="46" height="90" rx="6" fill="#443F38"/>
+  </g>
+  <g fill="#FDFBF7">
+    <rect x="285" y="272" width="16" height="30" rx="3"/>
+    <rect x="345" y="272" width="16" height="66" rx="3"/>
+    <rect x="405" y="272" width="16" height="30" rx="3"/>
+    <rect x="465" y="272" width="16" height="30" rx="3"/>
+  </g>
+  <rect x="270" y="380" width="226" height="100" rx="10" fill="#E7E5E2"/>
+  <text x="290" y="440" font-family="Arial, sans-serif" font-size="20" fill="#443F38">ICP · Diferencial</text>
+
+  <!-- rayo -->
+  <path d="M470 60 L400 190 L450 190 L390 320 L560 150 L500 150 Z" fill="#C55F2C"/>
+
+  <rect x="32" y="500" width="300" height="64" rx="16" fill="#FDFBF7" opacity="0.92"/>
+  <text x="56" y="540" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#1B1814">Electricidad</text>
+</svg>

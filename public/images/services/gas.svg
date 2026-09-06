@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Ilustración de un trabajo de instalación de gas">
+  <defs>
+    <linearGradient id="bgG" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FDF3EE"/>
+      <stop offset="1" stop-color="#E89F72"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bgG)"/>
+  <circle cx="120" cy="110" r="140" fill="#FFFFFF" opacity="0.2"/>
+  <circle cx="700" cy="500" r="150" fill="#5A2814" opacity="0.1"/>
+
+  <!-- caldera -->
+  <rect x="300" y="150" width="200" height="320" rx="16" fill="#FDFBF7" stroke="#2A2620" stroke-width="6"/>
+  <circle cx="400" cy="230" r="46" fill="#E7E5E2" stroke="#443F38" stroke-width="4"/>
+  <circle cx="400" cy="230" r="8" fill="#C55F2C"/>
+  <g stroke="#443F38" stroke-width="4">
+    <line x1="400" y1="230" x2="400" y2="200"/>
+    <line x1="400" y1="230" x2="420" y2="240"/>
+  </g>
+  <rect x="330" y="300" width="140" height="18" rx="9" fill="#E7E5E2"/>
+  <rect x="330" y="332" width="140" height="18" rx="9" fill="#E7E5E2"/>
+  <rect x="330" y="364" width="90" height="18" rx="9" fill="#E7E5E2"/>
+
+  <!-- llama -->
+  <path d="M400 40 C 430 90, 380 110, 400 150 C 420 130, 450 150, 430 190 C 470 170, 470 110, 430 80 C 435 100, 415 95, 400 40 Z" fill="#DD7C47"/>
+  <path d="M400 90 C 412 115, 392 128, 400 150 C 410 140, 422 148, 414 165 C 432 155, 432 128, 414 112 Z" fill="#FDFBF7" opacity="0.85"/>
+
+  <rect x="32" y="500" width="220" height="64" rx="16" fill="#FDFBF7" opacity="0.92"/>
+  <text x="56" y="540" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#1B1814">Gas</text>
+</svg>

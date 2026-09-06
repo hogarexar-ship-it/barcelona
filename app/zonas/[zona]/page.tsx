@@ -85,12 +85,18 @@ export default function ZonePage({ params }: { params: { zona: string } }) {
           <aside>
             <div className="rounded-xl2 border border-ink-100 bg-white p-6">
               <p className="font-display text-lg font-bold text-ink-900">
-                ¿Necesitás ayuda en {zone.name}?
+                ¿Necesitas ayuda en {zone.name}?
               </p>
               <p className="mt-2 text-sm text-ink-600">
-                Contanos qué pasa y coordinamos al profesional de nuestra red más cercano a tu zona.
+                Cuéntanos qué pasa y coordinamos al profesional de nuestra red más cercano a tu zona.
               </p>
               <div className="mt-4 flex flex-col gap-3">
+                <Link
+                  href="/solicitud"
+                  className="inline-flex items-center justify-center rounded-full bg-terracotta-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-terracotta-600"
+                >
+                  Pedir presupuesto guiado
+                </Link>
                 <WhatsAppButton
                   message={`Hola Hogarex, necesito un servicio en ${zone.name}, Barcelona.`}
                   className="justify-center"

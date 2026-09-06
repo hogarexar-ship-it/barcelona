@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = buildMetadata({
   title: "Servicios para el hogar en Barcelona",
   description:
-    "Fontanería, electricidad y gas en Barcelona. Contactá a Hogarex: coordinamos al profesional de nuestra red que resuelve tu problema.",
+    "Fontanería, electricidad, gas, pintura, carpintería y climatización en Barcelona. Contacta con Hogarex: coordinamos al profesional de nuestra red que resuelve tu problema.",
   path: "/servicios",
 });
 
@@ -24,8 +24,8 @@ export default function ServiciosPage() {
       </div>
       <Hero
         eyebrow="Servicios"
-        title="Fontanería, electricidad y gas en Barcelona"
-        subtitle={`Nos contás qué necesitás y coordinamos, dentro de la red de profesionales de ${siteConfig.brand}, a quien resuelve el trabajo. Sin buscar perfiles ni comparar anuncios por tu cuenta.`}
+        title="Todos los servicios para tu hogar en Barcelona"
+        subtitle={`Nos cuentas qué necesitas y coordinamos, dentro de la red de profesionales de ${siteConfig.brand}, a quien resuelve el trabajo. Sin buscar perfiles ni comparar anuncios por tu cuenta.`}
       />
       <section className="py-16">
         <Container>

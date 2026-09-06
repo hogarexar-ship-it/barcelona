@@ -107,7 +107,7 @@ export function LeadForm() {
       </button>
       <p className="text-xs text-ink-400">
         Al enviar el formulario se abre WhatsApp con tu mensaje ya redactado para que lo confirmes.
-        También podés escribirnos o llamarnos directamente.
+        También puedes escribirnos o llamarnos directamente.
       </p>
     </form>
   );

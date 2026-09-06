@@ -4,7 +4,7 @@ import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { StickyMobileCta } from "@/components/CtaButtons";
+import { MobileBottomBar } from "@/components/MobileBottomBar";
 import { JsonLd } from "@/components/JsonLd";
 import { localBusinessSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site-config";
@@ -25,7 +25,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.brand} Barcelona — Fontanería, Electricidad y Gas`,
+    default: `${siteConfig.brand} Barcelona — Fontanería, electricidad, gas y más`,
     template: `%s | ${siteConfig.brand} Barcelona`,
   },
   description: siteConfig.description,
@@ -33,7 +33,10 @@ export const metadata: Metadata = {
   keywords: [
     "fontanero Barcelona",
     "electricista Barcelona",
-    "instalador de gas Barcelona",
+    "gasista Barcelona",
+    "pintor Barcelona",
+    "carpintero Barcelona",
+    "aire acondicionado Barcelona",
     "urgencias hogar Barcelona",
     "Hogarex",
   ],
@@ -54,9 +57,9 @@ export default function RootLayout({
       <body className="flex min-h-screen flex-col font-sans">
         <JsonLd data={localBusinessSchema()} />
         <Header />
-        <main className="flex-1 pb-16 sm:pb-0">{children}</main>
+        <main className="flex-1 pb-20 md:pb-0">{children}</main>
         <Footer />
-        <StickyMobileCta />
+        <MobileBottomBar />
       </body>
     </html>
   );

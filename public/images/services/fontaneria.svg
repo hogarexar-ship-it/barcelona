@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Ilustración de un trabajo de fontanería">
+  <defs>
+    <linearGradient id="bgF" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FDF3EE"/>
+      <stop offset="1" stop-color="#F3C2A4"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bgF)"/>
+  <circle cx="660" cy="90" r="160" fill="#FFFFFF" opacity="0.25"/>
+  <circle cx="60" cy="540" r="120" fill="#7E381B" opacity="0.08"/>
+
+  <!-- pared con azulejos -->
+  <rect x="0" y="380" width="800" height="220" fill="#E89F72" opacity="0.25"/>
+  <g stroke="#7E381B" stroke-opacity="0.15" stroke-width="2">
+    <line x1="0" y1="420" x2="800" y2="420"/>
+    <line x1="0" y1="470" x2="800" y2="470"/>
+    <line x1="0" y1="520" x2="800" y2="520"/>
+    <line x1="0" y1="570" x2="800" y2="570"/>
+  </g>
+
+  <!-- tubería -->
+  <rect x="260" y="230" width="40" height="220" rx="8" fill="#A44A22"/>
+  <rect x="500" y="230" width="40" height="220" rx="8" fill="#A44A22"/>
+  <rect x="260" y="230" width="280" height="40" rx="8" fill="#A44A22"/>
+
+  <!-- llave de paso -->
+  <circle cx="400" cy="250" r="34" fill="#5A2814"/>
+  <rect x="388" y="204" width="24" height="46" rx="6" fill="#5A2814"/>
+
+  <!-- gota de agua -->
+  <path d="M400 300 C 430 340, 440 370, 400 396 C 360 370, 370 340, 400 300 Z" fill="#2A2620"/>
+  <circle cx="392" cy="368" r="6" fill="#FDF3EE"/>
+
+  <!-- llave inglesa -->
+  <g transform="translate(160,120) rotate(-25)">
+    <rect x="0" y="34" width="150" height="26" rx="13" fill="#1B1814"/>
+    <path d="M140 20 a30 30 0 1 1 -0.1 40 l 20 -20 z" fill="#1B1814"/>
+  </g>
+
+  <!-- chip de leyenda -->
+  <rect x="32" y="500" width="300" height="64" rx="16" fill="#FDFBF7" opacity="0.92"/>
+  <text x="56" y="540" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#1B1814">Fontanería</text>
+</svg>

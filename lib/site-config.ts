@@ -11,10 +11,10 @@ export const siteConfig = {
   brand: "Hogarex",
   legalName: "Hogarex Barcelona", // PLACEHOLDER: razón social / CIF real
   tagline:
-    "Vos nos contás el problema, nosotros te conseguimos al profesional adecuado. Rápido y sin vueltas.",
-  shortTagline: "El problema de tu hogar, resuelto. Sin vueltas.",
+    "Cuéntanos el problema y nosotros te conseguimos al profesional adecuado. Rápido y sin complicaciones.",
+  shortTagline: "El problema de tu hogar, resuelto. Sin complicaciones.",
   description:
-    "Hogarex gestiona en Barcelona servicios de fontanería, electricidad y gas. Nos contás qué necesitás y nosotros coordinamos al profesional de nuestra red que resuelve el trabajo. Sin buscar perfiles, sin comparar presupuestos por tu cuenta: una sola llamada y nos encargamos.",
+    "Hogarex gestiona en Barcelona servicios de fontanería, electricidad, gas, pintura, carpintería y climatización. Nos cuentas qué necesitas y nosotros coordinamos al profesional de nuestra red que resuelve el trabajo. Sin buscar perfiles, sin comparar presupuestos por tu cuenta: una sola llamada y nosotros nos encargamos.",
   url: "https://www.hogarex.es", // PLACEHOLDER: dominio definitivo
   phoneDisplay: "930 00 00 00", // PLACEHOLDER
   phoneE164: "+34930000000", // PLACEHOLDER

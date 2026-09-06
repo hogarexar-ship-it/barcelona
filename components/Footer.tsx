@@ -53,6 +53,11 @@ export function Footer() {
           <p className="text-sm font-semibold text-white">Contacto</p>
           <ul className="mt-3 space-y-2 text-sm text-ink-100">
             <li>
+              <Link href="/solicitud" className="font-semibold text-terracotta-300 hover:text-terracotta-200">
+                Pedir presupuesto
+              </Link>
+            </li>
+            <li>
               <a href={`tel:${siteConfig.phoneE164}`} className="hover:text-terracotta-300">
                 {siteConfig.phoneDisplay}
               </a>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CallButton, EmergencyBadge, WhatsAppButton } from "@/components/CtaButtons";
@@ -6,28 +7,28 @@ import { buildMetadata } from "@/lib/metadata";
 import { services } from "@/lib/services-data";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Urgencias 24h de fontanería, electricidad y gas en Barcelona",
+  title: "Urgencias 24h para el hogar en Barcelona",
   description:
-    "Fuga de agua, corte de luz o olor a gas en Barcelona. Contactá a Hogarex y priorizamos la coordinación del profesional de nuestra red para tu urgencia.",
+    "Fuga de agua, corte de luz o olor a gas en Barcelona. Contacta con Hogarex y priorizamos la coordinación del profesional de nuestra red para tu urgencia.",
   path: "/urgencias-24h",
 });
 
 const urgentSituations = [
   {
     title: "Fuga de agua activa",
-    action: "Cerrá la llave de paso general y contactanos de inmediato.",
+    action: "Cierra la llave de paso general y contacta con nosotros de inmediato.",
   },
   {
     title: "Corte de luz total o riesgo eléctrico",
-    action: "Si notás olor a quemado, cortá el interruptor general y avisanos.",
+    action: "Si notas olor a quemado, corta el interruptor general y avísanos.",
   },
   {
     title: "Olor a gas",
-    action: "Cerrá la llave de gas, ventilá, no enciendas luces ni llamas, y llamanos ya.",
+    action: "Cierra la llave de gas, ventila, no enciendas luces ni llamas, y llámanos ya.",
   },
   {
     title: "Atasco con desborde de agua",
-    action: "Contené el agua con toallas o cubos mientras coordinamos al profesional.",
+    action: "Contén el agua con toallas o cubos mientras coordinamos al profesional.",
   },
 ];
 
@@ -44,17 +45,24 @@ export default function UrgenciasPage() {
         <Container className="max-w-2xl">
           <EmergencyBadge />
           <h1 className="mt-4 font-display text-3xl font-bold text-ink-900 sm:text-4xl">
-            ¿Tenés una urgencia en tu hogar en Barcelona?
+            ¿Tienes una urgencia en tu hogar en Barcelona?
           </h1>
           <p className="mt-4 text-lg text-ink-600">
-            Fugas activas, cortes de luz o olor a gas no esperan. Contactanos ahora y priorizamos
-            la coordinación del profesional de nuestra red para tu caso, con un recargo sobre la
-            tarifa base que te confirmamos antes de aceptar el aviso.
+            Fugas activas, cortes de luz o olor a gas no esperan. Contacta con nosotros ahora y
+            priorizamos la coordinación del profesional de nuestra red para tu caso, con un recargo
+            sobre la tarifa base que te confirmamos antes de aceptar el aviso.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <CallButton />
             <WhatsAppButton message="Hola Hogarex, tengo una urgencia en mi casa en Barcelona." />
           </div>
+          <p className="mt-6 text-sm text-ink-600">
+            ¿No es tan urgente?{" "}
+            <Link href="/solicitud" className="font-semibold text-terracotta-600 hover:underline">
+              Completa nuestra solicitud guiada
+            </Link>{" "}
+            en su lugar.
+          </p>
         </Container>
       </section>
 

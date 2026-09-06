@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Habitación pintada en Sants-Montjuïc, Barcelona">
+  <defs>
+    <linearGradient id="w4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FAF5EC"/>
+      <stop offset="1" stop-color="#F3E9D8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#w4)"/>
+  <rect x="0" y="0" width="800" height="420" fill="#DD7C47" opacity="0.35"/>
+  <rect x="0" y="420" width="800" height="180" fill="#E7E5E2" opacity="0.6"/>
+  <rect x="0" y="410" width="800" height="14" fill="#FDFBF7"/>
+
+  <!-- cuadro decorativo -->
+  <rect x="330" y="150" width="140" height="100" rx="8" fill="#FDFBF7" stroke="#2A2620" stroke-width="5"/>
+  <circle cx="365" cy="190" r="12" fill="#F3C2A4"/>
+  <path d="M340 230 L390 190 L410 210 L450 170 L460 230 Z" fill="#E89F72"/>
+
+  <circle cx="640" cy="110" r="46" fill="#C55F2C"/>
+  <path d="M618 112 L634 128 L664 92" fill="none" stroke="#FDFBF7" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="32" y="504" width="360" height="64" rx="16" fill="#FDFBF7" opacity="0.94"/>
+  <text x="56" y="533" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#1B1814">Pintura de salón</text>
+  <text x="56" y="556" font-family="Arial, sans-serif" font-size="16" fill="#6B655D">Sants-Montjuïc, Barcelona</text>
+</svg>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Hero } from "@/components/Hero";
@@ -64,6 +65,20 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         subtitle={service.heroSubtitle}
       />
 
+      <div className="bg-cream-100 pb-16">
+        <Container>
+          <div className="relative aspect-[21/9] w-full overflow-hidden rounded-xl2 border border-ink-100">
+            <Image
+              src={service.image}
+              alt={`Trabajo de ${service.name.toLowerCase()} realizado en Barcelona`}
+              fill
+              priority
+              className="object-cover"
+            />
+          </div>
+        </Container>
+      </div>
+
       <section className="py-16">
         <Container className="grid gap-12 lg:grid-cols-3">
           <div className="lg:col-span-2">
@@ -108,12 +123,18 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           <aside className="space-y-6">
             <div className="rounded-xl2 border border-ink-100 bg-white p-6">
               <p className="font-display text-lg font-bold text-ink-900">
-                ¿Necesitás un {service.shortName} ahora?
+                ¿Necesitas un {service.shortName} ahora?
               </p>
               <p className="mt-2 text-sm text-ink-600">
-                Contanos qué pasa y coordinamos al profesional de nuestra red disponible en tu zona.
+                Cuéntanos qué pasa y coordinamos al profesional de nuestra red disponible en tu zona.
               </p>
               <div className="mt-4 flex flex-col gap-3">
+                <Link
+                  href={`/solicitud?rubro=${service.slug}`}
+                  className="inline-flex items-center justify-center rounded-full bg-terracotta-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-terracotta-600"
+                >
+                  Pedir presupuesto guiado
+                </Link>
                 <WhatsAppButton
                   message={`Hola Hogarex, necesito un servicio de ${service.name.toLowerCase()} en Barcelona.`}
                   className="justify-center"

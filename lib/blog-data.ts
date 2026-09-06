@@ -27,27 +27,27 @@ export const blogPosts: BlogPost[] = [
         ],
       },
       {
-        heading: "1. Cortá el suministro de agua",
+        heading: "1. Corta el suministro de agua",
         paragraphs: [
-          "Localizá la llave de paso general (suele estar cerca del contador o bajo la pila de la cocina) y cerrala. Si la fuga es de un aparato puntual (lavadora, inodoro), cerrá solo su llave individual si es posible.",
+          "Localiza la llave de paso general (suele estar cerca del contador o bajo la pila de la cocina) y ciérrala. Si la fuga es de un aparato puntual (lavadora, inodoro), cierra solo su llave individual si es posible.",
         ],
       },
       {
-        heading: "2. Cortá la electricidad de la zona afectada si hay riesgo",
+        heading: "2. Corta la electricidad de la zona afectada si hay riesgo",
         paragraphs: [
-          "Si el agua está cerca de enchufes o del cuadro eléctrico, cortá el interruptor general antes de manipular nada.",
+          "Si el agua está cerca de enchufes o del cuadro eléctrico, corta el interruptor general antes de manipular nada.",
         ],
       },
       {
-        heading: "3. Contené el agua y documentá el daño",
+        heading: "3. Contén el agua y documenta el daño",
         paragraphs: [
-          "Usá toallas o cubos para minimizar el daño mientras esperás. Sacá fotos del origen de la fuga y de las zonas afectadas: te van a servir tanto para el presupuesto como para un eventual parte de seguro.",
+          "Usa toallas o cubos para minimizar el daño mientras esperas. Saca fotos del origen de la fuga y de las zonas afectadas: te van a servir tanto para el presupuesto como para un eventual parte de seguro.",
         ],
       },
       {
-        heading: "4. Contactá a Hogarex",
+        heading: "4. Contacta con Hogarex",
         paragraphs: [
-          "Escribinos por WhatsApp o llamanos contándonos qué pasó. Coordinamos al fontanero de nuestra red disponible en tu zona de Barcelona, y te confirmamos horario y presupuesto antes de que llegue a tu casa.",
+          "Escríbenos por WhatsApp o llámanos contándonos qué ha pasado. Coordinamos al fontanero de nuestra red disponible en tu zona de Barcelona, y te confirmamos horario y presupuesto antes de que llegue a tu casa.",
         ],
       },
     ],
@@ -56,7 +56,7 @@ export const blogPosts: BlogPost[] = [
     slug: "cuando-hacer-revision-instalacion-gas",
     title: "¿Cada cuánto hay que revisar la instalación de gas?",
     metaDescription:
-      "Te explicamos la periodicidad de la revisión de gas obligatoria en Cataluña, qué incluye y qué pasa si no la hacés a tiempo.",
+      "Te explicamos la periodicidad de la revisión de gas obligatoria en Cataluña, qué incluye y qué pasa si no la haces a tiempo.",
     excerpt:
       "La revisión periódica de gas es obligatoria y tiene una periodicidad legal. Te contamos cada cuánto corresponde y qué incluye.",
     publishedAt: "2026-03-05",
@@ -87,18 +87,18 @@ export const blogPosts: BlogPost[] = [
         ],
       },
       {
-        heading: "Coordinamos la revisión por vos",
+        heading: "Coordinamos la revisión por ti",
         paragraphs: [
-          "Escribinos contándonos si te llegó el aviso de revisión y coordinamos al instalador de gas autorizado de nuestra red para que la realice en el horario que te convenga.",
+          "Escríbenos contándonos si te ha llegado el aviso de revisión y coordinamos al instalador de gas autorizado de nuestra red para que la realice en el horario que te convenga.",
         ],
       },
     ],
   },
   {
     slug: "senales-de-que-necesitas-un-electricista",
-    title: "5 señales de que necesitás revisar tu instalación eléctrica",
+    title: "5 señales de que necesitas revisar tu instalación eléctrica",
     metaDescription:
-      "Luces que parpadean, olor a quemado, disyuntor que salta seguido. Te contamos qué señales indican que necesitás un electricista en Barcelona.",
+      "Luces que parpadean, olor a quemado, disyuntor que salta seguido. Te contamos qué señales indican que necesitas un electricista en Barcelona.",
     excerpt:
       "Algunas señales eléctricas no deberían ignorarse. Repasamos las más comunes y cuándo conviene llamar a un profesional.",
     publishedAt: "2026-04-18",
@@ -119,7 +119,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "2. Olor a quemado cerca de enchufes o el cuadro",
         paragraphs: [
-          "Es una señal de riesgo real. Cortá la electricidad de esa zona y contactanos de inmediato.",
+          "Es una señal de riesgo real. Corta la electricidad de esa zona y contacta con nosotros de inmediato.",
         ],
       },
       {
