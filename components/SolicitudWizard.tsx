@@ -15,12 +15,25 @@ const neighborhoodOptions = zones.flatMap((zone) => [
   ...zone.neighborhoods,
 ]);
 
-export function SolicitudWizard({ initialServiceSlug }: { initialServiceSlug?: string }) {
+export function SolicitudWizard({
+  initialServiceSlug,
+  initialProblemValue,
+}: {
+  initialServiceSlug?: string;
+  initialProblemValue?: string;
+}) {
   const initialService = initialServiceSlug ? getServiceBySlug(initialServiceSlug) : undefined;
+  const initialConfig = initialService ? rubroWizardConfigs[initialService.slug] : undefined;
+  const problemIsValid =
+    !!initialProblemValue &&
+    !!initialConfig?.problemQuestion.options.some((o) => o.value === initialProblemValue);
 
-  const [step, setStep] = useState(initialService ? 1 : 0);
+  const [step, setStep] = useState(() => {
+    if (!initialService) return 0;
+    return problemIsValid ? 2 : 1;
+  });
   const [serviceSlug, setServiceSlug] = useState<string | null>(initialService?.slug ?? null);
-  const [problemValue, setProblemValue] = useState<string | null>(null);
+  const [problemValue, setProblemValue] = useState<string | null>(problemIsValid ? initialProblemValue! : null);
   const [detailValue, setDetailValue] = useState<string | null>(null);
   const [zone, setZone] = useState("");
   const [address, setAddress] = useState("");
@@ -131,12 +144,17 @@ export function SolicitudWizard({ initialServiceSlug }: { initialServiceSlug?: s
                   key={s.slug}
                   type="button"
                   onClick={() => selectService(s.slug)}
-                  className={`group overflow-hidden rounded-xl2 border text-left transition-shadow hover:shadow-lg ${
+                  className={`group relative overflow-hidden rounded-xl2 border text-left transition-all duration-150 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 active:scale-[0.98] ${
                     serviceSlug === s.slug ? "border-terracotta-500 ring-2 ring-terracotta-200" : "border-ink-100"
                   }`}
                 >
                   <div className="relative aspect-[4/3] w-full">
-                    <Image src={s.image} alt="" fill className="object-cover" />
+                    <Image src={s.image} alt="" fill className="object-cover transition-transform duration-300 group-hover:scale-105" />
+                    {serviceSlug === s.slug && (
+                      <span className="absolute right-2 top-2 flex h-7 w-7 items-center justify-center rounded-full bg-terracotta-500 text-white shadow">
+                        <CheckIcon />
+                      </span>
+                    )}
                   </div>
                   <div className="p-4">
                     <p className="font-semibold text-ink-900">{s.name}</p>
@@ -202,8 +220,8 @@ export function SolicitudWizard({ initialServiceSlug }: { initialServiceSlug?: s
                     <button
                       type="button"
                       onClick={() => setUrgent(true)}
-                      className={`rounded-full border px-5 py-2 text-sm font-semibold ${
-                        urgent ? "border-urgent-500 bg-urgent-500/10 text-urgent-600" : "border-ink-100 text-ink-600"
+                      className={`rounded-full border px-5 py-2 text-sm font-semibold transition-all active:scale-95 ${
+                        urgent ? "border-urgent-500 bg-urgent-500/10 text-urgent-600" : "border-ink-100 text-ink-600 hover:border-urgent-300"
                       }`}
                     >
                       Sí, es urgente
@@ -211,7 +229,7 @@ export function SolicitudWizard({ initialServiceSlug }: { initialServiceSlug?: s
                     <button
                       type="button"
                       onClick={() => setUrgent(false)}
-                      className={`rounded-full border px-5 py-2 text-sm font-semibold ${
+                      className={`rounded-full border px-5 py-2 text-sm font-semibold transition-all active:scale-95 ${
                         !urgent ? "border-ink-900 bg-ink-900 text-white" : "border-ink-100 text-ink-600"
                       }`}
                     >
@@ -296,7 +314,7 @@ export function SolicitudWizard({ initialServiceSlug }: { initialServiceSlug?: s
               <button
                 type="button"
                 onClick={handleSend}
-                className="inline-flex items-center justify-center rounded-full bg-terracotta-500 px-6 py-3 text-sm font-semibold text-white hover:bg-terracotta-600"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-terracotta-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-terracotta-500/30 transition-transform hover:bg-terracotta-600 active:scale-95"
               >
                 Enviar solicitud por WhatsApp
               </button>
@@ -338,13 +356,20 @@ function OptionStep({
             key={option.value}
             type="button"
             onClick={() => onSelect(option.value)}
-            className={`rounded-xl2 border px-5 py-4 text-left text-sm font-medium transition-colors ${
+            className={`flex items-center justify-between gap-3 rounded-xl2 border px-5 py-4 text-left text-sm font-medium transition-all duration-150 active:scale-[0.98] ${
               selected === option.value
                 ? "border-terracotta-500 bg-terracotta-50 text-terracotta-700"
-                : "border-ink-100 text-ink-800 hover:border-terracotta-300"
+                : "border-ink-100 text-ink-800 hover:border-terracotta-300 hover:bg-terracotta-50/40"
             }`}
           >
             {option.label}
+            <span
+              className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border transition-colors ${
+                selected === option.value ? "border-terracotta-500 bg-terracotta-500 text-white" : "border-ink-200"
+              }`}
+            >
+              {selected === option.value && <CheckIcon className="h-3 w-3" />}
+            </span>
           </button>
         ))}
       </div>
@@ -368,7 +393,7 @@ function WizardNav({
       <button
         type="button"
         onClick={onBack}
-        className="inline-flex items-center justify-center rounded-full border border-ink-200 px-5 py-2.5 text-sm font-semibold text-ink-700 hover:bg-ink-100"
+        className="inline-flex items-center justify-center rounded-full border border-ink-200 px-5 py-2.5 text-sm font-semibold text-ink-700 transition-transform hover:bg-ink-100 active:scale-95"
       >
         Atrás
       </button>
@@ -377,7 +402,7 @@ function WizardNav({
           type="button"
           onClick={onNext}
           disabled={nextDisabled}
-          className="inline-flex items-center justify-center rounded-full bg-ink-900 px-6 py-2.5 text-sm font-semibold text-white hover:bg-ink-800 disabled:cursor-not-allowed disabled:opacity-40"
+          className="inline-flex items-center justify-center rounded-full bg-ink-900 px-6 py-2.5 text-sm font-semibold text-white transition-transform hover:bg-ink-800 active:scale-95 disabled:cursor-not-allowed disabled:opacity-40 disabled:active:scale-100"
         >
           Siguiente
         </button>
@@ -393,6 +418,18 @@ function SummaryRow({ label, value }: { label: string; value?: string }) {
       <dt className="text-ink-400">{label}</dt>
       <dd className="text-right font-medium text-ink-900">{value}</dd>
     </div>
+  );
+}
+
+function CheckIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 20 20" fill="currentColor" className={className} aria-hidden="true">
+      <path
+        fillRule="evenodd"
+        d="M16.704 5.29a1 1 0 010 1.42l-7.4 7.4a1 1 0 01-1.42 0l-3.588-3.59a1 1 0 111.42-1.413l2.878 2.878 6.69-6.69a1 1 0 011.42-.005z"
+        clipRule="evenodd"
+      />
+    </svg>
   );
 }
 

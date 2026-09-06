@@ -6,8 +6,8 @@ import { zones } from "@/lib/zones-data";
 
 export function Footer() {
   return (
-    <footer className="border-t border-ink-100 bg-ink-900 text-cream-100">
-      <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
+    <footer className="border-t border-ink-100 bg-ink-900 text-cream-100 print:hidden">
+      <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-5">
         <div>
           <p className="font-display text-lg font-bold text-white">{siteConfig.brand} Barcelona</p>
           <p className="mt-3 text-sm text-ink-100">{siteConfig.shortTagline}</p>
@@ -21,6 +21,11 @@ export function Footer() {
         <div>
           <p className="text-sm font-semibold text-white">Servicios</p>
           <ul className="mt-3 space-y-2 text-sm text-ink-100">
+            <li>
+              <Link href="/buscar-servicios" className="hover:text-terracotta-300">
+                Buscar un servicio
+              </Link>
+            </li>
             {services.map((service) => (
               <li key={service.slug}>
                 <Link href={`/servicios/${service.slug}`} className="hover:text-terracotta-300">
@@ -28,6 +33,32 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+          </ul>
+        </div>
+
+        <div>
+          <p className="text-sm font-semibold text-white">Profesionales</p>
+          <ul className="mt-3 space-y-2 text-sm text-ink-100">
+            <li>
+              <Link href="/profesionales" className="font-semibold text-terracotta-300 hover:text-terracotta-200">
+                Únete a la red
+              </Link>
+            </li>
+            <li>
+              <Link href="/profesionales/cuanto-cobrar" className="hover:text-terracotta-300">
+                ¿Cuánto cobrar?
+              </Link>
+            </li>
+            <li>
+              <Link href="/profesionales/presupuestos" className="hover:text-terracotta-300">
+                Generador de presupuestos
+              </Link>
+            </li>
+            <li>
+              <Link href="/profesionales/plantillas-whatsapp" className="hover:text-terracotta-300">
+                Plantillas de WhatsApp
+              </Link>
+            </li>
           </ul>
         </div>
 

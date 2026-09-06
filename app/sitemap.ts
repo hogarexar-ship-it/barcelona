@@ -5,9 +5,12 @@ import { zones } from "@/lib/zones-data";
 import { blogPosts } from "@/lib/blog-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const highPriorityRoutes = new Set(["/solicitud", "/buscar-servicios"]);
+
   const staticRoutes = [
     "",
     "/solicitud",
+    "/buscar-servicios",
     "/servicios",
     "/zonas",
     "/precios",
@@ -15,6 +18,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contacto",
     "/urgencias-24h",
     "/blog",
+    "/profesionales",
+    "/profesionales/herramientas",
+    "/profesionales/cuanto-cobrar",
+    "/profesionales/presupuestos",
+    "/profesionales/plantillas-whatsapp",
     "/aviso-legal",
     "/politica-privacidad",
     "/politica-cookies",
@@ -22,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${siteConfig.url}${path}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
-    priority: path === "" ? 1 : path === "/solicitud" ? 0.95 : 0.7,
+    priority: path === "" ? 1 : highPriorityRoutes.has(path) ? 0.95 : 0.7,
   }));
 
   const serviceRoutes = services.map((service) => ({

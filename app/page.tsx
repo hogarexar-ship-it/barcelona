@@ -46,12 +46,12 @@ const homeFaqs = [
 // Fotos ilustrativas de trabajos gestionados por Hogarex. PLACEHOLDER: sustituir
 // por fotografías reales de trabajos terminados en cuanto estén disponibles.
 const featuredWork = [
-  { image: "/images/work/1-fontaneria-eixample.svg", title: "Reparación de fuga", zone: "Eixample" },
-  { image: "/images/work/2-electricidad-gracia.svg", title: "Cambio de cuadro eléctrico", zone: "Gràcia" },
-  { image: "/images/work/3-gas-sant-marti.svg", title: "Instalación de caldera", zone: "Sant Martí" },
-  { image: "/images/work/4-pintura-sants.svg", title: "Pintura de salón", zone: "Sants-Montjuïc" },
-  { image: "/images/work/5-carpinteria-ciutat-vella.svg", title: "Armario a medida", zone: "Ciutat Vella" },
-  { image: "/images/work/6-climatizacion-sarria.svg", title: "Instalación de aire acondicionado", zone: "Sarrià-Sant Gervasi" },
+  { image: "/images/work/1-fontaneria-eixample.svg", title: "Reparación de fuga", zone: "Eixample", rubro: "fontaneria" },
+  { image: "/images/work/2-electricidad-gracia.svg", title: "Cambio de cuadro eléctrico", zone: "Gràcia", rubro: "electricidad" },
+  { image: "/images/work/3-gas-sant-marti.svg", title: "Instalación de caldera", zone: "Sant Martí", rubro: "gas" },
+  { image: "/images/work/4-pintura-sants.svg", title: "Pintura de salón", zone: "Sants-Montjuïc", rubro: "pintura" },
+  { image: "/images/work/5-carpinteria-ciutat-vella.svg", title: "Armario a medida", zone: "Ciutat Vella", rubro: "carpinteria" },
+  { image: "/images/work/6-climatizacion-sarria.svg", title: "Instalación de aire acondicionado", zone: "Sarrià-Sant Gervasi", rubro: "climatizacion" },
 ];
 
 // PLACEHOLDER: opiniones de ejemplo. Sustituir por reseñas reales de clientes
@@ -74,6 +74,15 @@ const testimonials = [
   },
 ];
 
+const quickProblems = [
+  { label: "Fuga de agua", rubro: "fontaneria", problema: "fuga-agua" },
+  { label: "Corte de luz", rubro: "electricidad", problema: "corte-luz" },
+  { label: "Huelo a gas", rubro: "gas", problema: "olor-gas" },
+  { label: "Pintar una habitación", rubro: "pintura", problema: "habitacion" },
+  { label: "Mueble a medida", rubro: "carpinteria", problema: "mueble-medida" },
+  { label: "Aire acondicionado averiado", rubro: "climatizacion", problema: "averia" },
+];
+
 const trustPoints = [
   { title: "Presupuesto antes de empezar", description: "Confirmamos el precio estimado antes de que el profesional se presente." },
   { title: "Profesionales de nuestra red", description: "Coordinamos siempre con profesionales habituales, no con anuncios sueltos." },
@@ -92,7 +101,28 @@ export default function HomePage() {
         subtitle="Gestionamos fontanería, electricidad, gas, pintura, carpintería y climatización para tu hogar en Barcelona. Nos contactas a nosotros, nosotros coordinamos al profesional de nuestra red y hacemos seguimiento hasta que el trabajo está resuelto."
         image="/images/hero/hero-hogar.svg"
         imageAlt="Ilustración de una vivienda en Barcelona con herramientas de fontanería, electricidad, pintura y carpintería"
-      />
+      >
+        <div className="mt-8">
+          <p className="text-sm font-semibold text-ink-900">¿Cuál es tu problema? Elige uno:</p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {quickProblems.map((item) => (
+              <Link
+                key={item.label}
+                href={`/solicitud?rubro=${item.rubro}&problema=${item.problema}`}
+                className="rounded-full border border-ink-200 bg-white px-4 py-2 text-sm font-medium text-ink-700 transition-all hover:border-terracotta-400 hover:bg-terracotta-50 hover:text-terracotta-700 active:scale-95"
+              >
+                {item.label}
+              </Link>
+            ))}
+            <Link
+              href="/buscar-servicios"
+              className="rounded-full bg-ink-900 px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-ink-800 active:scale-95"
+            >
+              Ver todos los servicios →
+            </Link>
+          </div>
+        </div>
+      </Hero>
 
       <Section title="Cómo funciona" subtitle="Una gestión directa, no un directorio de anuncios">
         <ol className="grid gap-6 sm:grid-cols-3">
@@ -151,15 +181,24 @@ export default function HomePage() {
       >
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {featuredWork.map((work) => (
-            <figure key={work.image} className="overflow-hidden rounded-xl2 border border-ink-100 bg-white">
-              <div className="relative aspect-[4/3] w-full">
-                <Image src={work.image} alt={`${work.title} en ${work.zone}, Barcelona`} fill className="object-cover" />
+            <Link
+              key={work.image}
+              href={`/solicitud?rubro=${work.rubro}`}
+              className="group overflow-hidden rounded-xl2 border border-ink-100 bg-white transition-all duration-150 hover:-translate-y-1 hover:shadow-lg active:translate-y-0 active:scale-[0.98]"
+            >
+              <div className="relative aspect-[4/3] w-full overflow-hidden">
+                <Image
+                  src={work.image}
+                  alt={`${work.title} en ${work.zone}, Barcelona`}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
               </div>
-              <figcaption className="p-4">
+              <div className="p-4">
                 <p className="font-semibold text-ink-900">{work.title}</p>
                 <p className="text-sm text-ink-400">{work.zone}, Barcelona</p>
-              </figcaption>
-            </figure>
+              </div>
+            </Link>
           ))}
         </div>
       </Section>
@@ -170,7 +209,7 @@ export default function HomePage() {
             <Link
               key={zone.slug}
               href={`/zonas/${zone.slug}`}
-              className="rounded-full border border-ink-100 bg-white px-4 py-2 text-sm font-medium text-ink-800 hover:border-terracotta-300 hover:text-terracotta-600"
+              className="rounded-full border border-ink-100 bg-white px-4 py-2 text-sm font-medium text-ink-800 transition-all hover:border-terracotta-300 hover:text-terracotta-600 active:scale-95"
             >
               {zone.name}
             </Link>

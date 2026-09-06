@@ -43,14 +43,21 @@ Todo el copy está escrito en **castellano de España** (tuteo: "tú",
 ## Navegación
 
 - **Escritorio (`lg` y superior)**: menú horizontal completo en el header
-  más un botón destacado "Pedir presupuesto". Por debajo de `lg` (tablet y
-  móvil) el header muestra un botón de menú hamburguesa que abre un panel
-  lateral con todos los enlaces (`components/NavMenu.tsx`).
+  (incluye Servicios, Buscar servicio, Zonas, Precios, Urgencias, Blog,
+  Sobre nosotros, Contacto), un enlace discreto "¿Eres profesional?" y un
+  botón destacado "Pedir presupuesto". Por debajo de `lg` (tablet y móvil)
+  el header muestra un botón de menú hamburguesa que abre un panel lateral
+  con todos los enlaces, incluido el acceso a `/profesionales`
+  (`components/NavMenu.tsx`).
 - **Móvil (por debajo de `md`)**: barra inferior fija estilo app
   (`components/MobileBottomBar.tsx`) con accesos directos a Inicio,
   Servicios, un botón central elevado "Solicitar" (a `/solicitud`),
-  WhatsApp y Llamar. Convive con el menú hamburguesa del header, que sigue
-  dando acceso a Zonas, Precios, Blog, Sobre nosotros y las páginas legales.
+  WhatsApp y Llamar. Convive con el menú hamburguesa del header.
+- **Botón flotante de WhatsApp** (`components/FloatingWhatsApp.tsx`, solo
+  `md` y superior) y **barra de CTA fija al hacer scroll**
+  (`components/StickyServiceCta.tsx`, usada en las páginas de servicio) para
+  mantener la conversión siempre a mano sin duplicar la barra inferior de
+  móvil.
 
 ## Página de solicitud (`/solicitud`)
 
@@ -73,11 +80,52 @@ definidas en `lib/wizard-data.ts`) que:
 6. Muestra un resumen y envía la solicitud abriendo WhatsApp con el mensaje
    ya redactado (mismo patrón sin backend que `LeadForm`).
 
-Se puede enlazar con el rubro preseleccionado usando
-`/solicitud?rubro=<slug-del-servicio>` (por ejemplo, desde cada página de
-servicio). Ese parámetro se lee en `components/SolicitudWizardEntry.tsx` con
-`useSearchParams`, envuelto en `<Suspense>` en `app/solicitud/page.tsx` como
-exige Next.js App Router.
+Se puede enlazar con el rubro y el problema preseleccionados usando
+`/solicitud?rubro=<slug-del-servicio>&problema=<valor>` (por ejemplo, desde
+cada página de servicio, desde los chips de "¿Cuál es tu problema?" de la
+home, o desde cada resultado de `/buscar-servicios`). Esos parámetros se
+leen en `components/SolicitudWizardEntry.tsx` con `useSearchParams`,
+envuelto en `<Suspense>` en `app/solicitud/page.tsx` como exige Next.js App
+Router; el wizard salta directamente al paso siguiente correspondiente
+según cuánto venga preseleccionado.
+
+## Buscador de servicios (`/buscar-servicios`)
+
+No es un listado de profesionales ni un directorio con perfiles: es un
+buscador de trabajos concretos (`components/ServiceSearch.tsx`), con barra
+de búsqueda, chips de rubro y tarjetas de resultado. El índice se construye
+en `lib/search-index.ts` a partir de las opciones del wizard (para que cada
+resultado enlace directo al paso correcto de `/solicitud`) y se enriquece
+con los `commonJobs` de cada servicio para mejorar la búsqueda por texto
+libre.
+
+## Sección de profesionales (`/profesionales`)
+
+Landing pensada para captar fontaneros, electricistas, gasistas, pintores,
+carpinteros y técnicos de climatización que buscan más trabajo, con copy
+SEO/GEO (`lib/professionals-data.ts`) sobre el dolor de gestionar clientes,
+citas, presupuestos y cobros, y cómo Hogarex se encarga de eso mientras el
+profesional se dedica a trabajar. Incluye un formulario de alta
+(`components/ProfessionalSignupForm.tsx`, mismo patrón sin backend que
+`LeadForm`: abre WhatsApp con los datos redactados) y tres herramientas
+gratuitas standalone, cada una con su propia página para SEO:
+
+- **`/profesionales/cuanto-cobrar`**: guía de precios por oficio + una
+  calculadora (`components/PricingCalculator.tsx`) que suma horas,
+  materiales, desplazamiento, recargo de urgencia e IVA.
+- **`/profesionales/presupuestos`**: generador de presupuestos
+  (`components/QuoteGenerator.tsx`) con vista previa en vivo e impresión a
+  PDF vía `window.print()` (sin dependencias nuevas ni backend; las reglas
+  `print:hidden` en Header, Footer, MobileBottomBar, FloatingWhatsApp y
+  StickyServiceCta hacen que al imprimir solo se vea el presupuesto).
+- **`/profesionales/plantillas-whatsapp`**: mensajes ya redactados
+  (`lib/professionals-data.ts` → `messageTemplates`) con botón de copiar
+  (`components/TemplateList.tsx`).
+
+Todas las herramientas son gratuitas y funcionan sin unirse a la red; el
+mensaje es deliberadamente indirecto ("esto es gratis, pero imagina no
+tener que hacerlo tú mismo") para que el profesional termine interesándose
+en unirse en vez de presionarlo a hacerlo.
 
 ## Imágenes
 
@@ -92,6 +140,8 @@ paleta de marca) que:
   una con su rubro y zona.
 - `trust/equipo-hogarex.svg`: ilustración de coordinación usada en "Sobre
   nosotros".
+- `trust/profesional-trabajando.svg`: ilustración usada en la portada de
+  `/profesionales`.
 - `hero/hero-hogar.svg`: ilustración de portada de la home.
 
 `next.config.mjs` habilita `dangerouslyAllowSVG` porque estos SVG son
@@ -104,9 +154,10 @@ las mismas rutas y proporciones (o actualizando las referencias en
 
 ```
 app/
-  layout.tsx              Layout raíz, fuentes, header/footer, barra móvil, JSON-LD de negocio
-  page.tsx                Home (hero, cómo funciona, servicios, trabajos, zonas, confianza, testimonios, FAQ)
+  layout.tsx              Layout raíz, fuentes, header/footer, barra móvil, WhatsApp flotante, JSON-LD de negocio
+  page.tsx                Home (hero + chips de problemas, cómo funciona, servicios, trabajos, zonas, confianza, testimonios, FAQ)
   solicitud/               Wizard de solicitud multi-paso (página de conversión principal)
+  buscar-servicios/       Buscador de trabajos concretos (no de profesionales)
   servicios/              Índice + páginas por servicio (6 rubros)
   zonas/                  Índice + páginas por distrito de Barcelona
   precios/                Guía de precios orientativos
@@ -114,12 +165,21 @@ app/
   contacto/               Formulario rápido de contacto (WhatsApp) + datos directos
   sobre-nosotros/         Explicación del modelo (no marketplace)
   blog/                   Índice + posts de ejemplo
+  profesionales/          Landing para sumarse a la red + herramientas gratuitas
+    cuanto-cobrar/        Guía de precios + calculadora
+    presupuestos/         Generador de presupuestos (imprimible/PDF)
+    plantillas-whatsapp/  Plantillas de mensajes con copiar
+    herramientas/         Hub que enlaza las tres herramientas
   aviso-legal/, politica-privacidad/, politica-cookies/
   sitemap.ts, robots.ts, manifest.ts, opengraph-image.tsx, llms.txt/route.ts
-components/               Header, NavMenu, MobileBottomBar, Footer, Hero, CTAs,
-                          FaqAccordion, LeadForm, SolicitudWizard(Entry), etc.
+components/               Header, NavMenu, MobileBottomBar, FloatingWhatsApp,
+                          StickyServiceCta, Footer, Hero, CTAs, FaqAccordion,
+                          LeadForm, SolicitudWizard(Entry), ServiceSearch,
+                          ProfessionalSignupForm, PricingCalculator,
+                          QuoteGenerator, TemplateList, ProToolIcon, etc.
 lib/                      site-config.ts, services-data.ts, zones-data.ts,
-                          blog-data.ts, wizard-data.ts, metadata.ts, schema.ts
+                          blog-data.ts, wizard-data.ts, search-index.ts,
+                          professionals-data.ts, metadata.ts, schema.ts
 public/images/            Ilustraciones SVG (servicios, trabajos, confianza, hero)
 ```
 
@@ -172,12 +232,16 @@ antes de salir a producción:
       Business Profile) antes de publicar. Deliberadamente no se les añadió
       marcado JSON-LD de reseñas para no presentar datos de ejemplo como
       reseñas verificadas ante buscadores.
-- [ ] Conectar el formulario de contacto y el wizard de solicitud a un
-      backend/CRM real: hoy ambos abren WhatsApp con el mensaje
-      precompletado (no requieren backend), lo cual es funcional pero
-      limitado. Si se quiere registrar leads en una base de datos o enviar
-      email además del WhatsApp, hay que añadir una API route (por ejemplo
-      con Resend, Formspree o un CRM propio).
+- [ ] Conectar el formulario de contacto, el wizard de solicitud y el
+      formulario de alta de profesionales a un backend/CRM real: los tres
+      abren WhatsApp con el mensaje precompletado (no requieren backend), lo
+      cual es funcional pero limitado. Si se quiere registrar leads/altas en
+      una base de datos o enviar email además del WhatsApp, hay que añadir
+      una API route (por ejemplo con Resend, Formspree o un CRM propio).
+- [ ] Definir las condiciones reales de colaboración con profesionales
+      (comisión por trabajo derivado, proceso de validación de alta y de
+      habilitaciones como electricidad/gas) antes de publicar `/profesionales`:
+      hoy el copy es genérico y no compromete cifras concretas.
 - [ ] Definir si se necesita banner de cookies (hoy el sitio no usa cookies
       de analítica/marketing; en cuanto se agregue Google Analytics, Meta
       Pixel, etc. hay que añadir gestión de consentimiento antes de cargarlas).

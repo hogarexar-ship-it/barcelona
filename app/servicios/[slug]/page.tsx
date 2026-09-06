@@ -10,8 +10,10 @@ import { PriceTable } from "@/components/PriceTable";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { CallButton, WhatsAppButton } from "@/components/CtaButtons";
 import { JsonLd } from "@/components/JsonLd";
+import { StickyServiceCta } from "@/components/StickyServiceCta";
 import { getServiceBySlug, services } from "@/lib/services-data";
 import { zones } from "@/lib/zones-data";
+import { rubroWizardConfigs } from "@/lib/wizard-data";
 import { buildMetadata } from "@/lib/metadata";
 import { faqSchema, serviceSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site-config";
@@ -36,6 +38,9 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
   if (!service) notFound();
 
   const url = `${siteConfig.url}/servicios/${service.slug}`;
+  const problemOptions = rubroWizardConfigs[service.slug]?.problemQuestion.options.filter(
+    (o) => o.value !== "otro"
+  );
 
   return (
     <>
@@ -79,6 +84,8 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         </Container>
       </div>
 
+      <StickyServiceCta title={`${service.name} en Barcelona`} ctaHref={`/solicitud?rubro=${service.slug}`} />
+
       <section className="py-16">
         <Container className="grid gap-12 lg:grid-cols-3">
           <div className="lg:col-span-2">
@@ -90,6 +97,23 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                 {paragraph}
               </p>
             ))}
+
+            {problemOptions && problemOptions.length > 0 && (
+              <div className="mt-8 rounded-xl2 border border-terracotta-200 bg-terracotta-50 p-5">
+                <p className="font-semibold text-ink-900">¿Cuál es tu problema? Elige uno para empezar</p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {problemOptions.map((option) => (
+                    <Link
+                      key={option.value}
+                      href={`/solicitud?rubro=${service.slug}&problema=${option.value}`}
+                      className="rounded-full border border-terracotta-300 bg-white px-4 py-2 text-sm font-medium text-terracotta-700 transition-all hover:border-terracotta-500 hover:bg-terracotta-500 hover:text-white active:scale-95"
+                    >
+                      {option.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <h2 className="mt-10 font-display text-2xl font-bold text-ink-900">
               Trabajos de {service.name.toLowerCase()} que gestionamos

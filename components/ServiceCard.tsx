@@ -6,7 +6,7 @@ export function ServiceCard({ service }: { service: Service }) {
   return (
     <Link
       href={`/servicios/${service.slug}`}
-      className="group flex flex-col overflow-hidden rounded-xl2 border border-ink-100 bg-white transition-shadow hover:shadow-lg"
+      className="group flex flex-col overflow-hidden rounded-xl2 border border-ink-100 bg-white transition-all duration-150 hover:-translate-y-1 hover:shadow-lg active:translate-y-0 active:scale-[0.98]"
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden">
         <Image

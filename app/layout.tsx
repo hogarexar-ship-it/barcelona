@@ -5,6 +5,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileBottomBar } from "@/components/MobileBottomBar";
+import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { JsonLd } from "@/components/JsonLd";
 import { localBusinessSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site-config";
@@ -60,6 +61,7 @@ export default function RootLayout({
         <main className="flex-1 pb-20 md:pb-0">{children}</main>
         <Footer />
         <MobileBottomBar />
+        <FloatingWhatsApp />
       </body>
     </html>
   );

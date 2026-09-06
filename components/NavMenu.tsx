@@ -8,6 +8,7 @@ import { siteConfig } from "@/lib/site-config";
 
 export const navLinks = [
   { href: "/servicios", label: "Servicios" },
+  { href: "/buscar-servicios", label: "Buscar servicio" },
   { href: "/zonas", label: "Zonas" },
   { href: "/precios", label: "Precios" },
   { href: "/urgencias-24h", label: "Urgencias 24h" },
@@ -36,10 +37,13 @@ export function NavMenu() {
         ))}
       </nav>
 
-      <div className="hidden items-center gap-3 lg:flex">
+      <div className="hidden items-center gap-4 lg:flex">
+        <Link href="/profesionales" className="text-sm font-medium text-ink-400 hover:text-terracotta-600">
+          ¿Eres profesional?
+        </Link>
         <Link
           href="/solicitud"
-          className="inline-flex items-center justify-center rounded-full bg-terracotta-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-terracotta-600"
+          className="inline-flex items-center justify-center rounded-full bg-terracotta-500 px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:bg-terracotta-600 active:scale-95"
         >
           Pedir presupuesto
         </Link>
@@ -93,12 +97,21 @@ export function NavMenu() {
                   {link.label}
                 </Link>
               ))}
+              <Link
+                href="/profesionales"
+                onClick={() => setOpen(false)}
+                className={`rounded-lg border-t border-ink-100 px-3 pt-4 pb-3 text-base font-medium hover:bg-ink-100 ${
+                  pathname === "/profesionales" ? "text-terracotta-600" : "text-ink-800"
+                }`}
+              >
+                ¿Eres profesional? Únete a la red
+              </Link>
             </nav>
 
             <Link
               href="/solicitud"
               onClick={() => setOpen(false)}
-              className="mt-6 inline-flex items-center justify-center rounded-full bg-terracotta-500 px-6 py-3 text-sm font-semibold text-white hover:bg-terracotta-600"
+              className="mt-6 inline-flex items-center justify-center rounded-full bg-terracotta-500 px-6 py-3 text-sm font-semibold text-white transition-transform hover:bg-terracotta-600 active:scale-95"
             >
               Pedir presupuesto
             </Link>

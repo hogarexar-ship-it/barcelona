@@ -27,7 +27,7 @@ export function MobileBottomBar() {
   return (
     <nav
       aria-label="Navegación rápida"
-      className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-5 items-end border-t border-ink-100 bg-white/95 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-2 backdrop-blur md:hidden"
+      className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-5 items-end border-t border-ink-100 bg-white/95 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-2 backdrop-blur md:hidden print:hidden"
     >
       {tabs.map((tab) => (
         <TabLink key={tab.href} href={tab.href} label={tab.label} Icon={tab.icon} active={pathname === tab.href} />
