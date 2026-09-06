@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream-50 text-ink-800;
+  }
+}
+
+@layer components {
+  .input {
+    @apply w-full rounded-lg border border-ink-100 bg-cream-50 px-3 py-2 text-sm text-ink-900 placeholder:text-ink-400 focus:border-terracotta-400 focus:outline-none focus:ring-1 focus:ring-terracotta-400;
+  }
+}
