@@ -42,17 +42,26 @@ Todo el copy está escrito en **castellano de España** (tuteo: "tú",
 
 ## Navegación
 
-- **Escritorio (`lg` y superior)**: menú horizontal completo en el header
-  (incluye Servicios, Buscar servicio, Zonas, Precios, Urgencias, Blog,
-  Sobre nosotros, Contacto), un enlace discreto "¿Eres profesional?" y un
-  botón destacado "Pedir presupuesto". Por debajo de `lg` (tablet y móvil)
-  el header muestra un botón de menú hamburguesa que abre un panel lateral
-  con todos los enlaces, incluido el acceso a `/profesionales`
-  (`components/NavMenu.tsx`).
-- **Móvil (por debajo de `md`)**: barra inferior fija estilo app
-  (`components/MobileBottomBar.tsx`) con accesos directos a Inicio,
+Un único paradigma de navegación por rango de ancho, para que nunca haya
+dos menús activos a la vez:
+
+- **Móvil (por debajo de `md`)**: la única navegación visible es la barra
+  inferior fija estilo app (`components/MobileBottomBar.tsx`): Inicio,
   Servicios, un botón central elevado "Solicitar" (a `/solicitud`),
-  WhatsApp y Llamar. Convive con el menú hamburguesa del header.
+  WhatsApp y "Más". El botón central se posiciona con `absolute` (no con
+  márgenes negativos dentro del grid) para quedar perfectamente centrado
+  sobre la barra sin desalinear el resto de íconos. "Más" abre el mismo
+  panel de navegación completo (`components/NavDrawer.tsx`) que en
+  tablet/escritorio se abre desde la hamburguesa — la hamburguesa del
+  header está oculta en este rango (`hidden md:inline-flex`) para que no
+  convivan las dos navegaciones a la vez.
+- **Tablet (`md` a `lg`)**: el header muestra el botón de hamburguesa, que
+  abre `NavDrawer`.
+- **Escritorio (`lg` y superior)**: menú horizontal completo en el header
+  (Servicios, Buscar servicio, Zonas, Precios, Urgencias, Blog, Sobre
+  nosotros, Contacto), un enlace discreto "¿Eres profesional?", el
+  selector de idioma y un botón destacado "Pedir presupuesto"
+  (`components/NavMenu.tsx`).
 - **Botón flotante de WhatsApp** (`components/FloatingWhatsApp.tsx`, solo
   `md` y superior) y **barra de CTA fija al hacer scroll**
   (`components/StickyServiceCta.tsx`, usada en las páginas de servicio) para
@@ -61,9 +70,17 @@ Todo el copy está escrito en **castellano de España** (tuteo: "tú",
 
 ## Página de solicitud (`/solicitud`)
 
-Es la página de conversión principal del sitio: un formulario en varios
-pasos (`components/SolicitudWizard.tsx`, con las preguntas por rubro
-definidas en `lib/wizard-data.ts`) que:
+Es la página de conversión principal del sitio. Al entrar sin parámetros,
+se ve un botón grande "Iniciar solicitud"; al pulsarlo (o al llegar con
+`?rubro=` ya en la URL) se abre `components/SolicitudModal.tsx`: a
+pantalla completa en móvil (`h-[100dvh]`, sin bordes) y como tarjeta
+centrada en pantallas más grandes (`sm:max-w-2xl sm:max-h-[85vh]`), con el
+scroll de fondo bloqueado mientras está abierto. Dentro vive
+`components/SolicitudWizard.tsx`, estructurado como una columna flexible
+de tres franjas — cabecera con la barra de progreso fija arriba, el
+contenido del paso actual con su propio scroll interno en el medio, y los
+botones Atrás/Siguiente/Enviar fijos abajo — así el usuario nunca tiene
+que hacer scroll de la página para encontrar cómo continuar. El wizard:
 
 1. Pregunta el rubro (fontanero, electricista, gasista, pintor, carpintero,
    aire acondicionado/calefacción) con tarjetas visuales.
@@ -127,6 +144,47 @@ mensaje es deliberadamente indirecto ("esto es gratis, pero imagina no
 tener que hacerlo tú mismo") para que el profesional termine interesándose
 en unirse en vez de presionarlo a hacerlo.
 
+## Idioma (Español / Català)
+
+Selector de idioma visible en el header (escritorio) y en `NavDrawer`
+(tablet/móvil), gestionado con un contexto de React propio en
+`lib/i18n/` — sin librerías de i18n externas (no había forma de instalar
+paquetes nuevos en el entorno de esta sesión, ver nota más abajo):
+
+- `lib/i18n/context.tsx`: `LanguageProvider` (envuelve toda la app en
+  `app/layout.tsx`) y el hook `useLanguage()` → `{ locale, setLocale, t }`.
+  El idioma persiste en `localStorage` y no cambia la URL (no hay rutas
+  `/ca/...`), así que el cambio de idioma no afecta al SEO por ahora.
+- `lib/i18n/dictionary.ts`: diccionario tipado (`Dictionary`) con las
+  traducciones de navegación, footer, barra inferior, home completa y
+  wizard.
+- `lib/i18n/wizard-rubros.ts`: traducción al catalán de
+  `rubroWizardConfigs` (las preguntas y opciones del wizard por rubro) y
+  de `contactTimeOptions`. Los `value` de cada opción son idénticos entre
+  idiomas a propósito: viajan en la URL (`?rubro=&problema=`) y en la
+  lógica de urgencia automática.
+- `components/LanguageSwitcher.tsx`: el toggle "ES / CA".
+
+**Alcance actual, deliberadamente acotado**: están completamente en
+español y catalán la navegación (header, footer, barra inferior, panel de
+menú), la home entera (hero, cómo funciona, servicios, trabajos, zonas,
+confianza, testimonios, FAQ) y el wizard de solicitud completo (incluidas
+las preguntas específicas de cada rubro y el mensaje que se envía por
+WhatsApp). **Quedan solo en español** por ahora: el contenido largo de
+`/servicios/[slug]`, `/zonas/[zona]`, `/blog`, `/profesionales` y sus
+herramientas, `/buscar-servicios`, y las páginas legales — es decir, los
+datos que viven en `lib/services-data.ts`, `lib/zones-data.ts`,
+`lib/blog-data.ts` y `lib/professionals-data.ts`. Cambiar a "CA" en esas
+páginas traduce el header/footer pero no el cuerpo. Para extender la
+traducción a esas páginas, el patrón a seguir es el mismo: mover el
+contenido a un componente `"use client"` que consuma `useLanguage()`
+(como se hizo con `app/page.tsx` → `components/HomeContent.tsx`) y añadir
+las claves que falten a `lib/i18n/dictionary.ts`.
+
+También pendiente: encargar una revisión del catalán a un hablante nativo
+antes de publicar — se escribió con buen criterio pero sin ese control de
+calidad.
+
 ## Imágenes
 
 No hay fotografías reales todavía. En su lugar, `public/images/` contiene
@@ -172,14 +230,19 @@ app/
     herramientas/         Hub que enlaza las tres herramientas
   aviso-legal/, politica-privacidad/, politica-cookies/
   sitemap.ts, robots.ts, manifest.ts, opengraph-image.tsx, llms.txt/route.ts
-components/               Header, NavMenu, MobileBottomBar, FloatingWhatsApp,
+components/               Header, NavMenu, NavDrawer (menú compartido),
+                          MobileBottomBar, FloatingWhatsApp,
                           StickyServiceCta, Footer, Hero, CTAs, FaqAccordion,
-                          LeadForm, SolicitudWizard(Entry), ServiceSearch,
+                          LeadForm, HomeContent, SolicitudWizard(Entry),
+                          SolicitudModal, ServiceSearch,
                           ProfessionalSignupForm, PricingCalculator,
-                          QuoteGenerator, TemplateList, ProToolIcon, etc.
+                          QuoteGenerator, TemplateList, ProToolIcon,
+                          LanguageSwitcher, etc.
 lib/                      site-config.ts, services-data.ts, zones-data.ts,
                           blog-data.ts, wizard-data.ts, search-index.ts,
                           professionals-data.ts, metadata.ts, schema.ts
+lib/i18n/                 context.tsx (LanguageProvider/useLanguage),
+                          dictionary.ts (es/ca), wizard-rubros.ts (wizard en ca)
 public/images/            Ilustraciones SVG (servicios, trabajos, confianza, hero)
 ```
 
@@ -245,6 +308,12 @@ antes de salir a producción:
 - [ ] Definir si se necesita banner de cookies (hoy el sitio no usa cookies
       de analítica/marketing; en cuanto se agregue Google Analytics, Meta
       Pixel, etc. hay que añadir gestión de consentimiento antes de cargarlas).
+- [ ] Revisión del catalán por un hablante nativo (ver sección "Idioma"
+      más arriba) y decisión sobre si se necesitan URLs por idioma
+      (`/ca/...`) para SEO, o si el selector cliente actual es suficiente.
+- [ ] Extender la traducción a `/servicios`, `/zonas`, `/blog`,
+      `/profesionales` y `/buscar-servicios` si se quiere que el catalán
+      cubra todo el sitio, no solo navegación + home + wizard.
 
 ## Modelo de negocio (para quien edite contenido)
 

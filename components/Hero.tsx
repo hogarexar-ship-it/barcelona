@@ -39,10 +39,10 @@ export function Hero({
               {eyebrow}
             </p>
           )}
-          <h1 className="font-display text-3xl font-bold leading-tight text-ink-900 sm:text-4xl lg:text-5xl">
+          <h1 className="font-display text-4xl font-bold leading-[1.05] tracking-tight text-ink-900 sm:text-5xl lg:text-6xl">
             {title}
           </h1>
-          <p className="mt-5 text-lg text-ink-600">{subtitle}</p>
+          <p className="mt-5 text-lg text-ink-600 sm:text-xl">{subtitle}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/solicitud"

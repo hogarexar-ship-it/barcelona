@@ -77,41 +77,54 @@ export function QuoteGenerator() {
           <p className="text-sm font-medium text-ink-800">Conceptos</p>
           <div className="mt-2 space-y-3">
             {items.map((item) => (
-              <div key={item.id} className="grid grid-cols-[1fr_4rem_5rem_2rem] items-end gap-2">
-                <Field label="Descripción">
-                  <input
-                    value={item.description}
-                    onChange={(e) => updateItem(item.id, { description: e.target.value })}
-                    className="input"
-                    placeholder="Ej: Cambio de grifo"
-                  />
-                </Field>
-                <Field label="Cant.">
-                  <input
-                    type="number"
-                    min={0}
-                    value={item.quantity}
-                    onChange={(e) => updateItem(item.id, { quantity: Number(e.target.value) || 0 })}
-                    className="input"
-                  />
-                </Field>
-                <Field label="Precio (€)">
-                  <input
-                    type="number"
-                    min={0}
-                    value={item.unitPrice}
-                    onChange={(e) => updateItem(item.id, { unitPrice: Number(e.target.value) || 0 })}
-                    className="input"
-                  />
-                </Field>
-                <button
-                  type="button"
-                  onClick={() => removeItem(item.id)}
-                  className="mb-0.5 flex h-9 w-9 items-center justify-center rounded-lg border border-ink-100 text-ink-400 transition-colors hover:border-urgent-300 hover:text-urgent-600"
-                  aria-label="Eliminar concepto"
-                >
-                  <TrashIcon />
-                </button>
+              <div
+                key={item.id}
+                className="rounded-xl2 border border-ink-100 p-3 sm:grid sm:grid-cols-[1fr_4rem_5rem_2rem] sm:items-end sm:gap-2 sm:border-0 sm:p-0"
+              >
+                <div className="flex items-end gap-2 sm:contents">
+                  <div className="flex-1 sm:order-1">
+                    <Field label="Descripción">
+                      <input
+                        value={item.description}
+                        onChange={(e) => updateItem(item.id, { description: e.target.value })}
+                        className="input"
+                        placeholder="Ej: Cambio de grifo"
+                      />
+                    </Field>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => removeItem(item.id)}
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-ink-100 text-ink-400 transition-colors hover:border-urgent-300 hover:text-urgent-600 sm:order-4 sm:h-9 sm:w-9"
+                    aria-label="Eliminar concepto"
+                  >
+                    <TrashIcon />
+                  </button>
+                </div>
+                <div className="mt-2 grid grid-cols-2 gap-2 sm:contents sm:mt-0">
+                  <div className="sm:order-2">
+                    <Field label="Cant.">
+                      <input
+                        type="number"
+                        min={0}
+                        value={item.quantity}
+                        onChange={(e) => updateItem(item.id, { quantity: Number(e.target.value) || 0 })}
+                        className="input"
+                      />
+                    </Field>
+                  </div>
+                  <div className="sm:order-3">
+                    <Field label="Precio (€)">
+                      <input
+                        type="number"
+                        min={0}
+                        value={item.unitPrice}
+                        onChange={(e) => updateItem(item.id, { unitPrice: Number(e.target.value) || 0 })}
+                        className="input"
+                      />
+                    </Field>
+                  </div>
+                </div>
               </div>
             ))}
           </div>

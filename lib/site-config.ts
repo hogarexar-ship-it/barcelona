@@ -10,9 +10,8 @@
 export const siteConfig = {
   brand: "Hogarex",
   legalName: "Hogarex Barcelona", // PLACEHOLDER: razón social / CIF real
-  tagline:
-    "Cuéntanos el problema y nosotros te conseguimos al profesional adecuado. Rápido y sin complicaciones.",
-  shortTagline: "El problema de tu hogar, resuelto. Sin complicaciones.",
+  tagline: "Te conectamos con los mejores profesionales de Barcelona",
+  shortTagline: "Red de profesionales de oficio en Barcelona",
   description:
     "Hogarex gestiona en Barcelona servicios de fontanería, electricidad, gas, pintura, carpintería y climatización. Nos cuentas qué necesitas y nosotros coordinamos al profesional de nuestra red que resuelve el trabajo. Sin buscar perfiles, sin comparar presupuestos por tu cuenta: una sola llamada y nosotros nos encargamos.",
   url: "https://www.hogarex.es", // PLACEHOLDER: dominio definitivo

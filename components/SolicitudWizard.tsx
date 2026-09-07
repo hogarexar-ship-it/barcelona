@@ -4,7 +4,8 @@ import { useMemo, useState } from "react";
 import Image from "next/image";
 import { services, getServiceBySlug } from "@/lib/services-data";
 import { zones } from "@/lib/zones-data";
-import { rubroWizardConfigs, contactTimeOptions } from "@/lib/wizard-data";
+import { rubroWizardConfigsByLocale, contactTimeOptionsByLocale } from "@/lib/i18n/wizard-rubros";
+import { useLanguage } from "@/lib/i18n/context";
 import { whatsappHref } from "@/lib/site-config";
 import { CallButton } from "./CtaButtons";
 
@@ -15,13 +16,26 @@ const neighborhoodOptions = zones.flatMap((zone) => [
   ...zone.neighborhoods,
 ]);
 
+/**
+ * Ocupa siempre el 100% de alto de su contenedor (pensado para vivir
+ * dentro de `SolicitudModal`, a pantalla completa en móvil): cabecera con
+ * progreso fija arriba, contenido de cada paso con scroll interno propio,
+ * y los botones Atrás/Siguiente/Enviar fijos abajo. Así el usuario nunca
+ * pierde de vista cómo continuar, sin depender del scroll de la página.
+ */
 export function SolicitudWizard({
   initialServiceSlug,
   initialProblemValue,
+  onClose,
 }: {
   initialServiceSlug?: string;
   initialProblemValue?: string;
+  onClose?: () => void;
 }) {
+  const { locale, t } = useLanguage();
+  const rubroWizardConfigs = rubroWizardConfigsByLocale[locale];
+  const contactTimeOptions = contactTimeOptionsByLocale[locale];
+
   const initialService = initialServiceSlug ? getServiceBySlug(initialServiceSlug) : undefined;
   const initialConfig = initialService ? rubroWizardConfigs[initialService.slug] : undefined;
   const problemIsValid =
@@ -93,20 +107,21 @@ export function SolicitudWizard({
   const contactTimeLabel = contactTimeOptions.find((o) => o.value === contactTime)?.label;
 
   function buildMessage(): string {
+    const r = t.wizard.resumen;
     const lines = [
-      `Hola Hogarex, quiero solicitar un servicio a través del formulario de solicitud.`,
+      t.wizard.saludoInicial,
       "",
-      `Servicio: ${service?.name ?? ""}`,
-      problemLabel ? `Problema: ${problemLabel}` : null,
-      detailLabel ? `Detalle: ${detailLabel}` : null,
-      `Urgente: ${isUrgent ? "Sí" : "No"}`,
-      zone ? `Zona: ${zone}` : null,
-      address ? `Dirección: ${address}` : null,
+      `${r.servicio}: ${service?.name ?? ""}`,
+      problemLabel ? `${r.problema}: ${problemLabel}` : null,
+      detailLabel ? `${r.detalle}: ${detailLabel}` : null,
+      `${r.urgente}: ${isUrgent ? r.si : r.no}`,
+      zone ? `${r.zona}: ${zone}` : null,
+      address ? `${r.direccion}: ${address}` : null,
       "",
-      `Nombre: ${name}`,
-      `Teléfono: ${phone}`,
-      email ? `Email: ${email}` : null,
-      `Mejor horario para contactar: ${contactTimeLabel ?? ""}`,
+      `${r.nombre}: ${name}`,
+      `${r.telefono}: ${phone}`,
+      email ? `${r.email}: ${email}` : null,
+      `${r.horario}: ${contactTimeLabel ?? ""}`,
     ].filter((line): line is string => line !== null);
 
     return lines.join("\n");
@@ -122,22 +137,36 @@ export function SolicitudWizard({
   const canProceedContacto = name.trim().length > 0 && phone.trim().length > 0;
 
   return (
-    <div className="rounded-xl2 border border-ink-100 bg-white p-6 sm:p-8">
-      <ProgressBar step={step} total={totalSteps} />
-
-      {isUrgent && config?.safetyWarning && (
-        <div className="mt-4 rounded-xl2 border border-urgent-500/30 bg-urgent-500/5 p-4 text-sm text-urgent-600">
-          <p className="font-semibold">Aviso de seguridad</p>
-          <p className="mt-1">{config.safetyWarning}</p>
+    <div className="flex h-full flex-col bg-white">
+      <div className="shrink-0 border-b border-ink-100 px-5 pt-4 pb-3 sm:px-8">
+        <div className="flex items-center gap-4">
+          <div className="flex-1">
+            <ProgressBar step={step} total={totalSteps} label={t.wizard.pasoDe(step + 1, totalSteps)} />
+          </div>
+          {onClose && (
+            <button
+              type="button"
+              onClick={onClose}
+              aria-label={t.wizard.cerrar}
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-ink-400 hover:bg-ink-100 hover:text-ink-900"
+            >
+              <CloseIcon />
+            </button>
+          )}
         </div>
-      )}
 
-      <div className="mt-6">
+        {isUrgent && config?.safetyWarning && (
+          <div className="mt-4 rounded-xl2 border border-urgent-500/30 bg-urgent-500/5 p-4 text-sm text-urgent-600">
+            <p className="font-semibold">{t.wizard.avisoSeguridad}</p>
+            <p className="mt-1">{config.safetyWarning}</p>
+          </div>
+        )}
+      </div>
+
+      <div className="flex-1 overflow-y-auto px-5 py-6 sm:px-8">
         {currentKey === "rubro" && (
           <fieldset>
-            <legend className="font-display text-xl font-bold text-ink-900">
-              ¿Qué tipo de profesional necesitas?
-            </legend>
+            <legend className="font-display text-xl font-bold text-ink-900">{t.wizard.tituloRubro}</legend>
             <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {services.map((s) => (
                 <button
@@ -185,16 +214,16 @@ export function SolicitudWizard({
 
         {currentKey === "zona" && (
           <div>
-            <h2 className="font-display text-xl font-bold text-ink-900">¿Dónde es el trabajo?</h2>
+            <h2 className="font-display text-xl font-bold text-ink-900">{t.wizard.zona.title}</h2>
             <div className="mt-5 space-y-4">
               <label className="block text-sm font-medium text-ink-800">
-                Barrio o zona de Barcelona
+                {t.wizard.zona.barrioLabel}
                 <input
                   list="neighborhood-options"
                   value={zone}
                   onChange={(e) => setZone(e.target.value)}
                   className="input mt-1"
-                  placeholder="Ej: Gràcia, Eixample, Sants..."
+                  placeholder={t.wizard.zona.barrioPlaceholder}
                 />
                 <datalist id="neighborhood-options">
                   {neighborhoodOptions.map((n) => (
@@ -204,18 +233,18 @@ export function SolicitudWizard({
               </label>
 
               <label className="block text-sm font-medium text-ink-800">
-                Dirección (opcional)
+                {t.wizard.zona.direccionLabel}
                 <input
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
                   className="input mt-1"
-                  placeholder="Calle y número"
+                  placeholder={t.wizard.zona.direccionPlaceholder}
                 />
               </label>
 
               {service?.emergency && !autoUrgentTriggered && (
                 <div>
-                  <p className="text-sm font-medium text-ink-800">¿Es urgente?</p>
+                  <p className="text-sm font-medium text-ink-800">{t.wizard.zona.esUrgente}</p>
                   <div className="mt-2 flex gap-3">
                     <button
                       type="button"
@@ -224,7 +253,7 @@ export function SolicitudWizard({
                         urgent ? "border-urgent-500 bg-urgent-500/10 text-urgent-600" : "border-ink-100 text-ink-600 hover:border-urgent-300"
                       }`}
                     >
-                      Sí, es urgente
+                      {t.wizard.zona.siUrgente}
                     </button>
                     <button
                       type="button"
@@ -233,53 +262,52 @@ export function SolicitudWizard({
                         !urgent ? "border-ink-900 bg-ink-900 text-white" : "border-ink-100 text-ink-600"
                       }`}
                     >
-                      No es urgente
+                      {t.wizard.zona.noUrgente}
                     </button>
                   </div>
                 </div>
               )}
 
-              {autoUrgentTriggered && (
-                <p className="text-sm font-semibold text-urgent-600">
-                  Hemos marcado esta solicitud como urgente según tu respuesta anterior.
-                </p>
-              )}
+              {autoUrgentTriggered && <p className="text-sm font-semibold text-urgent-600">{t.wizard.zona.urgenteAuto}</p>}
             </div>
-
-            <WizardNav onBack={goBack} onNext={goNext} nextDisabled={!canProceedZona} />
           </div>
         )}
 
         {currentKey === "contacto" && (
           <div>
-            <h2 className="font-display text-xl font-bold text-ink-900">Tus datos de contacto</h2>
+            <h2 className="font-display text-xl font-bold text-ink-900">{t.wizard.contacto.title}</h2>
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               <label className="block text-sm font-medium text-ink-800">
-                Nombre
-                <input value={name} onChange={(e) => setName(e.target.value)} className="input mt-1" placeholder="Tu nombre" />
+                {t.wizard.contacto.nombreLabel}
+                <input
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="input mt-1"
+                  placeholder={t.wizard.contacto.nombrePlaceholder}
+                />
               </label>
               <label className="block text-sm font-medium text-ink-800">
-                Teléfono
+                {t.wizard.contacto.telefonoLabel}
                 <input
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   type="tel"
                   className="input mt-1"
-                  placeholder="600 000 000"
+                  placeholder={t.wizard.contacto.telefonoPlaceholder}
                 />
               </label>
               <label className="block text-sm font-medium text-ink-800">
-                Email (opcional)
+                {t.wizard.contacto.emailLabel}
                 <input
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   type="email"
                   className="input mt-1"
-                  placeholder="tu@email.com"
+                  placeholder={t.wizard.contacto.emailPlaceholder}
                 />
               </label>
               <label className="block text-sm font-medium text-ink-800">
-                Mejor horario para contactarte
+                {t.wizard.contacto.horarioLabel}
                 <select value={contactTime} onChange={(e) => setContactTime(e.target.value)} className="input mt-1">
                   {contactTimeOptions.map((o) => (
                     <option key={o.value} value={o.value}>
@@ -289,47 +317,69 @@ export function SolicitudWizard({
                 </select>
               </label>
             </div>
-
-            <WizardNav onBack={goBack} onNext={goNext} nextDisabled={!canProceedContacto} />
           </div>
         )}
 
         {currentKey === "resumen" && (
           <div>
-            <h2 className="font-display text-xl font-bold text-ink-900">Revisa tu solicitud</h2>
+            <h2 className="font-display text-xl font-bold text-ink-900">{t.wizard.resumen.title}</h2>
             <dl className="mt-5 space-y-3 text-sm">
-              <SummaryRow label="Servicio" value={service?.name} />
-              <SummaryRow label="Problema" value={problemLabel} />
-              <SummaryRow label="Detalle" value={detailLabel} />
-              <SummaryRow label="Zona" value={zone} />
-              <SummaryRow label="Dirección" value={address || "No indicada"} />
-              <SummaryRow label="Urgente" value={isUrgent ? "Sí" : "No"} />
-              <SummaryRow label="Nombre" value={name} />
-              <SummaryRow label="Teléfono" value={phone} />
-              <SummaryRow label="Email" value={email || "No indicado"} />
-              <SummaryRow label="Horario preferido" value={contactTimeLabel} />
+              <SummaryRow label={t.wizard.resumen.servicio} value={service?.name} />
+              <SummaryRow label={t.wizard.resumen.problema} value={problemLabel} />
+              <SummaryRow label={t.wizard.resumen.detalle} value={detailLabel} />
+              <SummaryRow label={t.wizard.resumen.zona} value={zone} />
+              <SummaryRow label={t.wizard.resumen.direccion} value={address || t.wizard.resumen.noIndicada} />
+              <SummaryRow label={t.wizard.resumen.urgente} value={isUrgent ? t.wizard.resumen.si : t.wizard.resumen.no} />
+              <SummaryRow label={t.wizard.resumen.nombre} value={name} />
+              <SummaryRow label={t.wizard.resumen.telefono} value={phone} />
+              <SummaryRow label={t.wizard.resumen.email} value={email || t.wizard.resumen.noIndicado} />
+              <SummaryRow label={t.wizard.resumen.horario} value={contactTimeLabel} />
             </dl>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            {sent && (
+              <p className="mt-6 rounded-xl2 border border-terracotta-200 bg-terracotta-50 p-4 text-sm text-terracotta-700">
+                {t.wizard.resumen.confirmacion}
+              </p>
+            )}
+          </div>
+        )}
+      </div>
+
+      <div className="shrink-0 border-t border-ink-100 bg-white px-5 py-4 sm:px-8">
+        {currentKey === "resumen" ? (
+          <div className="flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <BackButton onClick={goBack} label={t.wizard.atras} />
+            <div className="flex flex-col gap-3 sm:flex-row">
+              {isUrgent && <CallButton className="justify-center" label={t.wizard.resumen.llamarAhora} />}
               <button
                 type="button"
                 onClick={handleSend}
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-terracotta-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-terracotta-500/30 transition-transform hover:bg-terracotta-600 active:scale-95"
               >
-                Enviar solicitud por WhatsApp
+                {t.wizard.resumen.enviarBtn}
               </button>
-              {isUrgent && <CallButton className="justify-center" label="Llamar ahora" />}
             </div>
-
-            {sent && (
-              <p className="mt-4 rounded-xl2 border border-terracotta-200 bg-terracotta-50 p-4 text-sm text-terracotta-700">
-                Hemos abierto WhatsApp con tu solicitud ya redactada. Confirma el envío desde ahí y
-                te contactaremos para coordinar al profesional adecuado.
-              </p>
-            )}
-
-            <WizardNav onBack={goBack} showNext={false} />
           </div>
+        ) : currentKey === "zona" ? (
+          <WizardNav
+            onBack={goBack}
+            onNext={goNext}
+            nextDisabled={!canProceedZona}
+            showBack={step > 0}
+            backLabel={t.wizard.atras}
+            nextLabel={t.wizard.siguiente}
+          />
+        ) : currentKey === "contacto" ? (
+          <WizardNav
+            onBack={goBack}
+            onNext={goNext}
+            nextDisabled={!canProceedContacto}
+            showBack={step > 0}
+            backLabel={t.wizard.atras}
+            nextLabel={t.wizard.siguiente}
+          />
+        ) : (
+          step > 0 && <BackButton onClick={goBack} label={t.wizard.atras} />
         )}
       </div>
     </div>
@@ -377,36 +427,44 @@ function OptionStep({
   );
 }
 
+function BackButton({ onClick, label }: { onClick: () => void; label: string }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="inline-flex items-center justify-center rounded-full border border-ink-200 px-5 py-2.5 text-sm font-semibold text-ink-700 transition-transform hover:bg-ink-100 active:scale-95"
+    >
+      {label}
+    </button>
+  );
+}
+
 function WizardNav({
   onBack,
   onNext,
   nextDisabled = false,
-  showNext = true,
+  showBack = true,
+  backLabel,
+  nextLabel,
 }: {
   onBack: () => void;
-  onNext?: () => void;
+  onNext: () => void;
   nextDisabled?: boolean;
-  showNext?: boolean;
+  showBack?: boolean;
+  backLabel: string;
+  nextLabel: string;
 }) {
   return (
-    <div className="mt-8 flex justify-between">
+    <div className="flex items-center justify-between gap-3">
+      {showBack ? <BackButton onClick={onBack} label={backLabel} /> : <span />}
       <button
         type="button"
-        onClick={onBack}
-        className="inline-flex items-center justify-center rounded-full border border-ink-200 px-5 py-2.5 text-sm font-semibold text-ink-700 transition-transform hover:bg-ink-100 active:scale-95"
+        onClick={onNext}
+        disabled={nextDisabled}
+        className="inline-flex items-center justify-center rounded-full bg-ink-900 px-6 py-2.5 text-sm font-semibold text-white transition-transform hover:bg-ink-800 active:scale-95 disabled:cursor-not-allowed disabled:opacity-40 disabled:active:scale-100"
       >
-        Atrás
+        {nextLabel}
       </button>
-      {showNext && (
-        <button
-          type="button"
-          onClick={onNext}
-          disabled={nextDisabled}
-          className="inline-flex items-center justify-center rounded-full bg-ink-900 px-6 py-2.5 text-sm font-semibold text-white transition-transform hover:bg-ink-800 active:scale-95 disabled:cursor-not-allowed disabled:opacity-40 disabled:active:scale-100"
-        >
-          Siguiente
-        </button>
-      )}
     </div>
   );
 }
@@ -433,14 +491,20 @@ function CheckIcon({ className = "h-4 w-4" }: { className?: string }) {
   );
 }
 
-function ProgressBar({ step, total }: { step: number; total: number }) {
+function CloseIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-5 w-5" aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  );
+}
+
+function ProgressBar({ step, total, label }: { step: number; total: number; label: string }) {
   const percent = Math.round(((step + 1) / total) * 100);
   return (
     <div>
       <div className="flex items-center justify-between text-xs font-medium text-ink-400">
-        <span>
-          Paso {step + 1} de {total}
-        </span>
+        <span>{label}</span>
         <span>{percent}%</span>
       </div>
       <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-ink-100">

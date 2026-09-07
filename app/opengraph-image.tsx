@@ -29,7 +29,7 @@ export default function OpengraphImage() {
           {siteConfig.tagline}
         </div>
         <div style={{ display: "flex", marginTop: 48, fontSize: 24, color: "#A44A22", fontWeight: 700 }}>
-          Fontanería · Electricidad · Gas
+          Fontanería · Electricidad · Gas · Pintura · Carpintería · Climatización
         </div>
       </div>
     ),

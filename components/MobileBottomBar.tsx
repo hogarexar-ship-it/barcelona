@@ -1,64 +1,88 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { telHref, whatsappHref } from "@/lib/site-config";
+import { NavDrawer } from "./NavDrawer";
+import { useLanguage } from "@/lib/i18n/context";
+import { whatsappHref } from "@/lib/site-config";
 
 type IconComponent = (props: { className?: string }) => JSX.Element;
 
-const tabs: { href: string; label: string; icon: IconComponent }[] = [
-  { href: "/", label: "Inicio", icon: HomeIcon },
-  { href: "/servicios", label: "Servicios", icon: WrenchIcon },
-];
-
-const endTabs: { href: string; label: string; icon: IconComponent; external: boolean }[] = [
-  { href: whatsappHref("Hola Hogarex, necesito ayuda con un problema en mi casa en Barcelona."), label: "WhatsApp", icon: ChatIcon, external: true },
-  { href: telHref(), label: "Llamar", icon: PhoneIcon, external: true },
-];
-
 /**
- * Barra de navegación fija tipo app, solo en móvil. Complementa (no
- * reemplaza) el menú hamburguesa del header, que sigue dando acceso al
- * resto de páginas (zonas, precios, blog, legales, etc.).
+ * Barra de navegación fija tipo app, solo en móvil (por debajo de `md`).
+ * Es la ÚNICA navegación visible en ese rango: el botón "Más" abre el
+ * mismo panel (NavDrawer) que en tablet/escritorio abre la hamburguesa del
+ * header, así nunca hay dos navegaciones activas a la vez.
+ *
+ * El botón central "Solicitar" se posiciona de forma absoluta (no con
+ * márgenes negativos dentro del grid) para que quede perfectamente
+ * centrado y no rompa la alineación del resto de los íconos.
  */
 export function MobileBottomBar() {
   const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { t } = useLanguage();
+
+  const tabs: { href: string; label: string; icon: IconComponent }[] = [
+    { href: "/", label: t.bottomBar.inicio, icon: HomeIcon },
+    { href: "/servicios", label: t.bottomBar.servicios, icon: WrenchIcon },
+  ];
+
+  const whatsappHrefValue = whatsappHref("Hola Hogarex, necesito ayuda con un problema en mi casa en Barcelona.");
 
   return (
-    <nav
-      aria-label="Navegación rápida"
-      className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-5 items-end border-t border-ink-100 bg-white/95 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-2 backdrop-blur md:hidden print:hidden"
-    >
-      {tabs.map((tab) => (
-        <TabLink key={tab.href} href={tab.href} label={tab.label} Icon={tab.icon} active={pathname === tab.href} />
-      ))}
-
-      <Link
-        href="/solicitud"
-        className="flex flex-col items-center justify-center gap-1"
-        aria-label="Pedir presupuesto"
+    <>
+      <nav
+        aria-label={t.bottomBar.mas}
+        className="fixed inset-x-0 bottom-0 z-40 border-t border-ink-100 bg-white/95 backdrop-blur md:hidden print:hidden"
+        style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       >
-        <span className="-mt-6 flex h-14 w-14 items-center justify-center rounded-full bg-terracotta-500 text-white shadow-lg shadow-terracotta-500/30">
-          <PlusIcon />
-        </span>
-        <span className={`text-[11px] font-medium ${pathname === "/solicitud" ? "text-terracotta-600" : "text-ink-600"}`}>
-          Solicitar
-        </span>
-      </Link>
+        <div className="relative mx-auto grid h-16 max-w-md grid-cols-5">
+          <TabLink href={tabs[0].href} label={tabs[0].label} Icon={tabs[0].icon} active={pathname === tabs[0].href} />
+          <TabLink href={tabs[1].href} label={tabs[1].label} Icon={tabs[1].icon} active={pathname === tabs[1].href} />
 
-      {endTabs.map((tab) => (
-        <a
-          key={tab.label}
-          href={tab.href}
-          target={tab.external ? "_blank" : undefined}
-          rel={tab.external ? "noopener noreferrer" : undefined}
-          className="flex flex-col items-center justify-center gap-1 py-1 text-ink-600"
-        >
-          <tab.icon className="h-6 w-6" />
-          <span className="text-[11px] font-medium">{tab.label}</span>
-        </a>
-      ))}
-    </nav>
+          {/* Columna central vacía: el botón "Solicitar" flota encima, posicionado absoluto. */}
+          <div aria-hidden="true" />
+
+          <a
+            href={whatsappHrefValue}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col items-center justify-center gap-1 text-ink-600"
+          >
+            <ChatIcon className="h-6 w-6" />
+            <span className="text-[11px] font-medium">{t.bottomBar.whatsapp}</span>
+          </a>
+
+          <button
+            type="button"
+            onClick={() => setMenuOpen(true)}
+            className="flex flex-col items-center justify-center gap-1 text-ink-600"
+            aria-label={t.nav.abrirMenu}
+            aria-expanded={menuOpen}
+          >
+            <MoreIcon className="h-6 w-6" />
+            <span className="text-[11px] font-medium">{t.bottomBar.mas}</span>
+          </button>
+
+          <Link
+            href="/solicitud"
+            aria-label={t.wizard.entry.cta}
+            className="absolute inset-x-0 -top-5 flex flex-col items-center gap-0.5"
+          >
+            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-terracotta-500 text-white shadow-lg shadow-terracotta-500/30 ring-4 ring-white">
+              <PlusIcon />
+            </span>
+            <span className={`text-[11px] font-medium ${pathname === "/solicitud" ? "text-terracotta-600" : "text-ink-700"}`}>
+              {t.bottomBar.solicitar}
+            </span>
+          </Link>
+        </div>
+      </nav>
+
+      <NavDrawer open={menuOpen} onClose={() => setMenuOpen(false)} />
+    </>
   );
 }
 
@@ -70,13 +94,13 @@ function TabLink({
 }: {
   href: string;
   label: string;
-  Icon: (props: { className?: string }) => JSX.Element;
+  Icon: IconComponent;
   active: boolean;
 }) {
   return (
     <Link
       href={href}
-      className={`flex flex-col items-center justify-center gap-1 py-1 ${active ? "text-terracotta-600" : "text-ink-600"}`}
+      className={`flex flex-col items-center justify-center gap-1 ${active ? "text-terracotta-600" : "text-ink-600"}`}
     >
       <Icon className="h-6 w-6" />
       <span className="text-[11px] font-medium">{label}</span>
@@ -120,14 +144,10 @@ function ChatIcon({ className = "" }: { className?: string }) {
   );
 }
 
-function PhoneIcon({ className = "" }: { className?: string }) {
+function MoreIcon({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className={className} aria-hidden="true">
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M3 5.5c0-1.1.9-2 2-2h1.28a1 1 0 0 1 .97.76l.87 3.5a1 1 0 0 1-.29.98l-1.4 1.28a12.5 12.5 0 0 0 6.05 6.05l1.28-1.4a1 1 0 0 1 .98-.29l3.5.87a1 1 0 0 1 .76.97V19a2 2 0 0 1-2 2h-.5C9.4 21 3 14.6 3 6.5v-1Z"
-      />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4 7h16M4 12h16M4 17h16" />
     </svg>
   );
 }

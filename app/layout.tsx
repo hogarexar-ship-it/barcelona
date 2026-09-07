@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { MobileBottomBar } from "@/components/MobileBottomBar";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { JsonLd } from "@/components/JsonLd";
+import { LanguageProvider } from "@/lib/i18n/context";
 import { localBusinessSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site-config";
 
@@ -57,11 +58,13 @@ export default function RootLayout({
     <html lang="es" className={`${inter.variable} ${manrope.variable}`}>
       <body className="flex min-h-screen flex-col font-sans">
         <JsonLd data={localBusinessSchema()} />
-        <Header />
-        <main className="flex-1 pb-20 md:pb-0">{children}</main>
-        <Footer />
-        <MobileBottomBar />
-        <FloatingWhatsApp />
+        <LanguageProvider>
+          <Header />
+          <main className="flex-1 pb-20 md:pb-0">{children}</main>
+          <Footer />
+          <MobileBottomBar />
+          <FloatingWhatsApp />
+        </LanguageProvider>
       </body>
     </html>
   );
