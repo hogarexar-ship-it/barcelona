@@ -24,10 +24,16 @@ export function MobileBottomBar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { t } = useLanguage();
 
-  const tabs: { href: string; label: string; icon: IconComponent }[] = [
-    { href: "/", label: t.bottomBar.inicio, icon: HomeIcon },
-    { href: "/servicios", label: t.bottomBar.servicios, icon: WrenchIcon },
-  ];
+  const homeTab: { href: string; label: string; icon: IconComponent } = {
+    href: "/",
+    label: t.bottomBar.inicio,
+    icon: HomeIcon,
+  };
+  const serviciosTab: { href: string; label: string; icon: IconComponent } = {
+    href: "/servicios",
+    label: t.bottomBar.servicios,
+    icon: WrenchIcon,
+  };
 
   const whatsappHrefValue = whatsappHref("Hola Hogarex, necesito ayuda con un problema en mi casa en Barcelona.");
 
@@ -39,8 +45,13 @@ export function MobileBottomBar() {
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       >
         <div className="relative mx-auto grid h-16 max-w-md grid-cols-5">
-          <TabLink href={tabs[0].href} label={tabs[0].label} Icon={tabs[0].icon} active={pathname === tabs[0].href} />
-          <TabLink href={tabs[1].href} label={tabs[1].label} Icon={tabs[1].icon} active={pathname === tabs[1].href} />
+          <TabLink href={homeTab.href} label={homeTab.label} Icon={homeTab.icon} active={pathname === homeTab.href} />
+          <TabLink
+            href={serviciosTab.href}
+            label={serviciosTab.label}
+            Icon={serviciosTab.icon}
+            active={pathname === serviciosTab.href}
+          />
 
           {/* Columna central vacía: el botón "Solicitar" flota encima, posicionado absoluto. */}
           <div aria-hidden="true" />

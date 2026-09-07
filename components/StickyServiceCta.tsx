@@ -25,9 +25,13 @@ export function StickyServiceCta({
     const node = sentinelRef.current;
     if (!node) return;
 
-    const observer = new IntersectionObserver(([entry]) => setVisible(!entry.isIntersecting), {
-      rootMargin: "-72px 0px 0px 0px",
-    });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry) setVisible(!entry.isIntersecting);
+      },
+      { rootMargin: "-72px 0px 0px 0px" }
+    );
     observer.observe(node);
     return () => observer.disconnect();
   }, []);
