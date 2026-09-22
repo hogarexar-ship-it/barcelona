@@ -1,17 +1,24 @@
 import { siteConfig } from "./site-config";
-import type { Faq } from "./services-data";
+import type { Faq } from "./types";
 
-export function localBusinessSchema() {
+const businessId = `${siteConfig.url}/#organization`;
+
+const audience = {
+  "@type": "BusinessAudience",
+  audienceType: "Empresas de reformas, fontaneros y electricistas de Barcelona",
+};
+
+export function organizationSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
-    "@id": `${siteConfig.url}/#business`,
+    "@type": "ProfessionalService",
+    "@id": businessId,
     name: siteConfig.brand,
     description: siteConfig.description,
+    slogan: siteConfig.tagline,
     url: siteConfig.url,
     telephone: siteConfig.phoneE164,
     email: siteConfig.email,
-    priceRange: "€€",
     address: {
       "@type": "PostalAddress",
       streetAddress: siteConfig.streetAddress,
@@ -20,36 +27,33 @@ export function localBusinessSchema() {
       postalCode: siteConfig.postalCode,
       addressCountry: siteConfig.addressCountry,
     },
-    areaServed: {
-      "@type": "City",
-      name: "Barcelona",
-    },
-    openingHours: "Mo-Su 08:00-21:00",
+    areaServed: { "@type": "City", name: "Barcelona" },
+    audience,
+    knowsAbout: [
+      "Captación de clientes para profesionales de oficios",
+      "Google Business Profile",
+      "Google Ads",
+      "Meta Ads",
+      "SEO local",
+      "Marketing para empresas de reformas",
+      "Marketing para fontaneros",
+      "Marketing para electricistas",
+    ],
     sameAs: Object.values(siteConfig.socials),
   };
 }
 
-export function serviceSchema(args: {
-  name: string;
-  description: string;
-  url: string;
-}) {
+export function serviceSchema(args: { name: string; description: string; url: string }) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    serviceType: args.name,
-    provider: {
-      "@type": "HomeAndConstructionBusiness",
-      name: siteConfig.brand,
-      "@id": `${siteConfig.url}/#business`,
-    },
-    areaServed: {
-      "@type": "City",
-      name: "Barcelona",
-    },
     name: args.name,
+    serviceType: args.name,
     description: args.description,
     url: args.url,
+    provider: { "@type": "ProfessionalService", "@id": businessId, name: siteConfig.brand },
+    areaServed: { "@type": "City", name: "Barcelona" },
+    audience,
   };
 }
 
@@ -60,10 +64,7 @@ export function faqSchema(faqs: Faq[]) {
     mainEntity: faqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
     })),
   };
 }
@@ -96,13 +97,9 @@ export function blogPostingSchema(args: {
     url: args.url,
     datePublished: args.datePublished,
     dateModified: args.dateModified,
-    author: {
-      "@type": "Organization",
-      name: siteConfig.brand,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: siteConfig.brand,
-    },
+    inLanguage: "es-ES",
+    audience,
+    author: { "@type": "Organization", "@id": businessId, name: siteConfig.brand },
+    publisher: { "@type": "Organization", "@id": businessId, name: siteConfig.brand },
   };
 }

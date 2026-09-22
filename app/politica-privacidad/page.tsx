@@ -6,7 +6,7 @@ import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = buildMetadata({
   title: "Política de privacidad",
-  description: `Política de privacidad de ${siteConfig.brand} Barcelona, conforme al RGPD.`,
+  description: `Política de privacidad de ${siteConfig.brand}, conforme al RGPD.`,
   path: "/politica-privacidad",
 });
 
@@ -17,7 +17,7 @@ export default function PoliticaPrivacidadPage() {
         <Breadcrumbs items={[{ name: "Política de privacidad", href: "/politica-privacidad" }]} />
         <h1 className="mt-6 font-display text-3xl font-bold text-ink-900">Política de privacidad</h1>
 
-        <div className="prose-hogarex mt-8 space-y-6 text-sm text-ink-600">
+        <div className="mt-8 space-y-6 text-sm text-ink-600">
           <p className="rounded-xl2 border border-urgent-500/30 bg-urgent-500/5 p-4 text-urgent-600">
             Contenido pendiente de revisión legal. Este texto es un modelo general de política de
             privacidad conforme al RGPD y debe validarse con un asesor legal antes de publicar el
@@ -36,18 +36,19 @@ export default function PoliticaPrivacidadPage() {
           <div>
             <h2 className="font-display text-lg font-bold text-ink-900">2. Datos que recopilamos</h2>
             <p className="mt-2">
-              A través del formulario de contacto y las conversaciones por WhatsApp o teléfono
-              recopilamos: nombre, teléfono, correo electrónico (si se facilita), zona de Barcelona
-              y descripción del servicio solicitado.
+              A través del formulario y de las conversaciones por WhatsApp, teléfono o email
+              recopilamos los datos que nos facilitas como profesional: nombre, teléfono, correo
+              electrónico (si se facilita), nombre de tu empresa, oficio, zonas de trabajo y el
+              servicio que te interesa.
             </p>
           </div>
 
           <div>
             <h2 className="font-display text-lg font-bold text-ink-900">3. Finalidad</h2>
             <p className="mt-2">
-              Utilizamos estos datos exclusivamente para gestionar tu solicitud de servicio,
-              coordinar con el profesional de nuestra red correspondiente y contactarte para
-              confirmar horario y presupuesto.
+              Utilizamos estos datos para contactarte, gestionar tu alta en la red de clientes o
+              preparar tu propuesta de marketing y, si llegamos a un acuerdo, prestarte el
+              servicio contratado.
             </p>
           </div>
 
@@ -62,16 +63,16 @@ export default function PoliticaPrivacidadPage() {
           <div>
             <h2 className="font-display text-lg font-bold text-ink-900">5. Cesión de datos</h2>
             <p className="mt-2">
-              Compartimos los datos estrictamente necesarios (nombre, teléfono, dirección y detalle
-              del trabajo) con el profesional de nuestra red asignado a tu solicitud, con el único
-              fin de que pueda realizar el servicio.
+              No vendemos tus datos. Solo los compartimos con proveedores necesarios para prestar
+              el servicio (por ejemplo, herramientas de comunicación o de gestión) y cuando lo
+              exija la ley.
             </p>
           </div>
 
           <div>
             <h2 className="font-display text-lg font-bold text-ink-900">6. Derechos</h2>
             <p className="mt-2">
-              Podés ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación
+              Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación
               y portabilidad escribiendo a {siteConfig.email}.
             </p>
           </div>

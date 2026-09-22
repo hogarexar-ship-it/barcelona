@@ -6,7 +6,7 @@ import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = buildMetadata({
   title: "Aviso legal",
-  description: `Aviso legal de ${siteConfig.brand} Barcelona.`,
+  description: `Aviso legal de ${siteConfig.brand}.`,
   path: "/aviso-legal",
 });
 
@@ -17,7 +17,7 @@ export default function AvisoLegalPage() {
         <Breadcrumbs items={[{ name: "Aviso legal", href: "/aviso-legal" }]} />
         <h1 className="mt-6 font-display text-3xl font-bold text-ink-900">Aviso legal</h1>
 
-        <div className="prose-hogarex mt-8 space-y-6 text-sm text-ink-600">
+        <div className="mt-8 space-y-6 text-sm text-ink-600">
           <p className="rounded-xl2 border border-urgent-500/30 bg-urgent-500/5 p-4 text-urgent-600">
             Contenido pendiente de revisión legal. Este texto es un modelo general y debe ser
             validado por un asesor legal con los datos reales de la sociedad antes de publicar el
@@ -38,9 +38,11 @@ export default function AvisoLegalPage() {
           <div>
             <h2 className="font-display text-lg font-bold text-ink-900">2. Objeto</h2>
             <p className="mt-2">
-              {siteConfig.brand} gestiona la coordinación de servicios de fontanería, electricidad
-              y gas en Barcelona, actuando como intermediario entre el cliente y una red de
-              profesionales independientes que ejecutan los trabajos.
+              {siteConfig.brand} presta servicios a profesionales y empresas de oficios en
+              Barcelona: captación y derivación de clientes a cambio de una comisión (red de
+              clientes) y servicios de marketing (gestión de perfiles de empresa, publicidad
+              online, posicionamiento, marca y redes sociales). Los trabajos derivados los
+              ejecutan profesionales independientes, que son responsables de ellos.
             </p>
           </div>
 

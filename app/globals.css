@@ -8,12 +8,36 @@
   }
 
   body {
-    @apply bg-cream-50 text-ink-800;
+    @apply bg-cream-50 text-ink-800 antialiased;
   }
 }
 
 @layer components {
   .input {
-    @apply w-full rounded-lg border border-ink-100 bg-cream-50 px-3 py-2 text-sm text-ink-900 placeholder:text-ink-400 focus:border-terracotta-400 focus:outline-none focus:ring-1 focus:ring-terracotta-400;
+    @apply w-full rounded-xl border border-ink-100 bg-white px-4 py-3 text-base text-ink-900 placeholder:text-ink-400 focus:border-terracotta-400 focus:outline-none focus:ring-2 focus:ring-terracotta-200;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-terracotta-500 active:scale-[0.98];
+  }
+
+  .btn-primary {
+    @apply bg-terracotta-500 text-white shadow-lg shadow-terracotta-500/25 hover:bg-terracotta-600;
+  }
+
+  .btn-dark {
+    @apply bg-ink-900 text-white hover:bg-ink-800;
+  }
+
+  .btn-outline {
+    @apply border border-ink-900/15 bg-white text-ink-900 hover:border-ink-900/40;
+  }
+
+  .btn-light {
+    @apply bg-white text-ink-900 hover:bg-cream-100;
+  }
+
+  .eyebrow {
+    @apply text-sm font-semibold uppercase tracking-wide text-terracotta-600;
   }
 }

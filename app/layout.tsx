@@ -4,11 +4,9 @@ import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { MobileBottomBar } from "@/components/MobileBottomBar";
-import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
+import { MobileCtaBar } from "@/components/MobileCtaBar";
 import { JsonLd } from "@/components/JsonLd";
-import { LanguageProvider } from "@/lib/i18n/context";
-import { localBusinessSchema } from "@/lib/schema";
+import { organizationSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site-config";
 
 const inter = Inter({
@@ -27,20 +25,22 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.brand} Barcelona — Fontanería, electricidad, gas y más`,
-    template: `%s | ${siteConfig.brand} Barcelona`,
+    default: `${siteConfig.brand}: ${siteConfig.tagline}`,
+    template: `%s | ${siteConfig.brand}`,
   },
   description: siteConfig.description,
   applicationName: siteConfig.brand,
   keywords: [
-    "fontanero Barcelona",
-    "electricista Barcelona",
-    "gasista Barcelona",
-    "pintor Barcelona",
-    "carpintero Barcelona",
-    "aire acondicionado Barcelona",
-    "urgencias hogar Barcelona",
-    "Hogarex",
+    "clientes para fontaneros Barcelona",
+    "clientes para electricistas Barcelona",
+    "clientes para empresas de reformas Barcelona",
+    "conseguir clientes reformas",
+    "marketing para fontaneros",
+    "marketing para electricistas",
+    "marketing para empresas de reformas",
+    "Google Business Profile autónomos",
+    "Google Ads para oficios",
+    siteConfig.brand,
   ],
   authors: [{ name: siteConfig.brand }],
   robots: { index: true, follow: true },
@@ -49,22 +49,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="es" className={`${inter.variable} ${manrope.variable}`}>
       <body className="flex min-h-screen flex-col font-sans">
-        <JsonLd data={localBusinessSchema()} />
-        <LanguageProvider>
-          <Header />
-          <main className="flex-1 pb-20 md:pb-0">{children}</main>
-          <Footer />
-          <MobileBottomBar />
-          <FloatingWhatsApp />
-        </LanguageProvider>
+        <JsonLd data={organizationSchema()} />
+        <Header />
+        <main className="flex-1 pb-24 md:pb-0">{children}</main>
+        <Footer />
+        <MobileCtaBar />
       </body>
     </html>
   );

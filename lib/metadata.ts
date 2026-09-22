@@ -5,13 +5,14 @@ type BuildMetadataArgs = {
   title: string;
   description: string;
   path: string;
+  absoluteTitle?: boolean;
 };
 
-export function buildMetadata({ title, description, path }: BuildMetadataArgs): Metadata {
+export function buildMetadata({ title, description, path, absoluteTitle = false }: BuildMetadataArgs): Metadata {
   const url = `${siteConfig.url}${path}`;
 
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
     alternates: {
       canonical: url,

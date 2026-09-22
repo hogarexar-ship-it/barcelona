@@ -1,4 +1,4 @@
-import type { Faq } from "@/lib/services-data";
+import type { Faq } from "@/lib/types";
 
 /**
  * Usa <details>/<summary> nativos a propósito: el contenido de las

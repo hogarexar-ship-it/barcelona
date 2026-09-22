@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { siteConfig } from "@/lib/site-config";
 
 export const runtime = "edge";
-export const alt = `${siteConfig.brand} Barcelona`;
+export const alt = `${siteConfig.brand}: ${siteConfig.tagline}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -17,19 +17,19 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          backgroundColor: "#FDF3EE",
+          backgroundColor: "#FAF5EC",
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ display: "flex", fontSize: 64, fontWeight: 800, color: "#1B1814" }}>
-          {siteConfig.brand}
-          <span style={{ color: "#C55F2C", marginLeft: 16 }}>Barcelona</span>
+        <div style={{ display: "flex", alignItems: "flex-end", fontSize: 72, fontWeight: 800, color: "#1B1814" }}>
+          {siteConfig.brand.toLowerCase()}
+          <div style={{ width: 18, height: 18, borderRadius: 9, backgroundColor: "#C55F2C", marginLeft: 6, marginBottom: 18 }} />
         </div>
-        <div style={{ display: "flex", marginTop: 32, fontSize: 32, color: "#443F38", maxWidth: 900 }}>
+        <div style={{ display: "flex", marginTop: 36, fontSize: 60, fontWeight: 800, color: "#1B1814", maxWidth: 1000, lineHeight: 1.1 }}>
           {siteConfig.tagline}
         </div>
-        <div style={{ display: "flex", marginTop: 48, fontSize: 24, color: "#A44A22", fontWeight: 700 }}>
-          Fontanería · Electricidad · Gas · Pintura · Carpintería · Climatización
+        <div style={{ display: "flex", marginTop: 40, fontSize: 28, color: "#A44A22", fontWeight: 700 }}>
+          Red de clientes · Marketing · Reformas, fontanería y electricidad
         </div>
       </div>
     ),

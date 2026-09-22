@@ -1,49 +1,62 @@
 /**
- * Fuente única de verdad para datos de marca y contacto.
+ * Fuente única de verdad para marca, contacto y condiciones comerciales.
+ * Cambiar el nombre de la marca aquí lo cambia en todo el sitio.
  *
  * TODO ANTES DE PRODUCCIÓN: reemplazar los valores marcados como PLACEHOLDER
- * con los datos reales del negocio (ver README.md, sección "Checklist antes
- * de publicar"). Mientras tanto el sitio compila y es funcional con estos
- * valores de ejemplo.
+ * (ver README.md, "Checklist antes de publicar").
  */
 
 export const siteConfig = {
-  brand: "Hogarex",
-  legalName: "Hogarex Barcelona", // PLACEHOLDER: razón social / CIF real
-  tagline: "Te conectamos con los mejores profesionales de Barcelona",
-  shortTagline: "Red de profesionales de oficio en Barcelona",
+  brand: "Ofici", // PLACEHOLDER: nombre de marca temporal
+  legalName: "Ofici Barcelona", // PLACEHOLDER: razón social / CIF real
+  tagline: "Más clientes para tu oficio en Barcelona",
   description:
-    "Hogarex gestiona en Barcelona servicios de fontanería, electricidad, gas, pintura, carpintería y climatización. Nos cuentas qué necesitas y nosotros coordinamos al profesional de nuestra red que resuelve el trabajo. Sin buscar perfiles, sin comparar presupuestos por tu cuenta: una sola llamada y nosotros nos encargamos.",
-  url: "https://www.hogarex.es", // PLACEHOLDER: dominio definitivo
+    "Ofici ayuda a empresas de reformas, fontaneros y electricistas de Barcelona a conseguir más clientes: te pasamos trabajos de tu oficio y tu zona a cambio de una comisión, o llevamos tu marketing (Google Business, Google Ads, Meta, SEO, marca y redes).",
+  url: "https://www.ofici.es", // PLACEHOLDER: dominio definitivo
   phoneDisplay: "930 00 00 00", // PLACEHOLDER
   phoneE164: "+34930000000", // PLACEHOLDER
   whatsappNumber: "34600000000", // PLACEHOLDER (sin '+', formato wa.me)
-  email: "hola@hogarex.es", // PLACEHOLDER
+  email: "hola@ofici.es", // PLACEHOLDER
   addressLocality: "Barcelona",
   addressRegion: "Cataluña",
   addressCountry: "ES",
   postalCode: "08001", // PLACEHOLDER
-  streetAddress: "Carrer de Provença, 1", // PLACEHOLDER — puede ser una dirección administrativa, no un local público
-  openingHours: "Lu-Do 08:00-21:00 · Urgencias 24h",
-  emergencyAvailable: true,
+  streetAddress: "Carrer de Provença, 1", // PLACEHOLDER: puede ser una dirección administrativa
+  openingHours: "Lunes a viernes, 9:00 a 19:00",
+  areaServed: "Barcelona y área metropolitana",
   socials: {
-    instagram: "https://www.instagram.com/hogarex", // PLACEHOLDER
-    facebook: "https://www.facebook.com/hogarex", // PLACEHOLDER
+    instagram: "https://www.instagram.com/ofici.bcn", // PLACEHOLDER
+    linkedin: "https://www.linkedin.com/company/ofici-bcn", // PLACEHOLDER
   },
-  foundingArgentina: "hogarex.ar",
+};
+
+/**
+ * Condiciones comerciales que se muestran en el sitio. Revisar con el
+ * negocio antes de publicar: son compromisos visibles para el profesional.
+ */
+export const commercialTerms = {
+  network: {
+    signupFee: "Alta gratuita",
+    model: "Pagas una comisión solo cuando cierras un trabajo que te hemos pasado.",
+    noFixedFee: "Sin cuotas mensuales fijas",
+  },
+  marketing: {
+    freeAudit: "Diagnóstico gratuito de tu presencia online",
+    model: "Plan mensual a medida: eliges solo los servicios que necesitas.",
+  },
+};
+
+export const primaryCta = {
+  label: "Quiero más clientes",
+  href: "/empezar",
 };
 
 export function whatsappHref(message: string): string {
-  const encoded = encodeURIComponent(message);
-  return `https://wa.me/${siteConfig.whatsappNumber}?text=${encoded}`;
+  return `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 
 export function telHref(): string {
   return `tel:${siteConfig.phoneE164}`;
 }
 
-export function mailHref(subject?: string): string {
-  return subject
-    ? `mailto:${siteConfig.email}?subject=${encodeURIComponent(subject)}`
-    : `mailto:${siteConfig.email}`;
-}
+export const defaultWhatsappMessage = `Hola ${siteConfig.brand}, soy profesional en Barcelona y quiero información para conseguir más clientes.`;

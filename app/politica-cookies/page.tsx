@@ -6,7 +6,7 @@ import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = buildMetadata({
   title: "Política de cookies",
-  description: `Política de cookies de ${siteConfig.brand} Barcelona.`,
+  description: `Política de cookies de ${siteConfig.brand}.`,
   path: "/politica-cookies",
 });
 
@@ -17,7 +17,7 @@ export default function PoliticaCookiesPage() {
         <Breadcrumbs items={[{ name: "Política de cookies", href: "/politica-cookies" }]} />
         <h1 className="mt-6 font-display text-3xl font-bold text-ink-900">Política de cookies</h1>
 
-        <div className="prose-hogarex mt-8 space-y-6 text-sm text-ink-600">
+        <div className="mt-8 space-y-6 text-sm text-ink-600">
           <p className="rounded-xl2 border border-urgent-500/30 bg-urgent-500/5 p-4 text-urgent-600">
             Contenido pendiente de revisión legal. Si en el futuro se añaden cookies de analítica o
             marketing (por ejemplo, Google Analytics o Meta Pixel), este sitio deberá incorporar un
@@ -45,7 +45,7 @@ export default function PoliticaCookiesPage() {
           <div>
             <h2 className="font-display text-lg font-bold text-ink-900">3. Cómo gestionar las cookies</h2>
             <p className="mt-2">
-              Podés configurar tu navegador para aceptar, rechazar o eliminar las cookies en
+              Puedes configurar tu navegador para aceptar, rechazar o eliminar las cookies en
               cualquier momento desde su configuración de privacidad.
             </p>
           </div>
