@@ -20,9 +20,8 @@ export type Service = {
   metaDescription: string;
   heroTitle: string;
   heroSubtitle: string;
-  cardText: string;
-  problems: { value: string; label: string }[];
-  subservices: { title: string; text: string }[];
+  problems: { value: string; label: string; icon: IconName }[];
+  subservices: { icon: IconName; title: string; text: string }[];
   faqs: Faq[];
 };
 
@@ -44,34 +43,38 @@ export const services: Service[] = [
     heroTitle: "Fontanero en Barcelona, cuando lo necesitas",
     heroSubtitle:
       "Fugas, atascos, calentadores o grifos. Cuéntanos qué pasa y te ponemos en contacto con un fontanero verificado de tu zona. Pedir presupuesto es gratis.",
-    cardText: "Fugas, atascos, calentadores, grifos, cisternas e instalaciones de agua.",
     problems: [
-      { value: "fuga", label: "Fuga de agua" },
-      { value: "atasco", label: "Atasco o desagüe lento" },
-      { value: "calentador", label: "Calentador o termo" },
-      { value: "grifo", label: "Grifo o cisterna" },
-      { value: "instalacion", label: "Instalación en baño o cocina" },
-      { value: OTHER_PROBLEM, label: "Otra cosa" },
+      { value: "fuga", label: "Fuga de agua", icon: "droplet" },
+      { value: "atasco", label: "Atasco o desagüe lento", icon: "drain" },
+      { value: "calentador", label: "Calentador o termo", icon: "flame" },
+      { value: "grifo", label: "Grifo o cisterna", icon: "faucet" },
+      { value: "instalacion", label: "Instalación en baño o cocina", icon: "bath" },
+      { value: OTHER_PROBLEM, label: "Otra cosa", icon: "question" },
     ],
     subservices: [
       {
+        icon: "droplet",
         title: "Fugas y reparación de tuberías",
         text: "Localización y reparación de fugas en tuberías, conexiones y bajantes, también las que no se ven.",
       },
-      { title: "Desatascos", text: "Fregaderos, lavabos, duchas, inodoros y bajantes que tragan mal o no tragan." },
+      { icon: "drain", title: "Desatascos", text: "Fregaderos, lavabos, duchas, inodoros y bajantes que tragan mal o no tragan." },
       {
+        icon: "flame",
         title: "Calentadores y termos",
         text: "Reparación, sustitución e instalación de termos eléctricos y calentadores.",
       },
       {
+        icon: "faucet",
         title: "Grifería y sanitarios",
         text: "Grifos que gotean, cisternas que no dejan de cargar, inodoros y platos de ducha.",
       },
       {
+        icon: "bath",
         title: "Instalaciones en baño y cocina",
         text: "Tomas de agua y desagües para lavadora, lavavajillas o una reforma.",
       },
       {
+        icon: "building",
         title: "Comunidades y locales",
         text: "Averías en zonas comunes y mantenimiento para administradores de fincas y comercios.",
       },
@@ -117,38 +120,43 @@ export const services: Service[] = [
     heroTitle: "Electricista en Barcelona, sin complicaciones",
     heroSubtitle:
       "Se va la luz, salta el diferencial o necesitas un boletín. Cuéntanos qué pasa y te ponemos en contacto con un electricista verificado de tu zona.",
-    cardText: "Averías, diferenciales, enchufes, boletines, cuadros y cargadores de coche eléctrico.",
     problems: [
-      { value: "sin-luz", label: "Me he quedado sin luz" },
-      { value: "diferencial", label: "Salta el diferencial" },
-      { value: "enchufes", label: "Enchufes, luces o interruptores" },
-      { value: "boletin", label: "Boletín o certificado" },
-      { value: "cuadro", label: "Cuadro o potencia" },
-      { value: "cargador", label: "Cargador de coche eléctrico" },
-      { value: OTHER_PROBLEM, label: "Otra cosa" },
+      { value: "sin-luz", label: "Me he quedado sin luz", icon: "bulb" },
+      { value: "diferencial", label: "Salta el diferencial", icon: "bolt" },
+      { value: "enchufes", label: "Enchufes, luces o interruptores", icon: "plug" },
+      { value: "boletin", label: "Boletín o certificado", icon: "document" },
+      { value: "cuadro", label: "Cuadro o potencia", icon: "panel" },
+      { value: "cargador", label: "Cargador de coche eléctrico", icon: "car" },
+      { value: OTHER_PROBLEM, label: "Otra cosa", icon: "question" },
     ],
     subservices: [
       {
+        icon: "bolt",
         title: "Averías eléctricas",
         text: "Cortes de luz, cortocircuitos, diferenciales que saltan y enchufes que no funcionan.",
       },
       {
+        icon: "document",
         title: "Boletines y certificados (CIE)",
         text: "Para dar de alta la luz, cambiar de titular o aumentar la potencia, emitidos por instaladores habilitados.",
       },
       {
+        icon: "panel",
         title: "Cuadros eléctricos",
         text: "Cambio y adecuación del cuadro a la normativa, sobre todo en pisos antiguos.",
       },
       {
+        icon: "plug",
         title: "Enchufes, luces e interruptores",
         text: "Nuevos puntos de luz y enchufes, lámparas e iluminación LED.",
       },
       {
+        icon: "car",
         title: "Cargadores de coche eléctrico",
         text: "Instalación de puntos de carga en garajes particulares y comunitarios.",
       },
       {
+        icon: "home",
         title: "Instalaciones completas",
         text: "Renovación de la instalación eléctrica en reformas de pisos y locales.",
       },
@@ -187,10 +195,10 @@ export function getService(trade: Trade): Service {
   return service;
 }
 
-export const urgencyOptions = [
-  { value: "urgente", label: "Urgente, hoy" },
-  { value: "semana", label: "Esta semana" },
-  { value: "sin-prisa", label: "Sin prisa" },
+export const urgencyOptions: { value: string; label: string; icon: IconName }[] = [
+  { value: "urgente", label: "Urgente, hoy", icon: "alert" },
+  { value: "semana", label: "Esta semana", icon: "calendar" },
+  { value: "sin-prisa", label: "Sin prisa", icon: "clock" },
 ];
 
 export const districts = [

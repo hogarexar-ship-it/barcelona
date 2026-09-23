@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import type { FormEvent, ReactNode } from "react";
 import Link from "next/link";
 import { WhatsAppIcon } from "./CtaButtons";
+import { Icon } from "./Icon";
 import { interestOptions, tradeOptions } from "@/lib/offers";
 import type { Interest, ProTrade } from "@/lib/offers";
 import { siteConfig, whatsappHref } from "@/lib/site-config";
@@ -97,7 +98,7 @@ export function ProLeadForm({
           {interestOptions.map((option) => (
             <label
               key={option.value}
-              className={`flex cursor-pointer items-center justify-center rounded-xl border px-3 py-3 text-center text-sm font-semibold transition ${
+              className={`flex cursor-pointer flex-col items-center justify-center gap-1.5 rounded-xl border px-3 py-3 text-center text-sm font-semibold transition ${
                 interest === option.value
                   ? "border-accent-500 bg-accent-50 text-accent-700"
                   : "border-ink-100 text-ink-600 hover:border-ink-200"
@@ -111,6 +112,7 @@ export function ProLeadForm({
                 onChange={() => setInterest(option.value)}
                 className="sr-only"
               />
+              <Icon name={option.icon} className="h-6 w-6" />
               {option.label}
             </label>
           ))}

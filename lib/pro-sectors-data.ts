@@ -19,7 +19,7 @@ export type Sector = {
   heroSubtitle: string;
   cardText: string;
   demand: string[];
-  jobTypes: string[];
+  jobTypes: { icon: IconName; label: string }[];
   networkText: string;
   marketingTactics: { title: string; text: string }[];
   faqs: Faq[];
@@ -46,12 +46,12 @@ export const sectors: Sector[] = [
       "Para un fontanero el reto no es que haya trabajo, sino que te llegue a ti. Quien tiene una urgencia busca en el móvil y llama al primero con buenas reseñas y el teléfono a la vista.",
     ],
     jobTypes: [
-      "Fugas y reparación de tuberías",
-      "Desatascos",
-      "Instalación y cambio de calentadores y termos",
-      "Grifería, sanitarios y cisternas",
-      "Fontanería en reformas de baño y cocina",
-      "Mantenimiento para comunidades y locales",
+      { icon: "droplet", label: "Fugas y reparación de tuberías" },
+      { icon: "drain", label: "Desatascos" },
+      { icon: "flame", label: "Instalación y cambio de calentadores y termos" },
+      { icon: "faucet", label: "Grifería, sanitarios y cisternas" },
+      { icon: "bath", label: "Fontanería en reformas de baño y cocina" },
+      { icon: "building", label: "Mantenimiento para comunidades y locales" },
     ],
     networkText:
       "Te pasamos avisos de fontanería de las zonas y horarios que tú eliges, con la información clave antes de llamar: qué ocurre, dónde y cuándo lo necesita el cliente. Pagas comisión únicamente por los trabajos que cierras.",
@@ -112,12 +112,12 @@ export const sectors: Sector[] = [
       "Son trabajos de más valor en los que el cliente busca a un instalador habilitado y de confianza. Si tu ficha de Google y tu web no lo transmiten, el cliente llama al siguiente.",
     ],
     jobTypes: [
-      "Averías y reparaciones",
-      "Boletines y certificados de instalación (CIE)",
-      "Cambio de cuadro eléctrico y adecuación a normativa",
-      "Puntos de carga para coche eléctrico",
-      "Reformas eléctricas de viviendas y locales",
-      "Iluminación y domótica",
+      { icon: "bolt", label: "Averías y reparaciones" },
+      { icon: "document", label: "Boletines y certificados de instalación (CIE)" },
+      { icon: "panel", label: "Cambio de cuadro eléctrico y adecuación a normativa" },
+      { icon: "car", label: "Puntos de carga para coche eléctrico" },
+      { icon: "home", label: "Reformas eléctricas de viviendas y locales" },
+      { icon: "bulb", label: "Iluminación y domótica" },
     ],
     networkText:
       "Te pasamos trabajos eléctricos de tus zonas, separados por tipo (averías, boletines, cuadros, cargadores, reformas) para que recibas solo lo que haces. Pagas comisión únicamente por los trabajos que cierras.",

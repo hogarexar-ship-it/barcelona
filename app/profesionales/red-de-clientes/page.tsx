@@ -10,7 +10,9 @@ import type { IconName } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { PhotoFrame } from "@/components/PhotoFrame";
+import { FeatureGrid } from "@/components/FeatureGrid";
 import { ProcessSteps } from "@/components/ProcessSteps";
+import type { Step } from "@/components/ProcessSteps";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ProSectorCards } from "@/components/ProSectorCards";
 import { ProSignupSection } from "@/components/ProSignupSection";
@@ -28,20 +30,24 @@ const description = `Únete gratis a la red de ${siteConfig.brand}: te pasamos c
 
 export const metadata: Metadata = buildMetadata({ title, description, path });
 
-const steps = [
+const steps: Step[] = [
   {
+    icon: "document",
     title: "Te das de alta",
     description: "Rellenas el formulario y te llamamos para conocer tu oficio, tus zonas, el tipo de trabajos que haces y tu disponibilidad.",
   },
   {
+    icon: "shield",
     title: "Validamos tu perfil",
     description: "Comprobamos tu alta, tu seguro de responsabilidad civil y trabajos anteriores. Así cuidamos la calidad de la red.",
   },
   {
+    icon: "inbox",
     title: "Te pasamos clientes",
     description: "Cuando llega un cliente de tu oficio y tu zona, te lo pasamos con lo que necesita, dónde y para cuándo.",
   },
   {
+    icon: "euro",
     title: "Cierras y cobras",
     description: "Presupuestas y haces el trabajo como siempre. Pagas la comisión acordada solo por los trabajos que cierras.",
   },
@@ -121,7 +127,8 @@ export default function ConseguirClientesPage() {
 
       <PageHero
         audience="pro"
-        aside={<PhotoFrame photo={photos.fontaneroClienteCocina} priority className="hidden aspect-[4/5] lg:block" sizes="40vw" />}
+        aside={<PhotoFrame photo={photos.fontaneroClienteCocina} priority className="aspect-[4/5]" sizes="40vw" />}
+        asideDesktopOnly
         eyebrow={networkOffer.name}
         title="Te pasamos clientes. Tú haces el trabajo."
         subtitle={`Captamos a personas y empresas de Barcelona que necesitan tu oficio y te pasamos las que encajan contigo. ${commercialTerms.network.signupFee} y comisión solo por trabajo cerrado.`}
@@ -145,16 +152,8 @@ export default function ConseguirClientesPage() {
       <section className="bg-surface-100 py-16 sm:py-24">
         <Container>
           <SectionHeading eyebrow="Qué recibes" title="Clientes, no problemas" />
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {benefits.map((benefit) => (
-              <div key={benefit.title} className="rounded-xl2 border border-ink-100 bg-white p-6">
-                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-50 text-accent-600">
-                  <Icon name={benefit.icon} />
-                </span>
-                <h3 className="mt-5 font-display text-lg font-bold text-ink-900">{benefit.title}</h3>
-                <p className="mt-2 text-ink-600">{benefit.text}</p>
-              </div>
-            ))}
+          <div className="mt-10">
+            <FeatureGrid items={benefits} className="sm:grid-cols-2 lg:grid-cols-4" />
           </div>
         </Container>
       </section>

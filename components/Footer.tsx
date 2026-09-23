@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { Container } from "./Container";
+import { WhatsAppIcon } from "./CtaButtons";
+import { Icon } from "./Icon";
 import { Logo } from "./Logo";
 import { consumerRoutes, proRoutes, sectorPath, servicePath } from "@/lib/navigation";
 import { consumerWhatsappMessage, siteConfig, telHref, whatsappHref } from "@/lib/site-config";
@@ -34,21 +36,27 @@ export function Footer() {
 
         <FooterColumn title="Contacto">
           <li>
-            <a href={whatsappHref(consumerWhatsappMessage)} target="_blank" rel="noopener noreferrer" className="hover:text-white">
+            <a href={whatsappHref(consumerWhatsappMessage)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-white">
+              <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
               WhatsApp
             </a>
           </li>
           <li>
-            <a href={telHref()} className="hover:text-white">
+            <a href={telHref()} className="inline-flex items-center gap-2 hover:text-white">
+              <Icon name="phone" className="h-4 w-4" />
               {siteConfig.phoneDisplay}
             </a>
           </li>
           <li>
-            <a href={`mailto:${siteConfig.email}`} className="hover:text-white">
+            <a href={`mailto:${siteConfig.email}`} className="inline-flex items-center gap-2 hover:text-white">
+              <Icon name="mail" className="h-4 w-4" />
               {siteConfig.email}
             </a>
           </li>
-          <li>{siteConfig.openingHours}</li>
+          <li className="inline-flex items-center gap-2">
+            <Icon name="clock" className="h-4 w-4" />
+            {siteConfig.openingHours}
+          </li>
         </FooterColumn>
       </Container>
 

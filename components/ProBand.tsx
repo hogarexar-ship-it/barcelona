@@ -67,7 +67,9 @@ export function ProBand({ compact = false, professional }: { compact?: boolean; 
             </Link>
           </div>
         </div>
-        <PhotoFrame photo={photos.electricistaCasco} className="aspect-[16/10]" sizes="(min-width: 1024px) 50vw, 100vw" />
+        <div data-reveal>
+          <PhotoFrame photo={photos.electricistaCasco} className="aspect-[16/10]" sizes="(min-width: 1024px) 50vw, 100vw" />
+        </div>
       </Container>
     </section>
   );

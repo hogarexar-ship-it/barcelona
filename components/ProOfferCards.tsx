@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { CheckList } from "./CheckList";
 import { Icon } from "./Icon";
+import type { IconName } from "./Icon";
+import { Reveal } from "./Reveal";
 import { proRoutes } from "@/lib/navigation";
 import { marketingOffer, networkOffer } from "@/lib/offers";
 import type { Offer } from "@/lib/offers";
@@ -8,19 +10,30 @@ import type { Offer } from "@/lib/offers";
 export function ProOfferCards() {
   return (
     <div className="grid gap-6 lg:grid-cols-2">
-      <OfferCard offer={networkOffer} number={1} />
-      <OfferCard offer={marketingOffer} number={2} dark />
+      <Reveal className="h-full">
+        <OfferCard offer={networkOffer} number={1} icon="inbox" />
+      </Reveal>
+      <Reveal delay={150} className="h-full">
+        <OfferCard offer={marketingOffer} number={2} icon="megaphone" dark />
+      </Reveal>
     </div>
   );
 }
 
-function OfferCard({ offer, number, dark = false }: { offer: Offer; number: number; dark?: boolean }) {
+function OfferCard({ offer, number, icon, dark = false }: { offer: Offer; number: number; icon: IconName; dark?: boolean }) {
   return (
     <article
-      className={`flex flex-col rounded-xl2 p-7 sm:p-9 ${
+      className={`group flex h-full flex-col rounded-xl2 p-7 transition hover:-translate-y-1 hover:shadow-xl sm:p-9 ${
         dark ? "bg-ink-900 text-white" : "border border-ink-100 bg-white"
       }`}
     >
+      <span
+        className={`mb-6 flex h-16 w-16 items-center justify-center rounded-2xl transition-transform group-hover:scale-110 group-hover:-rotate-3 ${
+          dark ? "bg-accent-500/20 text-accent-300" : "bg-accent-50 text-accent-600"
+        }`}
+      >
+        <Icon name={icon} className="h-8 w-8" />
+      </span>
       <div className="flex items-center gap-3">
         <span className="flex h-9 w-9 items-center justify-center rounded-full bg-accent-500 font-display text-sm font-bold text-white">
           {number}

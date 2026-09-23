@@ -6,10 +6,10 @@ import { commercialTerms } from "./site-config";
 export type Interest = "clientes" | "marketing" | "ambos";
 export type ProTrade = Trade | "otro";
 
-export const interestOptions: { value: Interest; label: string }[] = [
-  { value: "clientes", label: "Recibir clientes" },
-  { value: "marketing", label: "Marketing para mi negocio" },
-  { value: "ambos", label: "Las dos cosas / aún no lo sé" },
+export const interestOptions: { value: Interest; label: string; icon: IconName }[] = [
+  { value: "clientes", label: "Recibir clientes", icon: "inbox" },
+  { value: "marketing", label: "Marketing para mi negocio", icon: "megaphone" },
+  { value: "ambos", label: "Las dos cosas / aún no lo sé", icon: "sparkles" },
 ];
 
 export const tradeOptions: { value: ProTrade; label: string }[] = [

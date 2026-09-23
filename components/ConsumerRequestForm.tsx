@@ -126,6 +126,7 @@ export function ConsumerRequestForm({ defaultTrade, idPrefix = "solicitud" }: { 
                 onSelect={() => setProblem(p.value)}
                 required
               >
+                <Icon name={p.icon} className="h-4 w-4" />
                 {p.label}
               </OptionPill>
             ))}
@@ -145,6 +146,7 @@ export function ConsumerRequestForm({ defaultTrade, idPrefix = "solicitud" }: { 
               onSelect={() => setUrgency(u.value)}
               required
             >
+              <Icon name={u.icon} className="h-4 w-4" />
               {u.label}
             </OptionPill>
           ))}

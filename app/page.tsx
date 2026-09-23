@@ -14,6 +14,7 @@ import {
   QuickProblems,
   RequestSection,
   ServiceCards,
+  ServiceMarquee,
   TrustBar,
 } from "@/components/consumer";
 import { GuideCards } from "@/components/guides";
@@ -72,6 +73,8 @@ export default function HomePage() {
         <QuickProblems />
       </PageHero>
 
+      <ServiceMarquee />
+
       <section className="py-16 sm:py-24">
         <Container>
           <SectionHeading
@@ -102,7 +105,9 @@ export default function HomePage() {
 
       <section className="py-16 sm:py-24">
         <Container className="grid gap-10 lg:grid-cols-2 lg:items-center">
-          <PhotoFrame photo={photos.salonBarcelona} className="aspect-[3/2]" />
+          <div data-reveal>
+            <PhotoFrame photo={photos.salonBarcelona} className="aspect-[3/2]" />
+          </div>
           <div>
             <SectionHeading
               eyebrow="Zonas"

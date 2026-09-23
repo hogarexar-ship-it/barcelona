@@ -9,7 +9,9 @@ import { Icon } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { PhotoFrame } from "@/components/PhotoFrame";
+import { FeatureGrid } from "@/components/FeatureGrid";
 import { ProcessSteps } from "@/components/ProcessSteps";
+import type { Step } from "@/components/ProcessSteps";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ProSignupSection } from "@/components/ProSignupSection";
 import { buildMetadata } from "@/lib/metadata";
@@ -34,20 +36,24 @@ const auditItems = [
   "Las tres acciones que te traerían más clientes antes, por orden.",
 ];
 
-const steps = [
+const steps: Step[] = [
   {
+    icon: "search",
     title: "Diagnóstico gratis",
     description: "Analizamos tu ficha de Google, tu web, tus anuncios y tu competencia en tu zona.",
   },
   {
+    icon: "chart",
     title: "Plan a medida",
     description: "Te proponemos solo lo que va a mover la aguja en tu caso, con presupuesto claro.",
   },
   {
+    icon: "megaphone",
     title: "Lo ponemos en marcha",
     description: "Nos encargamos de todo. Tú solo nos mandas fotos de trabajos y validas lo importante.",
   },
   {
+    icon: "trendingUp",
     title: "Informe mensual",
     description: "Llamadas, formularios, presupuestos y coste por cliente, explicados sin tecnicismos.",
   },
@@ -98,7 +104,8 @@ export default function MarketingPage() {
 
       <PageHero
         audience="pro"
-        aside={<PhotoFrame photo={photos.electricistaObra} priority className="hidden aspect-[4/5] lg:block" sizes="40vw" />}
+        aside={<PhotoFrame photo={photos.electricistaObra} priority className="aspect-[4/5]" sizes="40vw" />}
+        asideDesktopOnly
         eyebrow="Marketing para profesionales"
         title="Que te encuentren a ti, no a la competencia."
         subtitle="Llevamos el marketing de tu negocio de fontanería o electricidad en Barcelona: Google, anuncios, web, marca y redes. Tú eliges qué necesitas."
@@ -133,17 +140,8 @@ export default function MarketingPage() {
             title="Todo lo que necesita tu negocio para vender más"
             intro="Contrata solo lo que te hace falta. Puedes empezar por una pieza y sumar el resto cuando veas resultados."
           />
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {marketingServices.map((service) => (
-              <article key={service.name} className="rounded-xl2 border border-ink-100 bg-white p-6">
-                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-50 text-accent-600">
-                  <Icon name={service.icon} />
-                </span>
-                <p className="mt-5 text-sm font-semibold uppercase tracking-wide text-accent-600">{service.name}</p>
-                <h3 className="mt-1 font-display text-xl font-bold text-ink-900">{service.title}</h3>
-                <p className="mt-2 text-ink-600">{service.description}</p>
-              </article>
-            ))}
+          <div className="mt-10">
+            <FeatureGrid items={marketingServices.map((s) => ({ icon: s.icon, eyebrow: s.name, title: s.title, text: s.description }))} />
           </div>
         </Container>
       </section>

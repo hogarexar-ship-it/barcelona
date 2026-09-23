@@ -79,3 +79,117 @@
     @apply text-sm font-semibold uppercase tracking-wide text-accent-600;
   }
 }
+
+/* ---------- Animaciones ---------- */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes soft-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  80%,
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-marquee {
+  animation: marquee 45s linear infinite;
+}
+.animate-slide-up {
+  animation: slide-up 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) 0.3s both;
+}
+.animate-soft-ping {
+  animation: soft-ping 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+.anim-delay-1 {
+  animation-delay: 0.08s;
+}
+.anim-delay-2 {
+  animation-delay: 0.16s;
+}
+.anim-delay-3 {
+  animation-delay: 0.24s;
+}
+.anim-delay-4 {
+  animation-delay: 0.32s;
+}
+.anim-delay-float {
+  animation-delay: -3s;
+}
+
+/* Aparición al hacer scroll: solo se oculta cuando ScrollReveal (JS) lo marca como pendiente. */
+[data-reveal] {
+  transition:
+    opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+[data-reveal].reveal-pending {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-marquee,
+  .animate-float,
+  .animate-soft-ping {
+    animation: none !important;
+  }
+  [data-reveal].reveal-pending {
+    opacity: 1;
+    transform: none;
+  }
+}

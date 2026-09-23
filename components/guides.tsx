@@ -4,6 +4,7 @@ import { Container } from "./Container";
 import { PrimaryCta, ProCta } from "./CtaButtons";
 import { JsonLd } from "./JsonLd";
 import { PhotoFrame } from "./PhotoFrame";
+import { Reveal } from "./Reveal";
 import { requestHref } from "./consumer";
 import { guidePath } from "@/lib/guides-data";
 import type { Guide } from "@/lib/guides-data";
@@ -36,33 +37,40 @@ export function GuideCards({
     <div
       className={`grid gap-6 sm:grid-cols-2 ${columns === 3 ? "lg:grid-cols-3" : ""}`}
     >
-      {guides.map((guide) => (
-        <Link
-          key={guide.slug}
-          href={guidePath(guide)}
-          className="group flex flex-col overflow-hidden rounded-xl2 border border-ink-100 bg-white transition hover:border-accent-200 hover:shadow-lg"
-        >
-          <PhotoFrame
-            photo={guide.photo}
-            className="aspect-[16/9] !rounded-none"
-            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-          />
-          <div className="flex flex-1 flex-col p-6">
-            <span className="text-xs font-semibold uppercase tracking-wide text-accent-600">
-              {guide.category}
-            </span>
-            <h3 className="mt-2 font-display text-lg font-bold text-ink-900 group-hover:text-accent-600">
-              {guide.title}
-            </h3>
-            <p className="mt-2 flex-1 text-sm text-ink-600">{guide.excerpt}</p>
-            <time
-              dateTime={guide.publishedAt}
-              className="mt-4 text-xs text-ink-400"
-            >
-              {formatDate(guide.publishedAt)}
-            </time>
-          </div>
-        </Link>
+      {guides.map((guide, index) => (
+        <Reveal key={guide.slug} delay={(index % 3) * 120} className="h-full">
+          <Link
+            href={guidePath(guide)}
+            className="group flex h-full flex-col overflow-hidden rounded-xl2 border border-ink-100 bg-white transition hover:border-accent-200 hover:shadow-lg"
+          >
+            <div className="overflow-hidden">
+              <div className="transition-transform duration-700 group-hover:scale-105">
+                <PhotoFrame
+                  photo={guide.photo}
+                  className="aspect-[16/9] !rounded-none"
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                />
+              </div>
+            </div>
+            <div className="flex flex-1 flex-col p-6">
+              <span className="text-xs font-semibold uppercase tracking-wide text-accent-600">
+                {guide.category}
+              </span>
+              <h3 className="mt-2 font-display text-lg font-bold text-ink-900 group-hover:text-accent-600">
+                {guide.title}
+              </h3>
+              <p className="mt-2 flex-1 text-sm text-ink-600">
+                {guide.excerpt}
+              </p>
+              <time
+                dateTime={guide.publishedAt}
+                className="mt-4 text-xs text-ink-400"
+              >
+                {formatDate(guide.publishedAt)}
+              </time>
+            </div>
+          </Link>
+        </Reveal>
       ))}
     </div>
   );

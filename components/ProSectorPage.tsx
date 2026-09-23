@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { Breadcrumbs } from "./Breadcrumbs";
-import { CheckList } from "./CheckList";
 import { Container } from "./Container";
 import { ProCta, WhatsAppButton } from "./CtaButtons";
 import { FaqAccordion } from "./FaqAccordion";
 import { Icon } from "./Icon";
+import { IconList } from "./IconList";
 import { JsonLd } from "./JsonLd";
 import { PageHero } from "./PageHero";
 import { PhotoFrame } from "./PhotoFrame";
@@ -49,7 +49,8 @@ export function ProSectorPage({ sector }: { sector: Sector }) {
 
       <PageHero
         audience="pro"
-        aside={<PhotoFrame photo={sector.photo} priority className="hidden aspect-[4/5] lg:block" sizes="40vw" />}
+        aside={<PhotoFrame photo={sector.photo} priority className="aspect-[4/5]" sizes="40vw" />}
+        asideDesktopOnly
         eyebrow={`Para ${sector.audience} en Barcelona`}
         title={sector.heroTitle}
         subtitle={sector.heroSubtitle}
@@ -74,10 +75,10 @@ export function ProSectorPage({ sector }: { sector: Sector }) {
               ))}
             </div>
           </div>
-          <div className="rounded-xl2 border border-ink-100 bg-white p-7">
+          <div data-reveal className="rounded-xl2 border border-ink-100 bg-white p-7">
             <h3 className="font-display text-xl font-bold text-ink-900">Trabajos que te podemos pasar</h3>
             <div className="mt-5">
-              <CheckList items={sector.jobTypes} />
+              <IconList items={sector.jobTypes} />
             </div>
           </div>
         </Container>

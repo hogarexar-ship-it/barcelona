@@ -8,11 +8,16 @@ import { ProLeadsMockup } from "@/components/ProLeadsMockup";
 import { ProOfferCards } from "@/components/ProOfferCards";
 import { PageHero } from "@/components/PageHero";
 import { PhotoFrame } from "@/components/PhotoFrame";
+import { FeatureGrid } from "@/components/FeatureGrid";
+import type { Feature } from "@/components/FeatureGrid";
+import { Marquee } from "@/components/Marquee";
 import { ProcessSteps } from "@/components/ProcessSteps";
+import type { Step } from "@/components/ProcessSteps";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ProSectorCards } from "@/components/ProSectorCards";
 import { ProSignupSection } from "@/components/ProSignupSection";
 import { buildMetadata } from "@/lib/metadata";
+import { marketingServices } from "@/lib/offers";
 import { photos } from "@/lib/photos";
 import { proRoutes } from "@/lib/navigation";
 import { faqSchema } from "@/lib/schema";
@@ -26,29 +31,32 @@ export const metadata: Metadata = buildMetadata({
   absoluteTitle: true,
 });
 
-const pains = [
-  "Dependes del boca a boca y hay meses flojos.",
-  "Pagas por contactos que también reciben otras empresas.",
-  "Tu ficha de Google está a medias y casi no tiene reseñas.",
-  "Sabes que deberías hacer anuncios y redes, pero no tienes tiempo.",
+const pains: { icon: IconName; text: string }[] = [
+  { icon: "calendar", text: "Dependes del boca a boca y hay meses flojos." },
+  { icon: "euro", text: "Pagas por contactos que también reciben otras empresas." },
+  { icon: "star", text: "Tu ficha de Google está a medias y casi no tiene reseñas." },
+  { icon: "clock", text: "Sabes que deberías hacer anuncios y redes, pero no tienes tiempo." },
 ];
 
-const steps = [
+const steps: Step[] = [
   {
+    icon: "chat",
     title: "Nos cuentas tu negocio",
     description: "Rellenas un formulario de un minuto y te llamamos: oficio, zonas, tipo de trabajos y cuánto quieres crecer.",
   },
   {
+    icon: "chart",
     title: "Te proponemos un plan",
     description: "Red de clientes, marketing o las dos cosas. Te explicamos condiciones y costes antes de empezar, sin letra pequeña.",
   },
   {
+    icon: "inbox",
     title: "Empiezas a recibir clientes",
     description: "Te pasamos trabajos de tu zona y/o ponemos en marcha tu marketing. Revisamos resultados contigo cada mes.",
   },
 ];
 
-const reasons: { icon: IconName; title: string; text: string }[] = [
+const reasons: Feature[] = [
   {
     icon: "mapPin",
     title: "Solo Barcelona",
@@ -107,11 +115,8 @@ export default function ProfesionalesPage() {
         eyebrow="Para fontaneros y electricistas en Barcelona"
         title="Más clientes para tu oficio."
         subtitle="Te pasamos trabajos de tu zona a comisión o llevamos tu marketing para que te llamen a ti. Tú eliges cómo crecer; nosotros nos encargamos del resto."
-        aside={
-          <div className="hidden lg:block">
-            <ProLeadsMockup />
-          </div>
-        }
+        aside={<ProLeadsMockup />}
+        asideDesktopOnly
       >
         <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-ink-100">
           {[commercialTerms.network.signupFee, siteConfig.areaServed, "Hablas con personas, no con una app"].map((item) => (
@@ -122,6 +127,8 @@ export default function ProfesionalesPage() {
           ))}
         </ul>
       </PageHero>
+
+      <Marquee onDark items={marketingServices.map((s) => ({ icon: s.icon, label: s.name })).concat([{ icon: "inbox", label: "Red de clientes" }])} />
 
       <section className="py-16 sm:py-24">
         <Container>
@@ -147,9 +154,14 @@ export default function ProfesionalesPage() {
             <PhotoFrame photo={photos.fontaneroInstalacionBano} className="mt-8 aspect-[3/2]" />
           </div>
           <ul className="grid gap-3 sm:grid-cols-2">
-            {pains.map((pain) => (
-              <li key={pain} className="rounded-xl2 border border-ink-100 bg-white p-5 font-medium text-ink-800">
-                {pain}
+            {pains.map((pain, index) => (
+              <li key={pain.text} data-reveal style={{ transitionDelay: `${index * 100}ms` }}>
+                <div className="group flex h-full flex-col gap-4 rounded-xl2 border border-ink-100 bg-white p-5 transition hover:-translate-y-1 hover:shadow-lg">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-50 text-accent-600 transition-transform group-hover:scale-110">
+                    <Icon name={pain.icon} className="h-6 w-6" />
+                  </span>
+                  <p className="font-medium text-ink-800">{pain.text}</p>
+                </div>
               </li>
             ))}
           </ul>
@@ -181,16 +193,8 @@ export default function ProfesionalesPage() {
       <section className="py-16 sm:py-24">
         <Container>
           <SectionHeading eyebrow={`Por qué ${siteConfig.brand}`} title="Especialistas en oficios, no una agencia más" />
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {reasons.map((reason) => (
-              <div key={reason.title} className="rounded-xl2 border border-ink-100 bg-white p-6">
-                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-50 text-accent-600">
-                  <Icon name={reason.icon} />
-                </span>
-                <h3 className="mt-5 font-display text-xl font-bold text-ink-900">{reason.title}</h3>
-                <p className="mt-2 text-ink-600">{reason.text}</p>
-              </div>
-            ))}
+          <div className="mt-10">
+            <FeatureGrid items={reasons} className="md:grid-cols-3" />
           </div>
         </Container>
       </section>
