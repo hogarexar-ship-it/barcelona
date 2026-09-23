@@ -93,6 +93,11 @@ export const marketingServices: MarketingService[] = [
     ],
     faqs: [
       {
+        question: "¿El presupuesto de anuncios está incluido en vuestro precio?",
+        answer:
+          "No. Nuestro precio es por crear y gestionar las campañas. Lo que se invierte en los anuncios va aparte: se paga directamente a Google y Meta desde tu propia cuenta de anuncios y tú decides cuánto.",
+      },
+      {
         question: "¿Cuánto tengo que invertir en anuncios?",
         answer:
           "Depende de tu zona, tus servicios y cuánto trabajo más puedes asumir. En el asesoramiento gratuito te proponemos una inversión realista para tu caso y la decides tú.",

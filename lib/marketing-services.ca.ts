@@ -47,6 +47,11 @@ export const marketingServicesCa: MarketingService[] = [
     ],
     faqs: [
       {
+        question: "El pressupost d'anuncis està inclòs en el vostre preu?",
+        answer:
+          "No. El nostre preu és per crear i gestionar les campanyes. El que s'inverteix en els anuncis va a part: es paga directament a Google i Meta des del teu propi compte d'anuncis i tu decideixes quant.",
+      },
+      {
         question: "Quant he d'invertir en anuncis?",
         answer:
           "Depèn de la teva zona, dels teus serveis i de quanta feina més pots assumir. A l'assessorament gratuït et proposem una inversió realista per al teu cas i la decideixes tu.",

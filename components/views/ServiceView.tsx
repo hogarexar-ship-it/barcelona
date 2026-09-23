@@ -8,6 +8,7 @@ import { ExpandableList } from "@/components/ExpandableList";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { Icon } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
+import { OrganicPaid } from "@/components/OrganicPaid";
 import { PhotoFrame } from "@/components/PhotoFrame";
 import { Reveal } from "@/components/Reveal";
 import type { Locale } from "@/lib/i18n";
@@ -63,9 +64,7 @@ export function ServiceView({ locale, service }: { locale: Locale; service: Mark
                       href={item.path}
                       aria-current={current ? "page" : undefined}
                       className={`inline-flex items-center gap-2 whitespace-nowrap rounded-md border px-3.5 py-2 text-sm font-semibold transition-colors ${
-                        current
-                          ? "border-ink-900 bg-ink-900 text-white"
-                          : "border-ink-200 bg-white text-ink-700 hover:border-ink-900"
+                        current ? "border-ink-900 bg-ink-900 text-white" : "border-ink-200 bg-white text-ink-700 hover:border-ink-900"
                       }`}
                     >
                       <Icon name={item.icon} className={`h-4 w-4 ${current ? "text-accent-300" : "text-accent-600"}`} />
@@ -138,9 +137,7 @@ export function ServiceView({ locale, service }: { locale: Locale; service: Mark
           </section>
 
           <section>
-            <h2 className="font-display text-2xl font-bold text-ink-900 sm:text-3xl">
-              {t("Preguntas frecuentes", "Preguntes freqüents")}
-            </h2>
+            <h2 className="font-display text-2xl font-bold text-ink-900 sm:text-3xl">{t("Preguntas frecuentes", "Preguntes freqüents")}</h2>
             <div className="mt-6">
               <FaqAccordion faqs={service.faqs} title="" />
             </div>
@@ -162,6 +159,8 @@ export function ServiceView({ locale, service }: { locale: Locale; service: Mark
           </div>
         </aside>
       </Container>
+
+      {service.slug === "anuncios-google-y-meta" && <OrganicPaid locale={locale} className="border-t border-ink-200 bg-surface-100" />}
 
       {prev && next && (
         <nav aria-label={t("Otros servicios", "Altres serveis")} className="border-t border-ink-200">
