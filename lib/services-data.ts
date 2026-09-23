@@ -22,6 +22,8 @@ export type Service = {
   heroSubtitle: string;
   problems: { value: string; label: string; icon: IconName }[];
   subservices: { icon: IconName; title: string; text: string }[];
+  /** Consejo de seguridad que muestra el wizard cuando la solicitud es urgente. */
+  safetyTip: string;
   faqs: Faq[];
 };
 
@@ -35,6 +37,7 @@ export const services: Service[] = [
     name: "Fontanería",
     professional: "fontanero",
     professionalPlural: "fontaneros",
+    safetyTip: "Si hay una fuga activa, cierra la llave de paso general mientras esperas al fontanero.",
     photo: photos.fontaneroFregadero,
     gallery: [photos.fontaneroBajoFregadero, photos.fontaneroGrifo, photos.fontaneroCajaHerramientas],
     metaTitle: "Fontaneros en Barcelona: fugas, atascos y calentadores",
@@ -112,6 +115,7 @@ export const services: Service[] = [
     name: "Electricidad",
     professional: "electricista",
     professionalPlural: "electricistas",
+    safetyTip: "Si hueles a quemado o ves chispas, baja el interruptor general y no toques la instalación.",
     photo: photos.electricistaLuzTecho,
     gallery: [photos.electricistaCuadro, photos.electricistaEnchufes, photos.electricistaPlafon],
     metaTitle: "Electricistas en Barcelona: averías, boletines y cuadros",
@@ -217,4 +221,10 @@ export const districts = [
   "Cornellà",
   "Esplugues",
   "Sant Adrià",
+];
+
+export const contactTimeOptions = [
+  { value: "cualquiera", label: "Cualquier hora" },
+  { value: "manana", label: "Por la mañana" },
+  { value: "tarde", label: "Por la tarde" },
 ];

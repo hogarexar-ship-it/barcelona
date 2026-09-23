@@ -22,7 +22,7 @@ para profesionales.
 | Rutas | `/`, `/fontaneros-barcelona`, `/electricistas-barcelona`, `/pedir-presupuesto`, `/guias` | todo bajo `/profesionales` |
 | Estilo | Cabecera clara, crema cálido, acento terracota | Cabecera oscura, gris frío, acento verde azulado |
 | Acción principal | "Pedir presupuesto" | "Quiero más clientes" |
-| Formulario | `ConsumerRequestForm` (servicio, problema, urgencia, zona) | `ProLeadForm` (interés, oficio, empresa) |
+| Formulario | Wizard `RequestWizard` (servicio, problema, urgencia, zona, contacto, resumen) que se abre en ventana desde cualquier enlace a `/pedir-presupuesto` | `ProLeadForm` (interés, oficio, empresa) |
 
 Un selector fijo arriba de la cabecera ("Busco un profesional / Soy
 profesional") deja claro en cada página a quién se le habla.
@@ -87,7 +87,7 @@ resolución de otra foto) ni los duplicados exactos de fotos ya incluidas.
 
 ## Formulario de leads
 
-Los dos formularios (`components/ConsumerRequestForm.tsx` y
+El wizard de particulares (`components/RequestWizard.tsx`; lo abre `RequestWizardHost` al pulsar cualquier enlace a `/pedir-presupuesto`, y sin JavaScript esos enlaces llevan a la página con el mismo wizard) y el formulario de profesionales (
 `components/ProLeadForm.tsx`) abren **WhatsApp** con los datos ya
 redactados. No necesitan backend, pero el lead solo llega si la persona
 envía el mensaje. Recomendado a corto plazo: guardar los leads también en

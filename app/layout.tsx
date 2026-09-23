@@ -5,6 +5,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileCtaBar } from "@/components/MobileCtaBar";
+import { RequestWizardHost } from "@/components/RequestWizardHost";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationSchema } from "@/lib/schema";
@@ -59,6 +60,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Footer />
         <MobileCtaBar />
         <ScrollReveal />
+        <RequestWizardHost />
       </body>
     </html>
   );

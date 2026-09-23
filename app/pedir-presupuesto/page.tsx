@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CheckList } from "@/components/CheckList";
-import { ConsumerRequestForm } from "@/components/ConsumerRequestForm";
 import { Container } from "@/components/Container";
+import { RequestWizardInline } from "@/components/RequestWizardHost";
 import { buildMetadata } from "@/lib/metadata";
 import { consumerRoutes } from "@/lib/navigation";
 import { consumerWhatsappMessage, siteConfig, telHref, whatsappHref } from "@/lib/site-config";
@@ -58,7 +58,7 @@ export default function PedirPresupuestoPage() {
               </ul>
             </div>
           </div>
-          <ConsumerRequestForm idPrefix="presupuesto" />
+          <RequestWizardInline />
         </div>
       </Container>
     </section>

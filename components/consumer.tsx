@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { CheckList } from "./CheckList";
 import { Container } from "./Container";
-import { ConsumerRequestForm } from "./ConsumerRequestForm";
 import { Icon } from "./Icon";
 import type { IconName } from "./Icon";
 import { Marquee } from "./Marquee";
@@ -195,7 +194,35 @@ export function RequestSection({
           </a>
         </div>
         <Reveal delay={80}>
-          <ConsumerRequestForm defaultTrade={defaultTrade} idPrefix="pedir" />
+          <div className="rounded-xl2 border border-ink-200 bg-white p-6 sm:p-8">
+            <p className="font-display text-xl font-bold text-ink-900">¿Qué profesional necesitas?</p>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              {services
+                .filter((s) => !defaultTrade || s.trade === defaultTrade)
+                .map((s) => (
+                  <Link
+                    key={s.trade}
+                    href={requestHref(s.trade)}
+                    className="flex items-center gap-3 rounded-md border border-ink-200 px-4 py-4 font-semibold text-ink-900 transition-colors hover:border-accent-600"
+                  >
+                    <Icon name={s.icon} className="h-6 w-6 text-accent-600" />
+                    {s.professional.charAt(0).toUpperCase() + s.professional.slice(1)}
+                    <Icon name="arrowRight" className="ml-auto h-4 w-4 text-ink-400" />
+                  </Link>
+                ))}
+            </div>
+            <p className="mt-6 text-sm font-semibold text-ink-700">O empieza por lo que te pasa:</p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {services
+                .filter((s) => !defaultTrade || s.trade === defaultTrade)
+                .flatMap((s) =>
+                  s.problems
+                    .filter((p) => p.value !== OTHER_PROBLEM)
+                    .slice(0, defaultTrade ? 6 : 3)
+                    .map((p) => <ProblemChip key={`${s.trade}-${p.value}`} href={requestHref(s.trade, p.value)} icon={p.icon} label={p.label} />)
+                )}
+            </div>
+          </div>
         </Reveal>
       </Container>
     </section>
