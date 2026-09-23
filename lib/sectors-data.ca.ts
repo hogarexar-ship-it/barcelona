@@ -58,7 +58,18 @@ export const sectorsCa: Sector[] = [
       "Fitxa de Google amb ressenyes que donen confiança",
       "CRM per seguir cada contacte i cada pressupost",
     ],
+    avgTicket: 150,
     faqs: [
+      {
+        question: "Els diners dels anuncis estan inclosos en el vostre preu?",
+        answer:
+          "No. El nostre preu és pel servei: estratègia, gestió de campanyes, web, fitxa de Google, SEO i CRM. El pressupost d'anuncis va a part: es paga directament a Google i Meta des del teu compte i tu decideixes quant invertir.",
+      },
+      {
+        question: "Puc començar sense invertir en anuncis?",
+        answer:
+          "Sí. La part orgànica (fitxa de Google, ressenyes, web i SEO) funciona sense pagar per cada clic, però triga més. L'ideal és sumar-hi una mica de publicitat: és el que porta trucades des del primer mes.",
+      },
       {
         question: "Em serveix si només vull feines programades, no urgències?",
         answer: "Sí. Les campanyes i la web s'orienten a les feines que tu vols fer i a les hores en què pots atendre.",
@@ -129,7 +140,18 @@ export const sectorsCa: Sector[] = [
       "Fitxa de Google amb ressenyes que donen confiança",
       "CRM per seguir cada contacte i cada pressupost",
     ],
+    avgTicket: 200,
     faqs: [
+      {
+        question: "Els diners dels anuncis estan inclosos en el vostre preu?",
+        answer:
+          "No. El nostre preu és pel servei: estratègia, gestió de campanyes, web, fitxa de Google, SEO i CRM. El pressupost d'anuncis va a part: es paga directament a Google i Meta des del teu compte i tu decideixes quant invertir.",
+      },
+      {
+        question: "Puc començar sense invertir en anuncis?",
+        answer:
+          "Sí. La part orgànica (fitxa de Google, ressenyes, web i SEO) funciona sense pagar per cada clic, però triga més. L'ideal és sumar-hi una mica de publicitat: és el que porta trucades des del primer mes.",
+      },
       {
         question: "Em podeu ajudar a aconseguir feines de carregadors o autoconsum?",
         answer:

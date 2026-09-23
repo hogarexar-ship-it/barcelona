@@ -34,6 +34,8 @@ export type Sector = {
   costs: { icon: IconName; text: string }[];
   /** Las piezas del sistema, todas conectadas. */
   system: string[];
+  /** Importe medio orientativo de un trabajo, para la calculadora (euros). */
+  avgTicket: number;
   faqs: Faq[];
 };
 
@@ -93,7 +95,18 @@ export const sectors: Sector[] = [
       "Ficha de Google con reseñas que dan confianza",
       "CRM para seguir cada contacto y cada presupuesto",
     ],
+    avgTicket: 150,
     faqs: [
+      {
+        question: "¿El dinero de los anuncios está incluido en vuestro precio?",
+        answer:
+          "No. Nuestro precio es por el servicio: estrategia, gestión de campañas, web, ficha de Google, SEO y CRM. El presupuesto de anuncios va aparte: se paga directamente a Google y Meta desde tu cuenta y tú decides cuánto invertir.",
+      },
+      {
+        question: "¿Puedo empezar sin invertir en anuncios?",
+        answer:
+          "Sí. La parte orgánica (ficha de Google, reseñas, web y SEO) funciona sin pagar por cada clic, pero tarda más. Lo ideal es sumar algo de publicidad: es lo que trae llamadas desde el primer mes.",
+      },
       {
         question: "¿Me sirve si solo quiero trabajos programados, no urgencias?",
         answer: "Sí. Las campañas y la web se orientan a los trabajos que tú quieres hacer y a las horas en que puedes atender.",
@@ -164,7 +177,18 @@ export const sectors: Sector[] = [
       "Ficha de Google con reseñas que dan confianza",
       "CRM para seguir cada contacto y cada presupuesto",
     ],
+    avgTicket: 200,
     faqs: [
+      {
+        question: "¿El dinero de los anuncios está incluido en vuestro precio?",
+        answer:
+          "No. Nuestro precio es por el servicio: estrategia, gestión de campañas, web, ficha de Google, SEO y CRM. El presupuesto de anuncios va aparte: se paga directamente a Google y Meta desde tu cuenta y tú decides cuánto invertir.",
+      },
+      {
+        question: "¿Puedo empezar sin invertir en anuncios?",
+        answer:
+          "Sí. La parte orgánica (ficha de Google, reseñas, web y SEO) funciona sin pagar por cada clic, pero tarda más. Lo ideal es sumar algo de publicidad: es lo que trae llamadas desde el primer mes.",
+      },
       {
         question: "¿Podéis ayudarme a conseguir trabajos de cargadores o autoconsumo?",
         answer:
