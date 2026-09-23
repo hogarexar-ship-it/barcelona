@@ -66,6 +66,21 @@
     transform: translateX(-50%);
   }
 }
+/* Entrada de cada dolor en los botones de la portada (PainRotator). */
+@keyframes pain-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-pain-in {
+  animation: pain-in 0.45s ease-out;
+}
+
 .animate-marquee {
   animation: marquee 45s linear infinite;
 }
@@ -85,7 +100,22 @@
   [data-reveal] {
     transition: none;
   }
-  .animate-marquee {
+  /* Entrada de cada dolor en los botones de la portada (PainRotator). */
+@keyframes pain-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-pain-in {
+  animation: pain-in 0.45s ease-out;
+}
+
+.animate-marquee {
     animation: none;
   }
   [data-reveal].reveal-pending {

@@ -1,9 +1,9 @@
-import Link from "next/link";
 import { Container } from "@/components/Container";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { Icon } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
 import { Marquee } from "@/components/Marquee";
+import { PainRotator } from "@/components/PainRotator";
 import { PhotoHero } from "@/components/PhotoHero";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -96,19 +96,14 @@ export function HomeView({ locale }: { locale: Locale }) {
         subtitle={t("Nos ocupamos de tu marketing digital. Tú, de trabajar.", "Ens ocupem del teu màrqueting digital. Tu, de treballar.")}
       >
         <p className="mt-10 font-semibold text-white/90">{t("¿Qué te pasa ahora mismo?", "Què et passa ara mateix?")}</p>
-        <div className="mt-3 grid gap-3 sm:grid-cols-2">
-          {situations.map((situation) => (
-            <Link
-              key={situation.value}
-              href={`${routes[locale].contact}?situacion=${situation.value}`}
-              className="group flex items-center gap-4 rounded-md border border-white/30 bg-white/10 p-4 backdrop-blur-md transition-colors hover:border-[#EA580C] hover:bg-white/20"
-            >
-              <Icon name={situation.icon} className="h-7 w-7 shrink-0 text-accent-300" />
-              <span className="flex-1 font-display text-lg font-bold leading-snug">{situation.title[locale]}</span>
-              <Icon name="arrowRight" className="h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
-            </Link>
-          ))}
-        </div>
+        <PainRotator
+          items={situations.map((situation) => ({
+            value: situation.value,
+            icon: situation.icon,
+            title: situation.title[locale],
+            href: `${routes[locale].contact}?situacion=${situation.value}&servicio=${situation.service}`,
+          }))}
+        />
         <p className="mt-5 flex items-center gap-2 text-sm text-white/75">
           <Icon name="check" className="h-5 w-5 text-accent-300" />
           {t("Asesoramiento gratis · Barcelona y alrededores", "Assessorament gratis · Barcelona i rodalies")}

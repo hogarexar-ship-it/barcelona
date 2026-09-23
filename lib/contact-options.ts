@@ -64,18 +64,21 @@ export const municipalities = [
 export const limits = { name: 100, business: 120, zone: 80, message: 1000 };
 
 /**
- * Situaciones de la portada: dos formas de decir «necesito más clientes».
- * Llegan al formulario por ?situacion= y rellenan el mensaje.
+ * Dolores habituales que rotan en los botones de la portada. Cada uno apunta
+ * al servicio que lo resuelve: llegan al formulario por ?situacion= y
+ * ?servicio=, que rellenan el mensaje y el servicio de interés.
  */
 export const situations: {
   value: string;
   icon: IconName;
+  service: ServiceSlug;
   title: Record<Locale, string>;
   message: Record<Locale, string>;
 }[] = [
   {
     value: "pocas-llamadas",
     icon: "phone",
+    service: "anuncios-google-y-meta",
     title: { es: "Me llaman pocos clientes", ca: "Em truquen pocs clients" },
     message: {
       es: "Me llaman pocos clientes y quiero tener más trabajo.",
@@ -85,10 +88,71 @@ export const situations: {
   {
     value: "competencia",
     icon: "search",
+    service: "seo-local",
     title: { es: "Mi competencia sale antes que yo en Google", ca: "La meva competència surt abans que jo a Google" },
     message: {
       es: "Cuando buscan mi servicio en Google sale antes mi competencia y quiero que me encuentren a mí.",
       ca: "Quan cerquen el meu servei a Google surt abans la meva competència i vull que em trobin a mi.",
+    },
+  },
+  {
+    value: "no-salgo-mapa",
+    icon: "mapPin",
+    service: "google-business-profile",
+    title: { es: "No salgo en el mapa de Google", ca: "No surto al mapa de Google" },
+    message: {
+      es: "No salgo en el mapa de Google cuando buscan mi servicio en mi zona.",
+      ca: "No surto al mapa de Google quan cerquen el meu servei a la meva zona.",
+    },
+  },
+  {
+    value: "se-escapan",
+    icon: "inbox",
+    service: "crm",
+    title: { es: "Se me escapan llamadas y presupuestos", ca: "Se m'escapen trucades i pressupostos" },
+    message: {
+      es: "Se me escapan llamadas y presupuestos por falta de tiempo para hacer seguimiento.",
+      ca: "Se m'escapen trucades i pressupostos per falta de temps per fer seguiment.",
+    },
+  },
+  {
+    value: "web-no-llama",
+    icon: "globe",
+    service: "landing-page-y-web",
+    title: { es: "Mi web no me trae llamadas", ca: "La meva web no em porta trucades" },
+    message: {
+      es: "Tengo web (o no tengo) y no me trae llamadas de clientes.",
+      ca: "Tinc web (o no en tinc) i no em porta trucades de clients.",
+    },
+  },
+  {
+    value: "anuncios-sin-clientes",
+    icon: "megaphone",
+    service: "anuncios-google-y-meta",
+    title: { es: "Pago anuncios y no veo clientes", ca: "Pago anuncis i no veig clients" },
+    message: {
+      es: "He pagado anuncios y no he visto clientes.",
+      ca: "He pagat anuncis i no he vist clients.",
+    },
+  },
+  {
+    value: "pocas-resenas",
+    icon: "star",
+    service: "google-business-profile",
+    title: { es: "Tengo pocas reseñas en Google", ca: "Tinc poques ressenyes a Google" },
+    message: {
+      es: "Tengo pocas reseñas en Google y la gente llama a otros.",
+      ca: "Tinc poques ressenyes a Google i la gent truca a altres.",
+    },
+  },
+  {
+    value: "boca-a-boca",
+    icon: "users",
+    service: "seo-local",
+    title: { es: "Solo trabajo por el boca a boca", ca: "Només treballo pel boca-orella" },
+    message: {
+      es: "Dependo del boca a boca y quiero clientes nuevos de forma constante.",
+      ca: "Depenc del boca-orella i vull clients nous de manera constant.",
     },
   },
 ];
