@@ -3,6 +3,7 @@ import { Container } from "@/components/Container";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { PhotoFrame } from "@/components/PhotoFrame";
 import { ProBand } from "@/components/ProBand";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -17,6 +18,7 @@ import {
 } from "@/components/consumer";
 import { GuideCards } from "@/components/guides";
 import { guidesFor } from "@/lib/guides-data";
+import { photos } from "@/lib/photos";
 import { buildMetadata } from "@/lib/metadata";
 import { faqSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site-config";
@@ -99,13 +101,18 @@ export default function HomePage() {
       </section>
 
       <section className="py-16 sm:py-24">
-        <Container className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-          <SectionHeading
-            eyebrow="Zonas"
-            title="En toda Barcelona y alrededores"
-            intro="Trabajamos con profesionales de cada distrito para que quien vaya a tu casa esté cerca."
-          />
-          <Districts />
+        <Container className="grid gap-10 lg:grid-cols-2 lg:items-center">
+          <PhotoFrame photo={photos.salonBarcelona} className="aspect-[3/2]" />
+          <div>
+            <SectionHeading
+              eyebrow="Zonas"
+              title="En toda Barcelona y alrededores"
+              intro="Trabajamos con profesionales de cada distrito para que quien vaya a tu casa esté cerca."
+            />
+            <div className="mt-8">
+              <Districts />
+            </div>
+          </div>
         </Container>
       </section>
 

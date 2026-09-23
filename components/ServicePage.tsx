@@ -1,10 +1,10 @@
-import Image from "next/image";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { Container } from "./Container";
 import { PrimaryCta, WhatsAppButton } from "./CtaButtons";
 import { FaqAccordion } from "./FaqAccordion";
 import { JsonLd } from "./JsonLd";
 import { PageHero } from "./PageHero";
+import { PhotoFrame, PhotoGallery } from "./PhotoFrame";
 import { ProBand } from "./ProBand";
 import { ProcessSteps } from "./ProcessSteps";
 import { SectionHeading } from "./SectionHeading";
@@ -48,9 +48,12 @@ export function ServicePage({ service }: { service: Service }) {
           </>
         }
         aside={
-          <div className="relative aspect-[4/3] overflow-hidden rounded-xl2 shadow-2xl shadow-ink-900/15 lg:aspect-[5/6]">
-            <Image src={service.image} alt={service.imageAlt} fill priority sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
-          </div>
+          <PhotoFrame
+            photo={service.photo}
+            priority
+            className="aspect-[4/3] shadow-2xl shadow-ink-900/15 lg:aspect-[5/6]"
+            sizes="(min-width: 1024px) 40vw, 100vw"
+          />
         }
       >
         <QuickProblems trade={service.trade} />
@@ -73,6 +76,18 @@ export function ServicePage({ service }: { service: Service }) {
           </div>
           <div className="mt-10">
             <TrustBar />
+          </div>
+        </Container>
+      </section>
+
+      <section className="pb-16 sm:pb-24">
+        <Container>
+          <SectionHeading
+            eyebrow="Trabajos habituales"
+            title={`Lo que hace un ${service.professional} en tu casa`}
+          />
+          <div className="mt-10">
+            <PhotoGallery photos={service.gallery} />
           </div>
         </Container>
       </section>

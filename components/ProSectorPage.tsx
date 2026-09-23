@@ -7,6 +7,7 @@ import { FaqAccordion } from "./FaqAccordion";
 import { Icon } from "./Icon";
 import { JsonLd } from "./JsonLd";
 import { PageHero } from "./PageHero";
+import { PhotoFrame } from "./PhotoFrame";
 import { ProSignupSection } from "./ProSignupSection";
 import { SectionHeading } from "./SectionHeading";
 import { GuideCards } from "./guides";
@@ -48,6 +49,7 @@ export function ProSectorPage({ sector }: { sector: Sector }) {
 
       <PageHero
         audience="pro"
+        aside={<PhotoFrame photo={sector.photo} priority className="hidden aspect-[4/5] lg:block" sizes="40vw" />}
         eyebrow={`Para ${sector.audience} en Barcelona`}
         title={sector.heroTitle}
         subtitle={sector.heroSubtitle}

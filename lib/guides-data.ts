@@ -1,5 +1,7 @@
 import { consumerRoutes, proRoutes } from "./navigation";
 import type { Trade } from "./navigation";
+import { photos } from "./photos";
+import type { Photo } from "./photos";
 import { siteConfig } from "./site-config";
 
 export type Audience = "consumer" | "pro";
@@ -16,6 +18,7 @@ export type Guide = {
   audience: Audience;
   category: "Fontanería" | "Electricidad" | "Consejos" | "Conseguir clientes" | "Google y SEO" | "Publicidad";
   trade?: Trade;
+  photo: Photo;
   content: { heading?: string; paragraphs: string[]; list?: string[] }[];
 };
 
@@ -24,6 +27,7 @@ const brand = siteConfig.brand;
 export const guides: Guide[] = [
   {
     slug: "como-conseguir-clientes-fontanero-barcelona",
+    photo: photos.fontaneroInstalacionBano,
     title: "Cómo conseguir más clientes siendo fontanero en Barcelona",
     metaDescription:
       "Guía práctica para fontaneros autónomos en Barcelona: ficha de Google, reseñas, anuncios, administradores de fincas y redes de clientes para dejar de depender del boca a boca.",
@@ -101,6 +105,7 @@ export const guides: Guide[] = [
   },
   {
     slug: "google-business-profile-electricistas-barcelona",
+    photo: photos.electricistaCasco,
     title: "Google Business Profile para electricistas: cómo aparecer en el mapa de Google en Barcelona",
     metaDescription:
       "Guía paso a paso para que un electricista en Barcelona optimice su ficha de Google Business: categorías, servicios, zona, fotos, reseñas y errores que evitar.",
@@ -167,6 +172,7 @@ export const guides: Guide[] = [
   },
   {
     slug: "google-ads-para-oficios-cuando-compensa",
+    photo: photos.electricistaLuzTecho,
     title: "Google Ads para fontaneros y electricistas: cuándo compensa y cuándo no",
     metaDescription:
       "Cómo saber si a tu negocio de fontanería o electricidad le compensa invertir en Google Ads en Barcelona, cómo calcular tu coste por cliente y los errores que más dinero hacen perder.",
@@ -232,6 +238,7 @@ export const guides: Guide[] = [
   },
   {
     slug: "pagar-por-clientes-o-hacer-tu-propio-marketing",
+    photo: photos.fontaneroGrifo,
     title: "¿Pagar por clientes o hacer tu propio marketing? Qué le conviene a un fontanero o electricista",
     metaDescription:
       "Comparativa honesta entre pagar por contacto, trabajar a comisión e invertir en tu propio marketing para fontaneros y electricistas en Barcelona.",
@@ -281,6 +288,7 @@ export const guides: Guide[] = [
   },
   {
     slug: "como-pedir-resenas-google-clientes",
+    photo: photos.cocinaModerna,
     title: "Cómo pedir reseñas en Google a tus clientes (con mensajes listos para copiar)",
     metaDescription:
       "Cuándo y cómo pedir reseñas en Google si eres fontanero o electricista. Mensajes de WhatsApp listos para copiar y errores que evitar.",
@@ -340,6 +348,7 @@ export const guides: Guide[] = [
   },
   {
     slug: "como-aparecer-en-chatgpt-profesional-barcelona",
+    photo: photos.sagradaFamilia,
     title: "Cómo aparecer cuando alguien pregunta a ChatGPT por un profesional en Barcelona",
     metaDescription:
       "Qué es el GEO (optimización para motores generativos) y qué puede hacer un fontanero o electricista en Barcelona para que los asistentes de IA le recomienden.",
@@ -401,6 +410,7 @@ export const guides: Guide[] = [
   },
   {
     slug: "que-hacer-fuga-de-agua-en-casa",
+    photo: photos.fontaneroBajoFregadero,
     title: "Qué hacer ante una fuga de agua en casa (paso a paso)",
     metaDescription:
       "Guía práctica para actuar ante una fuga de agua en tu piso de Barcelona: cómo cortar el agua, evitar daños, avisar a los vecinos y al seguro, y cuándo llamar a un fontanero.",
@@ -458,6 +468,7 @@ export const guides: Guide[] = [
   },
   {
     slug: "salta-el-diferencial-que-hacer",
+    photo: photos.electricistaCuadro,
     title: "Salta el diferencial: por qué pasa y qué hacer",
     metaDescription:
       "Si en tu casa salta el diferencial, así puedes encontrar el aparato culpable en pocos minutos, y estas son las señales de que necesitas un electricista en Barcelona.",
@@ -513,6 +524,7 @@ export const guides: Guide[] = [
   },
   {
     slug: "boletin-electrico-barcelona",
+    photo: photos.electricistaEnchufes,
     title: "Boletín eléctrico en Barcelona: qué es, cuándo lo necesitas y cómo pedirlo",
     metaDescription:
       "Qué es el boletín eléctrico (Certificado de Instalación Eléctrica, CIE), cuándo te lo piden en Barcelona y cómo conseguirlo con un instalador habilitado.",
@@ -558,6 +570,7 @@ export const guides: Guide[] = [
   },
   {
     slug: "como-elegir-fontanero-electricista-de-confianza",
+    photo: photos.fontaneroClienteCocina,
     title: "Cómo elegir un fontanero o electricista de confianza en Barcelona",
     metaDescription:
       "Qué comprobar antes de dejar entrar a un fontanero o electricista en casa: presupuesto, seguro, habilitación, reseñas y señales de alerta para evitar sustos.",

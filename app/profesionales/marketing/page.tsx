@@ -8,10 +8,12 @@ import { FaqAccordion } from "@/components/FaqAccordion";
 import { Icon } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { PhotoFrame } from "@/components/PhotoFrame";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ProSignupSection } from "@/components/ProSignupSection";
 import { buildMetadata } from "@/lib/metadata";
+import { photos } from "@/lib/photos";
 import { proRoutes } from "@/lib/navigation";
 import { marketingOffer, marketingServices, networkOffer } from "@/lib/offers";
 import { faqSchema, proAudience, serviceSchema } from "@/lib/schema";
@@ -96,6 +98,7 @@ export default function MarketingPage() {
 
       <PageHero
         audience="pro"
+        aside={<PhotoFrame photo={photos.electricistaObra} priority className="hidden aspect-[4/5] lg:block" sizes="40vw" />}
         eyebrow="Marketing para profesionales"
         title="Que te encuentren a ti, no a la competencia."
         subtitle="Llevamos el marketing de tu negocio de fontanería o electricidad en Barcelona: Google, anuncios, web, marca y redes. Tú eliges qué necesitas."

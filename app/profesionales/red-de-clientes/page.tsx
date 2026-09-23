@@ -9,11 +9,13 @@ import { Icon } from "@/components/Icon";
 import type { IconName } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { PhotoFrame } from "@/components/PhotoFrame";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ProSectorCards } from "@/components/ProSectorCards";
 import { ProSignupSection } from "@/components/ProSignupSection";
 import { buildMetadata } from "@/lib/metadata";
+import { photos } from "@/lib/photos";
 import { proRoutes } from "@/lib/navigation";
 import { marketingOffer, networkOffer } from "@/lib/offers";
 import { faqSchema, proAudience, serviceSchema } from "@/lib/schema";
@@ -119,6 +121,7 @@ export default function ConseguirClientesPage() {
 
       <PageHero
         audience="pro"
+        aside={<PhotoFrame photo={photos.fontaneroClienteCocina} priority className="hidden aspect-[4/5] lg:block" sizes="40vw" />}
         eyebrow={networkOffer.name}
         title="Te pasamos clientes. Tú haces el trabajo."
         subtitle={`Captamos a personas y empresas de Barcelona que necesitan tu oficio y te pasamos las que encajan contigo. ${commercialTerms.network.signupFee} y comisión solo por trabajo cerrado.`}

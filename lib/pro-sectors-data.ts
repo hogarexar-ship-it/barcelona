@@ -1,5 +1,7 @@
 import type { IconName } from "@/components/Icon";
 import { sectorPath } from "./navigation";
+import { photos } from "./photos";
+import type { Photo } from "./photos";
 import type { Trade } from "./navigation";
 import type { Faq } from "./types";
 
@@ -7,6 +9,7 @@ import type { Faq } from "./types";
 export type Sector = {
   path: string;
   trade: Trade;
+  photo: Photo;
   icon: IconName;
   name: string;
   audience: string;
@@ -26,6 +29,7 @@ export const sectors: Sector[] = [
   {
     path: sectorPath("fontaneria"),
     trade: "fontaneria",
+    photo: photos.fontaneroCajaHerramientas,
     icon: "droplet",
     name: "Fontanería",
     audience: "fontaneros",
@@ -91,6 +95,7 @@ export const sectors: Sector[] = [
   {
     path: sectorPath("electricidad"),
     trade: "electricidad",
+    photo: photos.electricistaPlafon,
     icon: "bolt",
     name: "Electricidad",
     audience: "electricistas",

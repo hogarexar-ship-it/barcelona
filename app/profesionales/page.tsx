@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Container } from "@/components/Container";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { Icon } from "@/components/Icon";
@@ -8,11 +7,13 @@ import { JsonLd } from "@/components/JsonLd";
 import { ProLeadsMockup } from "@/components/ProLeadsMockup";
 import { ProOfferCards } from "@/components/ProOfferCards";
 import { PageHero } from "@/components/PageHero";
+import { PhotoFrame } from "@/components/PhotoFrame";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ProSectorCards } from "@/components/ProSectorCards";
 import { ProSignupSection } from "@/components/ProSignupSection";
 import { buildMetadata } from "@/lib/metadata";
+import { photos } from "@/lib/photos";
 import { proRoutes } from "@/lib/navigation";
 import { faqSchema } from "@/lib/schema";
 import { commercialTerms, siteConfig } from "@/lib/site-config";
@@ -143,15 +144,7 @@ export default function ProfesionalesPage() {
               title="Eres bueno en tu oficio. Conseguir clientes es otro trabajo."
               intro={`Para eso existe ${siteConfig.brand}: tú haces lo que sabes hacer y nosotros nos ocupamos de que el teléfono suene.`}
             />
-            <div className="relative mt-8 aspect-[3/2] overflow-hidden rounded-xl2">
-              <Image
-                src="/images/electricista-instalacion-enchufes.webp"
-                alt="Electricista conectando cables de una instalación de enchufes"
-                fill
-                sizes="(min-width: 1024px) 45vw, 100vw"
-                className="object-cover"
-              />
-            </div>
+            <PhotoFrame photo={photos.fontaneroInstalacionBano} className="mt-8 aspect-[3/2]" />
           </div>
           <ul className="grid gap-3 sm:grid-cols-2">
             {pains.map((pain) => (

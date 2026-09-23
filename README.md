@@ -56,10 +56,23 @@ Datos: `lib/services-data.ts` (servicios para particulares),
 
 ## Fotos
 
-En `public/images/`. **Importante:** `electricista-profesional-obra.jpg`
-tiene en sus metadatos un copyright de Fotolia (banco de imágenes de pago).
-Antes de publicar, confirmar que hay licencia para usarla o sustituirla. Lo
-mismo aplica a cualquier foto cuyo origen no esté claro.
+Origen: carpeta `bancodefotos/` del repositorio. Las usadas en el sitio
+están copiadas en `public/images/` con nombres descriptivos (ayudan al SEO)
+y catalogadas, con su texto alternativo, en `lib/photos.ts`: para cambiar
+una foto basta con editar ese archivo. Los `.avif` se convirtieron a `.jpg`
+para máxima compatibilidad. No se usaron `images (2).jpeg` (versión en baja
+resolución de otra foto) ni los duplicados exactos de fotos ya incluidas.
+
+**Licencias, revisar antes de publicar:**
+- `electricista-profesional-obra.jpg` tiene en sus metadatos un copyright de
+  Fotolia (banco de pago).
+- Varias fotos tienen nombres típicos de Freepik (`…_169016-7328`,
+  `…_23-2150990697`): con la licencia gratuita de Freepik hay que citar la
+  autoría ("Diseñado por Freepik") o tener suscripción Premium.
+- `vistas-sagrada-familia-barcelona.jpg` y `salon-piso-barcelona-balcones.jpg`
+  parecen fotos de anuncios de alquiler turístico; confirmar el permiso.
+- Las fotos no muestran a profesionales reales de la red, por eso el texto
+  del sitio no afirma que lo sean.
 
 ## SEO y GEO
 

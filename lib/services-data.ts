@@ -1,5 +1,7 @@
 import type { IconName } from "@/components/Icon";
 import { servicePath } from "./navigation";
+import { photos } from "./photos";
+import type { Photo } from "./photos";
 import type { Trade } from "./navigation";
 import { siteConfig } from "./site-config";
 import type { Faq } from "./types";
@@ -12,8 +14,8 @@ export type Service = {
   name: string;
   professional: string;
   professionalPlural: string;
-  image: string;
-  imageAlt: string;
+  photo: Photo;
+  gallery: Photo[];
   metaTitle: string;
   metaDescription: string;
   heroTitle: string;
@@ -34,8 +36,8 @@ export const services: Service[] = [
     name: "Fontanería",
     professional: "fontanero",
     professionalPlural: "fontaneros",
-    image: "/images/fontanero-reparacion-fregadero-barcelona.jpg",
-    imageAlt: "Fontanero reparando el desagüe de un fregadero en un piso de Barcelona",
+    photo: photos.fontaneroFregadero,
+    gallery: [photos.fontaneroBajoFregadero, photos.fontaneroGrifo, photos.fontaneroCajaHerramientas],
     metaTitle: "Fontaneros en Barcelona: fugas, atascos y calentadores",
     metaDescription:
       "¿Necesitas un fontanero en Barcelona? Cuéntanos qué pasa y te ponemos en contacto con un fontanero verificado de tu zona. Fugas, atascos, calentadores y más. Presupuesto sin compromiso.",
@@ -107,8 +109,8 @@ export const services: Service[] = [
     name: "Electricidad",
     professional: "electricista",
     professionalPlural: "electricistas",
-    image: "/images/electricista-cuadro-electrico-barcelona.jpg",
-    imageAlt: "Electricista revisando el cuadro eléctrico de un piso en Barcelona",
+    photo: photos.electricistaLuzTecho,
+    gallery: [photos.electricistaCuadro, photos.electricistaEnchufes, photos.electricistaPlafon],
     metaTitle: "Electricistas en Barcelona: averías, boletines y cuadros",
     metaDescription:
       "¿Necesitas un electricista en Barcelona? Te ponemos en contacto con un electricista verificado de tu zona para averías, boletines, cuadros, enchufes o cargadores. Presupuesto sin compromiso.",
