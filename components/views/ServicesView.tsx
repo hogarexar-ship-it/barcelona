@@ -5,7 +5,8 @@ import { CtaBand } from "@/components/CtaBand";
 import { Icon } from "@/components/Icon";
 import type { IconName } from "@/components/Icon";
 import { SectionHeading } from "@/components/SectionHeading";
-import { GrowthPath, ServiceGrid } from "@/components/sections";
+import { GrowthPath } from "@/components/sections";
+import { ServiceStack } from "@/components/ServiceStack";
 import type { Locale } from "@/lib/i18n";
 import { translator } from "@/lib/i18n";
 import { getMarketingService } from "@/lib/marketing-services";
@@ -107,16 +108,16 @@ export function ServicesView({ locale }: { locale: Locale }) {
         </Container>
       </section>
 
-      <section className="py-16 sm:py-20">
+      <section className="bg-surface-100 py-16 sm:py-24">
         <Container>
           <SectionHeading title={t("Todos los servicios", "Tots els serveis")} />
-          <div className="mt-8">
-            <ServiceGrid locale={locale} />
+          <div className="mt-10">
+            <ServiceStack locale={locale} />
           </div>
         </Container>
       </section>
 
-      <section className="bg-surface-100 py-16 sm:py-20">
+      <section className="py-16 sm:py-20">
         <Container>
           <GrowthPath locale={locale} />
         </Container>

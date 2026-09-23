@@ -15,6 +15,8 @@ export type MarketingService = {
   icon: IconName;
   /** Nombre corto y técnico (pestañas, pie, formulario). */
   name: string;
+  /** Etiqueta corta de la tarjeta (Anuncios, Web, CRM…). */
+  tag: string;
   /** Título explicativo en lenguaje del cliente: lo que consigue. */
   title: string;
   /** Palabras clave técnicas que van debajo del título (SEO, GEO, CRM…). */
@@ -41,6 +43,7 @@ export const marketingServices: MarketingService[] = [
     path: servicePath("es", "anuncios-google-y-meta"),
     icon: "megaphone",
     name: "Anuncios en Google y Meta (Facebook e Instagram)",
+    tag: "Anuncios",
     title: "Consigue llamadas de clientes ya",
     keywords: "Google Ads · Meta Ads (Facebook e Instagram)",
     short: "Campañas en Google Ads, Facebook e Instagram para que te llamen clientes de tu zona cuando necesitan tu servicio.",
@@ -110,6 +113,7 @@ export const marketingServices: MarketingService[] = [
     path: servicePath("es", "landing-page-y-web"),
     icon: "globe",
     name: "Landing page y página web",
+    tag: "Web",
     title: "Una web que hace que te llamen",
     keywords: "Landing page · Página web",
     short: "Una página rápida y clara, pensada para que quien entra te llame o te pida presupuesto.",
@@ -178,6 +182,7 @@ export const marketingServices: MarketingService[] = [
     path: servicePath("es", "google-business-profile"),
     icon: "mapPin",
     name: "Google Business y reseñas",
+    tag: "Google Maps",
     title: "Sal en el mapa de Google con buenas reseñas",
     keywords: "Google Business Profile · Reseñas de Google",
     short: "Tu ficha de Google optimizada y más reseñas de clientes reales para aparecer en el mapa cuando buscan un fontanero o un electricista cerca.",
@@ -224,6 +229,7 @@ export const marketingServices: MarketingService[] = [
     path: servicePath("es", "seo-local"),
     icon: "search",
     name: "SEO y GEO",
+    tag: "SEO y GEO",
     title: "Aparece en Google sin pagar por cada clic",
     keywords: "SEO local · GEO (ChatGPT, Gemini y otras IA)",
     short: "SEO local para posicionar tu web en Google y GEO para que asistentes de IA como ChatGPT o Gemini te recomienden en tu zona.",
@@ -269,6 +275,7 @@ export const marketingServices: MarketingService[] = [
     path: servicePath("es", "crm"),
     icon: "inbox",
     name: "CRM y seguimiento de clientes",
+    tag: "CRM",
     title: "Que ningún cliente se te escape",
     keywords: "CRM · Seguimiento de clientes y presupuestos",
     short: "Todos tus contactos, llamadas y presupuestos en un solo sitio, con avisos para no olvidar ningún seguimiento.",

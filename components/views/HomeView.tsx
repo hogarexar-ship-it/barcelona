@@ -7,7 +7,8 @@ import { Marquee } from "@/components/Marquee";
 import { PhotoHero } from "@/components/PhotoHero";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { SectionHeading } from "@/components/SectionHeading";
-import { consultationSteps, ContactSection, GrowthPath, SectorCards, ServiceGrid } from "@/components/sections";
+import { consultationSteps, ContactSection, GrowthPath, SectorCards } from "@/components/sections";
+import { RealProblem, ServiceStack } from "@/components/ServiceStack";
 import { situations } from "@/lib/contact-options";
 import type { Locale } from "@/lib/i18n";
 import { translator } from "@/lib/i18n";
@@ -121,28 +122,34 @@ export function HomeView({ locale }: { locale: Locale }) {
         ]}
       />
 
-      <section className="py-16 sm:py-20">
+      <section className="py-16 sm:py-24">
+        <Container>
+          <RealProblem locale={locale} />
+        </Container>
+      </section>
+
+      <section className="bg-surface-100 py-16 sm:py-24">
         <Container>
           <SectionHeading
             title={t("Qué hacemos por tu negocio", "Què fem pel teu negoci")}
             intro={t(
-              "Pocos servicios, bien hechos. Cada uno resuelve un problema concreto.",
-              "Pocs serveis, ben fets. Cadascun resol un problema concret.",
+              "No tienes que contratarlo todo. Empezamos por lo que más te va a traer y construimos desde ahí.",
+              "No cal que ho contractis tot. Comencem pel que més et portarà i construïm a partir d'aquí.",
             )}
           />
-          <div className="mt-8">
-            <ServiceGrid locale={locale} />
+          <div className="mt-10">
+            <ServiceStack locale={locale} />
           </div>
         </Container>
       </section>
 
-      <section className="bg-surface-100 py-16 sm:py-20">
+      <section className="py-16 sm:py-20">
         <Container>
           <GrowthPath locale={locale} />
         </Container>
       </section>
 
-      <section className="py-16 sm:py-20">
+      <section className="bg-surface-100 py-16 sm:py-20">
         <Container>
           <SectionHeading title={t("¿A qué te dedicas?", "A què et dediques?")} />
           <div className="mt-8">
