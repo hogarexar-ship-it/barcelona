@@ -13,7 +13,7 @@ export const siteConfig = {
   legalName: "Ofici Barcelona", // PLACEHOLDER: razón social / CIF real
   tagline: "Marketing digital para fontaneros y electricistas en Barcelona",
   description:
-    "Ofici ayuda a fontaneros y electricistas de Barcelona y alrededores a conseguir más clientes: anuncios en Google y Meta, landing pages y webs, Google Business Profile y reseñas, SEO local y GEO. Asesoramiento inicial gratuito.",
+    "Ofici ayuda a fontaneros y electricistas de Barcelona y alrededores a conseguir más clientes: anuncios en Google y Meta (Facebook e Instagram), landing pages y webs, Google Business Profile y reseñas, SEO local y GEO. Asesoramiento inicial gratuito.",
   url: "https://www.ofici.es", // PLACEHOLDER: dominio definitivo
   phoneDisplay: "930 00 00 00", // PLACEHOLDER
   phoneE164: "+34930000000", // PLACEHOLDER

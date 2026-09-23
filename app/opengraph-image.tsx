@@ -29,7 +29,7 @@ export default function OpengraphImage() {
           {siteConfig.tagline}
         </div>
         <div style={{ display: "flex", marginTop: 40, fontSize: 28, color: "#A44A22", fontWeight: 700 }}>
-          Google y Meta Ads · Web · Google Business · SEO y GEO
+          Google y Meta Ads (Facebook e Instagram) · Web · Google Business · SEO y GEO
         </div>
       </div>
     ),

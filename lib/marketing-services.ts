@@ -30,14 +30,14 @@ export const marketingServices: MarketingService[] = [
     slug: "anuncios-google-y-meta",
     path: servicePath("anuncios-google-y-meta"),
     icon: "megaphone",
-    name: "Anuncios en Google y Meta",
+    name: "Anuncios en Google y Meta (Facebook e Instagram)",
     short: "Campañas en Google Ads, Facebook e Instagram para que te llamen clientes de tu zona cuando necesitan tu servicio.",
     benefit: "Llamadas desde que se activan",
     photo: photos.electricistaLuzTecho,
     metaTitle: "Anuncios en Google y Meta para fontaneros y electricistas en Barcelona",
     metaDescription:
       "Gestión de Google Ads, Facebook e Instagram Ads para fontaneros y electricistas en Barcelona: campañas por zona y horario, anuncios de llamada y medición de cada contacto.",
-    heroTitle: "Anuncios en Google y Meta que traen llamadas",
+    heroTitle: "Anuncios en Google y Meta (Facebook e Instagram) que traen llamadas",
     heroSubtitle: "Google Ads, Facebook e Instagram. Solo en tu zona, en tu horario y midiendo cada euro.",
     signs: [
       "Necesitas llamadas ya, no dentro de seis meses.",

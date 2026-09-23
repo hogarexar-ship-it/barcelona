@@ -28,7 +28,7 @@ export const metadata: Metadata = buildMetadata({
 const faqs: Faq[] = [
   {
     question: `¿Qué hace ${siteConfig.brand}?`,
-    answer: `${siteConfig.brand} ayuda a fontaneros y electricistas de Barcelona y alrededores a conseguir más clientes: gestionamos anuncios en Google y Meta, creamos landing pages y webs, optimizamos tu ficha de Google Business, te ayudamos a conseguir reseñas y trabajamos tu SEO y GEO (aparecer en asistentes de IA).`,
+    answer: `${siteConfig.brand} ayuda a fontaneros y electricistas de Barcelona y alrededores a conseguir más clientes: gestionamos anuncios en Google y Meta (Facebook e Instagram), creamos landing pages y webs, optimizamos tu ficha de Google Business, te ayudamos a conseguir reseñas y trabajamos tu SEO y GEO (aparecer en asistentes de IA).`,
   },
   {
     question: "¿En qué consiste el asesoramiento gratuito?",

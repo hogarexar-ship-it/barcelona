@@ -25,7 +25,7 @@ export const contactMethodOptions: Option<ContactMethod>[] = [
 ];
 
 export const interestOptions: { value: ServiceSlug | "no-lo-se"; label: string }[] = [
-  { value: "anuncios-google-y-meta", label: "Anuncios en Google y Meta" },
+  { value: "anuncios-google-y-meta", label: "Anuncios en Google y Meta (Facebook e Instagram)" },
   { value: "landing-page-y-web", label: "Landing page o web" },
   { value: "google-business-profile", label: "Google Business y reseñas" },
   { value: "seo-local", label: "SEO y GEO" },

@@ -32,7 +32,7 @@ export function organizationSchema() {
     audience: proAudience,
     knowsAbout: [
       "Google Ads",
-      "Meta Ads",
+      "Meta Ads (Facebook e Instagram)",
       "Landing pages",
       "Google Business Profile",
       "Gestión de reseñas de Google",

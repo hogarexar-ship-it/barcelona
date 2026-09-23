@@ -40,7 +40,7 @@ export const sectors: Sector[] = [
     person: "fontanero",
     metaTitle: "Marketing digital para fontaneros en Barcelona: más clientes y llamadas",
     metaDescription:
-      "Marketing digital para fontaneros en Barcelona y alrededores: anuncios en Google y Meta, web, ficha de Google, reseñas, SEO y GEO para recibir más llamadas de clientes de tu zona. Asesoramiento gratuito.",
+      "Marketing digital para fontaneros en Barcelona y alrededores: anuncios en Google y Meta (Facebook e Instagram), web, ficha de Google, reseñas, SEO y GEO para recibir más llamadas de clientes de tu zona. Asesoramiento gratuito.",
     heroTitle: "Marketing digital para fontaneros en Barcelona",
     heroSubtitle: "Que te llamen clientes de tu zona. Del marketing digital nos encargamos nosotros.",
     cardText: "Urgencias, calentadores, desatascos y reformas de baño: aparece cuando te buscan.",
@@ -98,7 +98,7 @@ export const sectors: Sector[] = [
     person: "electricista",
     metaTitle: "Marketing digital para electricistas en Barcelona: más clientes y llamadas",
     metaDescription:
-      "Marketing digital para electricistas en Barcelona y alrededores: anuncios en Google y Meta, web, ficha de Google, reseñas, SEO y GEO para conseguir más clientes de averías, boletines, cuadros y cargadores.",
+      "Marketing digital para electricistas en Barcelona y alrededores: anuncios en Google y Meta (Facebook e Instagram), web, ficha de Google, reseñas, SEO y GEO para conseguir más clientes de averías, boletines, cuadros y cargadores.",
     heroTitle: "Marketing digital para electricistas en Barcelona",
     heroSubtitle: "Más averías, boletines, cuadros y cargadores en tu zona. Del marketing digital nos encargamos nosotros.",
     cardText: "Averías, boletines, cuadros y cargadores: los trabajos que más buscan tus clientes.",

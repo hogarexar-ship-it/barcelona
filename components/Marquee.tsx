@@ -2,7 +2,7 @@ import { Icon } from "./Icon";
 import type { IconName } from "./Icon";
 
 /**
- * Cinta de elementos en movimiento continuo. Se pausa al pasar el ratón.
+ * Cinta de elementos en movimiento continuo.
  * El difuminado de los extremos se aplica solo a la fila de tarjetas (no al
  * contenedor con fondo), así las tarjetas se funden con el color de la cinta.
  */
@@ -12,7 +12,7 @@ export function Marquee({ items, onDark = false }: { items: { icon: IconName; la
   return (
     <div className={`py-5 ${onDark ? "border-y border-white/10 bg-ink-900" : "border-y border-ink-100 bg-surface-50"}`}>
       <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-        <ul className="flex w-max animate-marquee gap-3 hover:[animation-play-state:paused]">
+        <ul className="flex w-max animate-marquee gap-3">
           {loop.map((item, index) => (
             <li
               key={`${item.label}-${index}`}
