@@ -71,7 +71,7 @@ export default function HomePage() {
             <Link
               key={situation.value}
               href={`${routes.contact}?situacion=${situation.value}`}
-              className="group flex items-center gap-4 rounded-md border border-white/30 bg-ink-900/40 p-4 transition-colors hover:border-[#EA580C] hover:bg-ink-900/70"
+              className="group flex items-center gap-4 rounded-md border border-white/30 bg-white/10 p-4 backdrop-blur-md transition-colors hover:border-[#EA580C] hover:bg-white/20"
             >
               <Icon name={situation.icon} className="h-7 w-7 shrink-0 text-accent-300" />
               <span className="flex-1 font-display text-lg font-bold leading-snug">{situation.title}</span>

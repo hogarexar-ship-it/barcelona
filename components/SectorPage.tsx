@@ -52,7 +52,7 @@ export function SectorPage({ sector }: { sector: Sector }) {
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <PrimaryCta href={`${routes.contact}?oficio=${sector.trade}`} />
           <WhatsAppButton
-            variant="light"
+            variant="glass"
             message={`Hola ${siteConfig.brand}, trabajo en ${sector.name.toLowerCase()} en Barcelona y quiero más clientes.`}
           />
         </div>

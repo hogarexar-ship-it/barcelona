@@ -48,6 +48,11 @@
     @apply bg-white text-ink-900 hover:bg-surface-100;
   }
 
+  /* Botón claro y translúcido con el fondo desenfocado, para usar sobre fotos. */
+  .btn-glass {
+    @apply border border-white/50 bg-white/70 text-ink-900 backdrop-blur-md hover:bg-white/90;
+  }
+
   .btn-ghost-light {
     @apply border border-white/40 text-white hover:border-white;
   }
