@@ -13,16 +13,16 @@ import { buildMetadata } from "@/lib/metadata";
 import { routes } from "@/lib/navigation";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Servicios de marketing para fontaneros y electricistas",
+  title: "Servicios de marketing digital para fontaneros y electricistas",
   description:
-    "Anuncios en Google y Meta, landing pages y webs, Google Business Profile y SEO local para fontaneros y electricistas en Barcelona. También vídeo, diseño gráfico y redes sociales.",
+    "Anuncios en Google y Meta, landing pages y webs, Google Business Profile y reseñas, SEO local y GEO para fontaneros y electricistas en Barcelona. También vídeo, diseño gráfico y redes sociales.",
   path: routes.services,
 });
 
 /** Qué le pasa al profesional y qué servicio le recomendamos. */
 const diagnosis: { icon: IconName; problem: string; slug: ServiceSlug }[] = [
   { icon: "phone", problem: "Necesito llamadas ya", slug: "anuncios-google-y-meta" },
-  { icon: "mapPin", problem: "No salgo en el mapa de Google", slug: "google-business-profile" },
+  { icon: "mapPin", problem: "No salgo en el mapa o tengo pocas reseñas", slug: "google-business-profile" },
   { icon: "globe", problem: "No tengo web o no me llaman desde ella", slug: "landing-page-y-web" },
   { icon: "search", problem: "Quiero depender menos de los anuncios", slug: "seo-local" },
 ];

@@ -15,7 +15,7 @@ export function GET() {
     "",
     `> ${siteConfig.tagline}. ${siteConfig.description}`,
     "",
-    `${brand} trabaja con fontaneros y electricistas (autónomos y empresas) de ${siteConfig.areaServed} que quieren más clientes o no tienen tiempo de ocuparse de su marketing.`,
+    `${brand} trabaja con fontaneros y electricistas (autónomos y empresas) de ${siteConfig.areaServed} que quieren más clientes o no tienen tiempo de ocuparse de su marketing digital.`,
     "",
     "## Servicios",
     ...marketingServices.map((s) => `- [${s.name}](${url}${s.path}): ${s.short}`),

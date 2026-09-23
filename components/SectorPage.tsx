@@ -28,7 +28,7 @@ export function SectorPage({ sector }: { sector: Sector }) {
       <JsonLd
         data={serviceSchema({
           name: sector.metaTitle,
-          serviceType: `Marketing para ${sector.audience}`,
+          serviceType: `Marketing digital para ${sector.audience}`,
           description: sector.metaDescription,
           url: `${siteConfig.url}${sector.path}`,
         })}
@@ -41,7 +41,7 @@ export function SectorPage({ sector }: { sector: Sector }) {
         subtitle={sector.heroSubtitle}
         top={
           <>
-            <Breadcrumbs onDark items={[{ name: `Marketing para ${sector.audience}`, href: sector.path }]} />
+            <Breadcrumbs onDark items={[{ name: `Marketing digital para ${sector.audience}`, href: sector.path }]} />
             <p className={`mt-8 inline-flex items-center gap-2 rounded-md px-3 py-1.5 text-sm font-bold ${tone.chip}`}>
               <Icon name={sector.icon} className={`h-4 w-4 ${tone.icon}`} />
               Solo para {sector.audience}
@@ -52,7 +52,7 @@ export function SectorPage({ sector }: { sector: Sector }) {
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <PrimaryCta href={`${routes.contact}?oficio=${sector.trade}`} />
           <WhatsAppButton
-            variant="ghost"
+            variant="light"
             message={`Hola ${siteConfig.brand}, trabajo en ${sector.name.toLowerCase()} en Barcelona y quiero más clientes.`}
           />
         </div>

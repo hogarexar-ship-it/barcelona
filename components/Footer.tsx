@@ -30,8 +30,8 @@ export function Footer() {
         </FooterColumn>
 
         <FooterColumn title="Para quién">
-          <FooterLink href={sectorPath("fontaneria")} label="Marketing para fontaneros" />
-          <FooterLink href={sectorPath("electricidad")} label="Marketing para electricistas" />
+          <FooterLink href={sectorPath("fontaneria")} label="Marketing digital para fontaneros" />
+          <FooterLink href={sectorPath("electricidad")} label="Marketing digital para electricistas" />
           <FooterLink href={routes.guides} label="Guías" />
         </FooterColumn>
 

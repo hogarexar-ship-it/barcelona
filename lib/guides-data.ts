@@ -160,7 +160,7 @@ export const guides: Guide[] = [
       {
         heading: "Si no tienes tiempo",
         paragraphs: [
-          `En ${brand} optimizamos y gestionamos la ficha de Google de electricistas de Barcelona dentro de nuestro servicio de marketing. El diagnóstico inicial es gratis.`,
+          `En ${brand} optimizamos y gestionamos la ficha de Google de electricistas de Barcelona dentro de nuestro servicio de marketing digital. El diagnóstico inicial es gratis.`,
         ],
       },
     ],
@@ -333,7 +333,7 @@ export const guides: Guide[] = [
       {
         heading: "Automatízalo",
         paragraphs: [
-          `En el servicio de marketing de ${brand} dejamos montado un sistema sencillo para pedir reseñas después de cada trabajo y responderlas, para que no dependa de que te acuerdes.`,
+          `En el servicio de marketing digital de ${brand} dejamos montado un sistema sencillo para pedir reseñas después de cada trabajo y responderlas, para que no dependa de que te acuerdes.`,
         ],
       },
     ],

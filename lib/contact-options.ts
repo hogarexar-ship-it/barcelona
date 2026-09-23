@@ -27,8 +27,8 @@ export const contactMethodOptions: Option<ContactMethod>[] = [
 export const interestOptions: { value: ServiceSlug | "no-lo-se"; label: string }[] = [
   { value: "anuncios-google-y-meta", label: "Anuncios en Google y Meta" },
   { value: "landing-page-y-web", label: "Landing page o web" },
-  { value: "google-business-profile", label: "Google Business Profile" },
-  { value: "seo-local", label: "SEO local" },
+  { value: "google-business-profile", label: "Google Business y reseñas" },
+  { value: "seo-local", label: "SEO y GEO" },
   { value: "no-lo-se", label: "No lo sé, quiero que me asesoréis" },
 ];
 
@@ -63,8 +63,8 @@ export const situations = [
     value: "no-llego",
     icon: "clock" as IconName,
     title: "Tengo trabajo, pero no llego a todo",
-    text: "Obras, averías, presupuestos… y el marketing siempre queda para después.",
-    message: "Tengo trabajo, pero no llego a todo y el marketing siempre queda para después.",
+    text: "Obras, averías, presupuestos… y el marketing digital siempre queda para después.",
+    message: "Tengo trabajo, pero no llego a todo y el marketing digital siempre queda para después.",
   },
   {
     value: "pocas-llamadas",

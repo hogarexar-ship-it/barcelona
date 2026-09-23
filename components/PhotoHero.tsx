@@ -24,7 +24,9 @@ export function PhotoHero({
   return (
     <section className="relative isolate overflow-hidden bg-ink-900">
       <Image src={photo.src} alt={photo.alt} fill priority sizes="100vw" className="-z-10 object-cover" />
-      <div className="absolute inset-0 -z-10 bg-ink-900/70 lg:bg-transparent lg:bg-gradient-to-r lg:from-ink-900/90 lg:via-ink-900/75 lg:to-ink-900/20" />
+      {/* Velo negro sobre la foto para que el texto se lea bien */}
+      <div className="absolute inset-0 -z-10 bg-black/60" />
+      <div className="absolute inset-0 -z-10 hidden bg-gradient-to-r from-black/50 via-black/30 to-transparent lg:block" />
       <Container className="py-14 sm:py-20 lg:py-28">
         <div className="max-w-2xl text-white">
           {top}

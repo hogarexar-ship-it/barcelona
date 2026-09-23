@@ -13,8 +13,8 @@ Principales (cada uno con su página en `/servicios/...`):
 
 1. Anuncios en Google y Meta
 2. Landing page y página web
-3. Google Business Profile
-4. SEO local (incluye preparación para asistentes de IA)
+3. Google Business Profile y reseñas
+4. SEO y GEO (SEO local + posicionamiento en asistentes de IA como ChatGPT o Gemini)
 
 Complementarios (sin página propia): grabación y edición de vídeo, diseño
 gráfico y redes sociales.

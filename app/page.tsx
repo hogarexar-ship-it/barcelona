@@ -19,7 +19,7 @@ import { siteConfig } from "@/lib/site-config";
 import type { Faq } from "@/lib/types";
 
 export const metadata: Metadata = buildMetadata({
-  title: `Marketing para fontaneros y electricistas en Barcelona | ${siteConfig.brand}`,
+  title: `Marketing digital para fontaneros y electricistas en Barcelona | ${siteConfig.brand}`,
   description: siteConfig.description,
   path: "/",
   absoluteTitle: true,
@@ -28,7 +28,7 @@ export const metadata: Metadata = buildMetadata({
 const faqs: Faq[] = [
   {
     question: `¿Qué hace ${siteConfig.brand}?`,
-    answer: `${siteConfig.brand} ayuda a fontaneros y electricistas de Barcelona y alrededores a conseguir más clientes: gestionamos anuncios en Google y Meta, creamos landing pages y webs, optimizamos tu ficha de Google Business y trabajamos tu SEO local.`,
+    answer: `${siteConfig.brand} ayuda a fontaneros y electricistas de Barcelona y alrededores a conseguir más clientes: gestionamos anuncios en Google y Meta, creamos landing pages y webs, optimizamos tu ficha de Google Business, te ayudamos a conseguir reseñas y trabajamos tu SEO y GEO (aparecer en asistentes de IA).`,
   },
   {
     question: "¿En qué consiste el asesoramiento gratuito?",
@@ -63,7 +63,7 @@ export default function HomePage() {
       <PhotoHero
         photo={photos.electricistaLuzTecho}
         title="Más clientes para fontaneros y electricistas en Barcelona"
-        subtitle="Nos ocupamos de tu marketing. Tú, de trabajar."
+        subtitle="Nos ocupamos de tu marketing digital. Tú, de trabajar."
       >
         <p className="mt-10 font-semibold text-white/90">¿Qué te pasa ahora mismo?</p>
         <div className="mt-3 grid gap-3 sm:grid-cols-2">

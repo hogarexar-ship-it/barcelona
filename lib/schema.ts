@@ -35,9 +35,11 @@ export function organizationSchema() {
       "Meta Ads",
       "Landing pages",
       "Google Business Profile",
+      "Gestión de reseñas de Google",
       "SEO local",
-      "Marketing para fontaneros",
-      "Marketing para electricistas",
+      "GEO (posicionamiento en asistentes de IA)",
+      "Marketing digital para fontaneros",
+      "Marketing digital para electricistas",
     ],
     sameAs: Object.values(siteConfig.socials),
   };

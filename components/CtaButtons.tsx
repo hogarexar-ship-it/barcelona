@@ -27,7 +27,7 @@ export function WhatsAppButton({
 }: {
   message?: string;
   label?: string;
-  variant?: "outline" | "ghost";
+  variant?: "outline" | "ghost" | "light";
   className?: string;
 }) {
   return (
@@ -35,7 +35,7 @@ export function WhatsAppButton({
       href={whatsappHref(message)}
       target="_blank"
       rel="noopener noreferrer"
-      className={`btn ${variant === "ghost" ? "btn-ghost-light" : "btn-outline"} ${className}`}
+      className={`btn ${variant === "ghost" ? "btn-ghost-light" : variant === "light" ? "btn-light" : "btn-outline"} ${className}`}
     >
       <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
       {label}

@@ -32,7 +32,9 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   applicationName: siteConfig.brand,
   keywords: [
+    "marketing digital para fontaneros",
     "marketing para fontaneros",
+    "marketing digital para electricistas",
     "marketing para electricistas",
     "clientes para fontaneros Barcelona",
     "clientes para electricistas Barcelona",
@@ -40,6 +42,7 @@ export const metadata: Metadata = {
     "Google Business Profile electricistas",
     "página web para fontaneros",
     "SEO local Barcelona",
+    "GEO posicionamiento en IA",
     siteConfig.brand,
   ],
   authors: [{ name: siteConfig.brand }],

@@ -8,7 +8,7 @@ import { routes } from "@/lib/navigation";
 import { siteConfig, telHref, whatsappHref, whatsappMessage } from "@/lib/site-config";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Asesoramiento gratuito de marketing para fontaneros y electricistas",
+  title: "Asesoramiento gratuito de marketing digital para fontaneros y electricistas",
   description:
     "Cuéntanos tu situación y te proponemos, gratis y sin compromiso, la estrategia para conseguir más clientes para tu negocio de fontanería o electricidad en Barcelona.",
   path: routes.contact,

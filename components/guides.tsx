@@ -209,7 +209,7 @@ export function GuideArticle({ guide, related }: { guide: Guide; related: Guide[
             {sector && (
               <p className="mt-5 text-sm text-ink-100">
                 <Link href={sector.path} className="font-semibold text-white underline underline-offset-4">
-                  Marketing para {sector.audience}
+                  Marketing digital para {sector.audience}
                 </Link>
               </p>
             )}

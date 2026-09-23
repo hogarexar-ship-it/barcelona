@@ -38,7 +38,7 @@ export default function AvisoLegalPage() {
           <div>
             <h2 className="font-display text-lg font-bold text-ink-900">2. Objeto</h2>
             <p className="mt-2">
-              {siteConfig.brand} presta servicios de marketing a profesionales y empresas de
+              {siteConfig.brand} presta servicios de marketing digital a profesionales y empresas de
               fontanería y electricidad de Barcelona y alrededores: publicidad online, landing
               pages y páginas web, gestión de perfiles de empresa en Google, posicionamiento en
               buscadores y, de forma complementaria, vídeo, diseño gráfico y redes sociales.
