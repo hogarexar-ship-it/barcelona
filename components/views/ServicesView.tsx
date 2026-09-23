@@ -5,7 +5,7 @@ import { CtaBand } from "@/components/CtaBand";
 import { Icon } from "@/components/Icon";
 import type { IconName } from "@/components/Icon";
 import { SectionHeading } from "@/components/SectionHeading";
-import { ExtraServices, ServiceGrid } from "@/components/sections";
+import { GrowthPath, ServiceGrid } from "@/components/sections";
 import type { Locale } from "@/lib/i18n";
 import { translator } from "@/lib/i18n";
 import { getMarketingService } from "@/lib/marketing-services";
@@ -29,6 +29,11 @@ const diagnosis: { icon: IconName; problem: Record<Locale, string>; slug: Servic
     icon: "search",
     problem: { es: "Quiero depender menos de los anuncios", ca: "Vull dependre menys dels anuncis" },
     slug: "seo-local",
+  },
+  {
+    icon: "inbox",
+    problem: { es: "Se me escapan llamadas y presupuestos", ca: "Se m'escapen trucades i pressupostos" },
+    slug: "crm",
   },
 ];
 
@@ -70,9 +75,12 @@ export function ServicesView({ locale }: { locale: Locale }) {
                           <Icon name={row.icon} className="mt-0.5 h-5 w-5 shrink-0 text-accent-300" />
                           <span className="text-white/90">{row.problem[locale]}</span>
                         </span>
-                        <span className="inline-flex items-center gap-1.5 pl-8 font-semibold text-white group-hover:text-accent-200 sm:pl-0">
-                          {service.name}
-                          <Icon name="arrowRight" className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                        <span className="flex items-center gap-2 pl-8 sm:pl-0 sm:text-right">
+                          <span>
+                            <span className="block font-semibold text-white group-hover:text-accent-200">{service.title}</span>
+                            <span className="block text-xs text-white/50">{service.keywords}</span>
+                          </span>
+                          <Icon name="arrowRight" className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1" />
                         </span>
                       </Link>
                     </li>
@@ -105,9 +113,12 @@ export function ServicesView({ locale }: { locale: Locale }) {
           <div className="mt-8">
             <ServiceGrid locale={locale} />
           </div>
-          <div className="mt-6">
-            <ExtraServices locale={locale} />
-          </div>
+        </Container>
+      </section>
+
+      <section className="bg-surface-100 py-16 sm:py-20">
+        <Container>
+          <GrowthPath locale={locale} />
         </Container>
       </section>
 

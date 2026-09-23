@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ContactForm } from "./ContactForm";
 import { Container } from "./Container";
 import { Icon } from "./Icon";
+import type { IconName } from "./Icon";
 import { PhotoFrame } from "./PhotoFrame";
 import type { Step } from "./ProcessSteps";
 import { Reveal } from "./Reveal";
@@ -12,23 +13,23 @@ import { getExtraServices, getMarketingServices } from "@/lib/marketing-services
 import { getSectors } from "@/lib/sectors-data";
 import { siteConfig, telHref } from "@/lib/site-config";
 
-/** Los cuatro servicios en tarjetas cortas: icono, nombre y beneficio. */
+/** Los servicios en tarjetas: título explicativo, palabras clave debajo. */
 export function ServiceGrid({ locale, iconClass = "text-accent-600" }: { locale: Locale; iconClass?: string }) {
   const t = translator(locale);
   return (
-    <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+    <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
       {getMarketingServices(locale).map((service, index) => (
         <li key={service.slug}>
-          <Reveal delay={index * 60} className="h-full">
+          <Reveal delay={(index % 3) * 60} className="h-full">
             <Link
               href={service.path}
               className="group flex h-full flex-col rounded-xl2 border border-ink-200 bg-white p-5 transition-colors hover:border-ink-900"
             >
               <Icon name={service.icon} className={`h-8 w-8 ${iconClass}`} />
-              <span className="mt-4 font-display text-lg font-bold leading-snug text-ink-900">{service.name}</span>
-              <span className="mt-1 flex-1 text-sm text-ink-600">{service.benefit}</span>
+              <span className="mt-4 font-display text-lg font-bold leading-snug text-ink-900">{service.title}</span>
+              <span className="mt-1.5 flex-1 text-sm text-ink-400">{service.keywords}</span>
               <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-ink-900">
-                {t("Ver más", "Veure'n més")}
+                {t("Ver cómo", "Veure com")}
                 <Icon name="arrowRight" className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </span>
             </Link>
@@ -39,19 +40,84 @@ export function ServiceGrid({ locale, iconClass = "text-accent-600" }: { locale:
   );
 }
 
-/** Servicios complementarios en una sola línea. */
-export function ExtraServices({ locale }: { locale: Locale }) {
+/**
+ * Crecemos contigo: las funciones se suman a medida que crece el negocio.
+ * Los servicios complementarios (vídeo, diseño, redes) aparecen en la última etapa.
+ */
+export function GrowthPath({ locale }: { locale: Locale }) {
   const t = translator(locale);
+  const extras = getExtraServices(locale)
+    .map((e) => e.name.toLowerCase())
+    .join(", ");
+  const stages: { icon: IconName; step: string; title: string; text: string }[] = [
+    {
+      icon: "mapPin",
+      step: t("Empiezas", "Comences"),
+      title: t("Que te encuentren", "Que et trobin"),
+      text: t(
+        "Ficha de Google con reseñas y una web sencilla que haga que te llamen.",
+        "Fitxa de Google amb ressenyes i una web senzilla que faci que et truquin.",
+      ),
+    },
+    {
+      icon: "trendingUp",
+      step: t("Creces", "Creixes"),
+      title: t("Que te llamen más", "Que et truquin més"),
+      text: t(
+        "Anuncios en Google y Meta y un CRM para que ningún cliente se te escape.",
+        "Anuncis a Google i Meta i un CRM perquè no se t'escapi cap client.",
+      ),
+    },
+    {
+      icon: "building",
+      step: t("Escalas", "Escales"),
+      title: t("Que el negocio funcione sin ti", "Que el negoci funcioni sense tu"),
+      text: t(
+        `SEO y GEO, automatizaciones para tu equipo y, si lo necesitas, ${extras}.`,
+        `SEO i GEO, automatitzacions per al teu equip i, si ho necessites, ${extras}.`,
+      ),
+    },
+  ];
+
   return (
-    <p className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-ink-600">
-      <span className="font-semibold text-ink-900">{t("Y si lo necesitas:", "I si ho necessites:")}</span>
-      {getExtraServices(locale).map((extra) => (
-        <span key={extra.name} className="inline-flex items-center gap-2">
-          <Icon name={extra.icon} className="h-5 w-5 text-accent-600" />
-          {extra.name}
-        </span>
-      ))}
-    </p>
+    <div>
+      <div data-reveal className="max-w-2xl">
+        <h2 className="font-display text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">
+          {t("Crecemos contigo", "Creixem amb tu")}
+        </h2>
+        <p className="mt-4 text-lg text-ink-600">
+          {t(
+            "Empiezas por lo que más falta te hace y sumamos funciones a medida que crece tu negocio. Sin pagar hoy por lo que aún no necesitas.",
+            "Comences pel que més et cal i hi sumem funcions a mesura que creix el teu negoci. Sense pagar avui pel que encara no necessites.",
+          )}
+        </p>
+      </div>
+      <ol className="mt-10 grid gap-3 md:grid-cols-3">
+        {stages.map((stage, index) => (
+          <li key={stage.step}>
+            <Reveal delay={index * 100} className="h-full">
+              <div className="relative h-full rounded-xl2 border border-ink-200 bg-white p-6">
+                <p className="flex items-center gap-2 text-sm font-semibold text-ink-400">
+                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-ink-900 font-display text-white">
+                    {index + 1}
+                  </span>
+                  {stage.step}
+                </p>
+                <Icon name={stage.icon} className="mt-5 h-8 w-8 text-accent-600" />
+                <p className="mt-3 font-display text-xl font-bold text-ink-900">{stage.title}</p>
+                <p className="mt-2 text-sm text-ink-600">{stage.text}</p>
+                {index < stages.length - 1 && (
+                  <Icon
+                    name="arrowRight"
+                    className="absolute -right-3 top-1/2 hidden h-6 w-6 -translate-y-1/2 rounded-full bg-surface-50 text-ink-400 md:block"
+                  />
+                )}
+              </div>
+            </Reveal>
+          </li>
+        ))}
+      </ol>
+    </div>
   );
 }
 

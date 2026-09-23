@@ -14,7 +14,7 @@ export const siteConfig = {
   legalName: "Ofici Barcelona", // PLACEHOLDER: razón social / CIF real
   tagline: "Marketing digital para fontaneros y electricistas en Barcelona",
   description:
-    "Ofici ayuda a fontaneros y electricistas de Barcelona y alrededores a conseguir más clientes: anuncios en Google y Meta (Facebook e Instagram), landing pages y webs, Google Business Profile y reseñas, SEO local y GEO. Asesoramiento inicial gratuito.",
+    "Ofici ayuda a fontaneros y electricistas de Barcelona y alrededores a conseguir más clientes: anuncios en Google y Meta (Facebook e Instagram), landing pages y webs, Google Business Profile y reseñas, SEO local y GEO, y CRM para no perder clientes. Asesoramiento inicial gratuito.",
   url: "https://www.ofici.es", // PLACEHOLDER: dominio definitivo
   phoneDisplay: "930 00 00 00", // PLACEHOLDER
   phoneE164: "+34930000000", // PLACEHOLDER
@@ -44,7 +44,7 @@ export const siteText: Record<Locale, { tagline: string; description: string; op
   ca: {
     tagline: "Màrqueting digital per a lampistes i electricistes a Barcelona",
     description:
-      "Ofici ajuda lampistes i electricistes de Barcelona i rodalies a aconseguir més clients: anuncis a Google i Meta (Facebook i Instagram), landing pages i webs, Google Business Profile i ressenyes, SEO local i GEO. Assessorament inicial gratuït.",
+      "Ofici ajuda lampistes i electricistes de Barcelona i rodalies a aconseguir més clients: anuncis a Google i Meta (Facebook i Instagram), landing pages i webs, Google Business Profile i ressenyes, SEO local i GEO, i CRM per no perdre clients. Assessorament inicial gratuït.",
     openingHours: "De dilluns a divendres, de 9.00 a 19.00", // PLACEHOLDER: horari real
     areaServed: "Barcelona i rodalies",
   },

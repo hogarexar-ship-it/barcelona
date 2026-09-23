@@ -34,6 +34,7 @@ export const interestOptions: { value: ServiceSlug | "no-lo-se"; label: Record<L
   { value: "landing-page-y-web", label: { es: "Landing page o web", ca: "Landing page o web" } },
   { value: "google-business-profile", label: { es: "Google Business y reseñas", ca: "Google Business i ressenyes" } },
   { value: "seo-local", label: { es: "SEO y GEO", ca: "SEO i GEO" } },
+  { value: "crm", label: { es: "CRM y seguimiento de clientes", ca: "CRM i seguiment de clients" } },
   { value: "no-lo-se", label: { es: "No lo sé, quiero que me asesoréis", ca: "No ho sé, vull que m'assessoreu" } },
 ];
 
@@ -62,7 +63,10 @@ export const municipalities = [
 
 export const limits = { name: 100, business: 120, zone: 80, message: 1000 };
 
-/** Situaciones de la home: llegan al formulario por ?situacion= y rellenan el mensaje. */
+/**
+ * Situaciones de la portada: dos formas de decir «necesito más clientes».
+ * Llegan al formulario por ?situacion= y rellenan el mensaje.
+ */
 export const situations: {
   value: string;
   icon: IconName;
@@ -70,21 +74,21 @@ export const situations: {
   message: Record<Locale, string>;
 }[] = [
   {
-    value: "no-llego",
-    icon: "clock",
-    title: { es: "Tengo trabajo, pero no llego a todo", ca: "Tinc feina, però no arribo a tot" },
+    value: "pocas-llamadas",
+    icon: "phone",
+    title: { es: "Me llaman pocos clientes", ca: "Em truquen pocs clients" },
     message: {
-      es: "Tengo trabajo, pero no llego a todo y el marketing digital siempre queda para después.",
-      ca: "Tinc feina, però no arribo a tot i el màrqueting digital sempre queda per a després.",
+      es: "Me llaman pocos clientes y quiero tener más trabajo.",
+      ca: "Em truquen pocs clients i vull tenir més feina.",
     },
   },
   {
-    value: "pocas-llamadas",
-    icon: "trendingUp",
-    title: { es: "No me llaman lo suficiente", ca: "No em truquen prou" },
+    value: "competencia",
+    icon: "search",
+    title: { es: "Mi competencia sale antes que yo en Google", ca: "La meva competència surt abans que jo a Google" },
     message: {
-      es: "No recibo suficientes llamadas de clientes y quiero vender más.",
-      ca: "No rebo prou trucades de clients i vull vendre més.",
+      es: "Cuando buscan mi servicio en Google sale antes mi competencia y quiero que me encuentren a mí.",
+      ca: "Quan cerquen el meu servei a Google surt abans la meva competència i vull que em trobin a mi.",
     },
   },
 ];

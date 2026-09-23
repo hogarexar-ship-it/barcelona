@@ -40,6 +40,7 @@ export function organizationSchema() {
       "Gestión de reseñas de Google",
       "SEO local",
       "GEO (posicionamiento en asistentes de IA)",
+      "CRM y seguimiento de clientes",
       "Marketing digital para fontaneros",
       "Marketing digital para electricistas",
     ],

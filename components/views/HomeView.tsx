@@ -7,7 +7,7 @@ import { Marquee } from "@/components/Marquee";
 import { PhotoHero } from "@/components/PhotoHero";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { SectionHeading } from "@/components/SectionHeading";
-import { consultationSteps, ContactSection, ExtraServices, SectorCards, ServiceGrid } from "@/components/sections";
+import { consultationSteps, ContactSection, GrowthPath, SectorCards, ServiceGrid } from "@/components/sections";
 import { situations } from "@/lib/contact-options";
 import type { Locale } from "@/lib/i18n";
 import { translator } from "@/lib/i18n";
@@ -24,7 +24,7 @@ export const homeFaqs: Record<Locale, Faq[]> = {
   es: [
     {
       question: `¿Qué hace ${brand}?`,
-      answer: `${brand} ayuda a fontaneros y electricistas de Barcelona y alrededores a conseguir más clientes: gestionamos anuncios en Google y Meta (Facebook e Instagram), creamos landing pages y webs, optimizamos tu ficha de Google Business, te ayudamos a conseguir reseñas y trabajamos tu SEO y GEO (aparecer en asistentes de IA).`,
+      answer: `${brand} ayuda a fontaneros y electricistas de Barcelona y alrededores a conseguir más clientes: gestionamos anuncios en Google y Meta (Facebook e Instagram), creamos landing pages y webs, optimizamos tu ficha de Google Business, te ayudamos a conseguir reseñas, trabajamos tu SEO y GEO (aparecer en asistentes de IA) y te montamos un CRM para que ningún cliente se te escape.`,
     },
     {
       question: "¿En qué consiste el asesoramiento gratuito?",
@@ -53,7 +53,7 @@ export const homeFaqs: Record<Locale, Faq[]> = {
   ca: [
     {
       question: `Què fa ${brand}?`,
-      answer: `${brand} ajuda lampistes i electricistes de Barcelona i rodalies a aconseguir més clients: gestionem anuncis a Google i Meta (Facebook i Instagram), creem landing pages i webs, optimitzem la teva fitxa de Google Business, t'ajudem a aconseguir ressenyes i treballem el teu SEO i GEO (aparèixer als assistents d'IA).`,
+      answer: `${brand} ajuda lampistes i electricistes de Barcelona i rodalies a aconseguir més clients: gestionem anuncis a Google i Meta (Facebook i Instagram), creem landing pages i webs, optimitzem la teva fitxa de Google Business, t'ajudem a aconseguir ressenyes, treballem el teu SEO i GEO (aparèixer als assistents d'IA) i et muntem un CRM perquè no se t'escapi cap client.`,
     },
     {
       question: "En què consisteix l'assessorament gratuït?",
@@ -123,17 +123,26 @@ export function HomeView({ locale }: { locale: Locale }) {
 
       <section className="py-16 sm:py-20">
         <Container>
-          <SectionHeading title={t("Qué hacemos", "Què fem")} />
+          <SectionHeading
+            title={t("Qué hacemos por tu negocio", "Què fem pel teu negoci")}
+            intro={t(
+              "Pocos servicios, bien hechos. Cada uno resuelve un problema concreto.",
+              "Pocs serveis, ben fets. Cadascun resol un problema concret.",
+            )}
+          />
           <div className="mt-8">
             <ServiceGrid locale={locale} />
-          </div>
-          <div className="mt-6">
-            <ExtraServices locale={locale} />
           </div>
         </Container>
       </section>
 
       <section className="bg-surface-100 py-16 sm:py-20">
+        <Container>
+          <GrowthPath locale={locale} />
+        </Container>
+      </section>
+
+      <section className="py-16 sm:py-20">
         <Container>
           <SectionHeading title={t("¿A qué te dedicas?", "A què et dediques?")} />
           <div className="mt-8">

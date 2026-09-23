@@ -2,7 +2,7 @@ import type { Locale } from "./i18n";
 import { locales } from "./i18n";
 
 export type Trade = "fontaneria" | "electricidad";
-export type ServiceSlug = "anuncios-google-y-meta" | "landing-page-y-web" | "google-business-profile" | "seo-local";
+export type ServiceSlug = "anuncios-google-y-meta" | "landing-page-y-web" | "google-business-profile" | "seo-local" | "crm";
 
 type Routes = {
   home: string;
@@ -42,6 +42,7 @@ export const serviceSlugs: Record<ServiceSlug, Record<Locale, string>> = {
   "landing-page-y-web": { es: "landing-page-y-web", ca: "landing-page-i-web" },
   "google-business-profile": { es: "google-business-profile", ca: "google-business-profile" },
   "seo-local": { es: "seo-local", ca: "seo-local" },
+  crm: { es: "crm-seguimiento-clientes", ca: "crm-seguiment-clients" },
 };
 
 /** Parte final de la URL de cada guía en cada idioma (la clave es el id de la guía). */

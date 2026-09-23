@@ -9,6 +9,7 @@ import { FaqAccordion } from "@/components/FaqAccordion";
 import { Icon } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
 import { PhotoFrame } from "@/components/PhotoFrame";
+import { Reveal } from "@/components/Reveal";
 import type { Locale } from "@/lib/i18n";
 import { translator } from "@/lib/i18n";
 import { getMarketingServices } from "@/lib/marketing-services";
@@ -82,8 +83,9 @@ export function ServiceView({ locale, service }: { locale: Locale; service: Mark
               {t("Servicio", "Servei")} {index + 1} {t("de", "de")} {total}
             </p>
             <h1 className="mt-4 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-ink-900 sm:text-5xl">
-              {service.heroTitle}
+              {service.title}
             </h1>
+            <p className="mt-3 text-base font-semibold text-accent-700">{service.keywords}</p>
             <p className="mt-5 max-w-2xl text-lg text-ink-600 sm:text-xl">{service.heroSubtitle}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:hidden">
               <PrimaryCta locale={locale} href={contactHref} />
@@ -96,10 +98,33 @@ export function ServiceView({ locale, service }: { locale: Locale; service: Mark
       <Container className="grid gap-12 py-14 sm:py-20 lg:grid-cols-[1fr_22rem] lg:gap-16">
         <div className="min-w-0 space-y-14">
           <section>
-            <h2 className="font-display text-2xl font-bold text-ink-900 sm:text-3xl">{t("Es para ti si…", "És per a tu si…")}</h2>
-            <div className="mt-6" data-reveal>
+            <h2 className="font-display text-2xl font-bold text-ink-900 sm:text-3xl">
+              {t("Por qué lo necesitas", "Per què ho necessites")}
+            </h2>
+            <p className="mt-4 flex gap-3 rounded-xl2 border-l-4 border-[#EA580C] bg-white p-5 text-lg text-ink-800" data-reveal>
+              <Icon name="alert" className="mt-1 h-5 w-5 shrink-0 text-[#EA580C]" />
+              {service.pain}
+            </p>
+            <p className="mt-6 font-semibold text-ink-900">{t("Es para ti si…", "És per a tu si…")}</p>
+            <div className="mt-3" data-reveal>
               <CheckList items={service.signs} />
             </div>
+          </section>
+
+          <section>
+            <h2 className="font-display text-2xl font-bold text-ink-900 sm:text-3xl">{t("Qué consigues", "Què aconsegueixes")}</h2>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-3">
+              {service.outcomes.map((outcome, i) => (
+                <li key={outcome}>
+                  <Reveal delay={i * 80} className="h-full">
+                    <div className="h-full rounded-xl2 bg-ink-900 p-5 text-white">
+                      <Icon name="check" className="h-6 w-6 text-accent-300" />
+                      <p className="mt-3 font-display text-lg font-bold leading-snug">{outcome}</p>
+                    </div>
+                  </Reveal>
+                </li>
+              ))}
+            </ul>
           </section>
 
           <section>
@@ -127,6 +152,7 @@ export function ServiceView({ locale, service }: { locale: Locale; service: Mark
             <PhotoFrame photo={service.photo} className="aspect-[16/10] !rounded-none" sizes="(min-width: 1024px) 22rem, 100vw" />
             <div className="p-6">
               <p className="font-display text-xl font-bold text-ink-900">{t("Asesoramiento gratis", "Assessorament gratis")}</p>
+              <p className="mt-1 text-sm font-semibold text-ink-700">{service.title}</p>
               <p className="mt-1 text-sm text-ink-600">
                 {t("Te decimos qué haríamos en tu caso. Sin compromiso.", "Et diem què faríem en el teu cas. Sense compromís.")}
               </p>

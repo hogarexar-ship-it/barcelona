@@ -9,15 +9,20 @@ a todo. La puerta de entrada es un **asesoramiento gratuito**.
 
 ## Servicios
 
-Principales (cada uno con su página en `/servicios/...`):
+Principales (cada uno con su página en `/servicios/...`). Cada servicio tiene un
+título explicativo en lenguaje del cliente (`title`), las palabras técnicas
+debajo (`keywords`), el problema que resuelve (`pain`) y lo que consigue
+(`outcomes`):
 
 1. Anuncios en Google y Meta
 2. Landing page y página web
 3. Google Business Profile y reseñas
 4. SEO y GEO (SEO local + posicionamiento en asistentes de IA como ChatGPT o Gemini)
+5. CRM y seguimiento de clientes
 
 Complementarios (sin página propia): grabación y edición de vídeo, diseño
-gráfico y redes sociales.
+gráfico y redes sociales. Aparecen en la sección «Crecemos contigo», que
+explica que los servicios se suman a medida que crece el negocio.
 
 Todo el contenido de servicios está en `lib/marketing-services.ts`.
 
