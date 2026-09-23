@@ -5,11 +5,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Container } from "./Container";
 import { Icon } from "./Icon";
+import type { IconName } from "./Icon";
 import { Logo } from "./Logo";
 import type { Locale } from "@/lib/i18n";
 import { localeFromPath, locales } from "@/lib/i18n";
-import { alternatePath, mainNav } from "@/lib/navigation";
-import { primaryCta } from "@/lib/site-config";
+import { alternatePath, mainNav, routes } from "@/lib/navigation";
+import { primaryCta, siteConfig } from "@/lib/site-config";
 
 /** Selector ES / CA: lleva a la misma página en el otro idioma. */
 function LanguageSwitch({ locale, pathname, className = "" }: { locale: Locale; pathname: string; className?: string }) {
@@ -33,7 +34,9 @@ function LanguageSwitch({ locale, pathname, className = "" }: { locale: Locale; 
   );
 }
 
-export function Header() {
+export type MenuService = { href: string; label: string; icon: IconName };
+
+export function Header({ menuServices = [] }: { menuServices?: MenuService[] }) {
   const pathname = usePathname();
   const locale = localeFromPath(pathname);
   const cta = primaryCta(locale);
@@ -43,6 +46,14 @@ export function Header() {
     setMenuOpen(false);
   }, [pathname]);
 
+  // Con el menú abierto la página de detrás no se mueve.
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   const isActive = (href: string) => href === pathname || pathname.startsWith(`${href}/`);
   const linkClass = (active: boolean) =>
     `text-sm font-semibold transition-colors hover:text-accent-700 ${active ? "text-accent-700" : "text-ink-700"}`;
@@ -50,7 +61,7 @@ export function Header() {
   const ca = locale === "ca";
 
   return (
-    <header className="sticky top-0 z-40 border-b border-ink-200 bg-surface-50 print:hidden">
+    <header className="sticky top-0 z-50 border-b border-ink-200 bg-surface-50 print:hidden">
       <Container className="flex h-16 items-stretch justify-between gap-6">
         <div className="flex items-center">
           <Logo locale={locale} />
@@ -85,7 +96,15 @@ export function Header() {
             aria-expanded={menuOpen}
             aria-controls="menu-movil"
           >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" className="h-6 w-6" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              strokeLinecap="round"
+              className="h-6 w-6"
+              aria-hidden="true"
+            >
               {menuOpen ? <path d="M6 18 18 6M6 6l12 12" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
             </svg>
           </button>
@@ -93,24 +112,58 @@ export function Header() {
       </Container>
 
       {menuOpen && (
-        <div id="menu-movil" className="absolute inset-x-0 top-full border-b border-ink-200 bg-surface-50 lg:hidden">
-          <Container className="py-4">
+        <div
+          id="menu-movil"
+          className="fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto border-t border-ink-200 bg-surface-50 lg:hidden"
+        >
+          <Container className="flex min-h-full flex-col py-4">
             <nav aria-label="Menú" className="flex flex-col">
-              {nav.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  aria-current={isActive(link.href) ? "page" : undefined}
-                  className={`flex items-center justify-between rounded-md border-l-2 px-3 py-3 text-base hover:bg-ink-100 ${isActive(link.href) ? "border-[#EA580C] bg-ink-50" : "border-transparent"} ${linkClass(isActive(link.href))}`}
-                >
-                  {link.label}
-                  <Icon name="arrowRight" className="h-4 w-4 opacity-50" />
-                </Link>
+              {[{ href: routes[locale].home, label: ca ? "Inici" : "Inicio" }, ...nav].map((link, index) => (
+                <div key={link.href}>
+                  <Link
+                    href={link.href}
+                    aria-current={pathname === link.href ? "page" : undefined}
+                    className={`flex items-center justify-between py-4 font-display text-3xl font-bold tracking-tight ${
+                      pathname === link.href || (index > 0 && isActive(link.href)) ? "text-accent-700" : "text-ink-900"
+                    }`}
+                  >
+                    {link.label}
+                    <Icon name="arrowRight" className="h-6 w-6 text-ink-400" />
+                  </Link>
+                  {link.href === routes[locale].services && menuServices.length > 0 && (
+                    <ul className="mb-3 grid grid-cols-2 gap-2">
+                      {menuServices.map((service) => (
+                        <li key={service.href}>
+                          <Link
+                            href={service.href}
+                            className={`flex items-center gap-2 rounded-md px-3 py-3 text-base font-semibold ${
+                              pathname === service.href ? "bg-ink-900 text-white" : "bg-surface-200 text-ink-800"
+                            }`}
+                          >
+                            <Icon
+                              name={service.icon}
+                              className={`h-5 w-5 shrink-0 ${pathname === service.href ? "text-accent-300" : "text-accent-600"}`}
+                            />
+                            {service.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
               ))}
             </nav>
-            <Link href={cta.href} className="btn btn-primary mt-4 w-full">
-              {cta.label}
-            </Link>
+            <div className="mt-auto pt-6">
+              <Link href={cta.href} className="btn btn-primary w-full py-4 text-lg">
+                {cta.label}
+              </Link>
+              <div className="mt-4 flex items-center justify-between gap-4 pb-2 text-sm font-semibold text-ink-900">
+                <a href={`mailto:${siteConfig.email}`} className="hover:text-accent-700">
+                  {siteConfig.email}
+                </a>
+                <LanguageSwitch locale={locale} pathname={pathname} />
+              </div>
+            </div>
           </Container>
         </div>
       )}

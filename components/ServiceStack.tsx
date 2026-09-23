@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Icon } from "./Icon";
+import { StackScroll } from "./StackScroll";
 import type { Locale } from "@/lib/i18n";
 import { translator } from "@/lib/i18n";
 import { getMarketingServices } from "@/lib/marketing-services";
@@ -14,55 +15,57 @@ export function ServiceStack({ locale }: { locale: Locale }) {
   const services = getMarketingServices(locale);
 
   return (
-    <ol className="relative">
-      {services.map((service, index) => {
-        const dark = index === services.length - 1;
-        return (
-          <li
-            key={service.slug}
-            className="sticky pb-4 last:pb-0"
-            style={{ top: `calc(5.5rem + ${index * 0.9}rem)` }}
-          >
-            <article
-              className={`rounded-2xl border p-6 sm:p-10 ${
-                dark ? "border-ink-900 bg-ink-900 text-white" : "border-ink-200 bg-white text-ink-900"
-              }`}
-            >
-              <p className="flex items-center gap-4">
-                <span className={`font-display text-lg font-bold tabular-nums ${dark ? "text-white/50" : "text-ink-400"}`}>
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <span
-                  className={`inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm font-semibold ${
-                    dark ? "border-white/20 bg-white/10 text-white" : "border-ink-200 bg-surface-100 text-ink-700"
-                  }`}
-                >
-                  <Icon name={service.icon} className={`h-4 w-4 ${dark ? "text-accent-300" : "text-accent-600"}`} />
-                  {service.tag}
-                </span>
-              </p>
-              <h3 className="mt-6 max-w-2xl font-display text-3xl font-extrabold leading-[1.1] tracking-tight sm:text-4xl">
-                {service.title}
-              </h3>
-              <p className={`mt-3 text-sm font-semibold ${dark ? "text-accent-200" : "text-accent-700"}`}>{service.keywords}</p>
-              <p className={`mt-4 max-w-xl text-lg ${dark ? "text-white/75" : "text-ink-600"}`}>{service.short}</p>
-              <Link href={service.path} className="group mt-8 inline-flex items-center gap-4 font-display text-lg font-bold">
-                {t("Ver cómo lo hacemos", "Veure com ho fem")}
-                <span
-                  className={`inline-flex h-12 w-12 items-center justify-center rounded-full border transition-colors ${
-                    dark
-                      ? "border-white group-hover:bg-white group-hover:text-ink-900"
-                      : "border-ink-900 group-hover:bg-ink-900 group-hover:text-white"
-                  }`}
-                >
-                  <Icon name="arrowRight" className="h-5 w-5" />
-                </span>
-              </Link>
-            </article>
-          </li>
-        );
-      })}
-    </ol>
+    <>
+      <StackScroll />
+      <ol className="relative" data-stack-list>
+        {services.map((service, index) => {
+          const dark = index === services.length - 1;
+          return (
+            <li key={service.slug} className="sticky pb-4 last:pb-0" style={{ top: `calc(5.5rem + ${index * 0.9}rem)` }}>
+              <article
+                className={`relative origin-top overflow-hidden rounded-2xl border p-6 [transform:scale(calc(1_-_var(--p,0)*0.05))] sm:p-10 ${
+                  dark ? "border-ink-900 bg-ink-900 text-white" : "border-ink-200 bg-white text-ink-900"
+                }`}
+              >
+                {/* Se oscurece al quedar tapada por la siguiente */}
+                <span className="pointer-events-none absolute inset-0 bg-ink-900 [opacity:calc(var(--p,0)*0.07)]" aria-hidden="true" />
+                <p className="flex items-center gap-4">
+                  <span className={`font-display text-lg font-bold tabular-nums ${dark ? "text-white/50" : "text-ink-400"}`}>
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span
+                    className={`inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm font-semibold ${
+                      dark ? "border-white/20 bg-white/10 text-white" : "border-ink-200 bg-surface-100 text-ink-700"
+                    }`}
+                  >
+                    <Icon name={service.icon} className={`h-4 w-4 ${dark ? "text-accent-300" : "text-accent-600"}`} />
+                    {service.tag}
+                  </span>
+                </p>
+                <h3 className="mt-6 max-w-2xl font-display text-3xl font-extrabold leading-[1.1] tracking-tight sm:text-4xl">
+                  {service.title}
+                </h3>
+                <p className={`mt-3 text-sm font-semibold ${dark ? "text-accent-200" : "text-accent-700"}`}>{service.keywords}</p>
+                <p className={`mt-4 max-w-xl text-lg ${dark ? "text-white/75" : "text-ink-600"}`}>{service.short}</p>
+                <p className={`mt-3 max-w-xl text-base ${dark ? "text-white/50" : "text-ink-400"}`}>{service.pain}</p>
+                <Link href={service.path} className="group mt-8 inline-flex items-center gap-4 font-display text-lg font-bold">
+                  {t("Ver cómo lo hacemos", "Veure com ho fem")}
+                  <span
+                    className={`inline-flex h-12 w-12 items-center justify-center rounded-full border transition-colors ${
+                      dark
+                        ? "border-white group-hover:bg-white group-hover:text-ink-900"
+                        : "border-ink-900 group-hover:bg-ink-900 group-hover:text-white"
+                    }`}
+                  >
+                    <Icon name="arrowRight" className="h-5 w-5" />
+                  </span>
+                </Link>
+              </article>
+            </li>
+          );
+        })}
+      </ol>
+    </>
   );
 }
 
