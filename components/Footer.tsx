@@ -2,47 +2,49 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { Container } from "./Container";
 import { Logo } from "./Logo";
-import { guidesLink, sectorLinks, serviceLinks } from "@/lib/navigation";
-import { defaultWhatsappMessage, primaryCta, siteConfig, telHref, whatsappHref } from "@/lib/site-config";
+import { consumerRoutes, proRoutes, sectorPath, servicePath } from "@/lib/navigation";
+import { consumerWhatsappMessage, siteConfig, telHref, whatsappHref } from "@/lib/site-config";
 
 export function Footer() {
   return (
     <footer className="bg-ink-900 text-ink-100 print:hidden">
-      <Container className="grid gap-10 border-t border-white/10 py-14 sm:grid-cols-2 lg:grid-cols-4">
+      <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <Logo onDark />
           <p className="mt-4 text-sm">
-            {siteConfig.tagline}. Red de clientes y marketing para empresas de reformas, fontaneros y electricistas.
+            {siteConfig.tagline}. {siteConfig.areaServed}.
           </p>
         </div>
 
-        <FooterColumn title="Servicios">
-          {serviceLinks.map((link) => (
-            <FooterLink key={link.href} href={link.href} label={link.label} />
-          ))}
-          <FooterLink href={primaryCta.href} label="Empezar ahora" highlight />
+        <FooterColumn title="Para tu casa">
+          <FooterLink href={servicePath("fontaneria")} label="Fontaneros en Barcelona" />
+          <FooterLink href={servicePath("electricidad")} label="Electricistas en Barcelona" />
+          <FooterLink href={consumerRoutes.guides} label="Guías para tu casa" />
+          <FooterLink href={consumerRoutes.request} label="Pedir presupuesto" className="font-semibold text-terracotta-300" />
         </FooterColumn>
 
-        <FooterColumn title="Sectores">
-          {sectorLinks.map((link) => (
-            <FooterLink key={link.href} href={link.href} label={`Clientes para ${link.label.toLowerCase()}`} />
-          ))}
-          <FooterLink href={guidesLink.href} label="Guías para profesionales" />
+        <FooterColumn title="Para profesionales">
+          <FooterLink href={proRoutes.network} label="Red de clientes" />
+          <FooterLink href={proRoutes.marketing} label="Marketing para profesionales" />
+          <FooterLink href={sectorPath("fontaneria")} label="Clientes para fontaneros" />
+          <FooterLink href={sectorPath("electricidad")} label="Clientes para electricistas" />
+          <FooterLink href={proRoutes.guides} label="Guías para profesionales" />
+          <FooterLink href={proRoutes.join} label="Unirme a la red" className="font-semibold text-[#6CC0B3]" />
         </FooterColumn>
 
         <FooterColumn title="Contacto">
           <li>
-            <a href={whatsappHref(defaultWhatsappMessage)} target="_blank" rel="noopener noreferrer" className="hover:text-terracotta-300">
+            <a href={whatsappHref(consumerWhatsappMessage)} target="_blank" rel="noopener noreferrer" className="hover:text-white">
               WhatsApp
             </a>
           </li>
           <li>
-            <a href={telHref()} className="hover:text-terracotta-300">
+            <a href={telHref()} className="hover:text-white">
               {siteConfig.phoneDisplay}
             </a>
           </li>
           <li>
-            <a href={`mailto:${siteConfig.email}`} className="hover:text-terracotta-300">
+            <a href={`mailto:${siteConfig.email}`} className="hover:text-white">
               {siteConfig.email}
             </a>
           </li>
@@ -53,24 +55,12 @@ export function Footer() {
       <div className="border-t border-white/10 py-6">
         <Container className="flex flex-col gap-3 text-xs sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} {siteConfig.legalName}. {siteConfig.areaServed}.
+            © {new Date().getFullYear()} {siteConfig.legalName}.
           </p>
           <ul className="flex flex-wrap gap-4">
-            <li>
-              <Link href="/aviso-legal" className="hover:text-terracotta-300">
-                Aviso legal
-              </Link>
-            </li>
-            <li>
-              <Link href="/politica-privacidad" className="hover:text-terracotta-300">
-                Privacidad
-              </Link>
-            </li>
-            <li>
-              <Link href="/politica-cookies" className="hover:text-terracotta-300">
-                Cookies
-              </Link>
-            </li>
+            <FooterLink href="/aviso-legal" label="Aviso legal" />
+            <FooterLink href="/politica-privacidad" label="Privacidad" />
+            <FooterLink href="/politica-cookies" label="Cookies" />
           </ul>
         </Container>
       </div>
@@ -87,10 +77,10 @@ function FooterColumn({ title, children }: { title: string; children: ReactNode 
   );
 }
 
-function FooterLink({ href, label, highlight = false }: { href: string; label: string; highlight?: boolean }) {
+function FooterLink({ href, label, className = "" }: { href: string; label: string; className?: string }) {
   return (
     <li>
-      <Link href={href} className={highlight ? "font-semibold text-terracotta-300 hover:text-terracotta-200" : "hover:text-terracotta-300"}>
+      <Link href={href} className={`hover:text-white ${className}`}>
         {label}
       </Link>
     </li>

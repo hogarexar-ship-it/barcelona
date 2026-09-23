@@ -29,7 +29,7 @@ export default function OpengraphImage() {
           {siteConfig.tagline}
         </div>
         <div style={{ display: "flex", marginTop: 40, fontSize: 28, color: "#A44A22", fontWeight: 700 }}>
-          Red de clientes · Marketing · Reformas, fontanería y electricidad
+          Fontanería · Electricidad · Profesionales verificados
         </div>
       </div>
     ),

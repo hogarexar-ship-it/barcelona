@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
-import { blogPosts } from "@/lib/blog-data";
-import { marketingOffer, networkOffer } from "@/lib/offers";
-import { sectors } from "@/lib/sectors-data";
+import { guidePath, guides } from "@/lib/guides-data";
+import { consumerRoutes, proRoutes } from "@/lib/navigation";
+import { sectors } from "@/lib/pro-sectors-data";
+import { services } from "@/lib/services-data";
 import { siteConfig } from "@/lib/site-config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -14,12 +15,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     page("", 1),
-    page(networkOffer.href, 0.95),
-    page(marketingOffer.href, 0.95),
-    ...sectors.map((sector) => page(sector.path, 0.9)),
-    page("/empezar", 0.8),
-    page("/blog", 0.7),
-    ...blogPosts.map((post) => page(`/blog/${post.slug}`, 0.6, new Date(post.updatedAt))),
+    ...services.map((service) => page(service.path, 0.95)),
+    page(consumerRoutes.request, 0.9),
+    page(consumerRoutes.guides, 0.6),
+    page(proRoutes.home, 0.85),
+    page(proRoutes.network, 0.8),
+    page(proRoutes.marketing, 0.8),
+    ...sectors.map((sector) => page(sector.path, 0.8)),
+    page(proRoutes.join, 0.7),
+    page(proRoutes.guides, 0.6),
+    ...guides.map((guide) => page(guidePath(guide), 0.6, new Date(guide.updatedAt))),
     page("/aviso-legal", 0.1),
     page("/politica-privacidad", 0.1),
     page("/politica-cookies", 0.1),

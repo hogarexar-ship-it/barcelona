@@ -1,18 +1,46 @@
-export type SectorSlug = "reformas" | "fontaneros" | "electricistas";
+export type Trade = "fontaneria" | "electricidad";
 
-export function sectorPath(slug: SectorSlug): string {
-  return `/clientes-para-${slug}`;
+export const consumerRoutes = {
+  home: "/",
+  request: "/pedir-presupuesto",
+  guides: "/guias",
+};
+
+export const proRoutes = {
+  home: "/profesionales",
+  network: "/profesionales/red-de-clientes",
+  marketing: "/profesionales/marketing",
+  join: "/profesionales/unirse",
+  guides: "/profesionales/guias",
+};
+
+export function servicePath(trade: Trade): string {
+  return trade === "fontaneria" ? "/fontaneros-barcelona" : "/electricistas-barcelona";
 }
 
-export const sectorLinks: { slug: SectorSlug; label: string; href: string }[] = [
-  { slug: "reformas", label: "Reformas", href: sectorPath("reformas") },
-  { slug: "fontaneros", label: "Fontaneros", href: sectorPath("fontaneros") },
-  { slug: "electricistas", label: "Electricistas", href: sectorPath("electricistas") },
+export function sectorPath(trade: Trade): string {
+  return trade === "fontaneria"
+    ? "/profesionales/clientes-para-fontaneros"
+    : "/profesionales/clientes-para-electricistas";
+}
+
+export function isProPath(pathname: string): boolean {
+  return pathname === proRoutes.home || pathname.startsWith(`${proRoutes.home}/`);
+}
+
+export type NavLink = { href: string; label: string };
+
+export const consumerNav: NavLink[] = [
+  { href: servicePath("fontaneria"), label: "Fontaneros" },
+  { href: servicePath("electricidad"), label: "Electricistas" },
+  { href: "/#como-funciona", label: "Cómo funciona" },
+  { href: consumerRoutes.guides, label: "Guías" },
 ];
 
-export const serviceLinks = [
-  { href: "/conseguir-clientes", label: "Red de clientes" },
-  { href: "/marketing-para-profesionales", label: "Marketing" },
+export const proNav: NavLink[] = [
+  { href: proRoutes.network, label: "Red de clientes" },
+  { href: proRoutes.marketing, label: "Marketing" },
+  { href: sectorPath("fontaneria"), label: "Fontaneros" },
+  { href: sectorPath("electricidad"), label: "Electricistas" },
+  { href: proRoutes.guides, label: "Guías" },
 ];
-
-export const guidesLink = { href: "/blog", label: "Guías" };

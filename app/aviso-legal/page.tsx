@@ -38,11 +38,12 @@ export default function AvisoLegalPage() {
           <div>
             <h2 className="font-display text-lg font-bold text-ink-900">2. Objeto</h2>
             <p className="mt-2">
-              {siteConfig.brand} presta servicios a profesionales y empresas de oficios en
-              Barcelona: captación y derivación de clientes a cambio de una comisión (red de
-              clientes) y servicios de marketing (gestión de perfiles de empresa, publicidad
-              online, posicionamiento, marca y redes sociales). Los trabajos derivados los
-              ejecutan profesionales independientes, que son responsables de ellos.
+              {siteConfig.brand} pone en contacto a particulares y empresas de Barcelona que
+              necesitan servicios de fontanería o electricidad con profesionales independientes
+              de su red, que ejecutan los trabajos y son responsables de ellos. Además, presta
+              servicios a esos profesionales: derivación de clientes a cambio de una comisión y
+              servicios de marketing (perfiles de empresa, publicidad online, posicionamiento,
+              marca y redes sociales).
             </p>
           </div>
 

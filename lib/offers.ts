@@ -1,8 +1,10 @@
 import type { IconName } from "@/components/Icon";
+import { proRoutes } from "./navigation";
+import type { Trade } from "./navigation";
 import { commercialTerms } from "./site-config";
 
 export type Interest = "clientes" | "marketing" | "ambos";
-export type Trade = "reformas" | "fontaneria" | "electricidad" | "otro";
+export type ProTrade = Trade | "otro";
 
 export const interestOptions: { value: Interest; label: string }[] = [
   { value: "clientes", label: "Recibir clientes" },
@@ -10,8 +12,7 @@ export const interestOptions: { value: Interest; label: string }[] = [
   { value: "ambos", label: "Las dos cosas / aún no lo sé" },
 ];
 
-export const tradeOptions: { value: Trade; label: string }[] = [
-  { value: "reformas", label: "Reformas" },
+export const tradeOptions: { value: ProTrade; label: string }[] = [
   { value: "fontaneria", label: "Fontanería" },
   { value: "electricidad", label: "Electricidad" },
   { value: "otro", label: "Otro oficio" },
@@ -28,7 +29,7 @@ export type Offer = {
 };
 
 export const networkOffer: Offer = {
-  href: "/conseguir-clientes",
+  href: proRoutes.network,
   name: "Red de clientes",
   title: "Te pasamos clientes",
   summary:
@@ -44,7 +45,7 @@ export const networkOffer: Offer = {
 };
 
 export const marketingOffer: Offer = {
-  href: "/marketing-para-profesionales",
+  href: proRoutes.marketing,
   name: "Marketing para tu negocio",
   title: "Hacemos que te encuentren",
   summary:

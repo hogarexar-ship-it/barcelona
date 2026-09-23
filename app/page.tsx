@@ -1,96 +1,58 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { FaqAccordion } from "@/components/FaqAccordion";
-import { Icon } from "@/components/Icon";
-import type { IconName } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
-import { LeadsMockup } from "@/components/LeadsMockup";
-import { OfferCards } from "@/components/OfferCards";
 import { PageHero } from "@/components/PageHero";
+import { ProBand } from "@/components/ProBand";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { SectionHeading } from "@/components/SectionHeading";
-import { SectorCards } from "@/components/SectorCards";
-import { SignupSection } from "@/components/SignupSection";
+import {
+  consumerSteps,
+  Districts,
+  HeroPhotos,
+  QuickProblems,
+  RequestSection,
+  ServiceCards,
+  TrustBar,
+} from "@/components/consumer";
+import { GuideCards } from "@/components/guides";
+import { guidesFor } from "@/lib/guides-data";
 import { buildMetadata } from "@/lib/metadata";
 import { faqSchema } from "@/lib/schema";
-import { commercialTerms, siteConfig } from "@/lib/site-config";
+import { siteConfig } from "@/lib/site-config";
 import type { Faq } from "@/lib/types";
 
 export const metadata: Metadata = buildMetadata({
-  title: `${siteConfig.brand}: más clientes para reformas, fontaneros y electricistas en Barcelona`,
+  title: `Fontaneros y electricistas en Barcelona | ${siteConfig.brand}`,
   description: siteConfig.description,
   path: "/",
   absoluteTitle: true,
 });
 
-const pains = [
-  "Dependes del boca a boca y hay meses flojos.",
-  "Pagas por contactos que también reciben otras empresas.",
-  "Tu ficha de Google está a medias y casi no tiene reseñas.",
-  "Sabes que deberías hacer anuncios y redes, pero no tienes tiempo.",
-];
-
-const steps = [
-  {
-    title: "Nos cuentas tu negocio",
-    description: "Rellenas un formulario de un minuto y te llamamos: oficio, zonas, tipo de trabajos y cuánto quieres crecer.",
-  },
-  {
-    title: "Te proponemos un plan",
-    description: "Red de clientes, marketing o las dos cosas. Te explicamos condiciones y costes antes de empezar, sin letra pequeña.",
-  },
-  {
-    title: "Empiezas a recibir clientes",
-    description: "Te pasamos trabajos de tu zona y/o ponemos en marcha tu marketing. Revisamos resultados contigo cada mes.",
-  },
-];
-
-const reasons: { icon: IconName; title: string; text: string }[] = [
-  {
-    icon: "mapPin",
-    title: "Solo Barcelona",
-    text: "Trabajamos únicamente en Barcelona y su área metropolitana. Conocemos los barrios, las fincas y lo que pide cada cliente.",
-  },
-  {
-    icon: "users",
-    title: "Solo oficios",
-    text: "No somos una agencia generalista. Nos dedicamos a reformas, fontanería y electricidad, y hablamos tu idioma, no jerga de marketing.",
-  },
-  {
-    icon: "chart",
-    title: "Resultados en clientes",
-    text: "Medimos llamadas, presupuestos y trabajos cerrados. Los «me gusta» no pagan facturas.",
-  },
-];
-
 const faqs: Faq[] = [
   {
     question: `¿Qué es ${siteConfig.brand}?`,
-    answer: `${siteConfig.brand} es un servicio de Barcelona para profesionales de reformas, fontanería y electricidad que quieren más clientes. Trabajamos de dos formas: te pasamos clientes a cambio de una comisión (red de clientes) o llevamos tu marketing (Google Business Profile, Google Ads, Meta Ads, SEO, marca y redes sociales).`,
+    answer: `${siteConfig.brand} es un servicio de Barcelona que te pone en contacto con fontaneros y electricistas verificados de tu zona. Nos cuentas qué necesitas y te ponemos en contacto con el profesional adecuado, sin que tengas que buscar ni comparar por tu cuenta.`,
   },
   {
-    question: `¿${siteConfig.brand} es un directorio o una plataforma de presupuestos?`,
+    question: `¿Cuánto cuesta usar ${siteConfig.brand}?`,
     answer:
-      "No. No publicamos tu perfil en un directorio ni subastamos contactos. Captamos al cliente, entendemos qué necesita y se lo pasamos al profesional de la red que encaja por oficio y zona.",
+      "Nada. Pedir presupuesto es gratis y sin compromiso: solo pagas al profesional por el trabajo, y solo si aceptas su presupuesto.",
   },
   {
-    question: "¿Cuánto cuesta?",
-    answer: `Unirte a la red de clientes es gratis: ${commercialTerms.network.model.toLowerCase()} El marketing se contrata con un plan mensual a medida y el diagnóstico inicial de tu presencia online es gratuito.`,
-  },
-  {
-    question: "¿Con qué oficios trabajáis?",
+    question: "¿Cómo verificáis a los profesionales?",
     answer:
-      "Empezamos por los tres oficios con más demanda en Barcelona: empresas de reformas, fontaneros y electricistas. Si te dedicas a otro oficio, escríbenos igualmente: vamos abriendo nuevos sectores.",
+      "Antes de que un profesional entre en la red comprobamos que está dado de alta como autónomo o empresa, que tiene seguro de responsabilidad civil y experiencia demostrable y, cuando el trabajo lo exige, que está habilitado.",
   },
   {
-    question: "¿En qué zonas trabajáis?",
+    question: "¿Atendéis urgencias?",
     answer:
-      "En Barcelona ciudad y su área metropolitana (L'Hospitalet, Badalona, Cornellà, Esplugues, Sant Adrià y alrededores). Tú eliges en qué zonas quieres recibir trabajos.",
+      "Sí. Marca tu solicitud como urgente y buscamos un profesional disponible en tu zona lo antes posible. La disponibilidad depende del momento y del barrio, y te confirmamos el horario antes de que salga.",
   },
   {
-    question: "¿Puedo contratar solo una parte del marketing?",
+    question: "¿Qué hacéis con mis datos?",
     answer:
-      "Sí. Puedes empezar, por ejemplo, solo con tu ficha de Google y ampliar a anuncios, web o redes cuando veas resultados.",
+      "Los usamos solo para gestionar tu solicitud y compartimos con el profesional lo necesario para que pueda atenderte: nombre, teléfono, zona y descripción del problema.",
   },
 ];
 
@@ -100,97 +62,71 @@ export default function HomePage() {
       <JsonLd data={faqSchema(faqs)} />
 
       <PageHero
-        eyebrow="Para reformas, fontanería y electricidad en Barcelona"
-        title="Más clientes para tu oficio."
-        subtitle="Te pasamos trabajos de tu zona a comisión o llevamos tu marketing para que te llamen a ti. Tú eliges cómo crecer; nosotros nos encargamos del resto."
-        aside={<LeadsMockup />}
+        eyebrow={siteConfig.areaServed}
+        title="Fontaneros y electricistas de confianza en Barcelona"
+        subtitle="Cuéntanos qué pasa y te ponemos en contacto con un profesional verificado de tu zona. Pedir presupuesto es gratis y sin compromiso."
+        aside={<HeroPhotos />}
       >
-        <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-ink-600">
-          {[commercialTerms.network.signupFee, siteConfig.areaServed, "Hablas con personas, no con una app"].map((item) => (
-            <li key={item} className="flex items-center gap-2">
-              <Icon name="check" className="h-4 w-4 text-terracotta-500" />
-              {item}
-            </li>
-          ))}
-        </ul>
+        <QuickProblems />
       </PageHero>
 
       <section className="py-16 sm:py-24">
         <Container>
           <SectionHeading
-            eyebrow="Lo que hacemos"
-            title="Dos formas de conseguir más clientes"
-            intro="Elige una o combina las dos. Empiezas por lo que más necesitas hoy."
+            eyebrow="¿Qué necesitas?"
+            title="Elige el servicio y cuéntanos qué pasa"
+            intro="Toca tu problema y llegarás al formulario con todo ya marcado."
           />
           <div className="mt-10">
-            <OfferCards />
+            <ServiceCards />
           </div>
         </Container>
       </section>
 
-      <section className="bg-cream-100 py-16 sm:py-24">
-        <Container className="grid gap-10 lg:grid-cols-2 lg:items-center">
-          <SectionHeading
-            eyebrow="¿Te suena?"
-            title="Eres bueno en tu oficio. Conseguir clientes es otro trabajo."
-            intro={`Para eso existe ${siteConfig.brand}: tú haces lo que sabes hacer y nosotros nos ocupamos de que el teléfono suene.`}
-          />
-          <ul className="grid gap-3 sm:grid-cols-2">
-            {pains.map((pain) => (
-              <li key={pain} className="rounded-xl2 border border-ink-100 bg-white p-5 font-medium text-ink-800">
-                {pain}
-              </li>
-            ))}
-          </ul>
+      <section className="pb-16 sm:pb-24">
+        <Container>
+          <TrustBar />
         </Container>
       </section>
 
-      <section id="sectores" className="scroll-mt-20 py-16 sm:py-24">
+      <section id="como-funciona" className="scroll-mt-28 bg-surface-100 py-16 sm:py-24">
         <Container>
-          <SectionHeading
-            eyebrow="Sectores"
-            title="Empezamos por los oficios con más demanda en Barcelona"
-            intro="Reformas, fontanería y electricidad: los trabajos que más se piden en la ciudad y donde más profesionales compiten por el mismo cliente."
-          />
+          <SectionHeading eyebrow="Cómo funciona" title="Tres pasos y listo" />
           <div className="mt-10">
-            <SectorCards />
-          </div>
-        </Container>
-      </section>
-
-      <section className="bg-cream-100 py-16 sm:py-24">
-        <Container>
-          <SectionHeading eyebrow="Cómo funciona" title="Empezar es fácil" />
-          <div className="mt-10">
-            <ProcessSteps steps={steps} />
+            <ProcessSteps steps={consumerSteps} />
           </div>
         </Container>
       </section>
 
       <section className="py-16 sm:py-24">
+        <Container className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+          <SectionHeading
+            eyebrow="Zonas"
+            title="En toda Barcelona y alrededores"
+            intro="Trabajamos con profesionales de cada distrito para que quien vaya a tu casa esté cerca."
+          />
+          <Districts />
+        </Container>
+      </section>
+
+      <ProBand />
+
+      <section className="py-16 sm:py-24">
         <Container>
-          <SectionHeading eyebrow={`Por qué ${siteConfig.brand}`} title="Especialistas en oficios, no una agencia más" />
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {reasons.map((reason) => (
-              <div key={reason.title} className="rounded-xl2 border border-ink-100 bg-white p-6">
-                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-terracotta-50 text-terracotta-600">
-                  <Icon name={reason.icon} />
-                </span>
-                <h3 className="mt-5 font-display text-xl font-bold text-ink-900">{reason.title}</h3>
-                <p className="mt-2 text-ink-600">{reason.text}</p>
-              </div>
-            ))}
+          <SectionHeading eyebrow="Guías" title="Consejos para tu casa" />
+          <div className="mt-10">
+            <GuideCards guides={guidesFor("consumer").slice(0, 3)} />
           </div>
         </Container>
       </section>
 
-      <section className="bg-cream-100 py-16 sm:py-24">
+      <section className="pb-16 sm:pb-24">
         <Container className="max-w-3xl">
           <FaqAccordion faqs={faqs} />
         </Container>
       </section>
 
-      <SignupSection />
+      <RequestSection />
     </>
   );
 }

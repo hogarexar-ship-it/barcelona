@@ -36,19 +36,21 @@ export default function PoliticaPrivacidadPage() {
           <div>
             <h2 className="font-display text-lg font-bold text-ink-900">2. Datos que recopilamos</h2>
             <p className="mt-2">
-              A través del formulario y de las conversaciones por WhatsApp, teléfono o email
-              recopilamos los datos que nos facilitas como profesional: nombre, teléfono, correo
-              electrónico (si se facilita), nombre de tu empresa, oficio, zonas de trabajo y el
-              servicio que te interesa.
+              Si pides un presupuesto: nombre, teléfono, barrio o municipio y la descripción del
+              problema. Si eres profesional: nombre, teléfono, correo electrónico (si se facilita),
+              nombre de tu empresa, oficio, zonas de trabajo y el servicio que te interesa. Los
+              recogemos a través de los formularios y de las conversaciones por WhatsApp,
+              teléfono o email.
             </p>
           </div>
 
           <div>
             <h2 className="font-display text-lg font-bold text-ink-900">3. Finalidad</h2>
             <p className="mt-2">
-              Utilizamos estos datos para contactarte, gestionar tu alta en la red de clientes o
-              preparar tu propuesta de marketing y, si llegamos a un acuerdo, prestarte el
-              servicio contratado.
+              Si pides un presupuesto, usamos tus datos para gestionar tu solicitud y ponerte en
+              contacto con el profesional adecuado. Si eres profesional, para contactarte,
+              gestionar tu alta en la red o preparar tu propuesta de marketing y, si llegamos a
+              un acuerdo, prestarte el servicio contratado.
             </p>
           </div>
 
@@ -63,8 +65,10 @@ export default function PoliticaPrivacidadPage() {
           <div>
             <h2 className="font-display text-lg font-bold text-ink-900">5. Cesión de datos</h2>
             <p className="mt-2">
-              No vendemos tus datos. Solo los compartimos con proveedores necesarios para prestar
-              el servicio (por ejemplo, herramientas de comunicación o de gestión) y cuando lo
+              No vendemos tus datos. Si pides un presupuesto, compartimos con el profesional de la
+              red asignado lo necesario para que pueda atenderte (nombre, teléfono, zona y
+              descripción del problema). Además, solo los compartimos con proveedores necesarios
+              para prestar el servicio (por ejemplo, herramientas de comunicación) y cuando lo
               exija la ley.
             </p>
           </div>

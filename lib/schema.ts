@@ -3,15 +3,15 @@ import type { Faq } from "./types";
 
 const businessId = `${siteConfig.url}/#organization`;
 
-const audience = {
+export const proAudience = {
   "@type": "BusinessAudience",
-  audienceType: "Empresas de reformas, fontaneros y electricistas de Barcelona",
+  audienceType: "Fontaneros y electricistas de Barcelona",
 };
 
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+    "@type": "HomeAndConstructionBusiness",
     "@id": businessId,
     name: siteConfig.brand,
     description: siteConfig.description,
@@ -28,14 +28,12 @@ export function organizationSchema() {
       addressCountry: siteConfig.addressCountry,
     },
     areaServed: { "@type": "City", name: "Barcelona" },
-    audience,
+    openingHours: "Mo-Sa 08:00-20:00",
     knowsAbout: [
-      "Captación de clientes para profesionales de oficios",
-      "Google Business Profile",
-      "Google Ads",
-      "Meta Ads",
-      "SEO local",
-      "Marketing para empresas de reformas",
+      "Fontanería",
+      "Electricidad",
+      "Boletines eléctricos",
+      "Captación de clientes para fontaneros y electricistas",
       "Marketing para fontaneros",
       "Marketing para electricistas",
     ],
@@ -43,17 +41,23 @@ export function organizationSchema() {
   };
 }
 
-export function serviceSchema(args: { name: string; description: string; url: string }) {
+export function serviceSchema(args: {
+  name: string;
+  description: string;
+  url: string;
+  serviceType?: string;
+  audience?: typeof proAudience;
+}) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
     name: args.name,
-    serviceType: args.name,
+    serviceType: args.serviceType ?? args.name,
     description: args.description,
     url: args.url,
-    provider: { "@type": "ProfessionalService", "@id": businessId, name: siteConfig.brand },
+    provider: { "@type": "HomeAndConstructionBusiness", "@id": businessId, name: siteConfig.brand },
     areaServed: { "@type": "City", name: "Barcelona" },
-    audience,
+    ...(args.audience ? { audience: args.audience } : {}),
   };
 }
 
@@ -88,6 +92,7 @@ export function blogPostingSchema(args: {
   url: string;
   datePublished: string;
   dateModified: string;
+  pro: boolean;
 }) {
   return {
     "@context": "https://schema.org",
@@ -98,7 +103,7 @@ export function blogPostingSchema(args: {
     datePublished: args.datePublished,
     dateModified: args.dateModified,
     inLanguage: "es-ES",
-    audience,
+    ...(args.pro ? { audience: proAudience } : {}),
     author: { "@type": "Organization", "@id": businessId, name: siteConfig.brand },
     publisher: { "@type": "Organization", "@id": businessId, name: siteConfig.brand },
   };

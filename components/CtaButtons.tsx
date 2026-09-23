@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { Icon } from "./Icon";
-import { defaultWhatsappMessage, primaryCta, whatsappHref } from "@/lib/site-config";
+import { consumerCta, consumerWhatsappMessage, proCta, proWhatsappMessage, whatsappHref } from "@/lib/site-config";
 
 export function PrimaryCta({
-  href = primaryCta.href,
-  label = primaryCta.label,
+  href = consumerCta.href,
+  label = consumerCta.label,
   className = "",
 }: {
   href?: string;
@@ -19,28 +19,32 @@ export function PrimaryCta({
   );
 }
 
+export function ProCta({ href = proCta.href, label = proCta.label, className = "" }: { href?: string; label?: string; className?: string }) {
+  return <PrimaryCta href={href} label={label} className={className} />;
+}
+
 export function WhatsAppButton({
-  message = defaultWhatsappMessage,
+  message = consumerWhatsappMessage,
   label = "Escríbenos por WhatsApp",
   variant = "outline",
   className = "",
 }: {
   message?: string;
   label?: string;
-  variant?: "outline" | "light";
+  variant?: "outline" | "light" | "ghost";
   className?: string;
 }) {
+  const variants = { outline: "btn-outline", light: "btn-light", ghost: "btn-ghost-light" };
   return (
-    <a
-      href={whatsappHref(message)}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`btn ${variant === "light" ? "btn-light" : "btn-outline"} ${className}`}
-    >
+    <a href={whatsappHref(message)} target="_blank" rel="noopener noreferrer" className={`btn ${variants[variant]} ${className}`}>
       <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
       {label}
     </a>
   );
+}
+
+export function ProWhatsAppButton({ className = "" }: { className?: string }) {
+  return <WhatsAppButton message={proWhatsappMessage} variant="ghost" className={className} />;
 }
 
 export function WhatsAppIcon({ className = "h-5 w-5" }: { className?: string }) {

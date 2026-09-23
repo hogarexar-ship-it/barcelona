@@ -5,14 +5,14 @@ import type { FormEvent, ReactNode } from "react";
 import Link from "next/link";
 import { WhatsAppIcon } from "./CtaButtons";
 import { interestOptions, tradeOptions } from "@/lib/offers";
-import type { Interest, Trade } from "@/lib/offers";
+import type { Interest, ProTrade } from "@/lib/offers";
 import { siteConfig, whatsappHref } from "@/lib/site-config";
 
 function isInterest(value: string | null): value is Interest {
   return interestOptions.some((option) => option.value === value);
 }
 
-function isTrade(value: string | null): value is Trade {
+function isTrade(value: string | null): value is ProTrade {
   return tradeOptions.some((option) => option.value === value);
 }
 
@@ -27,13 +27,13 @@ export function ProLeadForm({
   idPrefix = "lead",
 }: {
   defaultInterest?: Interest;
-  defaultTrade?: Trade;
+  defaultTrade?: ProTrade;
   idPrefix?: string;
 }) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [company, setCompany] = useState("");
-  const [trade, setTrade] = useState<Trade | "">(defaultTrade ?? "");
+  const [trade, setTrade] = useState<ProTrade | "">(defaultTrade ?? "");
   const [interest, setInterest] = useState<Interest>(defaultInterest);
   const [sent, setSent] = useState(false);
 
@@ -73,7 +73,7 @@ export function ProLeadForm({
         </p>
         <p className="mt-3 text-sm text-ink-400">
           ¿No se ha abierto WhatsApp? Escríbenos a{" "}
-          <a href={`mailto:${siteConfig.email}`} className="font-semibold text-terracotta-600 underline">
+          <a href={`mailto:${siteConfig.email}`} className="font-semibold text-accent-600 underline">
             {siteConfig.email}
           </a>{" "}
           o llámanos al {siteConfig.phoneDisplay}.
@@ -99,7 +99,7 @@ export function ProLeadForm({
               key={option.value}
               className={`flex cursor-pointer items-center justify-center rounded-xl border px-3 py-3 text-center text-sm font-semibold transition ${
                 interest === option.value
-                  ? "border-terracotta-500 bg-terracotta-50 text-terracotta-700"
+                  ? "border-accent-500 bg-accent-50 text-accent-700"
                   : "border-ink-100 text-ink-600 hover:border-ink-200"
               }`}
             >

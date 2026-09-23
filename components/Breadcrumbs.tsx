@@ -18,7 +18,7 @@ export function Breadcrumbs({ items }: { items: { name: string; href: string }[]
             {index === full.length - 1 ? (
               <span className="font-medium text-ink-600">{item.name}</span>
             ) : (
-              <Link href={item.href} className="hover:text-terracotta-600">
+              <Link href={item.href} className="hover:text-accent-600">
                 {item.name}
               </Link>
             )}

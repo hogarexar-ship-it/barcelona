@@ -1,5 +1,9 @@
 import type { Config } from "tailwindcss";
 
+function themeScale(name: string, steps: number[]) {
+  return Object.fromEntries(steps.map((step) => [step, `rgb(var(--${name}-${step}) / <alpha-value>)`]));
+}
+
 const config: Config = {
   content: [
     "./app/**/*.{ts,tsx}",
@@ -9,6 +13,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Colores temáticos: cambian según la zona (particulares / profesionales). Ver app/globals.css.
+        accent: themeScale("accent", [50, 100, 200, 300, 400, 500, 600, 700]),
+        surface: themeScale("surface", [50, 100, 200]),
         cream: {
           50: "#FDFBF7",
           100: "#FAF5EC",

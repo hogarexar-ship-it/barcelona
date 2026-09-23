@@ -2,27 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * Dos zonas visuales:
+ * - Particulares (por defecto): crema cálido + terracota.
+ * - Profesionales (.theme-pro): gris frío + verde azulado, cabeceras oscuras.
+ * Los componentes usan `accent-*` y `surface-*`, así se adaptan solos a la zona.
+ */
 @layer base {
+  :root {
+    --accent-50: 253 243 238;
+    --accent-100: 250 227 214;
+    --accent-200: 243 194 164;
+    --accent-300: 232 159 114;
+    --accent-400: 221 124 71;
+    --accent-500: 197 95 44;
+    --accent-600: 164 74 34;
+    --accent-700: 126 56 27;
+    --surface-50: 253 251 247;
+    --surface-100: 250 245 236;
+    --surface-200: 243 233 216;
+  }
+
+  .theme-pro {
+    --accent-50: 237 247 245;
+    --accent-100: 210 237 232;
+    --accent-200: 165 218 209;
+    --accent-300: 108 192 179;
+    --accent-400: 58 163 146;
+    --accent-500: 31 133 116;
+    --accent-600: 23 106 93;
+    --accent-700: 18 83 74;
+    --surface-50: 247 249 249;
+    --surface-100: 236 241 240;
+    --surface-200: 219 228 227;
+  }
+
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-cream-50 text-ink-800 antialiased;
+    @apply bg-surface-50 text-ink-800 antialiased;
   }
 }
 
 @layer components {
   .input {
-    @apply w-full rounded-xl border border-ink-100 bg-white px-4 py-3 text-base text-ink-900 placeholder:text-ink-400 focus:border-terracotta-400 focus:outline-none focus:ring-2 focus:ring-terracotta-200;
+    @apply w-full rounded-xl border border-ink-100 bg-white px-4 py-3 text-base text-ink-900 placeholder:text-ink-400 focus:border-accent-400 focus:outline-none focus:ring-2 focus:ring-accent-200;
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-terracotta-500 active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-500 active:scale-[0.98];
   }
 
   .btn-primary {
-    @apply bg-terracotta-500 text-white shadow-lg shadow-terracotta-500/25 hover:bg-terracotta-600;
+    @apply bg-accent-500 text-white shadow-lg shadow-accent-500/25 hover:bg-accent-600;
   }
 
   .btn-dark {
@@ -34,10 +68,14 @@
   }
 
   .btn-light {
-    @apply bg-white text-ink-900 hover:bg-cream-100;
+    @apply bg-white text-ink-900 hover:bg-surface-100;
+  }
+
+  .btn-ghost-light {
+    @apply border border-white/30 text-white hover:bg-white/10;
   }
 
   .eyebrow {
-    @apply text-sm font-semibold uppercase tracking-wide text-terracotta-600;
+    @apply text-sm font-semibold uppercase tracking-wide text-accent-600;
   }
 }

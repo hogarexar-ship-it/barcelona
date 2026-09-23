@@ -13,10 +13,10 @@ export function FaqAccordion({ faqs, title = "Preguntas frecuentes" }: { faqs: F
       )}
       <div className="mt-6 divide-y divide-ink-100 rounded-xl2 border border-ink-100 bg-white">
         {faqs.map((faq) => (
-          <details key={faq.question} className="group p-5 open:bg-cream-50">
+          <details key={faq.question} className="group p-5 open:bg-surface-50">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-ink-900">
               {faq.question}
-              <span className="shrink-0 text-terracotta-500 transition-transform group-open:rotate-45">
+              <span className="shrink-0 text-accent-500 transition-transform group-open:rotate-45">
                 <svg viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5" aria-hidden="true">
                   <path d="M10 4a1 1 0 011 1v4h4a1 1 0 110 2h-4v4a1 1 0 11-2 0v-4H5a1 1 0 110-2h4V5a1 1 0 011-1z" />
                 </svg>

@@ -3,24 +3,29 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { WhatsAppIcon } from "./CtaButtons";
-import { defaultWhatsappMessage, primaryCta, whatsappHref } from "@/lib/site-config";
+import { isProPath } from "@/lib/navigation";
+import { consumerCta, consumerWhatsappMessage, proCta, proWhatsappMessage, whatsappHref } from "@/lib/site-config";
 
-/** Una sola acción fija en móvil. Se oculta en la página del formulario. */
+/** Una sola acción fija en móvil, según la zona. Se oculta en las páginas de formulario. */
 export function MobileCtaBar() {
   const pathname = usePathname();
-  if (pathname === primaryCta.href) return null;
+  const pro = isProPath(pathname);
+  const cta = pro ? proCta : consumerCta;
+  if (pathname === cta.href) return null;
 
   return (
     <div
-      className="fixed inset-x-0 bottom-0 z-40 border-t border-ink-100 bg-white/95 px-4 pt-3 backdrop-blur md:hidden print:hidden"
+      className={`fixed inset-x-0 bottom-0 z-40 border-t px-4 pt-3 backdrop-blur md:hidden print:hidden ${
+        pro ? "theme-pro border-white/10 bg-ink-900/95" : "border-ink-100 bg-white/95"
+      }`}
       style={{ paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom))" }}
     >
       <div className="flex gap-2">
-        <Link href={primaryCta.href} className="btn btn-primary flex-1">
-          {primaryCta.label}
+        <Link href={cta.href} className="btn btn-primary flex-1">
+          {cta.label}
         </Link>
         <a
-          href={whatsappHref(defaultWhatsappMessage)}
+          href={whatsappHref(pro ? proWhatsappMessage : consumerWhatsappMessage)}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Escribir por WhatsApp"

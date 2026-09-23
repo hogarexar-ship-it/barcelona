@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 
-export function Logo({ onDark = false }: { onDark?: boolean }) {
+export function Logo({ onDark = false, href = "/" }: { onDark?: boolean; href?: string }) {
   return (
-    <Link href="/" className="inline-flex items-baseline gap-0.5" aria-label={`${siteConfig.brand}, ir al inicio`}>
+    <Link href={href} className="inline-flex items-baseline gap-0.5" aria-label={`${siteConfig.brand}, ir al inicio`}>
       <span className={`font-display text-2xl font-extrabold tracking-tight ${onDark ? "text-white" : "text-ink-900"}`}>
         {siteConfig.brand.toLowerCase()}
       </span>
