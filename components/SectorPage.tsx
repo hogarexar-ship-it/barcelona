@@ -70,6 +70,36 @@ export function SectorPage({ locale, sector }: { locale: Locale; sector: Sector 
       </PhotoHero>
       <div className={`h-1.5 ${tone.bar}`} aria-hidden="true" />
 
+      <section className="py-16 sm:py-24">
+        <Container className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
+          <div data-reveal>
+            <h2 className="font-display text-3xl font-extrabold leading-tight tracking-tight text-ink-900 sm:text-4xl">
+              {t(`Si eres ${sector.person} en Barcelona, probablemente:`, `Si ets ${sector.person} a Barcelona, probablement:`)}
+            </h2>
+            <ul className="mt-8 space-y-3">
+              {sector.symptoms.map((item) => (
+                <li key={item} className="flex gap-3 text-lg text-ink-700">
+                  <Icon name="x" className="mt-1 h-5 w-5 shrink-0 text-urgent-500" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="flex flex-col justify-end" data-reveal>
+            <p className="font-display text-2xl font-bold leading-snug text-ink-400 sm:text-3xl">
+              {t("El problema no es tu trabajo.", "El problema no és la teva feina.")}
+            </p>
+            <p className="mt-3 flex gap-3 font-display text-2xl font-bold leading-snug text-ink-900 sm:text-3xl">
+              <Icon name="arrowRight" className="mt-1.5 h-7 w-7 shrink-0 text-[#EA580C]" />
+              {t(
+                "El problema es que no tienes un sistema para conseguir clientes de forma constante.",
+                "El problema és que no tens un sistema per aconseguir clients de manera constant.",
+              )}
+            </p>
+          </div>
+        </Container>
+      </section>
+
       <section className={`${tone.soft} py-16 sm:py-20`}>
         <Container className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
@@ -95,35 +125,88 @@ export function SectorPage({ locale, sector }: { locale: Locale; sector: Sector 
         </Container>
       </section>
 
-      <section className="py-16 sm:py-20">
+      <section className="py-16 sm:py-24">
+        <Container className="max-w-3xl">
+          <h2 className="font-display text-3xl font-extrabold leading-tight tracking-tight text-ink-900 sm:text-4xl" data-reveal>
+            {t(`Los errores que frenan a muchos ${sector.audience}`, `Els errors que frenen molts ${sector.audience}`)}
+          </h2>
+          <ol className="mt-8 divide-y divide-ink-200 border-y border-ink-200">
+            {sector.mistakes.map((item, index) => (
+              <li key={item} className="flex items-baseline gap-5 py-4" data-reveal>
+                <span className="font-display text-sm font-bold tabular-nums text-ink-400">{String(index + 1).padStart(2, "0")}</span>
+                <span className="text-lg text-ink-800">{item}</span>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-8 flex gap-3 text-xl font-semibold text-ink-900" data-reveal>
+            <Icon name="arrowRight" className="mt-1 h-6 w-6 shrink-0 text-[#EA580C]" />
+            {t(
+              "Esto provoca ingresos que suben y bajan y un negocio que crece despacio.",
+              "Això provoca ingressos que pugen i baixen i un negoci que creix a poc a poc.",
+            )}
+          </p>
+        </Container>
+      </section>
+
+      <section className="bg-ink-900 py-16 text-white sm:py-24">
         <Container>
-          <SectionHeading title={t("Tu plan en 3 pasos", "El teu pla en 3 passos")} />
-          <ol className="mt-8 grid gap-3 md:grid-cols-3">
-            {sector.plan.map((step, index) => (
-              <li key={step.title}>
+          <h2 className="max-w-2xl font-display text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl" data-reveal>
+            {t("Lo que te cuesta no tener un sistema", "El que et costa no tenir un sistema")}
+          </h2>
+          <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {sector.costs.map((cost, index) => (
+              <li key={cost.text}>
                 <Reveal delay={index * 80} className="h-full">
-                  <details className="group h-full rounded-xl2 border border-ink-200 bg-white p-5 open:border-ink-900">
-                    <summary className="flex cursor-pointer list-none items-center gap-4">
-                      <span className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md font-display font-bold ${tone.chip}`}>
-                        {index + 1}
-                      </span>
-                      <span className="flex-1 font-display text-lg font-bold leading-snug text-ink-900">{step.title}</span>
-                      <span className="text-lg leading-none text-ink-400 transition-transform group-open:rotate-45" aria-hidden="true">
-                        +
-                      </span>
-                    </summary>
-                    <p className="mt-3 text-sm text-ink-600">{step.text}</p>
-                  </details>
+                  <div className="h-full rounded-xl2 border border-white/15 p-6">
+                    <Icon name={cost.icon} className="h-8 w-8 text-accent-300" />
+                    <p className="mt-4 font-display text-lg font-bold leading-snug">{cost.text}</p>
+                  </div>
                 </Reveal>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-10 flex gap-3 text-xl font-semibold" data-reveal>
+            <Icon name="arrowRight" className="mt-1 h-6 w-6 shrink-0 text-[#EA580C]" />
+            {t("Y eso se nota directamente en lo que ganas.", "I això es nota directament en el que guanyes.")}
+          </p>
+        </Container>
+      </section>
+
+      <section className="py-16 sm:py-24">
+        <Container className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div data-reveal>
+            <h2 className="font-display text-3xl font-extrabold leading-tight tracking-tight text-ink-900 sm:text-4xl">
+              {t("Nuestro sistema: sencillo y pensado para resultados", "El nostre sistema: senzill i pensat per a resultats")}
+            </h2>
+            <p className="mt-5 text-lg text-ink-600">
+              {t(
+                "Todo conectado para que te llamen más, sin complicarte.",
+                "Tot connectat perquè et truquin més, sense complicar-te.",
+              )}
+            </p>
+            <div className="mt-8">
+              <PrimaryCta locale={locale} href={`${routes[locale].contact}?oficio=${sector.trade}`} />
+            </div>
+          </div>
+          <ol className="relative">
+            {sector.system.map((item, index) => (
+              <li key={item} className="relative flex gap-4 pb-6 last:pb-0" data-reveal>
+                {index < sector.system.length - 1 && (
+                  <span className="absolute left-5 top-10 h-[calc(100%-2.5rem)] w-px bg-ink-200" aria-hidden="true" />
+                )}
+                <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-md ${tone.chip}`}>
+                  <Icon name="check" className="h-5 w-5" />
+                </span>
+                <p className="pt-2 text-lg font-semibold text-ink-900">{item}</p>
               </li>
             ))}
           </ol>
         </Container>
       </section>
 
-      <section className="border-t border-ink-200 py-16 sm:py-20">
+      <section className="bg-surface-100 py-16 sm:py-20">
         <Container>
-          <SectionHeading title={t("Con qué lo hacemos", "Amb què ho fem")} />
+          <SectionHeading title={t("Cada pieza, en detalle", "Cada peça, en detall")} />
           <div className="mt-8">
             <ServiceGrid locale={locale} iconClass={tone.icon} />
           </div>

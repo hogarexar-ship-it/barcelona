@@ -31,19 +31,32 @@ export const sectorsCa: Sector[] = [
       { icon: "bath", label: "reforma de bany Barcelona" },
       { icon: "building", label: "lampista per a comunitats" },
     ],
-    plan: [
-      {
-        title: "Fitxa de Google per al mapa",
-        text: "Categories, zona de servei, fotos i ressenyes per aparèixer quan cerquen «lampista a prop meu».",
-      },
-      {
-        title: "Anuncis de trucada en el teu horari",
-        text: "Campanyes a Google que només es mostren quan pots agafar el telèfon i a les zones on vols anar.",
-      },
-      {
-        title: "Landing per servei",
-        text: "Una pàgina per a urgències, una altra per a escalfadors, una altra per a reformes: cadascuna amb trucada i WhatsApp a la vista.",
-      },
+    symptoms: [
+      "Setmanes amb molta feina i setmanes sense res",
+      "Depens del boca-orella i dels clients de sempre",
+      "Les urgències se les emporten les empreses grans",
+      "Publiques a les xarxes, però no et truca ningú",
+      "Fas pressupostos que no es tanquen mai",
+    ],
+    mistakes: [
+      "No tenir una manera clara d'aconseguir clients nous",
+      "Dependre només d'Instagram o Facebook, sense anuncis",
+      "Fer anuncis sense saber quines trucades porten",
+      "No tenir una web pensada perquè et truquin",
+      "Tenir la fitxa de Google abandonada i sense ressenyes",
+    ],
+    costs: [
+      { icon: "phone", text: "Perds feines cada dia que s'emporta un altre" },
+      { icon: "calendar", text: "Depens de la temporada i de les urgències" },
+      { icon: "users", text: "No pots contractar ni créixer" },
+      { icon: "euro", text: "Acabes abaixant preus per competir" },
+    ],
+    system: [
+      "Anuncis a Google, Facebook i Instagram per a gent de la teva zona",
+      "Una landing page pensada perquè et truquin",
+      "Botó directe a WhatsApp per respondre al moment",
+      "Fitxa de Google amb ressenyes que donen confiança",
+      "CRM per seguir cada contacte i cada pressupost",
     ],
     faqs: [
       {
@@ -89,19 +102,32 @@ export const sectorsCa: Sector[] = [
       { icon: "bulb", label: "electricista a Sants" },
       { icon: "plug", label: "augmentar potència llum" },
     ],
-    plan: [
-      {
-        title: "Que es vegi que estàs habilitat",
-        text: "Habilitació, assegurances i garanties visibles a la teva fitxa de Google i a la teva web.",
-      },
-      {
-        title: "Campanyes per servei",
-        text: "Anuncis separats per a carregadors, butlletins, quadres o urgències, cadascun amb el seu pressupost i la seva pàgina.",
-      },
-      {
-        title: "Contingut que respon dubtes",
-        text: "Pàgines sobre què és un butlletí o quant costa un punt de càrrega, que atrauen clients des de Google i des d'assistents d'IA.",
-      },
+    symptoms: [
+      "Feina irregular: mesos bons i mesos fluixos",
+      "Poques feines grans: quadres, butlletins, carregadors",
+      "Depens que et recomanin",
+      "Publiques a les xarxes, però no veus resultats",
+      "Promocions que només atrauen qui busca el més barat",
+    ],
+    mistakes: [
+      "No tenir una estratègia clara per aconseguir clients nous",
+      "Dependre només d'Instagram o Facebook, sense anuncis",
+      "No fer servir bé la publicitat a Google i Meta",
+      "No tenir una web que converteixi visites en trucades",
+      "No mostrar que estàs habilitat, les teves feines i les teves ressenyes",
+    ],
+    costs: [
+      { icon: "phone", text: "Perds feines cada dia que s'emporta un altre" },
+      { icon: "calendar", text: "Depens de temporades i de recomanacions" },
+      { icon: "users", text: "No pots créixer ni muntar equip" },
+      { icon: "euro", text: "Acabes abaixant preus per aconseguir feina" },
+    ],
+    system: [
+      "Anuncis a Google, Facebook i Instagram per a gent de la teva zona",
+      "Una landing page per servei: quadres, butlletins, carregadors",
+      "Botó directe a WhatsApp per respondre al moment",
+      "Fitxa de Google amb ressenyes que donen confiança",
+      "CRM per seguir cada contacte i cada pressupost",
     ],
     faqs: [
       {

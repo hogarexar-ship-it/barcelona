@@ -37,7 +37,8 @@ export type IconName =
   | "trendingUp"
   | "userCheck"
   | "users"
-  | "wrench";
+  | "wrench"
+  | "x";
 
 const paths: Record<IconName, ReactNode> = {
   alert: <path d="M12 3.5 21.5 20h-19L12 3.5zM12 10v4M12 17h.01" />,
@@ -103,6 +104,7 @@ const paths: Record<IconName, ReactNode> = {
   ),
   wrench: <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4 2.6-2.6z" />,
   arrowRight: <path d="M5 12h14M13 6l6 6-6 6" />,
+  x: <path d="M6 6l12 12M18 6 6 18" />,
   bolt: <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z" />,
   camera: (
     <>

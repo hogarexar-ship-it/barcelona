@@ -26,7 +26,14 @@ export type Sector = {
   context: string[];
   /** Búsquedas reales que hace el cliente: donde tienes que aparecer. */
   searches: { icon: IconName; label: string }[];
-  plan: { title: string; text: string }[];
+  /** «Si eres fontanero, probablemente…»: lo que le pasa hoy. */
+  symptoms: string[];
+  /** Errores habituales que frenan el crecimiento. */
+  mistakes: string[];
+  /** Lo que cuesta no tener un sistema para conseguir clientes. */
+  costs: { icon: IconName; text: string }[];
+  /** Las piezas del sistema, todas conectadas. */
+  system: string[];
   faqs: Faq[];
 };
 
@@ -59,19 +66,32 @@ export const sectors: Sector[] = [
       { icon: "bath", label: "reforma de baño Barcelona" },
       { icon: "building", label: "fontanero para comunidades" },
     ],
-    plan: [
-      {
-        title: "Ficha de Google para el mapa",
-        text: "Categorías, zona de servicio, fotos y reseñas para aparecer cuando buscan «fontanero cerca de mí».",
-      },
-      {
-        title: "Anuncios de llamada en tu horario",
-        text: "Campañas en Google que solo se muestran cuando puedes coger el teléfono y en las zonas donde quieres ir.",
-      },
-      {
-        title: "Landing por servicio",
-        text: "Una página para urgencias, otra para calentadores, otra para reformas: cada una con llamada y WhatsApp a la vista.",
-      },
+    symptoms: [
+      "Semanas con mucho trabajo y semanas sin nada",
+      "Dependes del boca a boca y de los clientes de siempre",
+      "Las urgencias se las llevan las empresas grandes",
+      "Publicas en redes, pero no te llama nadie",
+      "Das presupuestos que nunca se cierran",
+    ],
+    mistakes: [
+      "No tener una forma clara de conseguir clientes nuevos",
+      "Depender solo de Instagram o Facebook, sin anuncios",
+      "Hacer anuncios sin saber qué llamadas traen",
+      "No tener una web pensada para que te llamen",
+      "Tener la ficha de Google abandonada y sin reseñas",
+    ],
+    costs: [
+      { icon: "phone", text: "Pierdes trabajos cada día que se lleva otro" },
+      { icon: "calendar", text: "Dependes de la temporada y de las urgencias" },
+      { icon: "users", text: "No puedes contratar ni crecer" },
+      { icon: "euro", text: "Acabas bajando precios para competir" },
+    ],
+    system: [
+      "Anuncios en Google, Facebook e Instagram para gente de tu zona",
+      "Una landing page pensada para que te llamen",
+      "Botón directo a WhatsApp para responder al momento",
+      "Ficha de Google con reseñas que dan confianza",
+      "CRM para seguir cada contacto y cada presupuesto",
     ],
     faqs: [
       {
@@ -117,19 +137,32 @@ export const sectors: Sector[] = [
       { icon: "bulb", label: "electricista en Sants" },
       { icon: "plug", label: "aumentar potencia luz" },
     ],
-    plan: [
-      {
-        title: "Que se vea que estás habilitado",
-        text: "Habilitación, seguros y garantías visibles en tu ficha de Google y en tu web.",
-      },
-      {
-        title: "Campañas por servicio",
-        text: "Anuncios separados para cargadores, boletines, cuadros o urgencias, cada uno con su presupuesto y su página.",
-      },
-      {
-        title: "Contenido que responde dudas",
-        text: "Páginas sobre qué es un boletín o cuánto cuesta un punto de carga, que atraen clientes desde Google y asistentes de IA.",
-      },
+    symptoms: [
+      "Trabajo irregular: meses buenos y meses flojos",
+      "Pocos trabajos grandes: cuadros, boletines, cargadores",
+      "Dependes de que te recomienden",
+      "Publicas en redes, pero no ves resultados",
+      "Promociones que solo atraen a quien busca lo más barato",
+    ],
+    mistakes: [
+      "No tener una estrategia clara para conseguir clientes nuevos",
+      "Depender solo de Instagram o Facebook, sin anuncios",
+      "No usar bien la publicidad en Google y Meta",
+      "No tener una web que convierta visitas en llamadas",
+      "No mostrar que estás habilitado, tus trabajos y tus reseñas",
+    ],
+    costs: [
+      { icon: "phone", text: "Pierdes trabajos cada día que se lleva otro" },
+      { icon: "calendar", text: "Dependes de temporadas y de recomendaciones" },
+      { icon: "users", text: "No puedes crecer ni montar equipo" },
+      { icon: "euro", text: "Acabas bajando precios para conseguir trabajo" },
+    ],
+    system: [
+      "Anuncios en Google, Facebook e Instagram para gente de tu zona",
+      "Una landing page por servicio: cuadros, boletines, cargadores",
+      "Botón directo a WhatsApp para responder al momento",
+      "Ficha de Google con reseñas que dan confianza",
+      "CRM para seguir cada contacto y cada presupuesto",
     ],
     faqs: [
       {
