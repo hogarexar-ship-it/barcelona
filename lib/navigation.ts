@@ -1,46 +1,25 @@
 export type Trade = "fontaneria" | "electricidad";
 
-export const consumerRoutes = {
+export const routes = {
   home: "/",
-  request: "/pedir-presupuesto",
+  services: "/servicios",
   guides: "/guias",
+  contact: "/asesoramiento-gratuito",
 };
 
-export const proRoutes = {
-  home: "/profesionales",
-  network: "/profesionales/red-de-clientes",
-  marketing: "/profesionales/marketing",
-  join: "/profesionales/unirse",
-  guides: "/profesionales/guias",
-};
-
-export function servicePath(trade: Trade): string {
-  return trade === "fontaneria" ? "/fontaneros-barcelona" : "/electricistas-barcelona";
+export function servicePath(slug: string): string {
+  return `${routes.services}/${slug}`;
 }
 
 export function sectorPath(trade: Trade): string {
-  return trade === "fontaneria"
-    ? "/profesionales/clientes-para-fontaneros"
-    : "/profesionales/clientes-para-electricistas";
-}
-
-export function isProPath(pathname: string): boolean {
-  return pathname === proRoutes.home || pathname.startsWith(`${proRoutes.home}/`);
+  return trade === "fontaneria" ? "/marketing-para-fontaneros" : "/marketing-para-electricistas";
 }
 
 export type NavLink = { href: string; label: string };
 
-export const consumerNav: NavLink[] = [
-  { href: servicePath("fontaneria"), label: "Fontaneros" },
-  { href: servicePath("electricidad"), label: "Electricistas" },
-  { href: "/#como-funciona", label: "Cómo funciona" },
-  { href: consumerRoutes.guides, label: "Guías" },
-];
-
-export const proNav: NavLink[] = [
-  { href: proRoutes.network, label: "Red de clientes" },
-  { href: proRoutes.marketing, label: "Marketing" },
+export const mainNav: NavLink[] = [
+  { href: routes.services, label: "Servicios" },
   { href: sectorPath("fontaneria"), label: "Fontaneros" },
   { href: sectorPath("electricidad"), label: "Electricistas" },
-  { href: proRoutes.guides, label: "Guías" },
+  { href: routes.guides, label: "Guías" },
 ];

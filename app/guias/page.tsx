@@ -3,15 +3,15 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Container } from "@/components/Container";
 import { PageHero } from "@/components/PageHero";
 import { GuideCards } from "@/components/guides";
-import { guidesFor } from "@/lib/guides-data";
+import { sortedGuides } from "@/lib/guides-data";
 import { buildMetadata } from "@/lib/metadata";
-import { consumerRoutes } from "@/lib/navigation";
+import { routes } from "@/lib/navigation";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Guías de fontanería y electricidad para tu casa",
+  title: "Guías para conseguir más clientes siendo fontanero o electricista",
   description:
-    "Qué hacer ante una fuga, por qué salta el diferencial, qué es el boletín eléctrico y cómo elegir un profesional de confianza en Barcelona.",
-  path: consumerRoutes.guides,
+    "Guías prácticas para fontaneros y electricistas de Barcelona: cómo conseguir clientes, Google Business Profile, Google Ads, reseñas y posicionamiento en asistentes de IA.",
+  path: routes.guides,
 });
 
 export default function GuiasPage() {
@@ -19,16 +19,16 @@ export default function GuiasPage() {
     <>
       <div className="bg-surface-100 pt-6">
         <Container>
-          <Breadcrumbs items={[{ name: "Guías", href: consumerRoutes.guides }]} />
+          <Breadcrumbs items={[{ name: "Guías", href: routes.guides }]} />
         </Container>
       </div>
       <PageHero
-        title="Guías de fontanería y electricidad para tu casa"
-        subtitle="Consejos prácticos de fontanería y electricidad para tu casa en Barcelona, y cuándo conviene llamar a un profesional."
+        title="Guías para conseguir más clientes"
+        subtitle="Guías prácticas para fontaneros y electricistas de Barcelona: Google, anuncios, reseñas y web."
       />
       <section className="py-16 sm:py-24">
         <Container>
-          <GuideCards guides={guidesFor("consumer")} />
+          <GuideCards guides={sortedGuides()} />
         </Container>
       </section>
     </>

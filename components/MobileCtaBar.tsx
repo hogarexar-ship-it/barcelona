@@ -3,40 +3,28 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { WhatsAppIcon } from "./CtaButtons";
-import { Icon } from "./Icon";
-import { isProPath } from "@/lib/navigation";
-import { consumerCta, consumerWhatsappMessage, proCta, proWhatsappMessage, whatsappHref } from "@/lib/site-config";
+import { primaryCta, whatsappHref, whatsappMessage } from "@/lib/site-config";
 
-/** Una sola acción fija en móvil, según la zona. Se oculta en las páginas de formulario. */
+/** Una sola acción fija en móvil. Se oculta en la página del formulario. */
 export function MobileCtaBar() {
   const pathname = usePathname();
-  const pro = isProPath(pathname);
-  const cta = pro ? proCta : consumerCta;
-  if (pathname === cta.href) return null;
+  if (pathname === primaryCta.href) return null;
 
   return (
     <div
-      className={`fixed inset-x-0 bottom-0 z-40 border-t px-4 pt-3 md:hidden print:hidden ${
-        pro ? "theme-pro border-white/10 bg-ink-900" : "border-ink-200 bg-white"
-      }`}
+      className="fixed inset-x-0 bottom-0 z-40 border-t border-ink-200 bg-white px-4 pt-3 md:hidden print:hidden"
       style={{ paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom))" }}
     >
       <div className="flex gap-2">
-        <Link
-          href={cta.href}
-          className={`btn flex-1 py-3.5 text-lg font-bold text-white ${
-            pro ? "bg-accent-600 hover:bg-accent-500" : "bg-[#EA580C] hover:bg-[#DD4F0B] active:bg-[#DD4F0B]"
-          }`}
-        >
-          <Icon name={pro ? "trendingUp" : "wrench"} className="h-5 w-5" />
-          {cta.label}
+        <Link href={primaryCta.href} className="btn btn-primary flex-1 py-3.5 text-lg">
+          {primaryCta.label}
         </Link>
         <a
-          href={whatsappHref(pro ? proWhatsappMessage : consumerWhatsappMessage)}
+          href={whatsappHref(whatsappMessage)}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Escribir por WhatsApp"
-          className={`btn !px-4 ${pro ? "btn-ghost-light" : "btn-outline"}`}
+          className="btn btn-outline !px-4"
         >
           <WhatsAppIcon className="h-5 w-5 text-[#25D366]" />
         </a>

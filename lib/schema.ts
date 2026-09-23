@@ -11,7 +11,7 @@ export const proAudience = {
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
+    "@type": "ProfessionalService",
     "@id": businessId,
     name: siteConfig.brand,
     description: siteConfig.description,
@@ -28,12 +28,14 @@ export function organizationSchema() {
       addressCountry: siteConfig.addressCountry,
     },
     areaServed: { "@type": "City", name: "Barcelona" },
-    openingHours: "Mo-Sa 08:00-20:00",
+    openingHours: "Mo-Fr 09:00-19:00",
+    audience: proAudience,
     knowsAbout: [
-      "Fontanería",
-      "Electricidad",
-      "Boletines eléctricos",
-      "Captación de clientes para fontaneros y electricistas",
+      "Google Ads",
+      "Meta Ads",
+      "Landing pages",
+      "Google Business Profile",
+      "SEO local",
       "Marketing para fontaneros",
       "Marketing para electricistas",
     ],
@@ -46,7 +48,6 @@ export function serviceSchema(args: {
   description: string;
   url: string;
   serviceType?: string;
-  audience?: typeof proAudience;
 }) {
   return {
     "@context": "https://schema.org",
@@ -55,9 +56,9 @@ export function serviceSchema(args: {
     serviceType: args.serviceType ?? args.name,
     description: args.description,
     url: args.url,
-    provider: { "@type": "HomeAndConstructionBusiness", "@id": businessId, name: siteConfig.brand },
+    provider: { "@type": "ProfessionalService", "@id": businessId, name: siteConfig.brand },
     areaServed: { "@type": "City", name: "Barcelona" },
-    ...(args.audience ? { audience: args.audience } : {}),
+    audience: proAudience,
   };
 }
 
@@ -92,7 +93,6 @@ export function blogPostingSchema(args: {
   url: string;
   datePublished: string;
   dateModified: string;
-  pro: boolean;
 }) {
   return {
     "@context": "https://schema.org",
@@ -103,7 +103,7 @@ export function blogPostingSchema(args: {
     datePublished: args.datePublished,
     dateModified: args.dateModified,
     inLanguage: "es-ES",
-    ...(args.pro ? { audience: proAudience } : {}),
+    audience: proAudience,
     author: { "@type": "Organization", "@id": businessId, name: siteConfig.brand },
     publisher: { "@type": "Organization", "@id": businessId, name: siteConfig.brand },
   };

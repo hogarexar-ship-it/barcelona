@@ -4,8 +4,9 @@ import { Container } from "./Container";
 import { WhatsAppIcon } from "./CtaButtons";
 import { Icon } from "./Icon";
 import { Logo } from "./Logo";
-import { consumerRoutes, proRoutes, sectorPath, servicePath } from "@/lib/navigation";
-import { consumerWhatsappMessage, siteConfig, telHref, whatsappHref } from "@/lib/site-config";
+import { marketingServices } from "@/lib/marketing-services";
+import { routes, sectorPath } from "@/lib/navigation";
+import { primaryCta, siteConfig, telHref, whatsappHref, whatsappMessage } from "@/lib/site-config";
 
 export function Footer() {
   return (
@@ -14,29 +15,29 @@ export function Footer() {
         <div>
           <Logo onDark />
           <p className="mt-4 text-sm">
-            {siteConfig.tagline}. {siteConfig.areaServed}.
+            {siteConfig.tagline} y alrededores.
           </p>
+          <Link href={primaryCta.href} className="mt-5 inline-block text-sm font-semibold text-white underline underline-offset-4">
+            {primaryCta.label}
+          </Link>
         </div>
 
-        <FooterColumn title="Para tu casa">
-          <FooterLink href={servicePath("fontaneria")} label="Fontaneros en Barcelona" />
-          <FooterLink href={servicePath("electricidad")} label="Electricistas en Barcelona" />
-          <FooterLink href={consumerRoutes.guides} label="Guías para tu casa" />
-          <FooterLink href={consumerRoutes.request} label="Pedir presupuesto" className="font-semibold text-terracotta-300" />
+        <FooterColumn title="Servicios">
+          {marketingServices.map((service) => (
+            <FooterLink key={service.slug} href={service.path} label={service.name} />
+          ))}
+          <FooterLink href={routes.services} label="Todos los servicios" />
         </FooterColumn>
 
-        <FooterColumn title="Para profesionales">
-          <FooterLink href={proRoutes.network} label="Red de clientes" />
-          <FooterLink href={proRoutes.marketing} label="Marketing para profesionales" />
-          <FooterLink href={sectorPath("fontaneria")} label="Clientes para fontaneros" />
-          <FooterLink href={sectorPath("electricidad")} label="Clientes para electricistas" />
-          <FooterLink href={proRoutes.guides} label="Guías para profesionales" />
-          <FooterLink href={proRoutes.join} label="Unirme a la red" className="font-semibold text-[#6CC0B3]" />
+        <FooterColumn title="Para quién">
+          <FooterLink href={sectorPath("fontaneria")} label="Marketing para fontaneros" />
+          <FooterLink href={sectorPath("electricidad")} label="Marketing para electricistas" />
+          <FooterLink href={routes.guides} label="Guías" />
         </FooterColumn>
 
         <FooterColumn title="Contacto">
           <li>
-            <a href={whatsappHref(consumerWhatsappMessage)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-white">
+            <a href={whatsappHref(whatsappMessage)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-white">
               <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
               WhatsApp
             </a>
@@ -85,10 +86,10 @@ function FooterColumn({ title, children }: { title: string; children: ReactNode 
   );
 }
 
-function FooterLink({ href, label, className = "" }: { href: string; label: string; className?: string }) {
+function FooterLink({ href, label }: { href: string; label: string }) {
   return (
     <li>
-      <Link href={href} className={`hover:text-white ${className}`}>
+      <Link href={href} className="hover:text-white">
         {label}
       </Link>
     </li>

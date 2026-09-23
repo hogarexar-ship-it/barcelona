@@ -38,12 +38,10 @@ export default function AvisoLegalPage() {
           <div>
             <h2 className="font-display text-lg font-bold text-ink-900">2. Objeto</h2>
             <p className="mt-2">
-              {siteConfig.brand} pone en contacto a particulares y empresas de Barcelona que
-              necesitan servicios de fontanería o electricidad con profesionales independientes
-              de su red, que ejecutan los trabajos y son responsables de ellos. Además, presta
-              servicios a esos profesionales: derivación de clientes a cambio de una comisión y
-              servicios de marketing (perfiles de empresa, publicidad online, posicionamiento,
-              marca y redes sociales).
+              {siteConfig.brand} presta servicios de marketing a profesionales y empresas de
+              fontanería y electricidad de Barcelona y alrededores: publicidad online, landing
+              pages y páginas web, gestión de perfiles de empresa en Google, posicionamiento en
+              buscadores y, de forma complementaria, vídeo, diseño gráfico y redes sociales.
             </p>
           </div>
 

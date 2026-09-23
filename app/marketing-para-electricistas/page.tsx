@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { ProSectorPage } from "@/components/ProSectorPage";
+import { SectorPage } from "@/components/SectorPage";
 import { buildMetadata } from "@/lib/metadata";
-import { getSector } from "@/lib/pro-sectors-data";
+import { getSector } from "@/lib/sectors-data";
 
 const sector = getSector("electricidad");
 
@@ -11,6 +11,6 @@ export const metadata: Metadata = buildMetadata({
   path: sector.path,
 });
 
-export default function ClientesElectricistasPage() {
-  return <ProSectorPage sector={sector} />;
+export default function MarketingElectricistasPage() {
+  return <SectorPage sector={sector} />;
 }

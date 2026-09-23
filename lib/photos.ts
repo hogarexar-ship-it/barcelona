@@ -2,29 +2,9 @@ export type Photo = { src: string; alt: string };
 
 /** Catálogo de fotos del sitio (public/images). Origen: carpeta bancodefotos del repositorio. */
 export const photos = {
-  fontaneroClienteCocina: {
-    src: "/images/fontanero-cliente-cocina-barcelona.png",
-    alt: "Fontanero dando la mano a una clienta en su cocina tras terminar el trabajo",
-  },
-  sagradaFamilia: {
-    src: "/images/vistas-sagrada-familia-barcelona.jpg",
-    alt: "Balcón de un piso de Barcelona con vistas a la Sagrada Familia",
-  },
-  salonBarcelona: {
-    src: "/images/salon-piso-barcelona-balcones.jpg",
-    alt: "Salón de un piso del Eixample de Barcelona con balcones de hierro forjado",
-  },
-  cocinaModerna: {
-    src: "/images/cocina-moderna-barcelona.jpg",
-    alt: "Cocina moderna con iluminación bajo los muebles",
-  },
   fontaneroFregadero: {
     src: "/images/fontanero-reparacion-fregadero-barcelona.jpg",
     alt: "Fontanero reparando el desagüe de un fregadero en un piso de Barcelona",
-  },
-  fontaneroBajoFregadero: {
-    src: "/images/fontanero-bajo-fregadero.jpg",
-    alt: "Fontanero tumbado bajo el fregadero de una cocina revisando una fuga",
   },
   fontaneroGrifo: {
     src: "/images/fontanero-reparando-grifo-lavabo.jpg",
@@ -57,9 +37,5 @@ export const photos = {
   electricistaCasco: {
     src: "/images/electricista-casco-plafon.jpg",
     alt: "Electricista profesional conectando una luminaria en una obra",
-  },
-  electricistaObra: {
-    src: "/images/electricista-profesional-obra.jpg",
-    alt: "Electricista con casco trabajando en un cuadro de obra",
   },
 } satisfies Record<string, Photo>;

@@ -5,7 +5,6 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileCtaBar } from "@/components/MobileCtaBar";
-import { RequestWizardHost } from "@/components/RequestWizardHost";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationSchema } from "@/lib/schema";
@@ -33,14 +32,14 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   applicationName: siteConfig.brand,
   keywords: [
-    "fontanero Barcelona",
-    "electricista Barcelona",
-    "fontanero urgente Barcelona",
-    "boletín eléctrico Barcelona",
-    "clientes para fontaneros",
-    "clientes para electricistas",
     "marketing para fontaneros",
     "marketing para electricistas",
+    "clientes para fontaneros Barcelona",
+    "clientes para electricistas Barcelona",
+    "Google Ads para fontaneros",
+    "Google Business Profile electricistas",
+    "página web para fontaneros",
+    "SEO local Barcelona",
     siteConfig.brand,
   ],
   authors: [{ name: siteConfig.brand }],
@@ -60,7 +59,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Footer />
         <MobileCtaBar />
         <ScrollReveal />
-        <RequestWizardHost />
       </body>
     </html>
   );

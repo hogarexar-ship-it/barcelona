@@ -1,10 +1,8 @@
-import { consumerRoutes, proRoutes } from "./navigation";
+import { routes } from "./navigation";
 import type { Trade } from "./navigation";
 import { photos } from "./photos";
 import type { Photo } from "./photos";
 import { siteConfig } from "./site-config";
-
-export type Audience = "consumer" | "pro";
 
 export type Guide = {
   slug: string;
@@ -15,8 +13,7 @@ export type Guide = {
   summary: string;
   publishedAt: string; // ISO date
   updatedAt: string;
-  audience: Audience;
-  category: "Fontanería" | "Electricidad" | "Consejos" | "Conseguir clientes" | "Google y SEO" | "Publicidad";
+  category: "Conseguir clientes" | "Google y SEO" | "Publicidad";
   trade?: Trade;
   photo: Photo;
   content: { heading?: string; paragraphs: string[]; list?: string[] }[];
@@ -30,14 +27,13 @@ export const guides: Guide[] = [
     photo: photos.fontaneroInstalacionBano,
     title: "Cómo conseguir más clientes siendo fontanero en Barcelona",
     metaDescription:
-      "Guía práctica para fontaneros autónomos en Barcelona: ficha de Google, reseñas, anuncios, administradores de fincas y redes de clientes para dejar de depender del boca a boca.",
+      "Guía práctica para fontaneros autónomos en Barcelona: ficha de Google, reseñas, anuncios, administradores de fincas y web para dejar de depender del boca a boca.",
     excerpt:
       "El boca a boca funciona, pero no se puede escalar. Estas son las vías que de verdad traen clientes a un fontanero en Barcelona y el esfuerzo que pide cada una.",
     summary:
-      "Un fontanero en Barcelona consigue clientes de forma estable combinando cuatro vías: una ficha de Google Business completa y con reseñas, anuncios de Google limitados a su zona y su horario, acuerdos con administradores de fincas y comercios, y una red que le pase avisos. La ficha de Google es la base: es gratis y es lo primero que ve quien busca «fontanero cerca de mí».",
+      "Un fontanero en Barcelona consigue clientes de forma estable combinando cuatro vías: una ficha de Google Business completa y con reseñas, anuncios de Google limitados a su zona y su horario, una web que convierta visitas en llamadas y acuerdos con administradores de fincas y comercios. La ficha de Google es la base: es gratis y es lo primero que ve quien busca «fontanero cerca de mí».",
     publishedAt: "2026-09-08",
     updatedAt: "2026-09-22",
-    audience: "pro",
     category: "Conseguir clientes",
     trade: "fontaneria",
     content: [
@@ -87,16 +83,16 @@ export const guides: Guide[] = [
         ],
       },
       {
-        heading: "5. Una red que te pase clientes",
+        heading: "5. Una web que convierta",
         paragraphs: [
-          `Si no tienes tiempo para el marketing, la opción más directa es unirte a una red que capte clientes por ti. En ${brand} te pasamos avisos de fontanería de tu zona y pagas comisión solo por los trabajos que cierras.`,
+          "Si haces anuncios o te encuentran en Google, el siguiente paso es tu web. Una página por servicio, rápida en el móvil y con llamada y WhatsApp a la vista convierte muchas más visitas en clientes que un perfil de Facebook.",
         ],
       },
       {
         heading: "Qué combinación elegir",
         paragraphs: [],
         list: [
-          "Si estás empezando: ficha de Google, reseñas y una red de clientes.",
+          "Si estás empezando: ficha de Google y reseñas.",
           "Si ya tienes base y quieres crecer: añade Google Ads bien acotado.",
           "Si quieres construir marca a largo plazo: web propia con páginas por servicio y barrio.",
         ],
@@ -115,7 +111,6 @@ export const guides: Guide[] = [
       "Para aparecer en el mapa de Google como electricista en Barcelona necesitas una ficha de Google Business verificada, con «Electricista» como categoría principal, servicios concretos (boletines, cuadros, puntos de carga), una zona de servicio realista, fotos reales, reseñas constantes y los mismos datos de contacto en tu web y en directorios. Google ordena los resultados locales por relevancia, distancia y prominencia.",
     publishedAt: "2026-09-12",
     updatedAt: "2026-09-22",
-    audience: "pro",
     category: "Google y SEO",
     trade: "electricidad",
     content: [
@@ -182,7 +177,6 @@ export const guides: Guide[] = [
       "Google Ads compensa a un profesional de oficios cuando lo que cuesta conseguir un cliente es claramente menor que el margen que deja el trabajo. Para saberlo hay que medir llamadas y formularios (no clics), acotar zonas y horarios y excluir búsquedas irrelevantes. En trabajos de más importe (cambios de cuadro, calentadores, puntos de carga) suele compensar; en reparaciones pequeñas, solo con campañas muy afinadas.",
     publishedAt: "2026-09-15",
     updatedAt: "2026-09-22",
-    audience: "pro",
     category: "Publicidad",
     content: [
       {
@@ -229,9 +223,9 @@ export const guides: Guide[] = [
         ],
       },
       {
-        heading: "La alternativa: pagar solo por trabajo cerrado",
+        heading: "Si no sabes por dónde empezar",
         paragraphs: [
-          `Si no quieres arriesgar presupuesto en anuncios, puedes unirte a una red de clientes: en ${brand} asumimos nosotros la captación y tú pagas comisión solo por los trabajos que cierras. También puedes combinar ambas cosas.`,
+          `Si no sabes si te compensa, en ${brand} te hacemos un asesoramiento gratuito: revisamos tu zona, tus servicios y tu presencia actual y te decimos si empezar por anuncios, por tu ficha de Google o por la web.`,
         ],
       },
     ],
@@ -248,7 +242,6 @@ export const guides: Guide[] = [
       "Pagar por contacto da volumen rápido, pero pagas aunque no cierres y a menudo compites con otras empresas por el mismo cliente. Trabajar a comisión solo cuesta cuando cierras, a cambio de un porcentaje del trabajo. El marketing propio exige inversión y constancia, pero construye una marca y clientes que son tuyos. Lo más sólido suele ser combinar comisión a corto plazo con marketing propio a medio plazo.",
     publishedAt: "2026-09-17",
     updatedAt: "2026-09-22",
-    audience: "pro",
     category: "Conseguir clientes",
     content: [
       {
@@ -281,14 +274,14 @@ export const guides: Guide[] = [
       {
         heading: `Cómo lo hacemos en ${brand}`,
         paragraphs: [
-          "Ofrecemos los dos modelos que consideramos más sanos para el profesional: red de clientes a comisión y marketing a medida. Puedes empezar por uno y sumar el otro cuando quieras.",
+          "Nos centramos en el tercer modelo: que tengas tus propios clientes. Llevamos tus anuncios, tu web, tu ficha de Google y tu SEO, y en el asesoramiento gratuito te decimos por dónde empezar según tu situación.",
         ],
       },
     ],
   },
   {
     slug: "como-pedir-resenas-google-clientes",
-    photo: photos.cocinaModerna,
+    photo: photos.fontaneroFregadero,
     title: "Cómo pedir reseñas en Google a tus clientes (con mensajes listos para copiar)",
     metaDescription:
       "Cuándo y cómo pedir reseñas en Google si eres fontanero o electricista. Mensajes de WhatsApp listos para copiar y errores que evitar.",
@@ -298,7 +291,6 @@ export const guides: Guide[] = [
       "La mejor forma de conseguir reseñas en Google es pedirlas justo al terminar el trabajo, por WhatsApp, con el enlace directo a tu ficha y un mensaje corto y personal. Pide que mencionen el tipo de trabajo y el barrio. No ofrezcas descuentos ni regalos a cambio: va contra las normas de Google.",
     publishedAt: "2026-09-19",
     updatedAt: "2026-09-22",
-    audience: "pro",
     category: "Google y SEO",
     content: [
       {
@@ -348,7 +340,7 @@ export const guides: Guide[] = [
   },
   {
     slug: "como-aparecer-en-chatgpt-profesional-barcelona",
-    photo: photos.sagradaFamilia,
+    photo: photos.electricistaEnchufes,
     title: "Cómo aparecer cuando alguien pregunta a ChatGPT por un profesional en Barcelona",
     metaDescription:
       "Qué es el GEO (optimización para motores generativos) y qué puede hacer un fontanero o electricista en Barcelona para que los asistentes de IA le recomienden.",
@@ -358,7 +350,6 @@ export const guides: Guide[] = [
       "Los asistentes de IA recomiendan negocios a partir de información pública que pueden leer y contrastar: fichas de Google y directorios, reseñas, webs con información clara y menciones en otros sitios. Para aparecer, un profesional necesita datos coherentes en todas partes, una web que explique en texto claro qué hace, dónde y en qué plazos, y reseñas que describan trabajos concretos.",
     publishedAt: "2026-09-22",
     updatedAt: "2026-09-22",
-    audience: "pro",
     category: "Google y SEO",
     content: [
       {
@@ -408,230 +399,16 @@ export const guides: Guide[] = [
       },
     ],
   },
-  {
-    slug: "que-hacer-fuga-de-agua-en-casa",
-    photo: photos.fontaneroBajoFregadero,
-    title: "Qué hacer ante una fuga de agua en casa (paso a paso)",
-    metaDescription:
-      "Guía práctica para actuar ante una fuga de agua en tu piso de Barcelona: cómo cortar el agua, evitar daños, avisar a los vecinos y al seguro, y cuándo llamar a un fontanero.",
-    excerpt:
-      "Una fuga puede pasar de goteo molesto a problema serio en minutos. Qué hacer en los primeros cinco minutos y cómo evitar que el daño vaya a más.",
-    summary:
-      "Ante una fuga de agua en casa: cierra la llave de paso general, corta la luz si el agua está cerca de enchufes o aparatos, recoge el agua y haz fotos del origen y de los daños. Si el agua pasa al piso de abajo, avisa a los vecinos y a tu seguro. Después, pide un fontanero para localizar y reparar la fuga.",
-    publishedAt: "2026-09-23",
-    updatedAt: "2026-09-23",
-    audience: "consumer",
-    category: "Fontanería",
-    trade: "fontaneria",
-    content: [
-      {
-        heading: "1. Cierra la llave de paso",
-        paragraphs: [
-          "La llave de paso general suele estar junto al contador, en la cocina, bajo el fregadero o en el baño. Si la fuga viene de un aparato concreto (lavadora, inodoro, termo), a veces basta con cerrar su llave individual.",
-        ],
-      },
-      {
-        heading: "2. Corta la luz si hay riesgo",
-        paragraphs: [
-          "Si el agua se acerca a enchufes, regletas o al cuadro eléctrico, baja el interruptor general antes de tocar nada. El agua y la electricidad son una mala combinación.",
-        ],
-      },
-      {
-        heading: "3. Limita los daños y documenta",
-        paragraphs: [
-          "Recoge el agua con toallas y cubos, aparta muebles y alfombras y haz fotos del origen de la fuga y de las zonas afectadas. Te servirán para el presupuesto del fontanero y para el parte del seguro.",
-        ],
-      },
-      {
-        heading: "4. Avisa a vecinos y seguro",
-        paragraphs: [
-          "En las fincas de Barcelona el agua baja rápido al piso de abajo. Si hay manchas en el techo del vecino, avísale cuanto antes y comunica el siniestro a tu seguro de hogar.",
-        ],
-      },
-      {
-        heading: "5. Pide un fontanero",
-        paragraphs: [
-          `Cuéntanos qué ha pasado y en qué zona estás, y te ponemos en contacto con un fontanero verificado de tu zona. Pedir presupuesto en ${brand} es gratis y sin compromiso.`,
-        ],
-      },
-      {
-        heading: "Señales de una fuga que no se ve",
-        paragraphs: [],
-        list: [
-          "El contador de agua gira con todos los grifos cerrados.",
-          "Manchas de humedad, pintura abombada o moho en paredes y techos.",
-          "Suelos que se levantan o se hunden.",
-          "La factura del agua sube sin motivo.",
-        ],
-      },
-    ],
-  },
-  {
-    slug: "salta-el-diferencial-que-hacer",
-    photo: photos.electricistaCuadro,
-    title: "Salta el diferencial: por qué pasa y qué hacer",
-    metaDescription:
-      "Si en tu casa salta el diferencial, así puedes encontrar el aparato culpable en pocos minutos, y estas son las señales de que necesitas un electricista en Barcelona.",
-    excerpt:
-      "Te quedas sin luz, bajas al cuadro y el diferencial está abajo. Así encuentras el origen en pocos minutos y sabes cuándo toca llamar a un electricista.",
-    summary:
-      "El diferencial salta cuando detecta una fuga de corriente, normalmente por un aparato averiado o humedad en la instalación. Desenchufa todos los aparatos, sube el diferencial y conéctalos de uno en uno: el que lo haga saltar es el culpable. Si salta sin nada conectado, hay una derivación en la instalación y necesitas un electricista.",
-    publishedAt: "2026-09-21",
-    updatedAt: "2026-09-23",
-    audience: "consumer",
-    category: "Electricidad",
-    trade: "electricidad",
-    content: [
-      {
-        heading: "Diferencial, magnetotérmico y general: cuál es cuál",
-        paragraphs: [
-          "En el cuadro eléctrico hay varios interruptores. El diferencial (suele tener un botón de prueba marcado con una «T») protege a las personas: corta la luz cuando detecta que la corriente se escapa. Los magnetotérmicos («plomos») protegen cada circuito de sobrecargas y cortocircuitos.",
-        ],
-      },
-      {
-        heading: "Cómo encontrar el culpable en 5 minutos",
-        paragraphs: [],
-        list: [
-          "Desenchufa todos los aparatos de la casa.",
-          "Sube el diferencial.",
-          "Ve enchufando los aparatos de uno en uno, esperando unos segundos entre cada uno.",
-          "Cuando vuelva a saltar, el último aparato conectado es el sospechoso: no lo uses hasta revisarlo.",
-        ],
-      },
-      {
-        heading: "Si salta sin nada enchufado",
-        paragraphs: [
-          "Baja todos los magnetotérmicos, sube el diferencial y ve subiendo los magnetotérmicos de uno en uno. Así sabrás qué circuito (cocina, baño, enchufes, luces) tiene el problema. Una derivación en la instalación, a menudo por humedad, necesita un electricista.",
-        ],
-      },
-      {
-        heading: "Cuándo llamar a un electricista",
-        paragraphs: [],
-        list: [
-          "Si el diferencial salta sin ningún aparato conectado.",
-          "Si salta con lluvia o humedad.",
-          "Si notas olor a quemado, enchufes calientes o chispas.",
-          "Si el diferencial no sube o el botón de prueba no funciona.",
-        ],
-      },
-      {
-        heading: "Pide un electricista de tu zona",
-        paragraphs: [
-          `Cuéntanos qué ocurre y te ponemos en contacto con un electricista verificado de tu zona de Barcelona. Pedir presupuesto en ${brand} es gratis y sin compromiso.`,
-        ],
-      },
-    ],
-  },
-  {
-    slug: "boletin-electrico-barcelona",
-    photo: photos.electricistaEnchufes,
-    title: "Boletín eléctrico en Barcelona: qué es, cuándo lo necesitas y cómo pedirlo",
-    metaDescription:
-      "Qué es el boletín eléctrico (Certificado de Instalación Eléctrica, CIE), cuándo te lo piden en Barcelona y cómo conseguirlo con un instalador habilitado.",
-    excerpt:
-      "Te lo pide la compañía para dar de alta la luz o subir la potencia y no sabes por dónde empezar. Qué es, cuándo te lo piden y cómo conseguirlo.",
-    summary:
-      "El boletín eléctrico es el nombre popular del Certificado de Instalación Eléctrica (CIE). Lo emite un instalador habilitado tras revisar la instalación y lo necesitas, por ejemplo, para dar de alta el suministro, aumentar la potencia contratada o después de renovar la instalación. Si la instalación no cumple la normativa, primero habrá que adecuarla.",
-    publishedAt: "2026-09-19",
-    updatedAt: "2026-09-23",
-    audience: "consumer",
-    category: "Electricidad",
-    trade: "electricidad",
-    content: [
-      {
-        heading: "Qué es el boletín eléctrico",
-        paragraphs: [
-          "Es un documento que certifica que la instalación eléctrica de una vivienda o local cumple el Reglamento Electrotécnico de Baja Tensión. Solo puede emitirlo una empresa instaladora habilitada.",
-        ],
-      },
-      {
-        heading: "Cuándo te lo van a pedir",
-        paragraphs: [],
-        list: [
-          "Para dar de alta la luz en un piso que ha estado mucho tiempo sin suministro.",
-          "Para aumentar la potencia contratada por encima de lo que permite tu certificado actual.",
-          "Después de una reforma que cambia la instalación eléctrica.",
-          "En instalaciones nuevas, como un local o una vivienda recién construida.",
-        ],
-      },
-      {
-        heading: "Qué pasa si la instalación no cumple",
-        paragraphs: [
-          "En muchos pisos antiguos de Barcelona el cuadro o el cableado no cumplen la normativa actual. En ese caso, el electricista te explicará qué hay que adecuar (por ejemplo, el cuadro o la toma de tierra) antes de poder emitir el certificado.",
-        ],
-      },
-      {
-        heading: "Cómo pedirlo",
-        paragraphs: [
-          `Cuéntanos para qué necesitas el boletín y dónde está la vivienda, y te ponemos en contacto con un electricista habilitado de tu zona que te dará presupuesto antes de empezar.`,
-        ],
-      },
-    ],
-  },
-  {
-    slug: "como-elegir-fontanero-electricista-de-confianza",
-    photo: photos.fontaneroClienteCocina,
-    title: "Cómo elegir un fontanero o electricista de confianza en Barcelona",
-    metaDescription:
-      "Qué comprobar antes de dejar entrar a un fontanero o electricista en casa: presupuesto, seguro, habilitación, reseñas y señales de alerta para evitar sustos.",
-    excerpt:
-      "Presupuesto claro, seguro en regla y nada de prisas sospechosas. Una lista rápida para acertar con el profesional y evitar sorpresas en la factura.",
-    summary:
-      "Para elegir un fontanero o electricista de confianza en Barcelona, pide siempre presupuesto antes de empezar, comprueba que está dado de alta y tiene seguro de responsabilidad civil, que está habilitado si el trabajo lo requiere, y revisa reseñas recientes. Desconfía de quien no da precio, exige pagar todo por adelantado o no emite factura.",
-    publishedAt: "2026-09-17",
-    updatedAt: "2026-09-23",
-    audience: "consumer",
-    category: "Consejos",
-    content: [
-      {
-        heading: "Lo que siempre debes pedir",
-        paragraphs: [],
-        list: [
-          "Presupuesto antes de empezar, con mano de obra y materiales.",
-          "Factura al terminar.",
-          "Garantía del trabajo realizado.",
-        ],
-      },
-      {
-        heading: "Lo que conviene comprobar",
-        paragraphs: [],
-        list: [
-          "Que está dado de alta como autónomo o empresa.",
-          "Que tiene seguro de responsabilidad civil por si algo sale mal.",
-          "Que está habilitado para trabajos que lo exigen, como boletines eléctricos o instalaciones de gas.",
-          "Reseñas recientes y con detalle de otros clientes.",
-        ],
-      },
-      {
-        heading: "Señales de alerta",
-        paragraphs: [],
-        list: [
-          "No quiere dar un precio aproximado antes de empezar.",
-          "Pide pagar todo por adelantado.",
-          "Te mete prisa para decidir en el momento.",
-          "No quiere emitir factura.",
-        ],
-      },
-      {
-        heading: "Cómo te ayudamos",
-        paragraphs: [
-          `En ${brand} verificamos a cada profesional antes de que entre en la red: alta, seguro de responsabilidad civil, experiencia y, cuando hace falta, habilitación. Tú solo nos cuentas qué necesitas.`,
-        ],
-      },
-    ],
-  },
 ];
 
 export function guidePath(guide: Guide): string {
-  return `${guide.audience === "pro" ? proRoutes.guides : consumerRoutes.guides}/${guide.slug}`;
+  return `${routes.guides}/${guide.slug}`;
 }
 
-export function getGuide(audience: Audience, slug: string): Guide | undefined {
-  return guides.find((guide) => guide.audience === audience && guide.slug === slug);
+export function getGuide(slug: string): Guide | undefined {
+  return guides.find((guide) => guide.slug === slug);
 }
 
-export function guidesFor(audience: Audience): Guide[] {
-  return guides
-    .filter((guide) => guide.audience === audience)
-    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+export function sortedGuides(): Guide[] {
+  return [...guides].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
 }

@@ -27,6 +27,7 @@ export type IconName =
   | "mapPin"
   | "megaphone"
   | "panel"
+  | "pen"
   | "phone"
   | "plug"
   | "question"
@@ -78,6 +79,7 @@ const paths: Record<IconName, ReactNode> = {
       <path d="M8 7v4M12 7v4M16 7v4M8 15h8M8 18h5" />
     </>
   ),
+  pen: <path d="m4 20 1-4L16 5l3 3L8 19l-4 1zM14 7l3 3" />,
   phone: <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />,
   plug: <path d="M9 3v5M15 3v5M6 8h12v3a6 6 0 0 1-12 0V8zM12 17v4" />,
   question: (
