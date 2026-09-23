@@ -24,8 +24,8 @@ export function MobileCtaBar() {
       <div className="flex gap-2">
         <Link
           href={cta.href}
-          className={`btn flex-1 py-3.5 text-base text-white ${
-            pro ? "bg-accent-600 hover:bg-accent-500" : "bg-accent-700 hover:bg-accent-600"
+          className={`btn flex-1 py-3.5 text-lg font-bold text-white ${
+            pro ? "bg-accent-600 hover:bg-accent-500" : "bg-[#EA580C] hover:bg-[#DD4F0B] active:bg-[#DD4F0B]"
           }`}
         >
           <Icon name={pro ? "trendingUp" : "wrench"} className="h-5 w-5" />
