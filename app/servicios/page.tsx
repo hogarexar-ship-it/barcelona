@@ -5,11 +5,9 @@ import { Container } from "@/components/Container";
 import { CtaBand } from "@/components/CtaBand";
 import { Icon } from "@/components/Icon";
 import type { IconName } from "@/components/Icon";
-import { PhotoFrame } from "@/components/PhotoFrame";
-import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
-import { ExtraServices } from "@/components/sections";
-import { getMarketingService, marketingServices } from "@/lib/marketing-services";
+import { ExtraServices, ServiceGrid } from "@/components/sections";
+import { getMarketingService } from "@/lib/marketing-services";
 import type { ServiceSlug } from "@/lib/marketing-services";
 import { buildMetadata } from "@/lib/metadata";
 import { routes } from "@/lib/navigation";
@@ -23,10 +21,10 @@ export const metadata: Metadata = buildMetadata({
 
 /** Qué le pasa al profesional y qué servicio le recomendamos. */
 const diagnosis: { icon: IconName; problem: string; slug: ServiceSlug }[] = [
-  { icon: "phone", problem: "Necesito llamadas ya, esta misma semana", slug: "anuncios-google-y-meta" },
-  { icon: "mapPin", problem: "No salgo en el mapa cuando buscan «fontanero» o «electricista» cerca", slug: "google-business-profile" },
-  { icon: "globe", problem: "No tengo web, o la tengo pero nadie llama desde ella", slug: "landing-page-y-web" },
-  { icon: "search", problem: "Quiero depender menos de pagar anuncios cada mes", slug: "seo-local" },
+  { icon: "phone", problem: "Necesito llamadas ya", slug: "anuncios-google-y-meta" },
+  { icon: "mapPin", problem: "No salgo en el mapa de Google", slug: "google-business-profile" },
+  { icon: "globe", problem: "No tengo web o no me llaman desde ella", slug: "landing-page-y-web" },
+  { icon: "search", problem: "Quiero depender menos de los anuncios", slug: "seo-local" },
 ];
 
 export default function ServiciosPage() {
@@ -40,10 +38,7 @@ export default function ServiciosPage() {
               <h1 className="font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl">
                 ¿Qué necesita tu negocio?
               </h1>
-              <p className="mt-5 text-lg text-white/80">
-                Cuatro servicios para que te encuentren y te llamen. Elige el problema que más se parece al tuyo y te
-                decimos por dónde empezar. Puedes contratar solo uno.
-              </p>
+              <p className="mt-5 text-lg text-white/80">Elige lo que te pasa y te decimos por dónde empezar.</p>
             </div>
 
             <div className="overflow-hidden rounded-xl2 border border-white/15">
@@ -94,56 +89,19 @@ export default function ServiciosPage() {
         </Container>
       </section>
 
-      <section className="py-16 sm:py-24">
+      <section className="py-16 sm:py-20">
         <Container>
-          <SectionHeading title="Los cuatro servicios, uno a uno" />
-          <ol className="mt-12 space-y-14 sm:space-y-20">
-            {marketingServices.map((service, index) => (
-              <li key={service.slug}>
-                <Reveal className="grid gap-8 md:grid-cols-2 md:items-center md:gap-12">
-                  <PhotoFrame
-                    photo={service.photo}
-                    className={`aspect-[16/10] ${index % 2 === 1 ? "md:order-2" : ""}`}
-                    sizes="(min-width: 768px) 50vw, 100vw"
-                  />
-                  <div>
-                    <p className="flex items-center gap-3 text-sm font-semibold text-ink-400">
-                      <span className="font-display text-2xl font-bold text-accent-600">0{index + 1}</span>
-                      <Icon name={service.icon} className="h-6 w-6 text-ink-700" />
-                    </p>
-                    <h3 className="mt-3 font-display text-2xl font-bold text-ink-900 sm:text-3xl">{service.name}</h3>
-                    <p className="mt-3 text-lg text-ink-600">{service.short}</p>
-                    <ul className="mt-5 flex flex-wrap gap-2">
-                      {service.includes.slice(0, 4).map((item) => (
-                        <li key={item.title} className="rounded-md border border-ink-200 px-3 py-1.5 text-sm text-ink-700">
-                          {item.title}
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
-                      <Link href={service.path} className="btn btn-outline">
-                        Ver el servicio
-                        <Icon name="arrowRight" className="h-4 w-4" />
-                      </Link>
-                      <Link
-                        href={`${routes.contact}?servicio=${service.slug}`}
-                        className="text-sm font-semibold text-accent-700 underline-offset-4 hover:underline"
-                      >
-                        Pedir asesoramiento sobre esto
-                      </Link>
-                    </div>
-                  </div>
-                </Reveal>
-              </li>
-            ))}
-          </ol>
-          <div className="mt-20">
+          <SectionHeading title="Todos los servicios" />
+          <div className="mt-8">
+            <ServiceGrid />
+          </div>
+          <div className="mt-6">
             <ExtraServices />
           </div>
         </Container>
       </section>
 
-      <CtaBand title="¿No sabes cuál te conviene?" text="Es normal. En el asesoramiento gratuito revisamos tu ficha de Google, tu web y tus anuncios y te decimos cuál daría resultado antes en tu caso." />
+      <CtaBand title="¿No sabes cuál te conviene?" text="Te lo decimos gratis en el asesoramiento." />
     </>
   );
 }

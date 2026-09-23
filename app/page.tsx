@@ -9,9 +9,7 @@ import { PhotoHero } from "@/components/PhotoHero";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { SectionHeading } from "@/components/SectionHeading";
 import { consultationSteps, ContactSection, ExtraServices, SectorCards, ServiceGrid } from "@/components/sections";
-import { GuideCards } from "@/components/guides";
 import { situations } from "@/lib/contact-options";
-import { sortedGuides } from "@/lib/guides-data";
 import { extraServices, marketingServices } from "@/lib/marketing-services";
 import { buildMetadata } from "@/lib/metadata";
 import { routes } from "@/lib/navigation";
@@ -65,35 +63,25 @@ export default function HomePage() {
       <PhotoHero
         photo={photos.electricistaLuzTecho}
         title="Más clientes para fontaneros y electricistas en Barcelona"
-        subtitle="Anuncios en Google y Meta, página web, ficha de Google y SEO. Nos encargamos del marketing para que te lleguen clientes de tu zona y tú te centres en trabajar."
+        subtitle="Nos ocupamos de tu marketing. Tú, de trabajar."
       >
-        <p className="mt-10 font-display text-lg font-bold">¿Qué te pasa ahora mismo?</p>
-        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+        <p className="mt-10 font-semibold text-white/90">¿Qué te pasa ahora mismo?</p>
+        <div className="mt-3 grid gap-3 sm:grid-cols-2">
           {situations.map((situation) => (
             <Link
               key={situation.value}
               href={`${routes.contact}?situacion=${situation.value}`}
-              className="group flex flex-col rounded-md border border-white/30 bg-ink-900/40 p-5 transition-colors hover:border-[#EA580C] hover:bg-ink-900/70"
+              className="group flex items-center gap-4 rounded-md border border-white/30 bg-ink-900/40 p-4 transition-colors hover:border-[#EA580C] hover:bg-ink-900/70"
             >
-              <Icon name={situation.icon} className="h-7 w-7 text-accent-300" />
-              <span className="mt-3 font-display text-lg font-bold leading-snug">{situation.title}</span>
-              <span className="mt-1 text-sm text-white/75">{situation.text}</span>
-              <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-accent-200 group-hover:text-white">
-                Pide tu asesoramiento gratis
-                <Icon name="arrowRight" className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </span>
+              <Icon name={situation.icon} className="h-7 w-7 shrink-0 text-accent-300" />
+              <span className="flex-1 font-display text-lg font-bold leading-snug">{situation.title}</span>
+              <Icon name="arrowRight" className="h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
             </Link>
           ))}
         </div>
-        <p className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/75">
-          <span className="inline-flex items-center gap-2">
-            <Icon name="check" className="h-5 w-5 text-accent-300" />
-            Gratis y sin compromiso
-          </span>
-          <Link href={routes.services} className="inline-flex items-center gap-1.5 font-semibold text-white underline-offset-4 hover:underline">
-            O mira primero los servicios
-            <Icon name="arrowRight" className="h-4 w-4" />
-          </Link>
+        <p className="mt-5 flex items-center gap-2 text-sm text-white/75">
+          <Icon name="check" className="h-5 w-5 text-accent-300" />
+          Asesoramiento gratis · Barcelona y alrededores
         </p>
       </PhotoHero>
 
@@ -104,52 +92,37 @@ export default function HomePage() {
         ]}
       />
 
-      <section id="servicios" className="scroll-mt-20 bg-surface-100 py-16 sm:py-24">
+      <section className="py-16 sm:py-20">
         <Container>
-          <SectionHeading
-            title="Servicios para conseguir más clientes"
-            intro="Empezamos por lo que más te va a mover la aguja y ampliamos cuando veas resultados."
-          />
-          <div className="mt-10">
+          <SectionHeading title="Qué hacemos" />
+          <div className="mt-8">
             <ServiceGrid />
           </div>
-          <div className="mt-12">
+          <div className="mt-6">
             <ExtraServices />
           </div>
         </Container>
       </section>
 
-      <section className="py-16 sm:py-24">
+      <section className="bg-surface-100 py-16 sm:py-20">
         <Container>
-          <SectionHeading
-            title="Cómo funciona el asesoramiento gratuito"
-            intro="Antes de venderte nada, vemos tu caso y te decimos qué haríamos."
-          />
-          <div className="mt-10">
-            <ProcessSteps steps={consultationSteps} />
-          </div>
-        </Container>
-      </section>
-
-      <section className="bg-surface-100 py-16 sm:py-24">
-        <Container>
-          <SectionHeading title="Especializados en fontaneros y electricistas" />
-          <div className="mt-10">
+          <SectionHeading title="¿A qué te dedicas?" />
+          <div className="mt-8">
             <SectorCards />
           </div>
         </Container>
       </section>
 
-      <section className="py-16 sm:py-24">
+      <section className="py-16 sm:py-20">
         <Container>
-          <SectionHeading title="Guías para conseguir más clientes" />
-          <div className="mt-10">
-            <GuideCards guides={sortedGuides().slice(0, 3)} />
+          <SectionHeading title="Cómo empezamos" />
+          <div className="mt-8">
+            <ProcessSteps steps={consultationSteps} />
           </div>
         </Container>
       </section>
 
-      <section className="pb-16 sm:pb-24">
+      <section className="pb-16 sm:pb-20">
         <Container className="max-w-3xl">
           <FaqAccordion faqs={faqs} />
         </Container>

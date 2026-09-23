@@ -7,11 +7,10 @@ import { Container } from "@/components/Container";
 import { CtaBand } from "@/components/CtaBand";
 import { PrimaryCta, WhatsAppButton } from "@/components/CtaButtons";
 import { FaqAccordion } from "@/components/FaqAccordion";
-import { FeatureGrid } from "@/components/FeatureGrid";
+import { ExpandableList } from "@/components/ExpandableList";
 import { Icon } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
 import { PhotoFrame } from "@/components/PhotoFrame";
-import { ExtraServices } from "@/components/sections";
 import { getMarketingService, marketingServices } from "@/lib/marketing-services";
 import { buildMetadata } from "@/lib/metadata";
 import { routes } from "@/lib/navigation";
@@ -104,9 +103,9 @@ export default function ServicioPage({ params }: { params: { slug: string } }) {
       </section>
 
       <Container className="grid gap-12 py-14 sm:py-20 lg:grid-cols-[1fr_22rem] lg:gap-16">
-        <div className="min-w-0 space-y-16">
+        <div className="min-w-0 space-y-14">
           <section>
-            <h2 className="font-display text-2xl font-bold text-ink-900 sm:text-3xl">Te interesa si…</h2>
+            <h2 className="font-display text-2xl font-bold text-ink-900 sm:text-3xl">Es para ti si…</h2>
             <div className="mt-6" data-reveal>
               <CheckList items={service.signs} />
             </div>
@@ -114,15 +113,16 @@ export default function ServicioPage({ params }: { params: { slug: string } }) {
 
           <section>
             <h2 className="font-display text-2xl font-bold text-ink-900 sm:text-3xl">Qué incluye</h2>
-            <div className="mt-8">
-              <FeatureGrid items={service.includes} className="sm:grid-cols-2" />
+            <p className="mt-2 text-sm text-ink-400">Toca cada punto para ver el detalle.</p>
+            <div className="mt-6" data-reveal>
+              <ExpandableList items={service.includes} />
             </div>
           </section>
 
           <section>
             <h2 className="font-display text-2xl font-bold text-ink-900 sm:text-3xl">Preguntas frecuentes</h2>
             <div className="mt-6">
-              <FaqAccordion faqs={service.faqs} />
+              <FaqAccordion faqs={service.faqs} title="" />
             </div>
           </section>
         </div>
@@ -132,22 +132,8 @@ export default function ServicioPage({ params }: { params: { slug: string } }) {
             <PhotoFrame photo={service.photo} className="aspect-[16/10] !rounded-none" sizes="(min-width: 1024px) 22rem, 100vw" />
             <div className="p-6">
               <p className="font-display text-xl font-bold text-ink-900">Asesoramiento gratis</p>
-              <p className="mt-1 text-sm text-ink-600">Sobre {service.name} o lo que más te convenga.</p>
-              <ul className="mt-4 space-y-2.5 text-sm text-ink-700">
-                <li className="flex gap-2.5">
-                  <Icon name="search" className="h-5 w-5 shrink-0 text-accent-600" />
-                  Revisamos cómo estás hoy
-                </li>
-                <li className="flex gap-2.5">
-                  <Icon name="chart" className="h-5 w-5 shrink-0 text-accent-600" />
-                  Te decimos qué haríamos y con qué inversión
-                </li>
-                <li className="flex gap-2.5">
-                  <Icon name="shield" className="h-5 w-5 shrink-0 text-accent-600" />
-                  Sin compromiso
-                </li>
-              </ul>
-              <PrimaryCta href={contactHref} className="mt-6 w-full" />
+              <p className="mt-1 text-sm text-ink-600">Te decimos qué haríamos en tu caso. Sin compromiso.</p>
+              <PrimaryCta href={contactHref} className="mt-5 w-full" />
               <WhatsAppButton message={whatsappText} label="WhatsApp" className="mt-3 w-full" />
             </div>
           </div>
@@ -174,12 +160,6 @@ export default function ServicioPage({ params }: { params: { slug: string } }) {
           </Container>
         </nav>
       )}
-
-      <section className="bg-surface-100 py-14 sm:py-20">
-        <Container>
-          <ExtraServices />
-        </Container>
-      </section>
 
       <CtaBand
         title="¿Lo vemos para tu negocio?"

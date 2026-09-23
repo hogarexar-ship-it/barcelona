@@ -6,7 +6,7 @@ import { routes } from "@/lib/navigation";
 /** Franja oscura de cierre con la llamada a la acción principal. */
 export function CtaBand({
   title = "¿Hablamos de tu negocio?",
-  text = "Cuéntanos tu situación en 2 minutos y te decimos, gratis y sin compromiso, qué haríamos primero para conseguirte más clientes.",
+  text = "2 minutos. Te decimos qué haríamos en tu caso, gratis.",
   href = routes.contact,
   whatsappMessage,
 }: {

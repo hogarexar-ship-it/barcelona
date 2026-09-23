@@ -12,6 +12,8 @@ export type MarketingService = {
   icon: IconName;
   name: string;
   short: string;
+  /** Beneficio en pocas palabras: lo que se ve en tarjetas y listados. */
+  benefit: string;
   photo: Photo;
   metaTitle: string;
   metaDescription: string;
@@ -30,13 +32,13 @@ export const marketingServices: MarketingService[] = [
     icon: "megaphone",
     name: "Anuncios en Google y Meta",
     short: "Campañas en Google Ads, Facebook e Instagram para que te llamen clientes de tu zona cuando necesitan tu servicio.",
+    benefit: "Llamadas desde que se activan",
     photo: photos.electricistaLuzTecho,
     metaTitle: "Anuncios en Google y Meta para fontaneros y electricistas en Barcelona",
     metaDescription:
       "Gestión de Google Ads, Facebook e Instagram Ads para fontaneros y electricistas en Barcelona: campañas por zona y horario, anuncios de llamada y medición de cada contacto.",
     heroTitle: "Anuncios en Google y Meta que traen llamadas",
-    heroSubtitle:
-      "Creamos y gestionamos tus campañas en Google Ads, Facebook e Instagram: solo en tus zonas, en tu horario y con cada euro medido.",
+    heroSubtitle: "Google Ads, Facebook e Instagram. Solo en tu zona, en tu horario y midiendo cada euro.",
     signs: [
       "Necesitas llamadas ya, no dentro de seis meses.",
       "Probaste anuncios y gastaste sin ver clientes.",
@@ -97,13 +99,13 @@ export const marketingServices: MarketingService[] = [
     icon: "globe",
     name: "Landing page y página web",
     short: "Una página rápida y clara, pensada para que quien entra te llame o te pida presupuesto.",
+    benefit: "Visitas que acaban en llamada",
     photo: photos.fontaneroGrifo,
     metaTitle: "Landing pages y webs para fontaneros y electricistas en Barcelona",
     metaDescription:
       "Diseño de landing pages para campañas y páginas web para fontaneros y electricistas en Barcelona: rápidas en el móvil, con llamada y WhatsApp a la vista y preparadas para Google.",
     heroTitle: "Landing pages y webs que convierten visitas en clientes",
-    heroSubtitle:
-      "Diseñamos landing pages para tus campañas y webs completas para tu negocio: rápidas en el móvil, con tu teléfono y WhatsApp a la vista y preparadas para Google.",
+    heroSubtitle: "Rápida en el móvil, con llamada y WhatsApp a un toque.",
     signs: [
       "No tienes web o la que tienes está anticuada.",
       "Haces anuncios y los mandas a tu Facebook o a una web lenta.",
@@ -163,13 +165,13 @@ export const marketingServices: MarketingService[] = [
     icon: "mapPin",
     name: "Google Business Profile",
     short: "Tu ficha de Google optimizada para aparecer en el mapa cuando buscan un fontanero o un electricista cerca.",
+    benefit: "Sal en el mapa de tu zona",
     photo: photos.electricistaCuadro,
     metaTitle: "Google Business Profile para fontaneros y electricistas en Barcelona",
     metaDescription:
       "Optimización y gestión del Perfil de Empresa en Google para fontaneros y electricistas en Barcelona: categorías, zona de servicio, fotos, publicaciones y reseñas.",
     heroTitle: "Tu ficha de Google, lista para que te llamen",
-    heroSubtitle:
-      "Configuramos y gestionamos tu Perfil de Empresa en Google para que aparezcas en el mapa de tu zona, con reseñas, fotos y datos al día.",
+    heroSubtitle: "Aparece en el mapa cuando buscan tu oficio cerca, con reseñas y fotos al día.",
     signs: [
       "No apareces en el mapa cuando buscas tu servicio en tu barrio.",
       "Tienes pocas reseñas o están sin responder.",
@@ -206,13 +208,13 @@ export const marketingServices: MarketingService[] = [
     icon: "search",
     name: "SEO local",
     short: "Posicionamos tu web en Google y en asistentes de IA para búsquedas de tu servicio en tu zona.",
+    benefit: "Clientes de Google sin pagar cada clic",
     photo: photos.fontaneroInstalacionBano,
     metaTitle: "SEO local para fontaneros y electricistas en Barcelona",
     metaDescription:
       "Posicionamiento en Google para fontaneros y electricistas en Barcelona y alrededores: palabras clave de tu zona, páginas por servicio, parte técnica y preparación para asistentes de IA.",
     heroTitle: "SEO local para que te encuentren sin pagar cada clic",
-    heroSubtitle:
-      "Trabajamos tu web y tu presencia online para que aparezcas en Google cuando buscan tu servicio en tu zona, y para que asistentes como ChatGPT te puedan recomendar.",
+    heroSubtitle: "Aparece en Google y en asistentes de IA cuando buscan tu servicio en tu zona.",
     signs: [
       "Dependes solo de anuncios y quieres clientes que no cuesten un clic.",
       "Tu competencia sale antes que tú en Google.",

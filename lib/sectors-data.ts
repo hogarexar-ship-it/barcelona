@@ -14,6 +14,8 @@ export type Sector = {
   tone: { chip: string; icon: string; soft: string; bar: string };
   name: string;
   audience: string;
+  /** Singular: «Soy fontanero». */
+  person: string;
   metaTitle: string;
   metaDescription: string;
   heroTitle: string;
@@ -35,12 +37,12 @@ export const sectors: Sector[] = [
     tone: { chip: "bg-sky-100 text-sky-900", icon: "text-sky-600", soft: "bg-sky-50", bar: "bg-sky-500" },
     name: "Fontanería",
     audience: "fontaneros",
+    person: "fontanero",
     metaTitle: "Marketing para fontaneros en Barcelona: más clientes y llamadas",
     metaDescription:
       "Marketing para fontaneros en Barcelona y alrededores: anuncios en Google y Meta, web, ficha de Google y SEO local para recibir más llamadas de clientes de tu zona. Asesoramiento gratuito.",
     heroTitle: "Marketing para fontaneros en Barcelona",
-    heroSubtitle:
-      "Anuncios, web, ficha de Google y SEO para que te llamen clientes de tu zona. Tú sigues con las averías; del marketing nos encargamos nosotros.",
+    heroSubtitle: "Que te llamen clientes de tu zona. Del marketing nos encargamos nosotros.",
     cardText: "Urgencias, calentadores, desatascos y reformas de baño: aparece cuando te buscan.",
     context: [
       "La fontanería tiene demanda todo el año en Barcelona: fugas, atascos, calentadores y termos que fallan cualquier día. Quien tiene una urgencia busca en el móvil y llama al primero que le da confianza.",
@@ -93,12 +95,12 @@ export const sectors: Sector[] = [
     tone: { chip: "bg-amber-100 text-amber-900", icon: "text-amber-500", soft: "bg-amber-50", bar: "bg-amber-400" },
     name: "Electricidad",
     audience: "electricistas",
+    person: "electricista",
     metaTitle: "Marketing para electricistas en Barcelona: más clientes y llamadas",
     metaDescription:
       "Marketing para electricistas en Barcelona y alrededores: anuncios en Google y Meta, web, ficha de Google y SEO local para conseguir más clientes de averías, boletines, cuadros y cargadores.",
     heroTitle: "Marketing para electricistas en Barcelona",
-    heroSubtitle:
-      "Anuncios, web, ficha de Google y SEO para conseguir más averías, boletines, cuadros y cargadores en tu zona, sin que tengas que ocuparte tú.",
+    heroSubtitle: "Más averías, boletines, cuadros y cargadores en tu zona. Del marketing nos encargamos nosotros.",
     cardText: "Averías, boletines, cuadros y cargadores: los trabajos que más buscan tus clientes.",
     context: [
       "La demanda de electricistas en Barcelona va más allá de las averías: boletines para altas y cambios de potencia, cuadros antiguos que adecuar, puntos de carga para coche eléctrico y autoconsumo.",

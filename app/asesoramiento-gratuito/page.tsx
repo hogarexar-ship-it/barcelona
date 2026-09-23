@@ -15,10 +15,9 @@ export const metadata: Metadata = buildMetadata({
 });
 
 const nextSteps = [
-  { icon: "document" as const, title: "Rellenas el formulario", text: "Tres pasos cortos: tu negocio, cómo contactarte y qué te preocupa. Unos 2 minutos." },
-  { icon: "phone" as const, title: "Te contactamos", text: "Por llamada, WhatsApp o email, como hayas elegido, en horario laboral." },
-  { icon: "search" as const, title: "Revisamos tu caso", text: "Tu ficha de Google, tu web y tus anuncios, si los tienes." },
-  { icon: "chart" as const, title: "Te proponemos una estrategia", text: "Qué haríamos primero y con qué inversión. Decides tú si seguimos." },
+  { icon: "document" as const, title: "Rellenas el formulario", text: "2 minutos" },
+  { icon: "phone" as const, title: "Te contactamos", text: "Por el medio que elijas" },
+  { icon: "chart" as const, title: "Te proponemos un plan", text: "Gratis y sin compromiso" },
 ];
 
 export default function AsesoramientoPage() {
@@ -30,12 +29,10 @@ export default function AsesoramientoPage() {
           <div>
             <p className="inline-flex items-center gap-2 rounded-md bg-white px-3 py-1.5 text-sm font-semibold text-ink-700">
               <Icon name="clock" className="h-4 w-4 text-accent-600" />
-              2 minutos · Gratis · Sin compromiso
+              2 minutos · Gratis
             </p>
             <h1 className="mt-5 font-display text-4xl font-bold tracking-tight text-ink-900 sm:text-5xl">Asesoramiento gratuito</h1>
-            <p className="mt-4 text-lg text-ink-600">
-              Cuéntanos cómo está tu negocio y te decimos qué estrategia aplicaríamos para conseguirte más clientes.
-            </p>
+            <p className="mt-4 text-lg text-ink-600">Te decimos qué haríamos para conseguirte más clientes.</p>
           </div>
 
           <div className="lg:col-start-2 lg:row-span-2 lg:row-start-1">

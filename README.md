@@ -25,7 +25,7 @@ Todo el contenido de servicios está en `lib/marketing-services.ts`.
 
 | Ruta | Contenido |
 | --- | --- |
-| `/` | Home: portada con foto y dos botones «¿qué te pasa?» que llevan al formulario, servicios, cómo funciona, oficios, guías, FAQ y formulario |
+| `/` | Home: portada con dos botones «¿qué te pasa?», servicios en tarjetas cortas, «Soy fontanero / Soy electricista», 3 pasos, FAQ y formulario |
 | `/servicios` y `/servicios/[slug]` | Índice con tabla «si te pasa esto → te recomendamos» y ficha de cada servicio (pestañas, tarjeta de contacto fija, anterior/siguiente) |
 | `/marketing-para-fontaneros`, `/marketing-para-electricistas` | Landings por oficio con color propio y simulación del buscador de Google (`lib/sectors-data.ts`) |
 | `/asesoramiento-gratuito` | Formulario en 3 pasos (acepta `?oficio=`, `?servicio=` y `?situacion=`) |
@@ -56,6 +56,9 @@ retiraron del sitio. El código está en el historial de git, en el commit
 `8bb49f2`, por si se quiere recuperar.
 
 ## Diseño
+
+Criterio de textos: frases cortas y visibles; el detalle (qué incluye cada servicio, el plan por oficio, las FAQ) va en desplegables para quien quiera leer más. Cada servicio tiene un `benefit` de pocas palabras para tarjetas y listados.
+
 
 Paleta crema y terracota (`accent-*`, `surface-*` en `tailwind.config.ts` y
 `app/globals.css`), botones principales en naranja intenso `#EA580C`,
