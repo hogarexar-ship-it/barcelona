@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { MobileCtaBar } from "@/components/MobileCtaBar";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationSchema } from "@/lib/schema";
@@ -52,15 +49,16 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * Layout raíz: solo html, body y lo común. La cabecera y el pie de cada idioma
+ * están en app/(es)/layout.tsx (castellano) y app/ca/layout.tsx (catalán).
+ */
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="es" className={`${inter.variable} ${manrope.variable}`}>
       <body className="flex min-h-screen flex-col font-sans">
         <JsonLd data={organizationSchema()} />
-        <Header />
-        <main className="flex-1 pb-24 md:pb-0">{children}</main>
-        <Footer />
-        <MobileCtaBar />
+        {children}
         <ScrollReveal />
       </body>
     </html>

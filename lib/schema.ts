@@ -1,3 +1,5 @@
+import type { Locale } from "./i18n";
+import { htmlLang } from "./i18n";
 import { siteConfig } from "./site-config";
 import type { Faq } from "./types";
 
@@ -95,6 +97,7 @@ export function blogPostingSchema(args: {
   url: string;
   datePublished: string;
   dateModified: string;
+  locale?: Locale;
 }) {
   return {
     "@context": "https://schema.org",
@@ -104,7 +107,7 @@ export function blogPostingSchema(args: {
     url: args.url,
     datePublished: args.datePublished,
     dateModified: args.dateModified,
-    inLanguage: "es-ES",
+    inLanguage: htmlLang[args.locale ?? "es"],
     audience: proAudience,
     author: { "@type": "Organization", "@id": businessId, name: siteConfig.brand },
     publisher: { "@type": "Organization", "@id": businessId, name: siteConfig.brand },

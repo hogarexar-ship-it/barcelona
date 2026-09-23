@@ -10,17 +10,20 @@ import { Reveal } from "./Reveal";
 import { SearchMock } from "./SearchMock";
 import { SectionHeading } from "./SectionHeading";
 import { ContactSection, ServiceGrid } from "./sections";
-import { guidePath, sortedGuides } from "@/lib/guides-data";
+import { guideUrl, sortedGuides } from "@/lib/guides-data";
+import type { Locale } from "@/lib/i18n";
+import { translator } from "@/lib/i18n";
 import { routes } from "@/lib/navigation";
 import { faqSchema, serviceSchema } from "@/lib/schema";
-import { sectors } from "@/lib/sectors-data";
+import { getSectors } from "@/lib/sectors-data";
 import type { Sector } from "@/lib/sectors-data";
 import { siteConfig } from "@/lib/site-config";
 
-export function SectorPage({ sector }: { sector: Sector }) {
-  const guides = sortedGuides();
+export function SectorPage({ locale, sector }: { locale: Locale; sector: Sector }) {
+  const t = translator(locale);
+  const guides = sortedGuides(locale);
   const relatedGuides = [...guides.filter((g) => g.trade === sector.trade), ...guides.filter((g) => !g.trade)].slice(0, 3);
-  const other = sectors.find((s) => s.trade !== sector.trade);
+  const other = getSectors(locale).find((s) => s.trade !== sector.trade);
   const { tone } = sector;
 
   return (
@@ -28,7 +31,7 @@ export function SectorPage({ sector }: { sector: Sector }) {
       <JsonLd
         data={serviceSchema({
           name: sector.metaTitle,
-          serviceType: `Marketing digital para ${sector.audience}`,
+          serviceType: `${t("Marketing digital para", "Màrqueting digital per a")} ${sector.audience}`,
           description: sector.metaDescription,
           url: `${siteConfig.url}${sector.path}`,
         })}
@@ -41,19 +44,27 @@ export function SectorPage({ sector }: { sector: Sector }) {
         subtitle={sector.heroSubtitle}
         top={
           <>
-            <Breadcrumbs onDark items={[{ name: `Marketing digital para ${sector.audience}`, href: sector.path }]} />
+            <Breadcrumbs
+              onDark
+              locale={locale}
+              items={[{ name: `${t("Marketing digital para", "Màrqueting digital per a")} ${sector.audience}`, href: sector.path }]}
+            />
             <p className={`mt-8 inline-flex items-center gap-2 rounded-md px-3 py-1.5 text-sm font-bold ${tone.chip}`}>
               <Icon name={sector.icon} className={`h-4 w-4 ${tone.icon}`} />
-              Solo para {sector.audience}
+              {t("Solo para", "Només per a")} {sector.audience}
             </p>
           </>
         }
       >
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <PrimaryCta href={`${routes.contact}?oficio=${sector.trade}`} />
+          <PrimaryCta locale={locale} href={`${routes[locale].contact}?oficio=${sector.trade}`} />
           <WhatsAppButton
+            locale={locale}
             variant="glass"
-            message={`Hola ${siteConfig.brand}, trabajo en ${sector.name.toLowerCase()} en Barcelona y quiero más clientes.`}
+            message={t(
+              `Hola ${siteConfig.brand}, trabajo en ${sector.name.toLowerCase()} en Barcelona y quiero más clientes.`,
+              `Hola ${siteConfig.brand}, treballo en ${sector.name.toLowerCase()} a Barcelona i vull més clients.`,
+            )}
           />
         </div>
       </PhotoHero>
@@ -62,10 +73,13 @@ export function SectorPage({ sector }: { sector: Sector }) {
       <section className={`${tone.soft} py-16 sm:py-20`}>
         <Container className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
-            <SectionHeading title="Así te buscan tus clientes" intro="Si no sales aquí, llaman a otro." />
+            <SectionHeading
+              title={t("Así te buscan tus clientes", "Així et cerquen els teus clients")}
+              intro={t("Si no sales aquí, llaman a otro.", "Si no hi surts, truquen a un altre.")}
+            />
             <details className="group mt-6" data-reveal>
               <summary className="inline-flex cursor-pointer list-none items-center gap-2 text-sm font-semibold text-ink-900">
-                Por qué es importante
+                {t("Por qué es importante", "Per què és important")}
                 <span className="transition-transform group-open:rotate-45" aria-hidden="true">+</span>
               </summary>
               <div className="mt-3 space-y-3 text-ink-600">
@@ -83,7 +97,7 @@ export function SectorPage({ sector }: { sector: Sector }) {
 
       <section className="py-16 sm:py-20">
         <Container>
-          <SectionHeading title="Tu plan en 3 pasos" />
+          <SectionHeading title={t("Tu plan en 3 pasos", "El teu pla en 3 passos")} />
           <ol className="mt-8 grid gap-3 md:grid-cols-3">
             {sector.plan.map((step, index) => (
               <li key={step.title}>
@@ -109,23 +123,23 @@ export function SectorPage({ sector }: { sector: Sector }) {
 
       <section className="border-t border-ink-200 py-16 sm:py-20">
         <Container>
-          <SectionHeading title="Con qué lo hacemos" />
+          <SectionHeading title={t("Con qué lo hacemos", "Amb què ho fem")} />
           <div className="mt-8">
-            <ServiceGrid iconClass={tone.icon} />
+            <ServiceGrid locale={locale} iconClass={tone.icon} />
           </div>
         </Container>
       </section>
 
       <section className="py-16 sm:py-20">
         <Container className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr]">
-          <FaqAccordion faqs={sector.faqs} />
+          <FaqAccordion faqs={sector.faqs} title={t("Preguntas frecuentes", "Preguntes freqüents")} />
           {relatedGuides.length > 0 && (
             <div>
-              <h2 className="font-display text-2xl font-bold text-ink-900">Guías gratis</h2>
+              <h2 className="font-display text-2xl font-bold text-ink-900">{t("Guías gratis", "Guies gratis")}</h2>
               <ul className="mt-6 divide-y divide-ink-100 border-y border-ink-100">
                 {relatedGuides.map((guide) => (
-                  <li key={guide.slug}>
-                    <Link href={guidePath(guide)} className="group flex items-center gap-3 py-4 font-semibold text-ink-900 hover:text-accent-700">
+                  <li key={guide.id}>
+                    <Link href={guideUrl(locale, guide)} className="group flex items-center gap-3 py-4 font-semibold text-ink-900 hover:text-accent-700">
                       <Icon name="document" className={`h-5 w-5 shrink-0 ${tone.icon}`} />
                       <span className="flex-1">{guide.title}</span>
                       <Icon name="arrowRight" className="h-4 w-4 shrink-0 text-ink-400 group-hover:text-accent-700" />
@@ -135,9 +149,9 @@ export function SectorPage({ sector }: { sector: Sector }) {
               </ul>
               {other && (
                 <p className="mt-8 text-sm text-ink-600">
-                  ¿Eres {other.person}?{" "}
+                  {t("¿Eres", "Ets")} {other.person}?{" "}
                   <Link href={other.path} className="font-semibold text-ink-900 underline underline-offset-4 hover:text-accent-700">
-                    Ver tu página
+                    {t("Ver tu página", "Veure la teva pàgina")}
                   </Link>
                 </p>
               )}
@@ -147,7 +161,8 @@ export function SectorPage({ sector }: { sector: Sector }) {
       </section>
 
       <ContactSection
-        title={`Asesoramiento gratis para ${sector.audience}`}
+        locale={locale}
+        title={`${t("Asesoramiento gratis para", "Assessorament gratis per a")} ${sector.audience}`}
         defaultTrade={sector.trade}
       />
     </>

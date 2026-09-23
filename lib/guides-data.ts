@@ -1,11 +1,14 @@
-import { routes } from "./navigation";
+import type { Locale } from "./i18n";
+import { guidePath, guideSlugs } from "./navigation";
 import type { Trade } from "./navigation";
 import { photos } from "./photos";
 import type { Photo } from "./photos";
 import { siteConfig } from "./site-config";
+import { guidesCa } from "./guides-data.ca";
 
 export type Guide = {
-  slug: string;
+  /** Clave común a los dos idiomas (la URL de cada idioma está en navigation.ts). */
+  id: string;
   title: string;
   metaDescription: string;
   excerpt: string;
@@ -13,7 +16,7 @@ export type Guide = {
   summary: string;
   publishedAt: string; // ISO date
   updatedAt: string;
-  category: "Conseguir clientes" | "Google y SEO" | "Publicidad";
+  category: string;
   trade?: Trade;
   photo: Photo;
   content: { heading?: string; paragraphs: string[]; list?: string[] }[];
@@ -21,9 +24,11 @@ export type Guide = {
 
 const brand = siteConfig.brand;
 
+/** Versión en castellano. La catalana está en guides-data.ca.ts. */
+
 export const guides: Guide[] = [
   {
-    slug: "como-conseguir-clientes-fontanero-barcelona",
+    id: "como-conseguir-clientes-fontanero-barcelona",
     photo: photos.fontaneroInstalacionBano,
     title: "Cómo conseguir más clientes siendo fontanero en Barcelona",
     metaDescription:
@@ -100,7 +105,7 @@ export const guides: Guide[] = [
     ],
   },
   {
-    slug: "google-business-profile-electricistas-barcelona",
+    id: "google-business-profile-electricistas-barcelona",
     photo: photos.electricistaCasco,
     title: "Google Business Profile para electricistas: cómo aparecer en el mapa de Google en Barcelona",
     metaDescription:
@@ -166,7 +171,7 @@ export const guides: Guide[] = [
     ],
   },
   {
-    slug: "google-ads-para-oficios-cuando-compensa",
+    id: "google-ads-para-oficios-cuando-compensa",
     photo: photos.electricistaLuzTecho,
     title: "Google Ads para fontaneros y electricistas: cuándo compensa y cuándo no",
     metaDescription:
@@ -231,7 +236,7 @@ export const guides: Guide[] = [
     ],
   },
   {
-    slug: "pagar-por-clientes-o-hacer-tu-propio-marketing",
+    id: "pagar-por-clientes-o-hacer-tu-propio-marketing",
     photo: photos.fontaneroGrifo,
     title: "¿Pagar por clientes o hacer tu propio marketing? Qué le conviene a un fontanero o electricista",
     metaDescription:
@@ -280,7 +285,7 @@ export const guides: Guide[] = [
     ],
   },
   {
-    slug: "como-pedir-resenas-google-clientes",
+    id: "como-pedir-resenas-google-clientes",
     photo: photos.fontaneroFregadero,
     title: "Cómo pedir reseñas en Google a tus clientes (con mensajes listos para copiar)",
     metaDescription:
@@ -339,7 +344,7 @@ export const guides: Guide[] = [
     ],
   },
   {
-    slug: "como-aparecer-en-chatgpt-profesional-barcelona",
+    id: "como-aparecer-en-chatgpt-profesional-barcelona",
     photo: photos.electricistaEnchufes,
     title: "Cómo aparecer cuando alguien pregunta a ChatGPT por un profesional en Barcelona",
     metaDescription:
@@ -401,14 +406,23 @@ export const guides: Guide[] = [
   },
 ];
 
-export function guidePath(guide: Guide): string {
-  return `${routes.guides}/${guide.slug}`;
+export function getGuides(locale: Locale): Guide[] {
+  return locale === "ca" ? guidesCa : guides;
 }
 
-export function getGuide(slug: string): Guide | undefined {
-  return guides.find((guide) => guide.slug === slug);
+export function guideUrl(locale: Locale, guide: Guide): string {
+  return guidePath(locale, guide.id);
 }
 
-export function sortedGuides(): Guide[] {
-  return [...guides].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+/** Busca una guía por la parte final de su URL en ese idioma. */
+export function getGuideByUrl(locale: Locale, urlSlug: string): Guide | undefined {
+  return getGuides(locale).find((guide) => (guideSlugs[guide.id]?.[locale] ?? guide.id) === urlSlug);
+}
+
+export function guideUrlSlug(locale: Locale, guide: Guide): string {
+  return guideSlugs[guide.id]?.[locale] ?? guide.id;
+}
+
+export function sortedGuides(locale: Locale): Guide[] {
+  return [...getGuides(locale)].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
 }

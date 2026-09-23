@@ -1,13 +1,23 @@
 import Link from "next/link";
 import { JsonLd } from "./JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
+import type { Locale } from "@/lib/i18n";
+import { routes } from "@/lib/navigation";
 import { siteConfig } from "@/lib/site-config";
 
-export function Breadcrumbs({ items, onDark = false }: { items: { name: string; href: string }[]; onDark?: boolean }) {
-  const full = [{ name: "Inicio", href: "/" }, ...items];
+export function Breadcrumbs({
+  items,
+  onDark = false,
+  locale = "es",
+}: {
+  items: { name: string; href: string }[];
+  onDark?: boolean;
+  locale?: Locale;
+}) {
+  const full = [{ name: locale === "ca" ? "Inici" : "Inicio", href: routes[locale].home }, ...items];
 
   return (
-    <nav aria-label="Ruta de navegación" className={`text-xs ${onDark ? "text-white/60" : "text-ink-400"}`}>
+    <nav aria-label={locale === "ca" ? "Ruta de navegació" : "Ruta de navegación"} className={`text-xs ${onDark ? "text-white/60" : "text-ink-400"}`}>
       <JsonLd
         data={breadcrumbSchema(full.map((i) => ({ name: i.name, url: `${siteConfig.url}${i.href}` })))}
       />

@@ -1,3 +1,4 @@
+import type { Locale } from "./i18n";
 import { routes } from "./navigation";
 
 /**
@@ -32,7 +33,26 @@ export const siteConfig = {
   },
 };
 
-export const primaryCta = { label: "Asesoramiento gratis", href: routes.contact };
+/** Textos de marca que cambian con el idioma. */
+export const siteText: Record<Locale, { tagline: string; description: string; openingHours: string; areaServed: string }> = {
+  es: {
+    tagline: siteConfig.tagline,
+    description: siteConfig.description,
+    openingHours: siteConfig.openingHours,
+    areaServed: siteConfig.areaServed,
+  },
+  ca: {
+    tagline: "Màrqueting digital per a lampistes i electricistes a Barcelona",
+    description:
+      "Ofici ajuda lampistes i electricistes de Barcelona i rodalies a aconseguir més clients: anuncis a Google i Meta (Facebook i Instagram), landing pages i webs, Google Business Profile i ressenyes, SEO local i GEO. Assessorament inicial gratuït.",
+    openingHours: "De dilluns a divendres, de 9.00 a 19.00", // PLACEHOLDER: horari real
+    areaServed: "Barcelona i rodalies",
+  },
+};
+
+export function primaryCta(locale: Locale = "es") {
+  return { label: locale === "ca" ? "Assessorament gratis" : "Asesoramiento gratis", href: routes[locale].contact };
+}
 
 export function whatsappHref(message: string): string {
   return `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(message)}`;
@@ -42,4 +62,8 @@ export function telHref(): string {
   return `tel:${siteConfig.phoneE164}`;
 }
 
-export const whatsappMessage = `Hola ${siteConfig.brand}, soy profesional en Barcelona y quiero información sobre el asesoramiento gratuito.`;
+export function whatsappMessage(locale: Locale = "es"): string {
+  return locale === "ca"
+    ? `Hola ${siteConfig.brand}, soc professional a Barcelona i vull informació sobre l'assessorament gratuït.`
+    : `Hola ${siteConfig.brand}, soy profesional en Barcelona y quiero información sobre el asesoramiento gratuito.`;
+}

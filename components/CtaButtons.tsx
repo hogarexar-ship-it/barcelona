@@ -1,30 +1,36 @@
 import Link from "next/link";
 import { Icon } from "./Icon";
+import type { Locale } from "@/lib/i18n";
 import { primaryCta, whatsappHref, whatsappMessage } from "@/lib/site-config";
 
 export function PrimaryCta({
-  href = primaryCta.href,
-  label = primaryCta.label,
+  locale = "es",
+  href,
+  label,
   className = "",
 }: {
+  locale?: Locale;
   href?: string;
   label?: string;
   className?: string;
 }) {
+  const cta = primaryCta(locale);
   return (
-    <Link href={href} className={`btn btn-primary ${className}`}>
-      {label}
+    <Link href={href ?? cta.href} className={`btn btn-primary ${className}`}>
+      {label ?? cta.label}
       <Icon name="arrowRight" className="h-4 w-4" />
     </Link>
   );
 }
 
 export function WhatsAppButton({
-  message = whatsappMessage,
-  label = "Escríbenos por WhatsApp",
+  locale = "es",
+  message,
+  label,
   variant = "outline",
   className = "",
 }: {
+  locale?: Locale;
   message?: string;
   label?: string;
   variant?: "outline" | "ghost" | "light" | "glass";
@@ -32,13 +38,13 @@ export function WhatsAppButton({
 }) {
   return (
     <a
-      href={whatsappHref(message)}
+      href={whatsappHref(message ?? whatsappMessage(locale))}
       target="_blank"
       rel="noopener noreferrer"
       className={`btn ${variant === "ghost" ? "btn-ghost-light" : variant === "light" ? "btn-light" : variant === "glass" ? "btn-glass" : "btn-outline"} ${className}`}
     >
       <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
-      {label}
+      {label ?? (locale === "ca" ? "Escriu-nos per WhatsApp" : "Escríbenos por WhatsApp")}
     </a>
   );
 }

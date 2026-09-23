@@ -6,11 +6,37 @@ import { usePathname } from "next/navigation";
 import { Container } from "./Container";
 import { Icon } from "./Icon";
 import { Logo } from "./Logo";
-import { mainNav } from "@/lib/navigation";
+import type { Locale } from "@/lib/i18n";
+import { localeFromPath, locales } from "@/lib/i18n";
+import { alternatePath, mainNav } from "@/lib/navigation";
 import { primaryCta } from "@/lib/site-config";
+
+/** Selector ES / CA: lleva a la misma página en el otro idioma. */
+function LanguageSwitch({ locale, pathname, className = "" }: { locale: Locale; pathname: string; className?: string }) {
+  return (
+    <div className={`flex items-center rounded-md border border-ink-200 text-xs font-bold ${className}`} role="group" aria-label="Idioma">
+      {locales.map((l) => (
+        <Link
+          key={l}
+          href={l === locale ? pathname : alternatePath(pathname, l)}
+          hrefLang={l}
+          lang={l}
+          aria-current={l === locale ? "true" : undefined}
+          className={`px-2.5 py-1.5 uppercase transition-colors ${l === locale ? "bg-ink-900 text-white" : "text-ink-700 hover:text-ink-900"} ${
+            l === "es" ? "rounded-l-md" : "rounded-r-md"
+          }`}
+        >
+          {l}
+        </Link>
+      ))}
+    </div>
+  );
+}
 
 export function Header() {
   const pathname = usePathname();
+  const locale = localeFromPath(pathname);
+  const cta = primaryCta(locale);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -20,16 +46,18 @@ export function Header() {
   const isActive = (href: string) => href === pathname || pathname.startsWith(`${href}/`);
   const linkClass = (active: boolean) =>
     `text-sm font-semibold transition-colors hover:text-accent-700 ${active ? "text-accent-700" : "text-ink-700"}`;
+  const nav = mainNav(locale);
+  const ca = locale === "ca";
 
   return (
     <header className="sticky top-0 z-40 border-b border-ink-200 bg-surface-50 print:hidden">
       <Container className="flex h-16 items-stretch justify-between gap-6">
         <div className="flex items-center">
-          <Logo />
+          <Logo locale={locale} />
         </div>
 
         <nav className="hidden h-full items-stretch gap-7 lg:flex" aria-label="Principal">
-          {mainNav.map((link) => {
+          {nav.map((link) => {
             const active = isActive(link.href);
             return (
               <Link
@@ -45,14 +73,15 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link href={primaryCta.href} className="btn btn-primary hidden !px-5 !py-2.5 md:inline-flex">
-            {primaryCta.label}
+          <LanguageSwitch locale={locale} pathname={pathname} />
+          <Link href={cta.href} className="btn btn-primary hidden !px-5 !py-2.5 md:inline-flex">
+            {cta.label}
           </Link>
           <button
             type="button"
             onClick={() => setMenuOpen((open) => !open)}
             className="inline-flex h-11 w-11 items-center justify-center rounded-md text-ink-900 hover:bg-ink-100 lg:hidden"
-            aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-label={menuOpen ? (ca ? "Tancar menú" : "Cerrar menú") : ca ? "Obrir menú" : "Abrir menú"}
             aria-expanded={menuOpen}
             aria-controls="menu-movil"
           >
@@ -67,7 +96,7 @@ export function Header() {
         <div id="menu-movil" className="absolute inset-x-0 top-full border-b border-ink-200 bg-surface-50 lg:hidden">
           <Container className="py-4">
             <nav aria-label="Menú" className="flex flex-col">
-              {mainNav.map((link) => (
+              {nav.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -79,8 +108,8 @@ export function Header() {
                 </Link>
               ))}
             </nav>
-            <Link href={primaryCta.href} className="btn btn-primary mt-4 w-full">
-              {primaryCta.label}
+            <Link href={cta.href} className="btn btn-primary mt-4 w-full">
+              {cta.label}
             </Link>
           </Container>
         </div>

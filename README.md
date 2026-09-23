@@ -33,6 +33,34 @@ Todo el contenido de servicios está en `lib/marketing-services.ts`.
 | `/api/contacto` | Recibe el formulario |
 | `/sitemap.xml`, `/robots.txt`, `/llms.txt` | SEO y GEO |
 
+## Castellano y catalán
+
+El sitio está entero en los dos idiomas, cada uno con sus propias URLs para
+que Google indexe las dos versiones:
+
+| Castellano | Català |
+| --- | --- |
+| `/` | `/ca` |
+| `/servicios/...` | `/ca/serveis/...` |
+| `/marketing-para-fontaneros` | `/ca/marketing-digital-per-a-lampistes` |
+| `/marketing-para-electricistas` | `/ca/marketing-digital-per-a-electricistes` |
+| `/asesoramiento-gratuito` | `/ca/assessorament-gratuit` |
+| `/guias/...` | `/ca/guies/...` |
+| `/aviso-legal`, `/politica-privacidad`, `/politica-cookies` | `/ca/avis-legal`, `/ca/politica-privacitat`, `/ca/politica-galetes` |
+
+- En la cabecera hay un selector **ES / CA** que lleva a la misma página en el
+  otro idioma.
+- Cada página declara su versión en el otro idioma (`hreflang`) y el sitemap
+  incluye las dos.
+- Las rutas de cada idioma están en `lib/navigation.ts`. Los textos largos
+  están en `lib/*.ca.ts` (servicios, oficios y guías); los textos cortos de
+  la interfaz van junto al castellano con `t("…", "…")` (`lib/i18n.ts`).
+- Las páginas en castellano viven en `app/(es)/` y las catalanas en `app/ca/`;
+  ambas usan las mismas vistas de `components/views/`.
+- El formulario envía también el idioma (`locale: "es" | "ca"`) al webhook,
+  para saber en qué idioma contactar.
+- En catalán se usa «lampista» para fontanero, que es lo habitual en Barcelona.
+
 ## Formulario y recepción de contactos
 
 El formulario (`components/ContactForm.tsx`) va en 3 pasos y pide: oficio, autónomo o
@@ -81,6 +109,7 @@ npm run typecheck
 ## Checklist antes de publicar
 
 - [ ] Configurar `LEADS_WEBHOOK_URL` en Vercel y probar un envío real.
+- [ ] Revisión de los textos en catalán por un nativo (traducción propia).
 - [ ] Nombre de marca definitivo, dominio y logo (`lib/site-config.ts`,
       `components/Logo.tsx`, `public/favicon.svg`).
 - [ ] Teléfono, WhatsApp, email, dirección, razón social/CIF y redes

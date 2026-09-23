@@ -1,9 +1,11 @@
 import type { IconName } from "@/components/Icon";
+import type { Locale } from "./i18n";
 import { sectorPath } from "./navigation";
 import type { Trade } from "./navigation";
 import { photos } from "./photos";
 import type { Photo } from "./photos";
 import type { Faq } from "./types";
+import { sectorsCa } from "./sectors-data.ca";
 
 export type Sector = {
   path: string;
@@ -28,9 +30,10 @@ export type Sector = {
   faqs: Faq[];
 };
 
+/** Versión en castellano. La catalana está en sectors-data.ca.ts. */
 export const sectors: Sector[] = [
   {
-    path: sectorPath("fontaneria"),
+    path: sectorPath("es", "fontaneria"),
     trade: "fontaneria",
     photo: photos.fontaneroCajaHerramientas,
     icon: "droplet",
@@ -88,7 +91,7 @@ export const sectors: Sector[] = [
     ],
   },
   {
-    path: sectorPath("electricidad"),
+    path: sectorPath("es", "electricidad"),
     trade: "electricidad",
     photo: photos.electricistaPlafon,
     icon: "bolt",
@@ -147,8 +150,12 @@ export const sectors: Sector[] = [
   },
 ];
 
-export function getSector(trade: Trade): Sector {
-  const sector = sectors.find((s) => s.trade === trade);
+export function getSectors(locale: Locale): Sector[] {
+  return locale === "ca" ? sectorsCa : sectors;
+}
+
+export function getSector(locale: Locale, trade: Trade): Sector {
+  const sector = getSectors(locale).find((s) => s.trade === trade);
   if (!sector) throw new Error(`Sector desconocido: ${trade}`);
   return sector;
 }

@@ -23,6 +23,8 @@ type Lead = {
   email: string;
   interests: string[];
   message: string;
+  /** Idioma en el que se rellenó el formulario (es / ca). */
+  locale: string;
 };
 
 function json(body: unknown, status = 200): Response {
@@ -63,6 +65,7 @@ function parseLead(body: Record<string, unknown>): Lead | null {
     email: method === "email" ? email : "",
     interests,
     message: text(body.message, limits.message),
+    locale: body.locale === "ca" ? "ca" : "es",
   };
 }
 

@@ -1,10 +1,13 @@
 import type { IconName } from "@/components/Icon";
-import { servicePath } from "./navigation";
+import type { Locale } from "./i18n";
+import { serviceSlugs, servicePath } from "./navigation";
+import type { ServiceSlug } from "./navigation";
+import { extraServicesCa, marketingServicesCa } from "./marketing-services.ca";
 import { photos } from "./photos";
 import type { Photo } from "./photos";
 import type { Faq } from "./types";
 
-export type ServiceSlug = "anuncios-google-y-meta" | "landing-page-y-web" | "google-business-profile" | "seo-local";
+export type { ServiceSlug };
 
 export type MarketingService = {
   slug: ServiceSlug;
@@ -25,10 +28,11 @@ export type MarketingService = {
   faqs: Faq[];
 };
 
+/** Versión en castellano. La catalana está en marketing-services.ca.ts. */
 export const marketingServices: MarketingService[] = [
   {
     slug: "anuncios-google-y-meta",
-    path: servicePath("anuncios-google-y-meta"),
+    path: servicePath("es", "anuncios-google-y-meta"),
     icon: "megaphone",
     name: "Anuncios en Google y Meta (Facebook e Instagram)",
     short: "Campañas en Google Ads, Facebook e Instagram para que te llamen clientes de tu zona cuando necesitan tu servicio.",
@@ -95,7 +99,7 @@ export const marketingServices: MarketingService[] = [
   },
   {
     slug: "landing-page-y-web",
-    path: servicePath("landing-page-y-web"),
+    path: servicePath("es", "landing-page-y-web"),
     icon: "globe",
     name: "Landing page y página web",
     short: "Una página rápida y clara, pensada para que quien entra te llame o te pida presupuesto.",
@@ -161,7 +165,7 @@ export const marketingServices: MarketingService[] = [
   },
   {
     slug: "google-business-profile",
-    path: servicePath("google-business-profile"),
+    path: servicePath("es", "google-business-profile"),
     icon: "mapPin",
     name: "Google Business y reseñas",
     short: "Tu ficha de Google optimizada y más reseñas de clientes reales para aparecer en el mapa cuando buscan un fontanero o un electricista cerca.",
@@ -205,7 +209,7 @@ export const marketingServices: MarketingService[] = [
   },
   {
     slug: "seo-local",
-    path: servicePath("seo-local"),
+    path: servicePath("es", "seo-local"),
     icon: "search",
     name: "SEO y GEO",
     short: "SEO local para posicionar tu web en Google y GEO para que asistentes de IA como ChatGPT o Gemini te recomienden en tu zona.",
@@ -248,12 +252,27 @@ export const marketingServices: MarketingService[] = [
   },
 ];
 
-export const extraServices: { icon: IconName; name: string; text: string }[] = [
+export const extraServices: ExtraService[] = [
   { icon: "camera", name: "Grabación y edición de vídeo", text: "Vídeos cortos de tus trabajos para anuncios, web y redes." },
   { icon: "pen", name: "Diseño gráfico", text: "Logo, tarjetas, rotulación de furgoneta y presupuestos con tu imagen." },
   { icon: "users", name: "Redes sociales", text: "Publicaciones en Instagram y Facebook con tus trabajos, sin que te quite tiempo." },
 ];
 
-export function getMarketingService(slug: string): MarketingService | undefined {
-  return marketingServices.find((service) => service.slug === slug);
+export type ExtraService = { icon: IconName; name: string; text: string };
+
+export function getMarketingServices(locale: Locale): MarketingService[] {
+  return locale === "ca" ? marketingServicesCa : marketingServices;
+}
+
+export function getExtraServices(locale: Locale): ExtraService[] {
+  return locale === "ca" ? extraServicesCa : extraServices;
+}
+
+export function getMarketingService(locale: Locale, slug: string): MarketingService | undefined {
+  return getMarketingServices(locale).find((service) => service.slug === slug);
+}
+
+/** Busca un servicio por la parte final de su URL en ese idioma. */
+export function getMarketingServiceByUrl(locale: Locale, urlSlug: string): MarketingService | undefined {
+  return getMarketingServices(locale).find((service) => serviceSlugs[service.slug][locale] === urlSlug);
 }

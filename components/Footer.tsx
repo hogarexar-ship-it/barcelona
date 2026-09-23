@@ -4,40 +4,50 @@ import { Container } from "./Container";
 import { WhatsAppIcon } from "./CtaButtons";
 import { Icon } from "./Icon";
 import { Logo } from "./Logo";
-import { marketingServices } from "@/lib/marketing-services";
+import type { Locale } from "@/lib/i18n";
+import { translator } from "@/lib/i18n";
+import { getMarketingServices } from "@/lib/marketing-services";
 import { routes, sectorPath } from "@/lib/navigation";
-import { primaryCta, siteConfig, telHref, whatsappHref, whatsappMessage } from "@/lib/site-config";
+import { primaryCta, siteConfig, siteText, telHref, whatsappHref, whatsappMessage } from "@/lib/site-config";
 
-export function Footer() {
+export function Footer({ locale }: { locale: Locale }) {
+  const t = translator(locale);
+  const cta = primaryCta(locale);
   return (
     <footer className="bg-ink-900 text-ink-100 print:hidden">
       <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <Logo onDark />
+          <Logo onDark locale={locale} />
           <p className="mt-4 text-sm">
-            {siteConfig.tagline} y alrededores.
+            {siteText[locale].tagline} {t("y alrededores", "i rodalies")}.
           </p>
-          <Link href={primaryCta.href} className="mt-5 inline-block text-sm font-semibold text-white underline underline-offset-4">
-            {primaryCta.label}
+          <Link href={cta.href} className="mt-5 inline-block text-sm font-semibold text-white underline underline-offset-4">
+            {cta.label}
           </Link>
         </div>
 
-        <FooterColumn title="Servicios">
-          {marketingServices.map((service) => (
+        <FooterColumn title={t("Servicios", "Serveis")}>
+          {getMarketingServices(locale).map((service) => (
             <FooterLink key={service.slug} href={service.path} label={service.name} />
           ))}
-          <FooterLink href={routes.services} label="Todos los servicios" />
+          <FooterLink href={routes[locale].services} label={t("Todos los servicios", "Tots els serveis")} />
         </FooterColumn>
 
-        <FooterColumn title="Para quién">
-          <FooterLink href={sectorPath("fontaneria")} label="Marketing digital para fontaneros" />
-          <FooterLink href={sectorPath("electricidad")} label="Marketing digital para electricistas" />
-          <FooterLink href={routes.guides} label="Guías" />
+        <FooterColumn title={t("Para quién", "Per a qui")}>
+          <FooterLink
+            href={sectorPath(locale, "fontaneria")}
+            label={t("Marketing digital para fontaneros", "Màrqueting digital per a lampistes")}
+          />
+          <FooterLink
+            href={sectorPath(locale, "electricidad")}
+            label={t("Marketing digital para electricistas", "Màrqueting digital per a electricistes")}
+          />
+          <FooterLink href={routes[locale].guides} label={t("Guías", "Guies")} />
         </FooterColumn>
 
-        <FooterColumn title="Contacto">
+        <FooterColumn title={t("Contacto", "Contacte")}>
           <li>
-            <a href={whatsappHref(whatsappMessage)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-white">
+            <a href={whatsappHref(whatsappMessage(locale))} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-white">
               <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
               WhatsApp
             </a>
@@ -56,7 +66,7 @@ export function Footer() {
           </li>
           <li className="inline-flex items-center gap-2">
             <Icon name="clock" className="h-4 w-4" />
-            {siteConfig.openingHours}
+            {siteText[locale].openingHours}
           </li>
         </FooterColumn>
       </Container>
@@ -67,9 +77,9 @@ export function Footer() {
             © {new Date().getFullYear()} {siteConfig.legalName}.
           </p>
           <ul className="flex flex-wrap gap-4">
-            <FooterLink href="/aviso-legal" label="Aviso legal" />
-            <FooterLink href="/politica-privacidad" label="Privacidad" />
-            <FooterLink href="/politica-cookies" label="Cookies" />
+            <FooterLink href={routes[locale].legal} label={t("Aviso legal", "Avís legal")} />
+            <FooterLink href={routes[locale].privacy} label={t("Privacidad", "Privacitat")} />
+            <FooterLink href={routes[locale].cookies} label={t("Cookies", "Galetes")} />
           </ul>
         </Container>
       </div>

@@ -16,10 +16,17 @@ import {
   tradeOptions,
 } from "@/lib/contact-options";
 import type { BusinessType, ContactMethod, TradeValue } from "@/lib/contact-options";
+import type { Locale } from "@/lib/i18n";
+import { translator } from "@/lib/i18n";
+import { routes } from "@/lib/navigation";
 import { siteConfig, whatsappHref } from "@/lib/site-config";
 
 type Status = "idle" | "sending" | "sent" | "error";
-const stepLabels = ["Tu negocio", "Contacto", "Detalles"];
+const stepLabels: Record<Locale, string[]> = {
+  es: ["Tu negocio", "Contacto", "Detalles"],
+  ca: ["El teu negoci", "Contacte", "Detalls"],
+};
+const stepCount = 3;
 
 function isTradeValue(value: string | null): value is TradeValue {
   return tradeOptions.some((o) => o.value === value);
@@ -31,14 +38,17 @@ function isTradeValue(value: string | null): value is TradeValue {
  * ?oficio=, ?servicio= y ?situacion= en la URL para llegar preseleccionado.
  */
 export function ContactForm({
+  locale = "es",
   defaultTrade,
   defaultInterest,
   idPrefix = "contacto",
 }: {
+  locale?: Locale;
   defaultTrade?: TradeValue;
   defaultInterest?: string;
   idPrefix?: string;
 }) {
+  const t = translator(locale);
   const [step, setStep] = useState(0);
   const [trade, setTrade] = useState<TradeValue | "">(defaultTrade ?? "");
   const [businessType, setBusinessType] = useState<BusinessType | "">("");
@@ -62,8 +72,8 @@ export function ContactForm({
     const situation = situations.find((s) => s.value === params.get("situacion"));
     if (isTradeValue(tradeParam)) setTrade(tradeParam);
     if (serviceParam && interestOptions.some((o) => o.value === serviceParam)) setInterests([serviceParam]);
-    if (situation) setMessage(situation.message);
-  }, []);
+    if (situation) setMessage(situation.message[locale]);
+  }, [locale]);
 
   function goToStep(next: number) {
     setStep(next);
@@ -86,23 +96,24 @@ export function ContactForm({
     interests,
     message,
     website,
+    locale,
   };
 
   function whatsappFallback(): string {
-    const label = <T extends string>(options: { value: T; label: string }[], value: string) =>
-      options.find((o) => o.value === value)?.label ?? value;
+    const label = <T extends string>(options: { value: T; label: Record<Locale, string> }[], value: string) =>
+      options.find((o) => o.value === value)?.label[locale] ?? value;
     const lines = [
-      `Hola ${siteConfig.brand}, quiero el asesoramiento gratuito.`,
-      `Nombre: ${name}`,
-      businessName ? `Negocio: ${businessName}` : null,
-      `Oficio: ${label(tradeOptions, trade)}`,
-      `Tipo: ${label(businessTypeOptions, businessType)}`,
+      t(`Hola ${siteConfig.brand}, quiero el asesoramiento gratuito.`, `Hola ${siteConfig.brand}, vull l'assessorament gratuït.`),
+      `${t("Nombre", "Nom")}: ${name}`,
+      businessName ? `${t("Negocio", "Negoci")}: ${businessName}` : null,
+      `${t("Oficio", "Ofici")}: ${label(tradeOptions, trade)}`,
+      `${t("Tipo", "Tipus")}: ${label(businessTypeOptions, businessType)}`,
       `Zona: ${zone}`,
-      `Prefiero: ${label(contactMethodOptions, method)}`,
-      payload.phone ? `Teléfono: ${payload.phone}` : null,
-      payload.email ? `Email: ${payload.email}` : null,
-      interests.length ? `Me interesa: ${interests.map((i) => label(interestOptions, i)).join(", ")}` : null,
-      message ? `Situación: ${message}` : null,
+      `${t("Prefiero", "Prefereixo")}: ${label(contactMethodOptions, method)}`,
+      payload.phone ? `${t("Teléfono", "Telèfon")}: ${payload.phone}` : null,
+      payload.email ? `${t("Email", "Correu")}: ${payload.email}` : null,
+      interests.length ? `${t("Me interesa", "M'interessa")}: ${interests.map((i) => label(interestOptions, i)).join(", ")}` : null,
+      message ? `${t("Situación", "Situació")}: ${message}` : null,
     ].filter((line): line is string => line !== null);
     return whatsappHref(lines.join("\n"));
   }
@@ -110,7 +121,7 @@ export function ContactForm({
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     // Los pasos 1 y 2 solo validan (validación nativa de los campos visibles) y avanzan.
-    if (step < stepLabels.length - 1) {
+    if (step < stepCount - 1) {
       goToStep(step + 1);
       return;
     }
@@ -128,13 +139,23 @@ export function ContactForm({
   }
 
   if (status === "sent") {
-    const channel = { llamada: "teléfono", whatsapp: "WhatsApp", email: "email", "": "teléfono" }[method];
+    const channel = {
+      llamada: t("teléfono", "telèfon"),
+      whatsapp: "WhatsApp",
+      email: t("email", "correu"),
+      "": t("teléfono", "telèfon"),
+    }[method];
     return (
       <div className="rounded-xl2 border border-ink-200 bg-white p-7 sm:p-9">
         <Icon name="check" className="h-10 w-10 text-accent-600" />
-        <p className="mt-4 font-display text-2xl font-bold text-ink-900">Recibido, {name.split(" ")[0]}</p>
+        <p className="mt-4 font-display text-2xl font-bold text-ink-900">
+          {t("Recibido", "Rebut")}, {name.split(" ")[0]}
+        </p>
         <p className="mt-3 text-ink-600">
-          Te contactamos por {channel} en horario laboral para preparar tu asesoramiento gratuito.
+          {t(
+            `Te contactamos por ${channel} en horario laboral para preparar tu asesoramiento gratuito.`,
+            `Et contactem per ${channel} en horari laboral per preparar el teu assessorament gratuït.`,
+          )}
         </p>
       </div>
     );
@@ -143,8 +164,8 @@ export function ContactForm({
   return (
     <form ref={formRef} onSubmit={handleSubmit} className="scroll-mt-24 rounded-xl2 border border-ink-200 bg-white">
       <div className="border-b border-ink-200 px-6 pb-4 pt-5 sm:px-8">
-        <ol className="grid grid-cols-3 gap-2" aria-label="Pasos del formulario">
-          {stepLabels.map((label, index) => (
+        <ol className="grid grid-cols-3 gap-2" aria-label={t("Pasos del formulario", "Passos del formulari")}>
+          {stepLabels[locale].map((label, index) => (
             <li key={label} aria-current={index === step ? "step" : undefined}>
               <div className={`h-1.5 rounded ${index <= step ? "bg-[#EA580C]" : "bg-ink-100"}`} />
               <p className={`mt-2 text-xs font-semibold ${index === step ? "text-ink-900" : "text-ink-400"}`}>
@@ -158,15 +179,16 @@ export function ContactForm({
       <div className="space-y-6 px-6 py-6 sm:px-8">
         {step === 0 && (
           <>
-            <ChoiceGroup legend="¿A qué te dedicas?" name={`${idPrefix}-trade`} options={tradeOptions} value={trade} onChange={setTrade} />
+            <ChoiceGroup locale={locale} legend={t("¿A qué te dedicas?", "A què et dediques?")} name={`${idPrefix}-trade`} options={tradeOptions} value={trade} onChange={setTrade} />
             <ChoiceGroup
-              legend="¿Trabajas como…?"
+              locale={locale}
+              legend={t("¿Trabajas como…?", "Treballes com a…?")}
               name={`${idPrefix}-type`}
               options={businessTypeOptions}
               value={businessType}
               onChange={setBusinessType}
             />
-            <Field label="¿Dónde trabajas?" htmlFor={`${idPrefix}-zone`}>
+            <Field label={t("¿Dónde trabajas?", "On treballes?")} htmlFor={`${idPrefix}-zone`}>
               <input
                 id={`${idPrefix}-zone`}
                 required
@@ -175,7 +197,7 @@ export function ContactForm({
                 value={zone}
                 onChange={(e) => setZone(e.target.value)}
                 className="input"
-                placeholder="Ej: Barcelona, Badalona…"
+                placeholder={t("Ej: Barcelona, Badalona…", "Ex.: Barcelona, Badalona…")}
               />
               <datalist id={`${idPrefix}-municipalities`}>
                 {municipalities.map((m) => (
@@ -189,7 +211,7 @@ export function ContactForm({
         {step === 1 && (
           <>
             <div className="grid gap-5 sm:grid-cols-2">
-              <Field label="Tu nombre" htmlFor={`${idPrefix}-name`}>
+              <Field label={t("Tu nombre", "El teu nom")} htmlFor={`${idPrefix}-name`}>
                 <input
                   id={`${idPrefix}-name`}
                   required
@@ -200,7 +222,7 @@ export function ContactForm({
                   className="input"
                 />
               </Field>
-              <Field label="Nombre del negocio (opcional)" htmlFor={`${idPrefix}-business`}>
+              <Field label={t("Nombre del negocio (opcional)", "Nom del negoci (opcional)")} htmlFor={`${idPrefix}-business`}>
                 <input
                   id={`${idPrefix}-business`}
                   autoComplete="organization"
@@ -212,14 +234,15 @@ export function ContactForm({
               </Field>
             </div>
             <ChoiceGroup
-              legend="¿Cómo prefieres que te contactemos?"
+              locale={locale}
+              legend={t("¿Cómo prefieres que te contactemos?", "Com prefereixes que et contactem?")}
               name={`${idPrefix}-method`}
               options={contactMethodOptions}
               value={method}
               onChange={setMethod}
             />
             {method === "email" && (
-              <Field label="Tu email" htmlFor={`${idPrefix}-email`}>
+              <Field label={t("Tu email", "El teu correu")} htmlFor={`${idPrefix}-email`}>
                 <input
                   id={`${idPrefix}-email`}
                   required
@@ -232,14 +255,14 @@ export function ContactForm({
               </Field>
             )}
             {(method === "llamada" || method === "whatsapp") && (
-              <Field label={method === "whatsapp" ? "Tu WhatsApp" : "Tu teléfono"} htmlFor={`${idPrefix}-phone`}>
+              <Field label={method === "whatsapp" ? t("Tu WhatsApp", "El teu WhatsApp") : t("Tu teléfono", "El teu telèfon")} htmlFor={`${idPrefix}-phone`}>
                 <input
                   id={`${idPrefix}-phone`}
                   required
                   type="tel"
                   autoComplete="tel"
                   pattern="\+?[0-9 ]{9,18}"
-                  title="Introduce un teléfono válido"
+                  title={t("Introduce un teléfono válido", "Introdueix un telèfon vàlid")}
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   className="input"
@@ -253,7 +276,9 @@ export function ContactForm({
         {step === 2 && (
           <>
             <fieldset>
-              <legend className="text-sm font-semibold text-ink-900">¿En qué te podemos ayudar? (opcional)</legend>
+              <legend className="text-sm font-semibold text-ink-900">
+                {t("¿En qué te podemos ayudar? (opcional)", "En què et podem ajudar? (opcional)")}
+              </legend>
               <div className="mt-2 flex flex-wrap gap-2">
                 {interestOptions.map((option) => {
                   const checked = interests.includes(option.value);
@@ -270,14 +295,14 @@ export function ContactForm({
                         onChange={() => toggleInterest(option.value)}
                         className="absolute inset-0 cursor-pointer opacity-0"
                       />
-                      {option.label}
+                      {option.label[locale]}
                     </label>
                   );
                 })}
               </div>
             </fieldset>
 
-            <Field label="Cuéntanos tu situación (opcional)" htmlFor={`${idPrefix}-message`}>
+            <Field label={t("Cuéntanos tu situación (opcional)", "Explica'ns la teva situació (opcional)")} htmlFor={`${idPrefix}-message`}>
               <textarea
                 id={`${idPrefix}-message`}
                 rows={3}
@@ -285,12 +310,15 @@ export function ContactForm({
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 className="input"
-                placeholder="Ej: tengo trabajo pero no llego a todo / este año las llamadas han bajado…"
+                placeholder={t(
+                  "Ej: tengo trabajo pero no llego a todo / este año las llamadas han bajado…",
+                  "Ex.: tinc feina però no arribo a tot / aquest any les trucades han baixat…",
+                )}
               />
             </Field>
 
             <div className="hidden" aria-hidden="true">
-              <label htmlFor={`${idPrefix}-website`}>No rellenes este campo</label>
+              <label htmlFor={`${idPrefix}-website`}>{t("No rellenes este campo", "No omplis aquest camp")}</label>
               <input id={`${idPrefix}-website`} tabIndex={-1} autoComplete="off" value={website} onChange={(e) => setWebsite(e.target.value)} />
             </div>
 
@@ -303,9 +331,9 @@ export function ContactForm({
                 className="mt-0.5 h-4 w-4 accent-[#EA580C]"
               />
               <span>
-                He leído y acepto la{" "}
-                <Link href="/politica-privacidad" className="underline">
-                  política de privacidad
+                {t("He leído y acepto la", "He llegit i accepto la")}{" "}
+                <Link href={routes[locale].privacy} className="underline">
+                  {t("política de privacidad", "política de privacitat")}
                 </Link>
                 .
               </span>
@@ -315,10 +343,15 @@ export function ContactForm({
 
         {status === "error" && (
           <div className="rounded-md border border-urgent-500/30 bg-urgent-500/5 p-4 text-sm text-urgent-600">
-            <p>No hemos podido enviar el formulario. Puedes mandarnos los mismos datos por WhatsApp:</p>
+            <p>
+              {t(
+                "No hemos podido enviar el formulario. Puedes mandarnos los mismos datos por WhatsApp:",
+                "No hem pogut enviar el formulari. Ens pots enviar les mateixes dades per WhatsApp:",
+              )}
+            </p>
             <a href={whatsappFallback()} target="_blank" rel="noopener noreferrer" className="btn btn-outline mt-3">
               <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
-              Enviar por WhatsApp
+              {t("Enviar por WhatsApp", "Enviar per WhatsApp")}
             </a>
           </div>
         )}
@@ -327,21 +360,21 @@ export function ContactForm({
       <div className="flex items-center justify-between gap-3 border-t border-ink-200 px-6 py-4 sm:px-8">
         {step > 0 ? (
           <button type="button" onClick={() => goToStep(step - 1)} className="btn btn-outline">
-            Atrás
+            {t("Atrás", "Enrere")}
           </button>
         ) : (
-          <span className="text-xs text-ink-400">Gratis y sin compromiso</span>
+          <span className="text-xs text-ink-400">{t("Gratis y sin compromiso", "Gratis i sense compromís")}</span>
         )}
         <button type="submit" disabled={status === "sending"} className="btn btn-primary disabled:opacity-60">
-          {step < stepLabels.length - 1 ? (
+          {step < stepCount - 1 ? (
             <>
-              Siguiente
+              {t("Siguiente", "Següent")}
               <Icon name="arrowRight" className="h-4 w-4" />
             </>
           ) : status === "sending" ? (
-            "Enviando…"
+            t("Enviando…", "Enviant…")
           ) : (
-            "Pedir asesoramiento gratis"
+            t("Pedir asesoramiento gratis", "Demanar assessorament gratis")
           )}
         </button>
       </div>
@@ -350,6 +383,7 @@ export function ContactForm({
 }
 
 function ChoiceGroup<T extends string>({
+  locale,
   legend,
   name,
   options,
@@ -358,7 +392,8 @@ function ChoiceGroup<T extends string>({
 }: {
   legend: string;
   name: string;
-  options: { value: T; label: string; icon: IconName }[];
+  options: { value: T; label: Record<Locale, string>; icon: IconName }[];
+  locale: Locale;
   value: T | "";
   onChange: (value: T) => void;
 }) {
@@ -383,7 +418,7 @@ function ChoiceGroup<T extends string>({
               className="absolute inset-0 cursor-pointer opacity-0"
             />
             <Icon name={option.icon} className="h-6 w-6" />
-            {option.label}
+            {option.label[locale]}
           </label>
         ))}
       </div>
