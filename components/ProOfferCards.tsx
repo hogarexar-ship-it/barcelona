@@ -23,23 +23,12 @@ export function ProOfferCards() {
 function OfferCard({ offer, number, icon, dark = false }: { offer: Offer; number: number; icon: IconName; dark?: boolean }) {
   return (
     <article
-      className={`group flex h-full flex-col rounded-xl2 p-7 transition hover:-translate-y-1 hover:shadow-xl sm:p-9 ${
-        dark ? "bg-ink-900 text-white" : "border border-ink-100 bg-white"
-      }`}
+      className={`flex h-full flex-col rounded-xl2 p-7 sm:p-9 ${dark ? "bg-ink-900 text-white" : "border border-ink-200 bg-white"}`}
     >
-      <span
-        className={`mb-6 flex h-16 w-16 items-center justify-center rounded-2xl transition-transform group-hover:scale-110 group-hover:-rotate-3 ${
-          dark ? "bg-accent-500/20 text-accent-300" : "bg-accent-50 text-accent-600"
-        }`}
-      >
+      <div className={`flex items-center gap-3 ${dark ? "text-accent-300" : "text-accent-700"}`}>
         <Icon name={icon} className="h-8 w-8" />
-      </span>
-      <div className="flex items-center gap-3">
-        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-accent-500 font-display text-sm font-bold text-white">
-          {number}
-        </span>
-        <p className={`text-sm font-semibold uppercase tracking-wide ${dark ? "text-accent-300" : "text-accent-600"}`}>
-          {offer.name}
+        <p className="text-sm font-medium">
+          {number}. {offer.name}
         </p>
       </div>
       <h3 className={`mt-5 font-display text-3xl font-bold ${dark ? "text-white" : "text-ink-900"}`}>{offer.title}</h3>

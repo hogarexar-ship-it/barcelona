@@ -9,7 +9,7 @@ export type ProTrade = Trade | "otro";
 export const interestOptions: { value: Interest; label: string; icon: IconName }[] = [
   { value: "clientes", label: "Recibir clientes", icon: "inbox" },
   { value: "marketing", label: "Marketing para mi negocio", icon: "megaphone" },
-  { value: "ambos", label: "Las dos cosas / aún no lo sé", icon: "sparkles" },
+  { value: "ambos", label: "Las dos cosas / aún no lo sé", icon: "question" },
 ];
 
 export const tradeOptions: { value: ProTrade; label: string }[] = [
@@ -47,9 +47,9 @@ export const networkOffer: Offer = {
 export const marketingOffer: Offer = {
   href: proRoutes.marketing,
   name: "Marketing para tu negocio",
-  title: "Hacemos que te encuentren",
+  title: "Llevamos tu marketing",
   summary:
-    "Llevamos tu ficha de Google, tus anuncios, tu web, tu marca y tus redes para que el cliente te llame a ti y no a la competencia.",
+    "Llevamos tu ficha de Google, tus anuncios, tu web, tu marca y tus redes para que recibas más llamadas de tu zona.",
   bullets: [
     "Google Business Profile optimizado",
     "Anuncios en Google Ads y Meta",
@@ -97,23 +97,23 @@ export const marketingServices: MarketingService[] = [
       "Web rápida con páginas por servicio y barrio, preparada para Google y para asistentes de IA como ChatGPT, Gemini o Perplexity.",
   },
   {
-    icon: "sparkles",
+    icon: "bulb",
     name: "Marca",
     title: "Una imagen que inspira confianza",
     description:
-      "Nombre, logo, colores, rotulación de furgoneta, uniformes y presupuestos con tu imagen. Parecer profesional también vende.",
+      "Nombre, logo, colores, rotulación de furgoneta, uniformes y presupuestos con tu imagen.",
   },
   {
     icon: "chart",
     name: "Estrategia",
-    title: "Un plan con números",
+    title: "Plan de marketing",
     description:
       "Decidimos qué servicios empujar, en qué zonas y con qué presupuesto, y medimos cuánto te cuesta cada cliente.",
   },
   {
     icon: "camera",
     name: "Redes sociales",
-    title: "Redes sin perder tiempo",
+    title: "Publicaciones de tus trabajos",
     description:
       "Contenido de tus trabajos en Instagram, Facebook o TikTok, si lo quieres. Tú nos mandas las fotos por WhatsApp; nosotros hacemos el resto.",
   },

@@ -68,10 +68,8 @@ export function ConsumerRequestForm({ defaultTrade, idPrefix = "solicitud" }: { 
 
   if (sent) {
     return (
-      <div className="rounded-xl2 bg-white p-7 text-ink-800 shadow-xl sm:p-9">
-        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-accent-100 text-accent-600">
-          <Icon name="check" />
-        </span>
+      <div className="rounded-xl2 border border-ink-200 bg-white p-7 text-ink-800 sm:p-9">
+        <Icon name="check" className="h-8 w-8 text-accent-600" />
         <p className="mt-4 font-display text-2xl font-bold text-ink-900">¡Solicitud preparada, {name.split(" ")[0]}!</p>
         <p className="mt-3 text-ink-600">
           Hemos abierto WhatsApp con tu solicitud. Envía el mensaje y te respondemos para confirmar el profesional y el
@@ -92,7 +90,7 @@ export function ConsumerRequestForm({ defaultTrade, idPrefix = "solicitud" }: { 
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 rounded-xl2 bg-white p-6 text-ink-800 shadow-xl sm:p-8">
+    <form onSubmit={handleSubmit} className="space-y-6 rounded-xl2 border border-ink-200 bg-white p-6 text-ink-800 sm:p-8">
       <fieldset>
         <legend className="text-sm font-semibold text-ink-900">1. ¿Qué necesitas?</legend>
         <div className="mt-2 grid grid-cols-2 gap-2">

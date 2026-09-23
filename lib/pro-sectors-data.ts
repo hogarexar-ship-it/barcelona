@@ -104,7 +104,7 @@ export const sectors: Sector[] = [
       "Más clientes para electricistas y empresas instaladoras en Barcelona: averías, boletines, cuadros y cargadores. Te pasamos trabajos a comisión o llevamos tu marketing.",
     heroTitle: "Más clientes para electricistas en Barcelona",
     heroSubtitle:
-      "Averías, boletines, cuadros, cargadores de coche eléctrico y reformas eléctricas. Te pasamos trabajos de tu zona o te posicionamos para que te encuentren.",
+      "Averías, boletines, cuadros, cargadores de coche eléctrico y reformas eléctricas. Te pasamos trabajos de tu zona o mejoramos tu presencia en Google.",
     cardText:
       "Averías, boletines, cuadros y cargadores. Trabajos cada vez más técnicos que buscan un instalador de confianza.",
     demand: [

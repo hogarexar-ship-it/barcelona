@@ -51,7 +51,6 @@ export function ProSectorPage({ sector }: { sector: Sector }) {
         audience="pro"
         aside={<PhotoFrame photo={sector.photo} priority className="aspect-[4/5]" sizes="40vw" />}
         asideDesktopOnly
-        eyebrow={`Para ${sector.audience} en Barcelona`}
         title={sector.heroTitle}
         subtitle={sector.heroSubtitle}
         actions={
@@ -68,7 +67,7 @@ export function ProSectorPage({ sector }: { sector: Sector }) {
       <section className="py-16 sm:py-24">
         <Container className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
-            <SectionHeading eyebrow="El mercado" title={`La demanda de ${sector.name.toLowerCase()} en Barcelona`} />
+            <SectionHeading title={`La demanda de ${sector.name.toLowerCase()} en Barcelona`} />
             <div className="mt-6 space-y-4 text-lg text-ink-600">
               {sector.demand.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
@@ -86,10 +85,10 @@ export function ProSectorPage({ sector }: { sector: Sector }) {
 
       <section className="bg-surface-100 py-16 sm:py-24">
         <Container>
-          <SectionHeading eyebrow="Cómo te ayudamos" title={`Dos formas de conseguir más clientes para ${sector.audience}`} />
+          <SectionHeading title={`Dos formas de conseguir más clientes para ${sector.audience}`} />
           <div className="mt-10 grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
             <article className="flex flex-col rounded-xl2 border border-ink-100 bg-white p-7 sm:p-9">
-              <p className="eyebrow">1 · {networkOffer.name}</p>
+              <p className="text-sm font-medium text-accent-700">{networkOffer.name}</p>
               <h3 className="mt-3 font-display text-2xl font-bold text-ink-900">{networkOffer.title}</h3>
               <p className="mt-3 flex-1 text-ink-600">{sector.networkText}</p>
               <p className="mt-4 text-sm font-semibold text-ink-800">
@@ -102,11 +101,11 @@ export function ProSectorPage({ sector }: { sector: Sector }) {
             </article>
 
             <article className="rounded-xl2 bg-ink-900 p-7 text-white sm:p-9">
-              <p className="text-sm font-semibold uppercase tracking-wide text-accent-300">2 · {marketingOffer.name}</p>
+              <p className="text-sm font-medium text-accent-300">{marketingOffer.name}</p>
               <h3 className="mt-3 font-display text-2xl font-bold">{marketingOffer.title}</h3>
               <ul className="mt-6 grid gap-4 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
                 {sector.marketingTactics.map((tactic) => (
-                  <li key={tactic.title} className="rounded-2xl bg-white/5 p-5">
+                  <li key={tactic.title} className="border-t border-white/15 pt-4">
                     <p className="font-semibold text-white">{tactic.title}</p>
                     <p className="mt-2 text-sm text-ink-100">{tactic.text}</p>
                   </li>
@@ -124,7 +123,7 @@ export function ProSectorPage({ sector }: { sector: Sector }) {
       {relatedGuides.length > 0 && (
         <section className="py-16 sm:py-24">
           <Container>
-            <SectionHeading eyebrow="Guías" title={`Guías para ${sector.audience}`} />
+            <SectionHeading title={`Guías para ${sector.audience}`} />
             <div className="mt-10">
               <GuideCards guides={relatedGuides} />
             </div>

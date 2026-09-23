@@ -40,7 +40,6 @@ export function ServicePage({ service }: { service: Service }) {
       </div>
 
       <PageHero
-        eyebrow={`${plural} en Barcelona`}
         title={service.heroTitle}
         subtitle={service.heroSubtitle}
         actions={
@@ -53,7 +52,7 @@ export function ServicePage({ service }: { service: Service }) {
           <PhotoFrame
             photo={service.photo}
             priority
-            className="aspect-[4/3] shadow-2xl shadow-ink-900/15 lg:aspect-[5/6]"
+            className="aspect-[4/3] lg:aspect-[5/6]"
             sizes="(min-width: 1024px) 40vw, 100vw"
           />
         }
@@ -64,17 +63,14 @@ export function ServicePage({ service }: { service: Service }) {
       <section className="py-16 sm:py-24">
         <Container>
           <SectionHeading
-            eyebrow="Servicios"
             title={`Qué hacen nuestros ${service.professionalPlural}`}
             intro={`Si no ves tu caso, cuéntanoslo igualmente: te ponemos en contacto con el ${service.professional} adecuado.`}
           />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {service.subservices.map((sub, index) => (
               <Reveal key={sub.title} delay={(index % 3) * 100} className="h-full">
-                <div className="group flex h-full gap-4 rounded-xl2 border border-ink-100 bg-white p-6 transition hover:-translate-y-1 hover:border-accent-200 hover:shadow-lg">
-                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-accent-50 text-accent-600 transition-transform group-hover:scale-110 group-hover:-rotate-3">
-                    <Icon name={sub.icon} className="h-7 w-7" />
-                  </span>
+                <div className="flex h-full gap-4 border-t border-ink-200 pt-5">
+                  <Icon name={sub.icon} className="h-7 w-7 shrink-0 text-accent-600" />
                   <div>
                     <h3 className="font-display text-lg font-bold text-ink-900">{sub.title}</h3>
                     <p className="mt-1 text-sm text-ink-600">{sub.text}</p>
@@ -92,7 +88,6 @@ export function ServicePage({ service }: { service: Service }) {
       <section className="pb-16 sm:pb-24">
         <Container>
           <SectionHeading
-            eyebrow="Trabajos habituales"
             title={`Lo que hace un ${service.professional} en tu casa`}
           />
           <div className="mt-10">
@@ -103,7 +98,7 @@ export function ServicePage({ service }: { service: Service }) {
 
       <section className="bg-surface-100 py-16 sm:py-24">
         <Container>
-          <SectionHeading eyebrow="Cómo funciona" title={`Tu ${service.professional} en tres pasos`} />
+          <SectionHeading title={`Tu ${service.professional} en tres pasos`} />
           <div className="mt-10">
             <ProcessSteps steps={consumerSteps} />
           </div>
@@ -113,7 +108,7 @@ export function ServicePage({ service }: { service: Service }) {
       {relatedGuides.length > 0 && (
         <section className="py-16 sm:py-24">
           <Container>
-            <SectionHeading eyebrow="Guías" title="Te puede servir" />
+            <SectionHeading title="Guías relacionadas" />
             <div className="mt-10">
               <GuideCards guides={relatedGuides.slice(0, 3)} />
             </div>

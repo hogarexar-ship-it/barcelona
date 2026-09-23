@@ -106,8 +106,7 @@ export default function MarketingPage() {
         audience="pro"
         aside={<PhotoFrame photo={photos.electricistaObra} priority className="aspect-[4/5]" sizes="40vw" />}
         asideDesktopOnly
-        eyebrow="Marketing para profesionales"
-        title="Que te encuentren a ti, no a la competencia."
+        title="Marketing para fontaneros y electricistas"
         subtitle="Llevamos el marketing de tu negocio de fontanería o electricidad en Barcelona: Google, anuncios, web, marca y redes. Tú eliges qué necesitas."
         actions={
           <>
@@ -121,7 +120,6 @@ export default function MarketingPage() {
         <Container>
           <div className="grid gap-10 rounded-xl2 border border-accent-200 bg-accent-50 p-7 sm:p-10 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="eyebrow">Empieza aquí</p>
               <h2 className="mt-2 font-display text-3xl font-bold text-ink-900">{commercialTerms.marketing.freeAudit}</h2>
               <p className="mt-4 text-lg text-ink-600">
                 Antes de venderte nada, te enseñamos dónde estás y qué cambiaríamos primero. Sin compromiso.
@@ -136,19 +134,18 @@ export default function MarketingPage() {
       <section className="bg-surface-100 py-16 sm:py-24">
         <Container>
           <SectionHeading
-            eyebrow="Servicios"
-            title="Todo lo que necesita tu negocio para vender más"
+            title="Servicios de marketing"
             intro="Contrata solo lo que te hace falta. Puedes empezar por una pieza y sumar el resto cuando veas resultados."
           />
           <div className="mt-10">
-            <FeatureGrid items={marketingServices.map((s) => ({ icon: s.icon, eyebrow: s.name, title: s.title, text: s.description }))} />
+            <FeatureGrid items={marketingServices.map((s) => ({ icon: s.icon, label: s.name, title: s.title, text: s.description }))} />
           </div>
         </Container>
       </section>
 
       <section className="py-16 sm:py-24">
         <Container>
-          <SectionHeading eyebrow="Cómo trabajamos" title="Claro desde el primer día" />
+          <SectionHeading title="Cómo trabajamos" />
           <div className="mt-10">
             <ProcessSteps steps={steps} />
           </div>
@@ -158,12 +155,11 @@ export default function MarketingPage() {
       <section className="bg-surface-100 py-16 sm:py-24">
         <Container className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <SectionHeading
-            eyebrow="Especialistas en oficios"
-            title="Sabemos qué busca tu cliente"
+            title="Solo trabajamos con oficios"
             intro="No somos una agencia generalista. Sabemos qué busca quien necesita un fontanero a las nueve de la noche o quien compara tres presupuestos para cambiar el cuadro eléctrico, y diseñamos tu marketing para eso."
           />
           <div className="rounded-xl2 bg-ink-900 p-7 text-white sm:p-9">
-            <p className="text-sm font-semibold uppercase tracking-wide text-accent-300">¿Necesitas trabajo ya?</p>
+            <p className="text-sm font-medium text-accent-300">¿Necesitas trabajo ya?</p>
             <h3 className="mt-3 font-display text-2xl font-bold">Súmate también a la red de clientes</h3>
             <p className="mt-3 text-ink-100">
               El marketing construye tu marca a medio plazo. Mientras tanto, la red te puede pasar trabajos de tu zona y

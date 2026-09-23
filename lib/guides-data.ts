@@ -529,7 +529,7 @@ export const guides: Guide[] = [
     metaDescription:
       "Qué es el boletín eléctrico (Certificado de Instalación Eléctrica, CIE), cuándo te lo piden en Barcelona y cómo conseguirlo con un instalador habilitado.",
     excerpt:
-      "Te lo pide la compañía para dar de alta la luz o subir la potencia y no sabes por dónde empezar. Todo lo que necesitas saber sobre el boletín eléctrico.",
+      "Te lo pide la compañía para dar de alta la luz o subir la potencia y no sabes por dónde empezar. Qué es, cuándo te lo piden y cómo conseguirlo.",
     summary:
       "El boletín eléctrico es el nombre popular del Certificado de Instalación Eléctrica (CIE). Lo emite un instalador habilitado tras revisar la instalación y lo necesitas, por ejemplo, para dar de alta el suministro, aumentar la potencia contratada o después de renovar la instalación. Si la instalación no cumple la normativa, primero habrá que adecuarla.",
     publishedAt: "2026-09-19",

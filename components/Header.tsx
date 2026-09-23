@@ -34,7 +34,7 @@ export function Header() {
   return (
     <header
       className={`sticky top-0 z-40 print:hidden ${
-        pro ? "theme-pro bg-ink-900 text-white" : "border-b border-ink-100 bg-surface-50/95 backdrop-blur"
+        pro ? "theme-pro bg-ink-900 text-white" : "border-b border-ink-200 bg-surface-50"
       }`}
     >
       <div className={pro ? "border-b border-white/10" : "bg-ink-900"}>
@@ -53,7 +53,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           <Logo onDark={pro} href={pro ? proRoutes.home : consumerRoutes.home} />
           {pro && (
-            <span className="rounded-full bg-accent-500/20 px-2.5 py-1 text-xs font-semibold text-accent-200">
+            <span className="border-l border-white/20 pl-3 text-sm font-medium text-accent-300">
               Profesionales
             </span>
           )}
@@ -74,7 +74,7 @@ export function Header() {
           <button
             type="button"
             onClick={() => setMenuOpen((open) => !open)}
-            className={`inline-flex h-11 w-11 items-center justify-center rounded-full lg:hidden ${
+            className={`inline-flex h-11 w-11 items-center justify-center rounded-md lg:hidden ${
               pro ? "text-white hover:bg-white/10" : "text-ink-900 hover:bg-ink-100"
             }`}
             aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
@@ -91,7 +91,7 @@ export function Header() {
       {menuOpen && (
         <div
           id="menu-movil"
-          className={`absolute inset-x-0 top-full shadow-xl lg:hidden ${
+          className={`absolute inset-x-0 top-full lg:hidden ${
             pro ? "border-b border-white/10 bg-ink-900" : "border-b border-ink-100 bg-surface-50"
           }`}
         >
@@ -102,7 +102,7 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className={`flex items-center justify-between rounded-xl px-3 py-3 text-base ${linkClass(isActive(link.href))} ${
+                  className={`flex items-center justify-between rounded-md px-3 py-3 text-base ${linkClass(isActive(link.href))} ${
                     pro ? "hover:bg-white/5" : "hover:bg-ink-100"
                   }`}
                 >
@@ -126,8 +126,8 @@ function AudienceTab({ href, label, active }: { href: string; label: string; act
     <Link
       href={href}
       aria-current={active ? "page" : undefined}
-      className={`rounded-full px-3 py-1 font-semibold transition-colors ${
-        active ? "bg-accent-500 text-white" : "text-ink-100 hover:text-white"
+      className={`px-2 py-1 font-semibold transition-colors ${
+        active ? "text-white underline decoration-accent-400 decoration-2 underline-offset-[10px]" : "text-ink-400 hover:text-white"
       }`}
     >
       {label}

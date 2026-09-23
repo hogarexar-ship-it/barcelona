@@ -10,7 +10,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 import {
   consumerSteps,
   Districts,
-  HeroPhotos,
+  HeroPhoto,
   QuickProblems,
   RequestSection,
   ServiceCards,
@@ -65,10 +65,9 @@ export default function HomePage() {
       <JsonLd data={faqSchema(faqs)} />
 
       <PageHero
-        eyebrow={siteConfig.areaServed}
         title="Fontaneros y electricistas de confianza en Barcelona"
         subtitle="Cuéntanos qué pasa y te ponemos en contacto con un profesional verificado de tu zona. Pedir presupuesto es gratis y sin compromiso."
-        aside={<HeroPhotos />}
+        aside={<HeroPhoto />}
       >
         <QuickProblems />
       </PageHero>
@@ -78,7 +77,6 @@ export default function HomePage() {
       <section className="py-16 sm:py-24">
         <Container>
           <SectionHeading
-            eyebrow="¿Qué necesitas?"
             title="Elige el servicio y cuéntanos qué pasa"
             intro="Toca tu problema y llegarás al formulario con todo ya marcado."
           />
@@ -96,7 +94,7 @@ export default function HomePage() {
 
       <section id="como-funciona" className="scroll-mt-28 bg-surface-100 py-16 sm:py-24">
         <Container>
-          <SectionHeading eyebrow="Cómo funciona" title="Tres pasos y listo" />
+          <SectionHeading title="Cómo funciona" />
           <div className="mt-10">
             <ProcessSteps steps={consumerSteps} />
           </div>
@@ -110,7 +108,6 @@ export default function HomePage() {
           </div>
           <div>
             <SectionHeading
-              eyebrow="Zonas"
               title="En toda Barcelona y alrededores"
               intro="Trabajamos con profesionales de cada distrito para que quien vaya a tu casa esté cerca."
             />
@@ -125,7 +122,7 @@ export default function HomePage() {
 
       <section className="py-16 sm:py-24">
         <Container>
-          <SectionHeading eyebrow="Guías" title="Consejos para tu casa" />
+          <SectionHeading title="Consejos para tu casa" />
           <div className="mt-10">
             <GuideCards guides={guidesFor("consumer").slice(0, 3)} />
           </div>

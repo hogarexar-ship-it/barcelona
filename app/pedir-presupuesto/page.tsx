@@ -23,7 +23,7 @@ export default function PedirPresupuestoPage() {
           <div>
             <h1 className="font-display text-4xl font-bold tracking-tight text-ink-900 sm:text-5xl">Cuéntanos qué pasa</h1>
             <p className="mt-4 text-lg text-ink-600">
-              En menos de un minuto. Te ponemos en contacto con un profesional verificado de tu zona.
+              Te ponemos en contacto con un profesional verificado de tu zona.
             </p>
             <div className="mt-8">
               <CheckList

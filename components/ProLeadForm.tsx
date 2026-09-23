@@ -91,7 +91,7 @@ export function ProLeadForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5 rounded-xl2 bg-white p-7 text-ink-800 shadow-xl sm:p-9">
+    <form onSubmit={handleSubmit} className="space-y-5 rounded-xl2 border border-ink-200 bg-white p-7 text-ink-800 sm:p-9">
       <fieldset>
         <legend className="text-sm font-semibold text-ink-900">¿Qué te interesa?</legend>
         <div className="mt-2 grid gap-2 sm:grid-cols-3">

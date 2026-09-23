@@ -41,10 +41,10 @@ export function GuideCards({
         <Reveal key={guide.slug} delay={(index % 3) * 120} className="h-full">
           <Link
             href={guidePath(guide)}
-            className="group flex h-full flex-col overflow-hidden rounded-xl2 border border-ink-100 bg-white transition hover:border-accent-200 hover:shadow-lg"
+            className="group flex h-full flex-col overflow-hidden rounded-xl2 border border-ink-200 bg-white transition-colors hover:border-accent-600"
           >
             <div className="overflow-hidden">
-              <div className="transition-transform duration-700 group-hover:scale-105">
+              <div>
                 <PhotoFrame
                   photo={guide.photo}
                   className="aspect-[16/9] !rounded-none"
@@ -53,7 +53,7 @@ export function GuideCards({
               </div>
             </div>
             <div className="flex flex-1 flex-col p-6">
-              <span className="text-xs font-semibold uppercase tracking-wide text-accent-600">
+              <span className="text-sm font-medium text-accent-700">
                 {guide.category}
               </span>
               <h3 className="mt-2 font-display text-lg font-bold text-ink-900 group-hover:text-accent-600">
@@ -110,7 +110,7 @@ export function GuideArticle({ guide }: { guide: Guide }) {
 
       <article className="py-12 sm:py-16">
         <Container className="max-w-2xl">
-          <span className="eyebrow">
+          <span className="text-sm font-medium text-accent-700">
             {pro ? `Para profesionales · ${guide.category}` : guide.category}
           </span>
           <h1 className="mt-2 font-display text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">
@@ -131,7 +131,7 @@ export function GuideArticle({ guide }: { guide: Guide }) {
           />
 
           <div className="mt-8 rounded-xl2 border border-accent-200 bg-accent-50 p-6">
-            <p className="text-sm font-semibold uppercase tracking-wide text-accent-700">
+            <p className="font-semibold text-accent-700">
               En resumen
             </p>
             <p className="mt-2 text-ink-800">{guide.summary}</p>

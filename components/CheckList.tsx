@@ -5,14 +5,8 @@ export function CheckList({ items, onDark = false }: { items: string[]; onDark?:
     <ul className="space-y-3">
       {items.map((item) => (
         <li key={item} className="flex gap-3">
-          <span
-            className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${
-              onDark ? "bg-accent-500 text-white" : "bg-accent-100 text-accent-600"
-            }`}
-          >
-            <Icon name="check" className="h-3.5 w-3.5" />
-          </span>
-          <span className={onDark ? "text-surface-100" : "text-ink-700"}>{item}</span>
+          <Icon name="check" className={`mt-0.5 h-5 w-5 shrink-0 ${onDark ? "text-accent-300" : "text-accent-600"}`} />
+          <span className={onDark ? "text-ink-100" : "text-ink-700"}>{item}</span>
         </li>
       ))}
     </ul>

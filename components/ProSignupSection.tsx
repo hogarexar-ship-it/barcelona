@@ -7,12 +7,12 @@ import { siteConfig, telHref } from "@/lib/site-config";
 const nextSteps = [
   "Te llamamos en horario laboral para conocer tu negocio.",
   "Te explicamos condiciones y costes, sin compromiso.",
-  "Si encajamos, empiezas a recibir clientes cuanto antes.",
+  "Si encajamos, te damos de alta en la red o arrancamos el plan de marketing.",
 ];
 
 export function ProSignupSection({
-  title = "¿Hablamos de tu negocio?",
-  subtitle = "Déjanos tus datos en un minuto y te contamos cómo conseguirte más clientes en Barcelona.",
+  title = "Cuéntanos sobre tu negocio",
+  subtitle = "Déjanos tus datos y te llamamos para ver cómo conseguirte más clientes en Barcelona.",
   defaultInterest,
   defaultTrade,
 }: {

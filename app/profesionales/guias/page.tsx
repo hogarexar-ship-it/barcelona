@@ -29,9 +29,8 @@ export default function GuiasProfesionalesPage() {
       </div>
       <PageHero
         audience="pro"
-        eyebrow="Guías para profesionales"
         title="Consigue más clientes para tu oficio"
-        subtitle="Consejos prácticos y sin humo para fontaneros y electricistas de Barcelona: Google, anuncios, reseñas y marca."
+        subtitle="Guías prácticas para fontaneros y electricistas de Barcelona: Google, anuncios, reseñas y marca."
       />
       <section className="py-16 sm:py-24">
         <Container>

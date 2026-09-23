@@ -20,7 +20,7 @@ export function ProBand({ compact = false, professional }: { compact?: boolean; 
       <section className="theme-pro bg-ink-900 py-10 text-white">
         <Container className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-accent-300">Para profesionales</p>
+            <p className="text-sm font-medium text-accent-300">Para profesionales</p>
             <p className="mt-1 font-display text-2xl font-bold">{title} Recibe clientes de tu zona.</p>
             <p className="mt-1 text-ink-100">
               {commercialTerms.network.signupFee}. Pagas comisión solo por los trabajos que cierras.
@@ -39,13 +39,13 @@ export function ProBand({ compact = false, professional }: { compact?: boolean; 
     <section className="theme-pro bg-ink-900 py-16 text-white sm:py-24">
       <Container className="grid gap-12 lg:grid-cols-2 lg:items-center">
         <div>
-          <span className="inline-flex rounded-full bg-accent-500/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-accent-200">
+          <span className="text-sm font-medium text-accent-300">
             Para profesionales
           </span>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">{title} Te pasamos clientes de tu zona.</h2>
           <p className="mt-4 text-lg text-ink-100">
-            Cada día hay vecinos de Barcelona que necesitan un profesional. Únete a nuestra red y te los pasamos, o deja
-            que llevemos tu marketing para que te encuentren a ti.
+            Recibimos solicitudes de particulares de Barcelona que necesitan un fontanero o un electricista. Si te unes a
+            la red, te pasamos las de tu zona. También podemos llevar tu marketing.
           </p>
           <div className="mt-8">
             <CheckList

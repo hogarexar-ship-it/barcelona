@@ -129,8 +129,7 @@ export default function ConseguirClientesPage() {
         audience="pro"
         aside={<PhotoFrame photo={photos.fontaneroClienteCocina} priority className="aspect-[4/5]" sizes="40vw" />}
         asideDesktopOnly
-        eyebrow={networkOffer.name}
-        title="Te pasamos clientes. Tú haces el trabajo."
+        title="Red de clientes para fontaneros y electricistas"
         subtitle={`Captamos a personas y empresas de Barcelona que necesitan tu oficio y te pasamos las que encajan contigo. ${commercialTerms.network.signupFee} y comisión solo por trabajo cerrado.`}
         actions={
           <>
@@ -142,7 +141,7 @@ export default function ConseguirClientesPage() {
 
       <section className="py-16 sm:py-24">
         <Container>
-          <SectionHeading eyebrow="Cómo funciona" title="De tu alta a tu primer cliente" />
+          <SectionHeading title="De tu alta a tu primer cliente" />
           <div className="mt-10">
             <ProcessSteps steps={steps} />
           </div>
@@ -151,7 +150,7 @@ export default function ConseguirClientesPage() {
 
       <section className="bg-surface-100 py-16 sm:py-24">
         <Container>
-          <SectionHeading eyebrow="Qué recibes" title="Clientes, no problemas" />
+          <SectionHeading title="Qué recibes" />
           <div className="mt-10">
             <FeatureGrid items={benefits} className="sm:grid-cols-2 lg:grid-cols-4" />
           </div>
@@ -162,7 +161,6 @@ export default function ConseguirClientesPage() {
         <Container className="grid gap-10 lg:grid-cols-2">
           <div>
             <SectionHeading
-              eyebrow="Requisitos"
               title="Qué pedimos para entrar"
               intro="Nuestros clientes confían en que les enviamos a buenos profesionales. Por eso validamos a cada miembro de la red."
             />
@@ -171,7 +169,7 @@ export default function ConseguirClientesPage() {
             </div>
           </div>
           <div className="rounded-xl2 bg-ink-900 p-7 text-white sm:p-9">
-            <p className="text-sm font-semibold uppercase tracking-wide text-accent-300">¿Y si además quieres tu propia marca?</p>
+            <p className="text-sm font-medium text-accent-300">¿Y si además quieres tu propia marca?</p>
             <h3 className="mt-3 font-display text-2xl font-bold">Combínalo con el marketing</h3>
             <p className="mt-3 text-ink-100">
               Mientras la red te pasa trabajos, podemos trabajar tu ficha de Google, tus anuncios y tu web para que
@@ -187,7 +185,7 @@ export default function ConseguirClientesPage() {
 
       <section className="bg-surface-100 py-16 sm:py-24">
         <Container>
-          <SectionHeading eyebrow="Sectores" title="¿A qué te dedicas?" />
+          <SectionHeading title="¿A qué te dedicas?" />
           <div className="mt-10">
             <ProSectorCards />
           </div>

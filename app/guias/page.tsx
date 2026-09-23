@@ -23,8 +23,7 @@ export default function GuiasPage() {
         </Container>
       </div>
       <PageHero
-        eyebrow="Guías para tu casa"
-        title="Soluciona, previene y acierta"
+        title="Guías de fontanería y electricidad para tu casa"
         subtitle="Consejos prácticos de fontanería y electricidad para tu casa en Barcelona, y cuándo conviene llamar a un profesional."
       />
       <section className="py-16 sm:py-24">

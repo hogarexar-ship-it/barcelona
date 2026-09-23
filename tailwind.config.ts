@@ -53,7 +53,7 @@ const config: Config = {
         display: ["var(--font-display)"],
       },
       borderRadius: {
-        xl2: "1.25rem",
+        xl2: "0.625rem",
       },
     },
   },

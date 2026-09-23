@@ -23,12 +23,8 @@ export function PhotoGallery({ photos }: { photos: Photo[] }) {
   return (
     <div className="grid gap-4 sm:grid-cols-3">
       {photos.map((photo, index) => (
-        <div key={photo.src} data-reveal style={{ transitionDelay: `${index * 120}ms` }} className="group">
-          <div className="overflow-hidden rounded-xl2">
-            <div className="transition-transform duration-700 group-hover:scale-105">
-              <PhotoFrame photo={photo} className="aspect-[4/3]" sizes="(min-width: 640px) 33vw, 100vw" />
-            </div>
-          </div>
+        <div key={photo.src} data-reveal style={{ transitionDelay: `${index * 80}ms` }}>
+          <PhotoFrame photo={photo} className="aspect-[4/3]" sizes="(min-width: 640px) 33vw, 100vw" />
         </div>
       ))}
     </div>

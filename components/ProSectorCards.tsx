@@ -10,9 +10,9 @@ export function ProSectorCards() {
         <Reveal key={sector.trade} delay={index * 120} className="h-full">
           <Link
             href={sector.path}
-            className="group flex h-full flex-col rounded-xl2 border border-ink-100 bg-white p-6 transition hover:-translate-y-1 hover:border-accent-200 hover:shadow-lg"
+            className="group flex h-full flex-col rounded-xl2 border border-ink-200 bg-white p-6 transition-colors hover:border-accent-600"
           >
-            <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-50 text-accent-600 transition-transform group-hover:scale-110 group-hover:-rotate-3">
+            <span className="text-accent-600">
               <Icon name={sector.icon} className="h-7 w-7" />
             </span>
             <h3 className="mt-5 font-display text-xl font-bold text-ink-900">

@@ -40,7 +40,7 @@ export const services: Service[] = [
     metaTitle: "Fontaneros en Barcelona: fugas, atascos y calentadores",
     metaDescription:
       "¿Necesitas un fontanero en Barcelona? Cuéntanos qué pasa y te ponemos en contacto con un fontanero verificado de tu zona. Fugas, atascos, calentadores y más. Presupuesto sin compromiso.",
-    heroTitle: "Fontanero en Barcelona, cuando lo necesitas",
+    heroTitle: "Fontaneros en Barcelona",
     heroSubtitle:
       "Fugas, atascos, calentadores o grifos. Cuéntanos qué pasa y te ponemos en contacto con un fontanero verificado de tu zona. Pedir presupuesto es gratis.",
     problems: [
@@ -117,7 +117,7 @@ export const services: Service[] = [
     metaTitle: "Electricistas en Barcelona: averías, boletines y cuadros",
     metaDescription:
       "¿Necesitas un electricista en Barcelona? Te ponemos en contacto con un electricista verificado de tu zona para averías, boletines, cuadros, enchufes o cargadores. Presupuesto sin compromiso.",
-    heroTitle: "Electricista en Barcelona, sin complicaciones",
+    heroTitle: "Electricistas en Barcelona",
     heroSubtitle:
       "Se va la luz, salta el diferencial o necesitas un boletín. Cuéntanos qué pasa y te ponemos en contacto con un electricista verificado de tu zona.",
     problems: [

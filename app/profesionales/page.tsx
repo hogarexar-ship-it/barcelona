@@ -4,7 +4,6 @@ import { FaqAccordion } from "@/components/FaqAccordion";
 import { Icon } from "@/components/Icon";
 import type { IconName } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
-import { ProLeadsMockup } from "@/components/ProLeadsMockup";
 import { ProOfferCards } from "@/components/ProOfferCards";
 import { PageHero } from "@/components/PageHero";
 import { PhotoFrame } from "@/components/PhotoFrame";
@@ -42,12 +41,12 @@ const steps: Step[] = [
   {
     icon: "chat",
     title: "Nos cuentas tu negocio",
-    description: "Rellenas un formulario de un minuto y te llamamos: oficio, zonas, tipo de trabajos y cuánto quieres crecer.",
+    description: "Rellenas un formulario de un minuto y te llamamos: oficio, zonas, tipo de trabajos y cuántos trabajos más puedes asumir.",
   },
   {
     icon: "chart",
     title: "Te proponemos un plan",
-    description: "Red de clientes, marketing o las dos cosas. Te explicamos condiciones y costes antes de empezar, sin letra pequeña.",
+    description: "Red de clientes, marketing o las dos cosas. Te explicamos condiciones y costes antes de empezar.",
   },
   {
     icon: "inbox",
@@ -65,12 +64,12 @@ const reasons: Feature[] = [
   {
     icon: "users",
     title: "Solo oficios",
-    text: "No somos una agencia generalista. Nos dedicamos a fontanería y electricidad, y hablamos tu idioma, no jerga de marketing.",
+    text: "No somos una agencia generalista: solo trabajamos con fontaneros y electricistas.",
   },
   {
     icon: "chart",
     title: "Resultados en clientes",
-    text: "Medimos llamadas, presupuestos y trabajos cerrados. Los «me gusta» no pagan facturas.",
+    text: "Te informamos de llamadas, presupuestos y trabajos cerrados, no de métricas de redes sociales.",
   },
 ];
 
@@ -112,10 +111,9 @@ export default function ProfesionalesPage() {
 
       <PageHero
         audience="pro"
-        eyebrow="Para fontaneros y electricistas en Barcelona"
-        title="Más clientes para tu oficio."
-        subtitle="Te pasamos trabajos de tu zona a comisión o llevamos tu marketing para que te llamen a ti. Tú eliges cómo crecer; nosotros nos encargamos del resto."
-        aside={<ProLeadsMockup />}
+        title="Más clientes para fontaneros y electricistas en Barcelona"
+        subtitle="Te pasamos trabajos de tu zona a comisión o llevamos tu marketing en Google, Meta y redes."
+        aside={<PhotoFrame photo={photos.fontaneroCajaHerramientas} priority className="aspect-[4/5]" sizes="40vw" />}
         asideDesktopOnly
       >
         <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-ink-100">
@@ -133,7 +131,6 @@ export default function ProfesionalesPage() {
       <section className="py-16 sm:py-24">
         <Container>
           <SectionHeading
-            eyebrow="Lo que hacemos"
             title="Dos formas de conseguir más clientes"
             intro="Elige una o combina las dos. Empiezas por lo que más necesitas hoy."
           />
@@ -147,19 +144,15 @@ export default function ProfesionalesPage() {
         <Container className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
             <SectionHeading
-              eyebrow="¿Te suena?"
-              title="Eres bueno en tu oficio. Conseguir clientes es otro trabajo."
-              intro={`Para eso existe ${siteConfig.brand}: tú haces lo que sabes hacer y nosotros nos ocupamos de que el teléfono suene.`}
+              title="Problemas habituales al buscar clientes"
             />
             <PhotoFrame photo={photos.fontaneroInstalacionBano} className="mt-8 aspect-[3/2]" />
           </div>
           <ul className="grid gap-3 sm:grid-cols-2">
             {pains.map((pain, index) => (
               <li key={pain.text} data-reveal style={{ transitionDelay: `${index * 100}ms` }}>
-                <div className="group flex h-full flex-col gap-4 rounded-xl2 border border-ink-100 bg-white p-5 transition hover:-translate-y-1 hover:shadow-lg">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-50 text-accent-600 transition-transform group-hover:scale-110">
-                    <Icon name={pain.icon} className="h-6 w-6" />
-                  </span>
+                <div className="flex h-full flex-col gap-3 border-t border-ink-200 pt-5">
+                  <Icon name={pain.icon} className="h-6 w-6 text-accent-600" />
                   <p className="font-medium text-ink-800">{pain.text}</p>
                 </div>
               </li>
@@ -171,7 +164,6 @@ export default function ProfesionalesPage() {
       <section id="sectores" className="scroll-mt-28 py-16 sm:py-24">
         <Container>
           <SectionHeading
-            eyebrow="Sectores"
             title="Empezamos por los oficios con más demanda en Barcelona"
             intro="Fontanería y electricidad: los trabajos que más se piden en la ciudad y donde más profesionales compiten por el mismo cliente."
           />
@@ -183,7 +175,7 @@ export default function ProfesionalesPage() {
 
       <section className="bg-surface-100 py-16 sm:py-24">
         <Container>
-          <SectionHeading eyebrow="Cómo funciona" title="Empezar es fácil" />
+          <SectionHeading title="Cómo empezar" />
           <div className="mt-10">
             <ProcessSteps steps={steps} />
           </div>
@@ -192,7 +184,7 @@ export default function ProfesionalesPage() {
 
       <section className="py-16 sm:py-24">
         <Container>
-          <SectionHeading eyebrow={`Por qué ${siteConfig.brand}`} title="Especialistas en oficios, no una agencia más" />
+          <SectionHeading title={`Por qué ${siteConfig.brand}`} />
           <div className="mt-10">
             <FeatureGrid items={reasons} className="md:grid-cols-3" />
           </div>
