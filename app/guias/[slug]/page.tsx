@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { GuideArticle } from "@/components/guides";
-import { getGuide, guidePath, guides } from "@/lib/guides-data";
+import { getGuide, guidePath, guides, sortedGuides } from "@/lib/guides-data";
 import { buildMetadata } from "@/lib/metadata";
 
 export const dynamicParams = false;
@@ -19,5 +19,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
 export default function GuiaPage({ params }: { params: { slug: string } }) {
   const guide = getGuide(params.slug);
   if (!guide) notFound();
-  return <GuideArticle guide={guide} />;
+  const others = sortedGuides().filter((g) => g.slug !== guide.slug);
+  const related = [...others.filter((g) => g.trade && g.trade === guide.trade), ...others.filter((g) => !g.trade || g.trade !== guide.trade)].slice(0, 3);
+  return <GuideArticle guide={guide} related={related} />;
 }

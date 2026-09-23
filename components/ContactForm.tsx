@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { FormEvent, ReactNode } from "react";
 import Link from "next/link";
 import { WhatsAppIcon } from "./CtaButtons";
@@ -12,21 +12,23 @@ import {
   interestOptions,
   limits,
   municipalities,
+  situations,
   tradeOptions,
 } from "@/lib/contact-options";
 import type { BusinessType, ContactMethod, TradeValue } from "@/lib/contact-options";
 import { siteConfig, whatsappHref } from "@/lib/site-config";
 
 type Status = "idle" | "sending" | "sent" | "error";
+const stepLabels = ["Tu negocio", "Contacto", "Detalles"];
 
 function isTradeValue(value: string | null): value is TradeValue {
   return tradeOptions.some((o) => o.value === value);
 }
 
 /**
- * Formulario para pedir el asesoramiento gratuito. Envía a /api/contacto; si
- * el envío falla, ofrece mandar los mismos datos por WhatsApp.
- * Acepta ?oficio= y ?servicio= en la URL para llegar preseleccionado.
+ * Formulario de asesoramiento gratuito en 3 pasos. Envía a /api/contacto; si
+ * el envío falla, ofrece mandar los mismos datos por WhatsApp. Acepta
+ * ?oficio=, ?servicio= y ?situacion= en la URL para llegar preseleccionado.
  */
 export function ContactForm({
   defaultTrade,
@@ -37,6 +39,7 @@ export function ContactForm({
   defaultInterest?: string;
   idPrefix?: string;
 }) {
+  const [step, setStep] = useState(0);
   const [trade, setTrade] = useState<TradeValue | "">(defaultTrade ?? "");
   const [businessType, setBusinessType] = useState<BusinessType | "">("");
   const [zone, setZone] = useState("");
@@ -50,14 +53,22 @@ export function ContactForm({
   const [consent, setConsent] = useState(false);
   const [website, setWebsite] = useState("");
   const [status, setStatus] = useState<Status>("idle");
+  const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const tradeParam = params.get("oficio");
     const serviceParam = params.get("servicio");
+    const situation = situations.find((s) => s.value === params.get("situacion"));
     if (isTradeValue(tradeParam)) setTrade(tradeParam);
     if (serviceParam && interestOptions.some((o) => o.value === serviceParam)) setInterests([serviceParam]);
+    if (situation) setMessage(situation.message);
   }, []);
+
+  function goToStep(next: number) {
+    setStep(next);
+    formRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
 
   function toggleInterest(value: string) {
     setInterests((current) => (current.includes(value) ? current.filter((v) => v !== value) : [...current, value]));
@@ -98,6 +109,11 @@ export function ContactForm({
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
+    // Los pasos 1 y 2 solo validan (validación nativa de los campos visibles) y avanzan.
+    if (step < stepLabels.length - 1) {
+      goToStep(step + 1);
+      return;
+    }
     setStatus("sending");
     try {
       const response = await fetch("/api/contacto", {
@@ -125,170 +141,210 @@ export function ContactForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 rounded-xl2 border border-ink-200 bg-white p-6 sm:p-8">
-      <ChoiceGroup legend="¿A qué te dedicas?" name={`${idPrefix}-trade`} options={tradeOptions} value={trade} onChange={setTrade} />
-      <ChoiceGroup
-        legend="¿Trabajas como…?"
-        name={`${idPrefix}-type`}
-        options={businessTypeOptions}
-        value={businessType}
-        onChange={setBusinessType}
-      />
-
-      <div className="grid gap-5 sm:grid-cols-2">
-        <Field label="¿Dónde trabajas?" htmlFor={`${idPrefix}-zone`}>
-          <input
-            id={`${idPrefix}-zone`}
-            required
-            list={`${idPrefix}-municipalities`}
-            maxLength={limits.zone}
-            value={zone}
-            onChange={(e) => setZone(e.target.value)}
-            className="input"
-            placeholder="Ej: Barcelona, Badalona…"
-          />
-          <datalist id={`${idPrefix}-municipalities`}>
-            {municipalities.map((m) => (
-              <option key={m} value={m} />
-            ))}
-          </datalist>
-        </Field>
-        <Field label="Tu nombre" htmlFor={`${idPrefix}-name`}>
-          <input
-            id={`${idPrefix}-name`}
-            required
-            autoComplete="name"
-            maxLength={limits.name}
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="input"
-          />
-        </Field>
-        <Field label="Nombre del negocio (opcional)" htmlFor={`${idPrefix}-business`}>
-          <input
-            id={`${idPrefix}-business`}
-            autoComplete="organization"
-            maxLength={limits.business}
-            value={businessName}
-            onChange={(e) => setBusinessName(e.target.value)}
-            className="input"
-          />
-        </Field>
+    <form ref={formRef} onSubmit={handleSubmit} className="scroll-mt-24 rounded-xl2 border border-ink-200 bg-white">
+      <div className="border-b border-ink-200 px-6 pb-4 pt-5 sm:px-8">
+        <ol className="grid grid-cols-3 gap-2" aria-label="Pasos del formulario">
+          {stepLabels.map((label, index) => (
+            <li key={label} aria-current={index === step ? "step" : undefined}>
+              <div className={`h-1.5 rounded ${index <= step ? "bg-[#EA580C]" : "bg-ink-100"}`} />
+              <p className={`mt-2 text-xs font-semibold ${index === step ? "text-ink-900" : "text-ink-400"}`}>
+                {index + 1}. {label}
+              </p>
+            </li>
+          ))}
+        </ol>
       </div>
 
-      <ChoiceGroup
-        legend="¿Cómo prefieres que te contactemos?"
-        name={`${idPrefix}-method`}
-        options={contactMethodOptions}
-        value={method}
-        onChange={setMethod}
-      />
-
-      {method && (
-        <div className="grid gap-5 sm:grid-cols-2">
-          {method === "email" ? (
-            <Field label="Tu email" htmlFor={`${idPrefix}-email`}>
+      <div className="space-y-6 px-6 py-6 sm:px-8">
+        {step === 0 && (
+          <>
+            <ChoiceGroup legend="¿A qué te dedicas?" name={`${idPrefix}-trade`} options={tradeOptions} value={trade} onChange={setTrade} />
+            <ChoiceGroup
+              legend="¿Trabajas como…?"
+              name={`${idPrefix}-type`}
+              options={businessTypeOptions}
+              value={businessType}
+              onChange={setBusinessType}
+            />
+            <Field label="¿Dónde trabajas?" htmlFor={`${idPrefix}-zone`}>
               <input
-                id={`${idPrefix}-email`}
+                id={`${idPrefix}-zone`}
                 required
-                type="email"
-                autoComplete="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                list={`${idPrefix}-municipalities`}
+                maxLength={limits.zone}
+                value={zone}
+                onChange={(e) => setZone(e.target.value)}
                 className="input"
+                placeholder="Ej: Barcelona, Badalona…"
               />
+              <datalist id={`${idPrefix}-municipalities`}>
+                {municipalities.map((m) => (
+                  <option key={m} value={m} />
+                ))}
+              </datalist>
             </Field>
-          ) : (
-            <Field label={method === "whatsapp" ? "Tu WhatsApp" : "Tu teléfono"} htmlFor={`${idPrefix}-phone`}>
-              <input
-                id={`${idPrefix}-phone`}
-                required
-                type="tel"
-                autoComplete="tel"
-                pattern="\+?[0-9 ]{9,18}"
-                title="Introduce un teléfono válido"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                className="input"
-                placeholder="600 000 000"
-              />
-            </Field>
-          )}
-        </div>
-      )}
+          </>
+        )}
 
-      <fieldset>
-        <legend className="text-sm font-semibold text-ink-900">¿En qué te podemos ayudar? (opcional)</legend>
-        <div className="mt-2 flex flex-wrap gap-2">
-          {interestOptions.map((option) => {
-            const checked = interests.includes(option.value);
-            return (
-              <label
-                key={option.value}
-                className={`relative cursor-pointer rounded-md border px-3 py-2 text-sm font-medium transition-colors ${
-                  checked ? "border-accent-600 bg-accent-50 text-accent-700" : "border-ink-200 text-ink-700 hover:border-ink-400"
-                }`}
-              >
+        {step === 1 && (
+          <>
+            <div className="grid gap-5 sm:grid-cols-2">
+              <Field label="Tu nombre" htmlFor={`${idPrefix}-name`}>
                 <input
-                  type="checkbox"
-                  checked={checked}
-                  onChange={() => toggleInterest(option.value)}
-                  className="absolute inset-0 cursor-pointer opacity-0"
+                  id={`${idPrefix}-name`}
+                  required
+                  autoComplete="name"
+                  maxLength={limits.name}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="input"
                 />
-                {option.label}
-              </label>
-            );
-          })}
-        </div>
-      </fieldset>
+              </Field>
+              <Field label="Nombre del negocio (opcional)" htmlFor={`${idPrefix}-business`}>
+                <input
+                  id={`${idPrefix}-business`}
+                  autoComplete="organization"
+                  maxLength={limits.business}
+                  value={businessName}
+                  onChange={(e) => setBusinessName(e.target.value)}
+                  className="input"
+                />
+              </Field>
+            </div>
+            <ChoiceGroup
+              legend="¿Cómo prefieres que te contactemos?"
+              name={`${idPrefix}-method`}
+              options={contactMethodOptions}
+              value={method}
+              onChange={setMethod}
+            />
+            {method === "email" && (
+              <Field label="Tu email" htmlFor={`${idPrefix}-email`}>
+                <input
+                  id={`${idPrefix}-email`}
+                  required
+                  type="email"
+                  autoComplete="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="input"
+                />
+              </Field>
+            )}
+            {(method === "llamada" || method === "whatsapp") && (
+              <Field label={method === "whatsapp" ? "Tu WhatsApp" : "Tu teléfono"} htmlFor={`${idPrefix}-phone`}>
+                <input
+                  id={`${idPrefix}-phone`}
+                  required
+                  type="tel"
+                  autoComplete="tel"
+                  pattern="\+?[0-9 ]{9,18}"
+                  title="Introduce un teléfono válido"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className="input"
+                  placeholder="600 000 000"
+                />
+              </Field>
+            )}
+          </>
+        )}
 
-      <Field label="Cuéntanos tu situación (opcional)" htmlFor={`${idPrefix}-message`}>
-        <textarea
-          id={`${idPrefix}-message`}
-          rows={3}
-          maxLength={limits.message}
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          className="input"
-          placeholder="Ej: tengo trabajo pero no llego a todo / este año las llamadas han bajado…"
-        />
-      </Field>
+        {step === 2 && (
+          <>
+            <fieldset>
+              <legend className="text-sm font-semibold text-ink-900">¿En qué te podemos ayudar? (opcional)</legend>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {interestOptions.map((option) => {
+                  const checked = interests.includes(option.value);
+                  return (
+                    <label
+                      key={option.value}
+                      className={`relative cursor-pointer rounded-md border px-3 py-2 text-sm font-medium transition-colors ${
+                        checked ? "border-accent-600 bg-accent-50 text-accent-700" : "border-ink-200 text-ink-700 hover:border-ink-400"
+                      }`}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={checked}
+                        onChange={() => toggleInterest(option.value)}
+                        className="absolute inset-0 cursor-pointer opacity-0"
+                      />
+                      {option.label}
+                    </label>
+                  );
+                })}
+              </div>
+            </fieldset>
 
-      <div className="hidden" aria-hidden="true">
-        <label htmlFor={`${idPrefix}-website`}>No rellenes este campo</label>
-        <input id={`${idPrefix}-website`} tabIndex={-1} autoComplete="off" value={website} onChange={(e) => setWebsite(e.target.value)} />
+            <Field label="Cuéntanos tu situación (opcional)" htmlFor={`${idPrefix}-message`}>
+              <textarea
+                id={`${idPrefix}-message`}
+                rows={3}
+                maxLength={limits.message}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                className="input"
+                placeholder="Ej: tengo trabajo pero no llego a todo / este año las llamadas han bajado…"
+              />
+            </Field>
+
+            <div className="hidden" aria-hidden="true">
+              <label htmlFor={`${idPrefix}-website`}>No rellenes este campo</label>
+              <input id={`${idPrefix}-website`} tabIndex={-1} autoComplete="off" value={website} onChange={(e) => setWebsite(e.target.value)} />
+            </div>
+
+            <label className="flex items-start gap-3 text-sm text-ink-600">
+              <input
+                type="checkbox"
+                required
+                checked={consent}
+                onChange={(e) => setConsent(e.target.checked)}
+                className="mt-0.5 h-4 w-4 accent-[#EA580C]"
+              />
+              <span>
+                He leído y acepto la{" "}
+                <Link href="/politica-privacidad" className="underline">
+                  política de privacidad
+                </Link>
+                .
+              </span>
+            </label>
+          </>
+        )}
+
+        {status === "error" && (
+          <div className="rounded-md border border-urgent-500/30 bg-urgent-500/5 p-4 text-sm text-urgent-600">
+            <p>No hemos podido enviar el formulario. Puedes mandarnos los mismos datos por WhatsApp:</p>
+            <a href={whatsappFallback()} target="_blank" rel="noopener noreferrer" className="btn btn-outline mt-3">
+              <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
+              Enviar por WhatsApp
+            </a>
+          </div>
+        )}
       </div>
 
-      <label className="flex items-start gap-3 text-sm text-ink-600">
-        <input
-          type="checkbox"
-          required
-          checked={consent}
-          onChange={(e) => setConsent(e.target.checked)}
-          className="mt-0.5 h-4 w-4 accent-[#EA580C]"
-        />
-        <span>
-          He leído y acepto la{" "}
-          <Link href="/politica-privacidad" className="underline">
-            política de privacidad
-          </Link>
-          .
-        </span>
-      </label>
-
-      <button type="submit" disabled={status === "sending"} className="btn btn-primary w-full py-4 text-base disabled:opacity-60">
-        {status === "sending" ? "Enviando…" : "Pedir asesoramiento gratis"}
-      </button>
-
-      {status === "error" && (
-        <div className="rounded-md border border-urgent-500/30 bg-urgent-500/5 p-4 text-sm text-urgent-600">
-          <p>No hemos podido enviar el formulario. Puedes mandarnos los mismos datos por WhatsApp:</p>
-          <a href={whatsappFallback()} target="_blank" rel="noopener noreferrer" className="btn btn-outline mt-3">
-            <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
-            Enviar por WhatsApp
-          </a>
-        </div>
-      )}
+      <div className="flex items-center justify-between gap-3 border-t border-ink-200 px-6 py-4 sm:px-8">
+        {step > 0 ? (
+          <button type="button" onClick={() => goToStep(step - 1)} className="btn btn-outline">
+            Atrás
+          </button>
+        ) : (
+          <span className="text-xs text-ink-400">Gratis y sin compromiso</span>
+        )}
+        <button type="submit" disabled={status === "sending"} className="btn btn-primary disabled:opacity-60">
+          {step < stepLabels.length - 1 ? (
+            <>
+              Siguiente
+              <Icon name="arrowRight" className="h-4 w-4" />
+            </>
+          ) : status === "sending" ? (
+            "Enviando…"
+          ) : (
+            "Pedir asesoramiento gratis"
+          )}
+        </button>
+      </div>
     </form>
   );
 }

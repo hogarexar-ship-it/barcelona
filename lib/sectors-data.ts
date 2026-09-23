@@ -10,6 +10,8 @@ export type Sector = {
   trade: Trade;
   photo: Photo;
   icon: IconName;
+  /** Color propio del oficio (clases literales para que Tailwind las genere). */
+  tone: { chip: string; icon: string; soft: string; bar: string };
   name: string;
   audience: string;
   metaTitle: string;
@@ -30,6 +32,7 @@ export const sectors: Sector[] = [
     trade: "fontaneria",
     photo: photos.fontaneroCajaHerramientas,
     icon: "droplet",
+    tone: { chip: "bg-sky-100 text-sky-900", icon: "text-sky-600", soft: "bg-sky-50", bar: "bg-sky-500" },
     name: "Fontanería",
     audience: "fontaneros",
     metaTitle: "Marketing para fontaneros en Barcelona: más clientes y llamadas",
@@ -87,6 +90,7 @@ export const sectors: Sector[] = [
     trade: "electricidad",
     photo: photos.electricistaPlafon,
     icon: "bolt",
+    tone: { chip: "bg-amber-100 text-amber-900", icon: "text-amber-500", soft: "bg-amber-50", bar: "bg-amber-400" },
     name: "Electricidad",
     audience: "electricistas",
     metaTitle: "Marketing para electricistas en Barcelona: más clientes y llamadas",

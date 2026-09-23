@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/Container";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { Icon } from "@/components/Icon";
-import type { IconName } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
 import { Marquee } from "@/components/Marquee";
-import { PageHero } from "@/components/PageHero";
-import { PhotoFrame } from "@/components/PhotoFrame";
+import { PhotoHero } from "@/components/PhotoHero";
 import { ProcessSteps } from "@/components/ProcessSteps";
-import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { consultationSteps, ContactSection, ExtraServices, SectorCards, ServiceGrid } from "@/components/sections";
 import { GuideCards } from "@/components/guides";
+import { situations } from "@/lib/contact-options";
 import { sortedGuides } from "@/lib/guides-data";
 import { extraServices, marketingServices } from "@/lib/marketing-services";
 import { buildMetadata } from "@/lib/metadata";
+import { routes } from "@/lib/navigation";
 import { photos } from "@/lib/photos";
 import { faqSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site-config";
@@ -26,21 +26,6 @@ export const metadata: Metadata = buildMetadata({
   path: "/",
   absoluteTitle: true,
 });
-
-const situations: { icon: IconName; title: string; text: string; answer: string }[] = [
-  {
-    icon: "clock",
-    title: "Tienes trabajo, pero no llegas a todo",
-    text: "Obras, averías, presupuestos, facturas… y el marketing siempre queda para después.",
-    answer: "Te lo dejamos hecho. Tú apruebas lo importante y nosotros lo ejecutamos.",
-  },
-  {
-    icon: "trendingUp",
-    title: "No te llaman lo suficiente",
-    text: "Meses flojos, dependes del boca a boca y la competencia sale antes que tú en Google.",
-    answer: "Montamos anuncios y presencia en Google para que te llamen clientes de tu zona.",
-  },
-];
 
 const faqs: Faq[] = [
   {
@@ -77,23 +62,40 @@ export default function HomePage() {
     <>
       <JsonLd data={faqSchema(faqs)} />
 
-      <PageHero
+      <PhotoHero
+        photo={photos.electricistaLuzTecho}
         title="Más clientes para fontaneros y electricistas en Barcelona"
-        subtitle="Anuncios en Google y Meta, página web, ficha de Google y SEO. Nos encargamos del marketing de tu negocio para que te lleguen clientes de tu zona y tú te centres en trabajar."
-        aside={
-          <PhotoFrame
-            photo={photos.electricistaLuzTecho}
-            priority
-            className="aspect-[4/3] lg:aspect-[5/6]"
-            sizes="(min-width: 1024px) 40vw, 100vw"
-          />
-        }
+        subtitle="Anuncios en Google y Meta, página web, ficha de Google y SEO. Nos encargamos del marketing para que te lleguen clientes de tu zona y tú te centres en trabajar."
       >
-        <p className="mt-6 flex items-center gap-2 text-sm font-medium text-ink-600">
-          <Icon name="check" className="h-5 w-5 text-accent-600" />
-          Primer asesoramiento gratis y sin compromiso
+        <p className="mt-10 font-display text-lg font-bold">¿Qué te pasa ahora mismo?</p>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+          {situations.map((situation) => (
+            <Link
+              key={situation.value}
+              href={`${routes.contact}?situacion=${situation.value}`}
+              className="group flex flex-col rounded-md border border-white/30 bg-ink-900/40 p-5 transition-colors hover:border-[#EA580C] hover:bg-ink-900/70"
+            >
+              <Icon name={situation.icon} className="h-7 w-7 text-accent-300" />
+              <span className="mt-3 font-display text-lg font-bold leading-snug">{situation.title}</span>
+              <span className="mt-1 text-sm text-white/75">{situation.text}</span>
+              <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-accent-200 group-hover:text-white">
+                Pide tu asesoramiento gratis
+                <Icon name="arrowRight" className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </span>
+            </Link>
+          ))}
+        </div>
+        <p className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/75">
+          <span className="inline-flex items-center gap-2">
+            <Icon name="check" className="h-5 w-5 text-accent-300" />
+            Gratis y sin compromiso
+          </span>
+          <Link href={routes.services} className="inline-flex items-center gap-1.5 font-semibold text-white underline-offset-4 hover:underline">
+            O mira primero los servicios
+            <Icon name="arrowRight" className="h-4 w-4" />
+          </Link>
         </p>
-      </PageHero>
+      </PhotoHero>
 
       <Marquee
         items={[
@@ -101,27 +103,6 @@ export default function HomePage() {
           ...extraServices.map((s) => ({ icon: s.icon, label: s.name })),
         ]}
       />
-
-      <section className="py-16 sm:py-24">
-        <Container>
-          <SectionHeading title="¿En cuál de estas situaciones estás?" />
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            {situations.map((situation, index) => (
-              <Reveal key={situation.title} delay={index * 100}>
-                <div className="h-full rounded-xl2 border border-ink-200 bg-white p-7">
-                  <Icon name={situation.icon} className="h-8 w-8 text-accent-600" />
-                  <h3 className="mt-4 font-display text-2xl font-bold text-ink-900">{situation.title}</h3>
-                  <p className="mt-2 text-ink-600">{situation.text}</p>
-                  <p className="mt-5 flex gap-2 border-t border-ink-200 pt-5 font-semibold text-ink-900">
-                    <Icon name="arrowRight" className="mt-0.5 h-5 w-5 shrink-0 text-accent-600" />
-                    {situation.answer}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </section>
 
       <section id="servicios" className="scroll-mt-20 bg-surface-100 py-16 sm:py-24">
         <Container>

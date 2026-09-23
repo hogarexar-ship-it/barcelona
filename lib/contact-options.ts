@@ -56,3 +56,21 @@ export const municipalities = [
 ];
 
 export const limits = { name: 100, business: 120, zone: 80, message: 1000 };
+
+/** Situaciones de la home: llegan al formulario por ?situacion= y rellenan el mensaje. */
+export const situations = [
+  {
+    value: "no-llego",
+    icon: "clock" as IconName,
+    title: "Tengo trabajo, pero no llego a todo",
+    text: "Obras, averías, presupuestos… y el marketing siempre queda para después.",
+    message: "Tengo trabajo, pero no llego a todo y el marketing siempre queda para después.",
+  },
+  {
+    value: "pocas-llamadas",
+    icon: "trendingUp" as IconName,
+    title: "No me llaman lo suficiente",
+    text: "Meses flojos, dependo del boca a boca y la competencia sale antes en Google.",
+    message: "No recibo suficientes llamadas de clientes y quiero vender más.",
+  },
+];

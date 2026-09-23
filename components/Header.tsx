@@ -23,15 +23,25 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-ink-200 bg-surface-50 print:hidden">
-      <Container className="flex h-16 items-center justify-between gap-6">
-        <Logo />
+      <Container className="flex h-16 items-stretch justify-between gap-6">
+        <div className="flex items-center">
+          <Logo />
+        </div>
 
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Principal">
-          {mainNav.map((link) => (
-            <Link key={link.href} href={link.href} className={linkClass(isActive(link.href))}>
-              {link.label}
-            </Link>
-          ))}
+        <nav className="hidden h-full items-stretch gap-7 lg:flex" aria-label="Principal">
+          {mainNav.map((link) => {
+            const active = isActive(link.href);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={active ? "page" : undefined}
+                className={`-mb-px flex items-center border-b-2 ${active ? "border-[#EA580C]" : "border-transparent"} ${linkClass(active)}`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-2">
@@ -61,7 +71,8 @@ export function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`flex items-center justify-between rounded-md px-3 py-3 text-base hover:bg-ink-100 ${linkClass(isActive(link.href))}`}
+                  aria-current={isActive(link.href) ? "page" : undefined}
+                  className={`flex items-center justify-between rounded-md border-l-2 px-3 py-3 text-base hover:bg-ink-100 ${isActive(link.href) ? "border-[#EA580C] bg-ink-50" : "border-transparent"} ${linkClass(isActive(link.href))}`}
                 >
                   {link.label}
                   <Icon name="arrowRight" className="h-4 w-4 opacity-50" />

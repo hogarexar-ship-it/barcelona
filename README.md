@@ -25,17 +25,17 @@ Todo el contenido de servicios está en `lib/marketing-services.ts`.
 
 | Ruta | Contenido |
 | --- | --- |
-| `/` | Home: situaciones del profesional, servicios, cómo funciona el asesoramiento, oficios, guías, FAQ y formulario |
-| `/servicios` y `/servicios/[slug]` | Servicios |
-| `/marketing-para-fontaneros`, `/marketing-para-electricistas` | Landings por oficio (`lib/sectors-data.ts`) |
-| `/asesoramiento-gratuito` | Formulario (acepta `?oficio=` y `?servicio=`) |
-| `/guias` y `/guias/[slug]` | Guías para profesionales (`lib/guides-data.ts`) |
+| `/` | Home: portada con foto y dos botones «¿qué te pasa?» que llevan al formulario, servicios, cómo funciona, oficios, guías, FAQ y formulario |
+| `/servicios` y `/servicios/[slug]` | Índice con tabla «si te pasa esto → te recomendamos» y ficha de cada servicio (pestañas, tarjeta de contacto fija, anterior/siguiente) |
+| `/marketing-para-fontaneros`, `/marketing-para-electricistas` | Landings por oficio con color propio y simulación del buscador de Google (`lib/sectors-data.ts`) |
+| `/asesoramiento-gratuito` | Formulario en 3 pasos (acepta `?oficio=`, `?servicio=` y `?situacion=`) |
+| `/guias` y `/guias/[slug]` | Guía destacada + listado; artículos con barra de lectura, índice lateral y llamadas a la acción (`lib/guides-data.ts`) |
 | `/api/contacto` | Recibe el formulario |
 | `/sitemap.xml`, `/robots.txt`, `/llms.txt` | SEO y GEO |
 
 ## Formulario y recepción de contactos
 
-El formulario (`components/ContactForm.tsx`) pide: oficio, autónomo o
+El formulario (`components/ContactForm.tsx`) va en 3 pasos y pide: oficio, autónomo o
 empresa, municipio, nombre, nombre del negocio (opcional), medio de
 contacto preferido (llamada, WhatsApp o email) con su dato, servicios que
 le interesan (opcional), su situación (opcional) y la aceptación de la
