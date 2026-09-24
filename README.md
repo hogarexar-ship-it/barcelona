@@ -91,6 +91,29 @@ n8n o un Google Apps Script que guarde el contacto en una hoja de cálculo o
 lo envíe por email. **Mientras no esté configurada, los envíos fallan** y el
 formulario ofrece mandar los mismos datos por WhatsApp.
 
+## Supabase
+
+Infraestructura de cliente Supabase lista para usar (`@supabase/ssr`,
+`@supabase/supabase-js`), pero **todavía no conectada a nada del sitio**:
+ninguna página ni el formulario de contacto la usan hoy.
+
+- `utils/supabase/server.ts`: cliente para Server Components (recibe el
+  `cookieStore` de `next/headers`).
+- `utils/supabase/client.ts`: cliente para Client Components (`"use client"`).
+- `utils/supabase/middleware.ts` (`updateSession`) + `middleware.ts` en la
+  raíz: refrescan la sesión de Supabase en cada request. Sin la llamada a
+  `supabase.auth.getUser()` dentro de `updateSession` el refresco no
+  funciona; no se debe quitar.
+- Variables de entorno (`NEXT_PUBLIC_SUPABASE_URL`,
+  `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`) en `.env.local` (no se commitea,
+  está en `.gitignore`). **Hay que añadir las mismas dos variables en
+  Vercel** (Settings → Environment Variables) para que el build en
+  producción las tenga.
+
+Antes de usarlo para algo real (por ejemplo, guardar los leads del
+formulario en una tabla en vez de solo mandarlos al webhook) hace falta
+crear las tablas en el proyecto de Supabase y decidir qué campos guardar.
+
 ## Parte para particulares (oculta)
 
 La versión con zona para particulares (fontaneros y electricistas para
@@ -113,7 +136,8 @@ catalogadas en `lib/photos.ts`.
 ## Stack técnico
 
 Next.js 14 (App Router), TypeScript estricto (`noUncheckedIndexedAccess`),
-Tailwind CSS. Sin dependencias extra.
+Tailwind CSS, y `@supabase/ssr` + `@supabase/supabase-js` (ver «Supabase»
+más abajo).
 
 ```bash
 npm install
@@ -126,6 +150,8 @@ npm run typecheck
 ## Checklist antes de publicar
 
 - [ ] Configurar `LEADS_WEBHOOK_URL` en Vercel y probar un envío real.
+- [ ] Configurar `NEXT_PUBLIC_SUPABASE_URL` y
+      `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` en Vercel (ver «Supabase»).
 - [ ] Revisión de los textos en catalán por un nativo (traducción propia).
 - [ ] Añadir testimonios reales de clientes (con su permiso) en las páginas por oficio: no se han inventado.
 - [x] Nombre de marca definitivo: **OficiosPro**.
