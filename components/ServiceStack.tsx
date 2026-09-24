@@ -23,10 +23,15 @@ export function ServiceStack({ locale }: { locale: Locale }) {
           return (
             <li key={service.slug} className="sticky pb-4 last:pb-0" style={{ top: `calc(5.5rem + ${index * 0.9}rem)` }}>
               <article
-                className={`relative origin-top overflow-hidden rounded-2xl border p-6 [transform:scale(calc(1_-_var(--p,0)*0.05))] sm:p-10 ${
-                  dark ? "border-ink-900 bg-ink-900 text-white" : "border-ink-200 bg-white text-ink-900"
+                className={`relative origin-top overflow-hidden rounded-2xl border p-6 transition-colors [transform:scale(calc(1_-_var(--p,0)*0.05))] sm:p-10 ${
+                  dark ? "border-ink-900 bg-ink-900 text-white hover:border-white/30" : "border-ink-200 bg-white text-ink-900 hover:border-ink-900"
                 }`}
               >
+                {/* Toda la tarjeta lleva al servicio; el desplegable y el enlace de abajo van por encima para seguir funcionando por su cuenta. */}
+                <Link href={service.path} className="absolute inset-0 z-[1]">
+                  <span className="sr-only">{`${service.title}: ${t("Ver cómo lo hacemos", "Veure com ho fem")}`}</span>
+                </Link>
+
                 {/* Se oscurece al quedar tapada por la siguiente */}
                 <span className="pointer-events-none absolute inset-0 bg-ink-900 [opacity:calc(var(--p,0)*0.07)]" aria-hidden="true" />
                 <p className="flex items-center gap-4">
@@ -49,7 +54,9 @@ export function ServiceStack({ locale }: { locale: Locale }) {
                 <p className={`mt-4 max-w-xl text-lg ${dark ? "text-white/75" : "text-ink-600"}`}>{service.short}</p>
                 <p className={`mt-3 max-w-xl text-base ${dark ? "text-white/50" : "text-ink-400"}`}>{service.pain}</p>
                 {service.whatIs && (
-                  <details className={`group/what mt-6 max-w-xl rounded-md border ${dark ? "border-white/20" : "border-ink-200"}`}>
+                  <details
+                    className={`group/what relative z-[2] mt-6 max-w-xl rounded-md border ${dark ? "border-white/20" : "border-ink-200"}`}
+                  >
                     <summary
                       className={`flex cursor-pointer list-none items-center gap-3 px-4 py-3 font-semibold ${
                         dark ? "text-white" : "text-ink-900"
@@ -67,7 +74,10 @@ export function ServiceStack({ locale }: { locale: Locale }) {
                     <p className={`px-4 pb-4 text-sm ${dark ? "text-white/70" : "text-ink-600"}`}>{service.whatIs.answer}</p>
                   </details>
                 )}
-                <Link href={service.path} className="group mt-8 inline-flex items-center gap-4 font-display text-lg font-bold">
+                <Link
+                  href={service.path}
+                  className="group relative z-[2] mt-8 inline-flex items-center gap-4 font-display text-lg font-bold"
+                >
                   {t("Ver cómo lo hacemos", "Veure com ho fem")}
                   <span
                     className={`inline-flex h-12 w-12 items-center justify-center rounded-full border transition-colors ${
