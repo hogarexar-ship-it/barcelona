@@ -22,7 +22,8 @@ export default function OpengraphImage() {
         }}
       >
         <div style={{ display: "flex", alignItems: "flex-end", fontSize: 72, fontWeight: 800, color: "#1B1814" }}>
-          {siteConfig.brand.toLowerCase()}
+          <span>oficio</span>
+          <span style={{ color: "#A44A22" }}>pro</span>
           <div style={{ width: 18, height: 18, borderRadius: 9, backgroundColor: "#C55F2C", marginLeft: 6, marginBottom: 18 }} />
         </div>
         <div style={{ display: "flex", marginTop: 36, fontSize: 60, fontWeight: 800, color: "#1B1814", maxWidth: 1000, lineHeight: 1.1 }}>

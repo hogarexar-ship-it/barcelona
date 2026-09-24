@@ -1,11 +1,14 @@
-# Ofici: marketing para fontaneros y electricistas en Barcelona
+# OficioPro: marketing para fontaneros y electricistas en Barcelona
 
 Sitio para captar como clientes a **fontaneros y electricistas (autónomos y
 empresas) de Barcelona y alrededores** que quieren más clientes o no llegan
 a todo. La puerta de entrada es un **asesoramiento gratuito**.
 
-> "Ofici" es un nombre de marca **temporal**. Se cambia en un solo sitio:
-> `siteConfig.brand` en `lib/site-config.ts`.
+> El nombre de marca (`siteConfig.brand` en `lib/site-config.ts`) es
+> **OficioPro**. Sigue estando en un solo sitio por si hay que cambiarlo:
+> el logotipo (`components/Logo.tsx`) separa «oficio» y «pro» para que se
+> lean como dos partes; si el nombre cambia por otro que no siga ese
+> patrón, hay que revisar también ese componente.
 
 ## Servicios
 
@@ -116,8 +119,9 @@ npm run typecheck
 - [ ] Configurar `LEADS_WEBHOOK_URL` en Vercel y probar un envío real.
 - [ ] Revisión de los textos en catalán por un nativo (traducción propia).
 - [ ] Añadir testimonios reales de clientes (con su permiso) en las páginas por oficio: no se han inventado.
-- [ ] Nombre de marca definitivo, dominio y logo (`lib/site-config.ts`,
-      `components/Logo.tsx`, `public/favicon.svg`).
+- [x] Nombre de marca definitivo: **OficioPro**.
+- [ ] Dominio real y logo con diseño propio (de momento es solo texto en
+      `components/Logo.tsx` y un icono genérico en `public/favicon.svg`).
 - [ ] Teléfono, email, dirección, razón social/CIF y redes reales (todo lo
       marcado `PLACEHOLDER` en `lib/site-config.ts`). El WhatsApp ya es el
       real: +34 661 103 087.
