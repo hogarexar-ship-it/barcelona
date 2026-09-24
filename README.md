@@ -79,10 +79,11 @@ que Google indexe las dos versiones:
 ## Formulario y recepción de contactos
 
 El formulario (`components/ContactForm.tsx`) va en 3 pasos y pide: oficio, autónomo o
-empresa, municipio, nombre, nombre del negocio (opcional), medio de
-contacto preferido (llamada, WhatsApp o email) con su dato, servicios que
-le interesan (opcional), su situación (opcional) y la aceptación de la
-política de privacidad.
+empresa, municipio, nombre, nombre del negocio (opcional), email (obligatorio
+siempre), medio de contacto preferido (llamada, WhatsApp o email, con su
+teléfono si eligió llamada o WhatsApp), servicios que le interesan
+(opcional), su situación (opcional) y la aceptación de la política de
+privacidad.
 
 Se envía a `/api/contacto`, que valida los datos y los guarda en la tabla
 `leads` de Supabase (ver sección «Supabase» más abajo: hay que crear esa

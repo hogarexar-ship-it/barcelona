@@ -52,7 +52,9 @@ function parseLead(body: Record<string, unknown>): Lead | null {
   const phone = text(body.phone, 20);
   const email = text(body.email, 200);
   if (!trade || !businessType || !method || !name || !zone) return null;
-  if (method === "email" ? !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) : !/^\+?[0-9 ]{9,18}$/.test(phone)) return null;
+  // El email es obligatorio siempre, sea cual sea el medio de contacto preferido.
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return null;
+  if (method !== "email" && !/^\+?[0-9 ]{9,18}$/.test(phone)) return null;
 
   const interests = Array.isArray(body.interests)
     ? body.interests.filter((i): i is string => oneOf(i, interestOptions) !== null)
@@ -66,7 +68,7 @@ function parseLead(body: Record<string, unknown>): Lead | null {
     businessName: text(body.businessName, limits.business),
     method,
     phone: method === "email" ? "" : phone,
-    email: method === "email" ? email : "",
+    email,
     interests,
     message: text(body.message, limits.message),
     locale: body.locale === "ca" ? "ca" : "es",

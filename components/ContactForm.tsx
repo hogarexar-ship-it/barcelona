@@ -92,7 +92,7 @@ export function ContactForm({
     businessName,
     method,
     phone: method === "email" ? "" : phone,
-    email: method === "email" ? email : "",
+    email,
     interests,
     message,
     website,
@@ -233,6 +233,17 @@ export function ContactForm({
                 />
               </Field>
             </div>
+            <Field label={t("Tu email", "El teu correu")} htmlFor={`${idPrefix}-email`}>
+              <input
+                id={`${idPrefix}-email`}
+                required
+                type="email"
+                autoComplete="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="input"
+              />
+            </Field>
             <ChoiceGroup
               locale={locale}
               legend={t("¿Cómo prefieres que te contactemos?", "Com prefereixes que et contactem?")}
@@ -241,19 +252,6 @@ export function ContactForm({
               value={method}
               onChange={setMethod}
             />
-            {method === "email" && (
-              <Field label={t("Tu email", "El teu correu")} htmlFor={`${idPrefix}-email`}>
-                <input
-                  id={`${idPrefix}-email`}
-                  required
-                  type="email"
-                  autoComplete="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="input"
-                />
-              </Field>
-            )}
             {(method === "llamada" || method === "whatsapp") && (
               <Field label={method === "whatsapp" ? t("Tu WhatsApp", "El teu WhatsApp") : t("Tu teléfono", "El teu telèfon")} htmlFor={`${idPrefix}-phone`}>
                 <input
