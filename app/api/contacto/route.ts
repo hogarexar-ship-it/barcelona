@@ -1,3 +1,4 @@
+import { cookies } from "next/headers";
 import {
   businessTypeOptions,
   contactMethodOptions,
@@ -5,11 +6,14 @@ import {
   limits,
   tradeOptions,
 } from "@/lib/contact-options";
+import { createClient } from "@/utils/supabase/server";
 
 /**
- * Recibe el formulario de asesoramiento y lo reenvía a LEADS_WEBHOOK_URL
- * (Make, Zapier, n8n, Google Apps Script…), que se configura en Vercel.
- * Sin esa variable responde 503 y el formulario ofrece enviar por WhatsApp.
+ * Recibe el formulario de asesoramiento, guarda el lead en Supabase (tabla
+ * `leads`, ver supabase/leads-table.sql) y, si está configurada, lo reenvía
+ * además a LEADS_WEBHOOK_URL (Make, Zapier, n8n, Google Apps Script…). El
+ * webhook es opcional y de mejor esfuerzo: si falla o no está configurado,
+ * el lead ya quedó guardado en Supabase y el formulario igual muestra éxito.
  */
 
 type Lead = {
@@ -83,18 +87,37 @@ export async function POST(request: Request): Promise<Response> {
   const lead = parseLead(body);
   if (!lead) return json({ ok: false, error: "invalid_fields" }, 400);
 
-  const webhook = process.env.LEADS_WEBHOOK_URL;
-  if (!webhook) return json({ ok: false, error: "not_configured" }, 503);
+  const source = request.headers.get("referer") ?? "";
 
-  try {
-    const response = await fetch(webhook, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...lead, receivedAt: new Date().toISOString(), source: request.headers.get("referer") ?? "" }),
-    });
-    if (!response.ok) return json({ ok: false, error: "webhook_failed" }, 502);
-  } catch {
-    return json({ ok: false, error: "webhook_unreachable" }, 502);
+  const cookieStore = await cookies();
+  const supabase = createClient(cookieStore);
+  const { error } = await supabase.from("leads").insert({
+    trade: lead.trade,
+    business_type: lead.businessType,
+    zone: lead.zone,
+    name: lead.name,
+    business_name: lead.businessName,
+    method: lead.method,
+    phone: lead.phone,
+    email: lead.email,
+    interests: lead.interests,
+    message: lead.message,
+    locale: lead.locale,
+    source,
+  });
+  if (error) return json({ ok: false, error: "db_failed" }, 502);
+
+  const webhook = process.env.LEADS_WEBHOOK_URL;
+  if (webhook) {
+    try {
+      await fetch(webhook, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...lead, receivedAt: new Date().toISOString(), source }),
+      });
+    } catch {
+      // El lead ya quedó guardado en Supabase; el webhook es solo un reenvío adicional.
+    }
   }
 
   return json({ ok: true });

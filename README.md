@@ -84,35 +84,47 @@ contacto preferido (llamada, WhatsApp o email) con su dato, servicios que
 le interesan (opcional), su situación (opcional) y la aceptación de la
 política de privacidad.
 
-Se envía a `/api/contacto`, que valida los datos y los reenvía a la URL de
-la variable de entorno **`LEADS_WEBHOOK_URL`**. Hay que configurarla en
-Vercel (Settings → Environment Variables) con un webhook de Make, Zapier,
-n8n o un Google Apps Script que guarde el contacto en una hoja de cálculo o
-lo envíe por email. **Mientras no esté configurada, los envíos fallan** y el
-formulario ofrece mandar los mismos datos por WhatsApp.
+Se envía a `/api/contacto`, que valida los datos y los guarda en la tabla
+`leads` de Supabase (ver sección «Supabase» más abajo: hay que crear esa
+tabla una vez antes de que esto funcione). Si además está configurada la
+variable de entorno **`LEADS_WEBHOOK_URL`** en Vercel, también reenvía el
+lead ahí (Make, Zapier, n8n, un Google Apps Script…) para tenerlo en una
+hoja de cálculo o recibirlo por email; el webhook es opcional, si falla no
+afecta al envío. **Si el guardado en Supabase falla**, el formulario
+ofrece mandar los mismos datos por WhatsApp.
 
 ## Supabase
 
-Infraestructura de cliente Supabase lista para usar (`@supabase/ssr`,
-`@supabase/supabase-js`), pero **todavía no conectada a nada del sitio**:
-ninguna página ni el formulario de contacto la usan hoy.
+Cada envío del formulario de asesoramiento gratuito (`components/ContactForm.tsx`
+→ `app/api/contacto/route.ts`) se guarda en la tabla `leads` de Supabase.
+El webhook (`LEADS_WEBHOOK_URL`) sigue existiendo pero ahora es opcional y
+de mejor esfuerzo: si está configurado se reenvía el lead también ahí,
+pero si falla o no está configurado no pasa nada, porque el lead ya quedó
+guardado en Supabase.
 
-- `utils/supabase/server.ts`: cliente para Server Components (recibe el
-  `cookieStore` de `next/headers`).
-- `utils/supabase/client.ts`: cliente para Client Components (`"use client"`).
+**Paso obligatorio antes de que funcione**: crear la tabla. Entra al
+Supabase Dashboard del proyecto → SQL Editor → pega y ejecuta
+`supabase/leads-table.sql` (una sola vez). Ese archivo crea la tabla
+`leads` con RLS activado y una política que solo permite `insert` con la
+clave pública (`NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`); no permite leer,
+así que para ver los leads hay que entrar al Table Editor con tu cuenta de
+Supabase, no desde el sitio.
+
+- `utils/supabase/server.ts`: cliente para Server Components y Route
+  Handlers (recibe el `cookieStore` de `next/headers`); es el que usa
+  `/api/contacto`.
+- `utils/supabase/client.ts`: cliente para Client Components (`"use client"`),
+  sin usar todavía.
 - `utils/supabase/middleware.ts` (`updateSession`) + `middleware.ts` en la
   raíz: refrescan la sesión de Supabase en cada request. Sin la llamada a
   `supabase.auth.getUser()` dentro de `updateSession` el refresco no
-  funciona; no se debe quitar.
+  funciona; no se debe quitar. Hoy no hay login, así que esto no tiene
+  efecto real todavía, pero no molesta y queda listo si se añade auth.
 - Variables de entorno (`NEXT_PUBLIC_SUPABASE_URL`,
   `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`) en `.env.local` (no se commitea,
   está en `.gitignore`). **Hay que añadir las mismas dos variables en
-  Vercel** (Settings → Environment Variables) para que el build en
-  producción las tenga.
-
-Antes de usarlo para algo real (por ejemplo, guardar los leads del
-formulario en una tabla en vez de solo mandarlos al webhook) hace falta
-crear las tablas en el proyecto de Supabase y decidir qué campos guardar.
+  Vercel** (Settings → Environment Variables) para que el formulario
+  funcione también en producción.
 
 ## Parte para particulares (oculta)
 
@@ -149,9 +161,13 @@ npm run typecheck
 
 ## Checklist antes de publicar
 
-- [ ] Configurar `LEADS_WEBHOOK_URL` en Vercel y probar un envío real.
+- [ ] Ejecutar `supabase/leads-table.sql` en el SQL Editor de Supabase
+      (crea la tabla `leads`; sin esto el formulario falla).
 - [ ] Configurar `NEXT_PUBLIC_SUPABASE_URL` y
       `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` en Vercel (ver «Supabase»).
+- [ ] Configurar `LEADS_WEBHOOK_URL` en Vercel si además se quiere reenviar
+      cada lead a una hoja de cálculo o email (opcional, el formulario ya
+      funciona sin esto porque guarda en Supabase).
 - [ ] Revisión de los textos en catalán por un nativo (traducción propia).
 - [ ] Añadir testimonios reales de clientes (con su permiso) en las páginas por oficio: no se han inventado.
 - [x] Nombre de marca definitivo: **OficiosPro**.
