@@ -318,8 +318,8 @@ export function ContactForm({
             <p className="flex items-start gap-2 rounded-md bg-surface-100 p-3 text-sm text-ink-600">
               <Icon name="chat" className="mt-0.5 h-4 w-4 shrink-0 text-ink-400" />
               {t(
-                "Por ahora atendemos en castellano. Estamos trabajando para ofrecer también atención en catalán.",
-                "De moment atenem en castellà. Estem treballant per oferir també atenció en català.",
+                "Momentáneamente solo contamos con atención en castellano.",
+                "Momentàniament només comptem amb atenció en castellà.",
               )}
             </p>
 
