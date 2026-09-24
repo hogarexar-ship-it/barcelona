@@ -34,7 +34,7 @@ export function ServicesView({ locale }: { locale: Locale }) {
               </p>
             </div>
 
-            <ul className="divide-y divide-white/10 border-y border-white/15">
+            <ul className="min-w-0 divide-y divide-white/10 border-y border-white/15">
               {services.map((service) => (
                 <li key={service.slug}>
                   <Link href={service.path} className="group flex items-center gap-4 py-4 transition-colors hover:text-accent-200">
