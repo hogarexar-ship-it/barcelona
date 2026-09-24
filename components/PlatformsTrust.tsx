@@ -17,6 +17,7 @@ export function PlatformsTrust({ locale }: { locale: Locale }) {
     { icon: <GoogleAdsIcon className="h-6 w-6" />, label: "Google Ads" },
     { icon: <MapPinIcon className="h-6 w-6" />, label: "Google Business Profile" },
     { icon: <MetaIcon className="h-6 w-6" />, label: "Meta Ads" },
+    { icon: <TikTokIcon className="h-6 w-6" />, label: "TikTok Ads" },
     { icon: <WhatsAppIcon className="h-6 w-6 text-[#25D366]" />, label: "WhatsApp" },
     { icon: <FacebookIcon className="h-6 w-6" />, label: "Facebook" },
     { icon: <InstagramIcon className="h-6 w-6" />, label: "Instagram" },
