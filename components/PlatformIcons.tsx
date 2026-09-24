@@ -5,15 +5,13 @@
  * su color de marca fijo: son logotipos reconocibles, no iconos del sistema.
  */
 
-/** El icono real de Google Ads: tres barras de colores que convergen en diagonal, no la «G» de Google. */
+/** El icono real de Google Ads (la «A» de dos barras y el punto verde), no la «G» de Google. */
 export function GoogleAdsIcon({ className = "h-6 w-6" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
-      <g transform="rotate(-45 12 12)">
-        <rect fill="#4285F4" x="2" y="10" width="12" height="4" rx="1" />
-        <rect fill="#EA4335" x="15" y="10" width="6" height="4" rx="1" />
-        <rect fill="#FBBC05" x="22" y="10.4" width="2" height="3.2" rx="0.8" />
-      </g>
+      <rect fill="#FBBC04" x="9" y="1" width="6" height="20" rx="3" transform="rotate(22 12 4)" />
+      <rect fill="#4285F4" x="9" y="1" width="6" height="22" rx="3" transform="rotate(-22 12 4)" />
+      <circle fill="#34A853" cx="5.6" cy="19.8" r="3.6" />
     </svg>
   );
 }
