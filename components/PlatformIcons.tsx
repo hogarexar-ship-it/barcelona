@@ -49,3 +49,23 @@ export function InstagramIcon({ className = "h-6 w-6" }: { className?: string })
     </svg>
   );
 }
+
+export function YouTubeIcon({ className = "h-6 w-6" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <rect fill="#FF0000" x="2" y="5" width="20" height="14" rx="4" />
+      <path fill="#fff" d="M10 8.5v7l6-3.5z" />
+    </svg>
+  );
+}
+
+export function TikTokIcon({ className = "h-6 w-6" }: { className?: string }) {
+  const d = "M14.7 3c.4 1.9 1.7 3.2 3.6 3.5v2.9a6.6 6.6 0 0 1-3.6-1.1v6.1a5.3 5.3 0 1 1-4.6-5.3v2.9a2.4 2.4 0 1 0 1.7 2.3V3h2.9z";
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path fill="#25F4EE" d={d} transform="translate(-0.6,0.6)" />
+      <path fill="#FE2C55" d={d} transform="translate(0.6,-0.6)" />
+      <path fill="#111" d={d} />
+    </svg>
+  );
+}

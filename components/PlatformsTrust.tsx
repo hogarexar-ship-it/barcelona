@@ -1,5 +1,5 @@
 import { WhatsAppIcon } from "./CtaButtons";
-import { FacebookIcon, GoogleIcon, InstagramIcon, MapPinIcon, MetaIcon } from "./PlatformIcons";
+import { FacebookIcon, GoogleIcon, InstagramIcon, MapPinIcon, MetaIcon, TikTokIcon, YouTubeIcon } from "./PlatformIcons";
 import type { Locale } from "@/lib/i18n";
 import { translator } from "@/lib/i18n";
 
@@ -17,6 +17,8 @@ export function PlatformsTrust({ locale }: { locale: Locale }) {
     { icon: <MetaIcon className="h-6 w-6" />, label: "Meta Ads" },
     { icon: <FacebookIcon className="h-6 w-6" />, label: "Facebook" },
     { icon: <InstagramIcon className="h-6 w-6" />, label: "Instagram" },
+    { icon: <YouTubeIcon className="h-6 w-6" />, label: "YouTube" },
+    { icon: <TikTokIcon className="h-6 w-6" />, label: "TikTok" },
     { icon: <WhatsAppIcon className="h-6 w-6 text-[#25D366]" />, label: "WhatsApp" },
   ];
   const loop = [...items, ...items];
@@ -27,7 +29,7 @@ export function PlatformsTrust({ locale }: { locale: Locale }) {
         {t("Trabajamos con estas plataformas", "Treballem amb aquestes plataformes")}
       </p>
       <div className="mt-6 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-        <ul className="flex w-max animate-marquee items-center gap-12">
+        <ul className="flex w-max animate-marquee-fast items-center gap-12">
           {loop.map((item, index) => (
             <li
               key={`${item.label}-${index}`}
