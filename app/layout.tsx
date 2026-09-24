@@ -4,7 +4,7 @@ import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { JsonLd } from "@/components/JsonLd";
-import { organizationSchema } from "@/lib/schema";
+import { organizationSchema, websiteSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site-config";
 
 const inter = Inter({
@@ -58,6 +58,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="es" className={`${inter.variable} ${manrope.variable}`}>
       <body className="flex min-h-screen flex-col font-sans">
         <JsonLd data={organizationSchema()} />
+        <JsonLd data={websiteSchema()} />
         {children}
         <ScrollReveal />
       </body>

@@ -8,6 +8,7 @@ type Routes = {
   home: string;
   services: string;
   guides: string;
+  glossary: string;
   contact: string;
   legal: string;
   privacy: string;
@@ -20,6 +21,7 @@ export const routes: Record<Locale, Routes> = {
     home: "/",
     services: "/servicios",
     guides: "/guias",
+    glossary: "/glosario",
     contact: "/asesoramiento-gratuito",
     legal: "/aviso-legal",
     privacy: "/politica-privacidad",
@@ -29,6 +31,7 @@ export const routes: Record<Locale, Routes> = {
     home: "/ca",
     services: "/ca/serveis",
     guides: "/ca/guies",
+    glossary: "/ca/glossari",
     contact: "/ca/assessorament-gratuit",
     legal: "/ca/avis-legal",
     privacy: "/ca/politica-privacitat",
@@ -70,6 +73,10 @@ export const guideSlugs: Record<string, Record<Locale, string>> = {
   "como-aparecer-en-chatgpt-profesional-barcelona": {
     es: "como-aparecer-en-chatgpt-profesional-barcelona",
     ca: "com-apareixer-a-chatgpt-professional-barcelona",
+  },
+  "cuanto-cuesta-marketing-digital-fontaneros-electricistas": {
+    es: "cuanto-cuesta-marketing-digital-fontaneros-electricistas",
+    ca: "quant-costa-el-marqueting-digital-per-a-lampistes-i-electricistes",
   },
 };
 

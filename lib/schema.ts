@@ -1,9 +1,25 @@
 import type { Locale } from "./i18n";
 import { htmlLang } from "./i18n";
+import type { GlossaryTerm } from "./glossary-data";
 import { siteConfig } from "./site-config";
 import type { Faq } from "./types";
 
 const businessId = `${siteConfig.url}/#organization`;
+const websiteId = `${siteConfig.url}/#website`;
+
+/** Se emite una sola vez, en el layout raíz. Ayuda a Google a entender el sitio como una unidad. */
+export function websiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": websiteId,
+    url: siteConfig.url,
+    name: siteConfig.brand,
+    description: siteConfig.description,
+    inLanguage: [htmlLang.es, htmlLang.ca],
+    publisher: { "@id": businessId },
+  };
+}
 
 export const proAudience = {
   "@type": "BusinessAudience",
@@ -88,6 +104,24 @@ export function breadcrumbSchema(items: { name: string; url: string }[]) {
       position: index + 1,
       name: item.name,
       item: item.url,
+    })),
+  };
+}
+
+/** Glosario: cada término queda como una entidad citable propia (DefinedTerm). */
+export function glossarySchema(args: { name: string; description: string; url: string; terms: GlossaryTerm[] }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    "@id": `${args.url}#terms`,
+    name: args.name,
+    description: args.description,
+    url: args.url,
+    hasDefinedTerm: args.terms.map((t) => ({
+      "@type": "DefinedTerm",
+      name: t.term,
+      description: t.definition,
+      inDefinedTermSet: `${args.url}#terms`,
     })),
   };
 }

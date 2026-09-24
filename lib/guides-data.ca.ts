@@ -383,4 +383,77 @@ export const guidesCa: Guide[] = [
       },
     ],
   },
+  {
+    id: "cuanto-cuesta-marketing-digital-fontaneros-electricistas",
+    photo: photos.fontaneroCajaHerramientas,
+    title: "Quant costa el màrqueting digital per a un lampista o electricista (preus orientatius)",
+    metaDescription:
+      "Rangs orientatius de preu de la fitxa de Google, la web, els anuncis i el SEO local per a lampistes i electricistes a Barcelona, i per què el pressupost d'anuncis va sempre a part.",
+    excerpt:
+      "«I això quant costa?» és la primera pregunta, i la resposta depèn del que ja tinguis. Aquests són els rangs orientatius habituals del sector, explicats servei a servei.",
+    summary:
+      "El màrqueting digital per a un lampista o electricista sol tenir dues partides separades: el servei de gestió (el que es paga a l'agència) i el pressupost d'anuncis (el que es paga directament a Google i Meta). Com a orientació de mercat: una fitxa de Google gestionada ronda els 50-100 €/mes, una landing page un pagament únic de 300-900 €, la gestió d'anuncis 150-400 €/mes més el pressupost d'anuncis, i el SEO local 150-350 €/mes. Són rangs habituals del sector, no una tarifa fixa: el preu real depèn de la teva zona, la teva competència i què necessites ja.",
+    publishedAt: "2026-09-24",
+    updatedAt: "2026-09-24",
+    category: "Preus",
+    content: [
+      {
+        heading: "De què depèn el preu",
+        paragraphs: [
+          "No hi ha una tarifa única per a «màrqueting digital»: és un conjunt de serveis que es poden contractar junts o per separat, i el preu canvia segons quants en necessitis, la teva competència a Barcelona i si parteixes de zero o ja tens alguna cosa feta.",
+          "Els rangs d'aquest article són orientatius, perquè sàpigues què esperar abans de demanar pressupost. No són la tarifa de cap proveïdor en concret ni una promesa de preu tancat.",
+        ],
+      },
+      {
+        heading: "Fitxa de Google Business i ressenyes",
+        paragraphs: [
+          "Crear la fitxa és gratis, però optimitzar-la i mantenir-la activa (fotos, publicacions, respostes a ressenyes) és una feina contínua. Com a gestió mensual, sol rondar els 50-100 €/mes dins d'un servei més ampli.",
+        ],
+      },
+      {
+        heading: "Landing page o web",
+        paragraphs: [
+          "Una landing page pensada per convertir visites en trucades (ràpida, amb el telèfon i el WhatsApp a la vista) sol ser un pagament únic, orientativament entre 300 i 900 € segons quantes pàgines de servei necessitis. Una web més completa, amb diverses pàgines per servei i zona, pot superar aquest rang.",
+        ],
+      },
+      {
+        heading: "Anuncis a Google i Meta: el pressupost va a part",
+        paragraphs: [
+          "Aquí és on més es confon la gent: el preu de gestionar els anuncis no és el mateix que els diners que es gasten en ells.",
+        ],
+        list: [
+          "Servei de gestió: el que es paga a qui porta les campanyes (estratègia, creativitats, ajustos). Orientativament, 150-400 €/mes.",
+          "Pressupost d'anuncis: els diners que Google o Meta cobren pels clics o les trucades. Es paga des del teu propi compte d'anuncis, tu decideixes quant i el pots pujar, abaixar o pausar quan vulguis. A lampisteria i electricitat a Barcelona, molts negocis comencen amb 200-500 €/mes de pressupost i l'ajusten segons els resultats.",
+        ],
+      },
+      {
+        heading: "SEO local i GEO",
+        paragraphs: [
+          "Treballar el posicionament a Google i en assistents d'IA és un servei continu, no una cosa que es contracta una vegada: orientativament 150-350 €/mes. És més lent que els anuncis, però el resultat s'acumula i no s'atura si un mes decideixes pausar la inversió en anuncis.",
+        ],
+      },
+      {
+        heading: "CRM i seguiment de clients",
+        paragraphs: [
+          "Sol venir inclòs dins d'un servei de màrqueting més ampli, o com un afegit de 30-60 €/mes si es contracta sol. La seva funció és evitar que es perdi algun contacte o pressupost per no fer-ne seguiment.",
+        ],
+      },
+      {
+        heading: "Què mirar a més del preu",
+        paragraphs: [],
+        list: [
+          "Què inclou exactament el preu: el pressupost d'anuncis hi és inclòs o va a part?",
+          "Si tens accés al teu propi compte d'anuncis i a la teva fitxa de Google, o si queden a nom de l'agència.",
+          "Si hi ha permanència mínima o et pots donar de baixa quan vulguis.",
+          "Si t'ensenyen resultats reals (trucades, formularis) i no només clics o «m'agrada».",
+        ],
+      },
+      {
+        heading: `Com ho fem a ${brand}`,
+        paragraphs: [
+          "No donem un preu tancat sense conèixer la teva situació: a l'assessorament gratuït revisem la teva zona, la teva competència i el que ja tens fet, i et diem exactament què et costaria i quin resultat orientatiu pots esperar.",
+        ],
+      },
+    ],
+  },
 ];

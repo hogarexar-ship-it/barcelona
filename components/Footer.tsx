@@ -43,6 +43,7 @@ export function Footer({ locale }: { locale: Locale }) {
             label={t("Marketing digital para electricistas", "Màrqueting digital per a electricistes")}
           />
           <FooterLink href={routes[locale].guides} label={t("Guías", "Guies")} />
+          <FooterLink href={routes[locale].glossary} label={t("Glosario", "Glossari")} />
         </FooterColumn>
 
         <FooterColumn title={t("Contacto", "Contacte")}>

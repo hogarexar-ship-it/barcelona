@@ -404,6 +404,79 @@ export const guides: Guide[] = [
       },
     ],
   },
+  {
+    id: "cuanto-cuesta-marketing-digital-fontaneros-electricistas",
+    photo: photos.fontaneroCajaHerramientas,
+    title: "Cuánto cuesta el marketing digital para un fontanero o electricista (precios orientativos)",
+    metaDescription:
+      "Rangos orientativos de precio de la ficha de Google, la web, los anuncios y el SEO local para fontaneros y electricistas en Barcelona, y por qué el presupuesto de anuncios va siempre aparte.",
+    excerpt:
+      "«¿Y esto cuánto cuesta?» es la primera pregunta, y la respuesta depende de lo que ya tengas. Estos son los rangos orientativos habituales del sector, explicados servicio a servicio.",
+    summary:
+      "El marketing digital para un fontanero o electricista suele tener dos partidas separadas: el servicio de gestión (lo que se paga a la agencia) y el presupuesto de anuncios (lo que se paga directamente a Google y Meta). Como orientación de mercado: una ficha de Google gestionada ronda los 50-100 €/mes, una landing page un pago único de 300-900 €, la gestión de anuncios 150-400 €/mes más el presupuesto de anuncios, y el SEO local 150-350 €/mes. Son rangos habituales del sector, no una tarifa fija: el precio real depende de tu zona, tu competencia y qué necesitas ya.",
+    publishedAt: "2026-09-24",
+    updatedAt: "2026-09-24",
+    category: "Precios",
+    content: [
+      {
+        heading: "De qué depende el precio",
+        paragraphs: [
+          "No hay una tarifa única para «marketing digital»: es un conjunto de servicios que se pueden contratar juntos o por separado, y el precio cambia según cuántos de ellos necesites, tu competencia en Barcelona y si partes de cero o ya tienes algo hecho.",
+          "Los rangos de este artículo son orientativos, para que sepas qué esperar antes de pedir presupuesto. No son la tarifa de ningún proveedor en concreto ni una promesa de precio cerrado.",
+        ],
+      },
+      {
+        heading: "Ficha de Google Business y reseñas",
+        paragraphs: [
+          "Crear la ficha es gratis, pero optimizarla y mantenerla activa (fotos, publicaciones, respuestas a reseñas) es un trabajo continuo. Como gestión mensual, suele rondar los 50-100 €/mes dentro de un servicio más amplio.",
+        ],
+      },
+      {
+        heading: "Landing page o web",
+        paragraphs: [
+          "Una landing page pensada para convertir visitas en llamadas (rápida, con el teléfono y el WhatsApp a la vista) suele ser un pago único, orientativamente entre 300 y 900 € según cuántas páginas de servicio necesites. Una web más completa, con varias páginas por servicio y zona, puede superar ese rango.",
+        ],
+      },
+      {
+        heading: "Anuncios en Google y Meta: el presupuesto va aparte",
+        paragraphs: [
+          "Aquí es donde más se confunde la gente: el precio de gestionar los anuncios no es lo mismo que el dinero que se gasta en ellos.",
+        ],
+        list: [
+          "Servicio de gestión: lo que se paga a quien lleva las campañas (estrategia, creatividades, ajustes). Orientativamente, 150-400 €/mes.",
+          "Presupuesto de anuncios: el dinero que Google o Meta cobran por los clics o las llamadas. Se paga desde tu propia cuenta de anuncios, tú decides cuánto y puedes subirlo, bajarlo o pausarlo cuando quieras. En fontanería y electricidad en Barcelona, muchos negocios empiezan con 200-500 €/mes de presupuesto y lo ajustan según los resultados.",
+        ],
+      },
+      {
+        heading: "SEO local y GEO",
+        paragraphs: [
+          "Trabajar el posicionamiento en Google y en asistentes de IA es un servicio continuo, no algo que se contrate una vez: orientativamente 150-350 €/mes. Es más lento que los anuncios, pero el resultado se acumula y no se detiene si un mes decides pausar la inversión en anuncios.",
+        ],
+      },
+      {
+        heading: "CRM y seguimiento de clientes",
+        paragraphs: [
+          "Suele venir incluido dentro de un servicio de marketing más amplio, o como un añadido de 30-60 €/mes si se contrata solo. Su función es evitar que se pierda algún contacto o presupuesto por no hacer seguimiento.",
+        ],
+      },
+      {
+        heading: "Qué mirar además del precio",
+        paragraphs: [],
+        list: [
+          "Qué incluye exactamente el precio: ¿el presupuesto de anuncios está incluido o va aparte?",
+          "Si tienes acceso a tu propia cuenta de anuncios y a tu ficha de Google, o si quedan a nombre de la agencia.",
+          "Si hay permanencia mínima o puedes darte de baja cuando quieras.",
+          "Si te enseñan resultados reales (llamadas, formularios) y no solo clics o «me gusta».",
+        ],
+      },
+      {
+        heading: `Cómo lo hacemos en ${brand}`,
+        paragraphs: [
+          "No damos un precio cerrado sin conocer tu situación: en el asesoramiento gratuito revisamos tu zona, tu competencia y lo que ya tienes hecho, y te decimos exactamente qué te costaría y qué resultado orientativo puedes esperar.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getGuides(locale: Locale): Guide[] {

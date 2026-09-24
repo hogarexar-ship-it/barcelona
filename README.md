@@ -38,8 +38,13 @@ Todo el contenido de servicios está en `lib/marketing-services.ts`.
 | `/marketing-para-fontaneros`, `/marketing-para-electricistas` | Landings por oficio: «Si eres fontanero, probablemente…», búsqueda de Google simulada, errores habituales, lo que cuesta no tener un sistema y el sistema conectado (`symptoms`, `mistakes`, `costs`, `system` en `lib/sectors-data.ts`), calculadora «Haz la cuenta» (`avgTicket`), «Orgánico y pago» con el reparto de la inversión (el presupuesto de anuncios va aparte) y «Lo que ya hacen los que más trabajan» |
 | `/asesoramiento-gratuito` | Formulario en 3 pasos (acepta `?oficio=`, `?servicio=` y `?situacion=`) |
 | `/guias` y `/guias/[slug]` | Guía destacada + listado; artículos con barra de lectura, índice lateral y llamadas a la acción (`lib/guides-data.ts`) |
+| `/glosario` | Glosario de marketing digital en plata, con `DefinedTermSet` (`lib/glossary-data.ts`) |
 | `/api/contacto` | Recibe el formulario |
 | `/sitemap.xml`, `/robots.txt`, `/llms.txt` | SEO y GEO |
+
+Arquitectura SEO/GEO completa (jerarquía de URLs, convenciones de datos
+estructurados, checklist antes de publicar una página): ver
+`SEO-GEO-ARQUITECTURA.md`.
 
 ## Castellano y catalán
 
@@ -54,6 +59,7 @@ que Google indexe las dos versiones:
 | `/marketing-para-electricistas` | `/ca/marketing-digital-per-a-electricistes` |
 | `/asesoramiento-gratuito` | `/ca/assessorament-gratuit` |
 | `/guias/...` | `/ca/guies/...` |
+| `/glosario` | `/ca/glossari` |
 | `/aviso-legal`, `/politica-privacidad`, `/politica-cookies` | `/ca/avis-legal`, `/ca/politica-privacitat`, `/ca/politica-galetes` |
 
 - En la cabecera hay un selector **ES / CA** que lleva a la misma página en el
