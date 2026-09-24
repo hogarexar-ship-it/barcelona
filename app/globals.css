@@ -45,7 +45,7 @@
   }
 
   .btn-light {
-    @apply bg-white text-ink-900 hover:bg-surface-100;
+    @apply border border-ink-200 bg-white text-ink-900 hover:border-ink-900 hover:bg-surface-100;
   }
 
   /* Botón claro y translúcido con el fondo desenfocado, para usar sobre fotos. */

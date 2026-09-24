@@ -10,6 +10,7 @@ import { Icon } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
 import { OrganicPaid } from "@/components/OrganicPaid";
 import { PhotoFrame } from "@/components/PhotoFrame";
+import { ServiceTabs } from "@/components/ServiceTabs";
 import { Reveal } from "@/components/Reveal";
 import type { Locale } from "@/lib/i18n";
 import { translator } from "@/lib/i18n";
@@ -44,7 +45,7 @@ export function ServiceView({ locale, service }: { locale: Locale; service: Mark
       />
       <JsonLd data={faqSchema(service.faqs)} />
 
-      <section className="border-b border-ink-200 bg-surface-100">
+      <section className="border-b border-ink-200 bg-surface-200">
         <Container className="pt-6">
           <Breadcrumbs
             locale={locale}
@@ -54,27 +55,7 @@ export function ServiceView({ locale, service }: { locale: Locale; service: Mark
             ]}
           />
 
-          <nav aria-label={t("Servicios", "Serveis")} className="-mx-4 mt-6 overflow-x-auto px-4 sm:mx-0 sm:px-0">
-            <ul className="flex w-max gap-2 sm:w-auto sm:flex-wrap">
-              {services.map((item) => {
-                const current = item.slug === service.slug;
-                return (
-                  <li key={item.slug}>
-                    <Link
-                      href={item.path}
-                      aria-current={current ? "page" : undefined}
-                      className={`inline-flex items-center gap-2 whitespace-nowrap rounded-md border px-3.5 py-2 text-sm font-semibold transition-colors ${
-                        current ? "border-ink-900 bg-ink-900 text-white" : "border-ink-200 bg-white text-ink-700 hover:border-ink-900"
-                      }`}
-                    >
-                      <Icon name={item.icon} className={`h-4 w-4 ${current ? "text-accent-300" : "text-accent-600"}`} />
-                      {item.name}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
+          <ServiceTabs items={services} currentSlug={service.slug} ariaLabel={t("Servicios", "Serveis")} />
 
           <div className="py-12 sm:py-16">
             <p className="flex items-center gap-3 text-sm font-semibold text-ink-400">

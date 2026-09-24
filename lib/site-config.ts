@@ -18,7 +18,7 @@ export const siteConfig = {
   url: "https://www.ofici.es", // PLACEHOLDER: dominio definitivo
   phoneDisplay: "930 00 00 00", // PLACEHOLDER
   phoneE164: "+34930000000", // PLACEHOLDER
-  whatsappNumber: "34600000000", // PLACEHOLDER (sin '+', formato wa.me)
+  whatsappNumber: "34661103087",
   email: "hola@ofici.es", // PLACEHOLDER
   addressLocality: "Barcelona",
   addressRegion: "Cataluña",

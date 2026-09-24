@@ -27,7 +27,7 @@ export function WhatsAppButton({
   locale = "es",
   message,
   label,
-  variant = "outline",
+  variant = "light",
   className = "",
 }: {
   locale?: Locale;

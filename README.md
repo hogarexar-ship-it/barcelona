@@ -118,8 +118,9 @@ npm run typecheck
 - [ ] Añadir testimonios reales de clientes (con su permiso) en las páginas por oficio: no se han inventado.
 - [ ] Nombre de marca definitivo, dominio y logo (`lib/site-config.ts`,
       `components/Logo.tsx`, `public/favicon.svg`).
-- [ ] Teléfono, WhatsApp, email, dirección, razón social/CIF y redes
-      reales (todo lo marcado `PLACEHOLDER` en `lib/site-config.ts`).
+- [ ] Teléfono, email, dirección, razón social/CIF y redes reales (todo lo
+      marcado `PLACEHOLDER` en `lib/site-config.ts`). El WhatsApp ya es el
+      real: +34 661 103 087.
 - [ ] Revisar lo que el sitio promete: asesoramiento gratuito y sin
       compromiso; las cuentas, el dominio y la web quedan a nombre del
       cliente; plazos orientativos de las FAQ.
