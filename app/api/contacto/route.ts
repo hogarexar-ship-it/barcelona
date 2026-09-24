@@ -89,23 +89,36 @@ export async function POST(request: Request): Promise<Response> {
 
   const source = request.headers.get("referer") ?? "";
 
-  const cookieStore = await cookies();
-  const supabase = createClient(cookieStore);
-  const { error } = await supabase.from("leads").insert({
-    trade: lead.trade,
-    business_type: lead.businessType,
-    zone: lead.zone,
-    name: lead.name,
-    business_name: lead.businessName,
-    method: lead.method,
-    phone: lead.phone,
-    email: lead.email,
-    interests: lead.interests,
-    message: lead.message,
-    locale: lead.locale,
-    source,
-  });
-  if (error) return json({ ok: false, error: "db_failed" }, 502);
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY) {
+    console.error("[api/contacto] Faltan NEXT_PUBLIC_SUPABASE_URL o NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY en este entorno.");
+    return json({ ok: false, error: "supabase_not_configured" }, 503);
+  }
+
+  try {
+    const cookieStore = await cookies();
+    const supabase = createClient(cookieStore);
+    const { error } = await supabase.from("leads").insert({
+      trade: lead.trade,
+      business_type: lead.businessType,
+      zone: lead.zone,
+      name: lead.name,
+      business_name: lead.businessName,
+      method: lead.method,
+      phone: lead.phone,
+      email: lead.email,
+      interests: lead.interests,
+      message: lead.message,
+      locale: lead.locale,
+      source,
+    });
+    if (error) {
+      console.error("[api/contacto] Error al insertar en Supabase:", error);
+      return json({ ok: false, error: "db_failed" }, 502);
+    }
+  } catch (err) {
+    console.error("[api/contacto] Excepción al guardar en Supabase:", err);
+    return json({ ok: false, error: "db_unreachable" }, 502);
+  }
 
   const webhook = process.env.LEADS_WEBHOOK_URL;
   if (webhook) {
