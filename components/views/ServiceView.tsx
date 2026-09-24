@@ -8,9 +8,9 @@ import { ExpandableList } from "@/components/ExpandableList";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { Icon } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
+import { Marquee } from "@/components/Marquee";
 import { OrganicPaid } from "@/components/OrganicPaid";
 import { PhotoFrame } from "@/components/PhotoFrame";
-import { ServiceTabs } from "@/components/ServiceTabs";
 import { Reveal } from "@/components/Reveal";
 import type { Locale } from "@/lib/i18n";
 import { translator } from "@/lib/i18n";
@@ -55,8 +55,6 @@ export function ServiceView({ locale, service }: { locale: Locale; service: Mark
             ]}
           />
 
-          <ServiceTabs items={services} currentSlug={service.slug} ariaLabel={t("Servicios", "Serveis")} />
-
           <div className="py-12 sm:py-16">
             <p className="flex items-center gap-3 text-sm font-semibold text-ink-400">
               <Icon name={service.icon} className="h-7 w-7 text-accent-600" />
@@ -74,6 +72,8 @@ export function ServiceView({ locale, service }: { locale: Locale; service: Mark
           </div>
         </Container>
       </section>
+
+      <Marquee items={services.map((item) => ({ icon: item.icon, label: item.name }))} />
 
       <Container className="grid gap-12 py-14 sm:py-20 lg:grid-cols-[1fr_22rem] lg:gap-16">
         <div className="min-w-0 space-y-14">

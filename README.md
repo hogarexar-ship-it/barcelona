@@ -31,7 +31,7 @@ Todo el contenido de servicios está en `lib/marketing-services.ts`.
 | Ruta | Contenido |
 | --- | --- |
 | `/` | Home: portada con dos botones «¿qué te pasa?», servicios en tarjetas cortas, «Soy fontanero / Soy electricista», 3 pasos, FAQ y formulario |
-| `/servicios` y `/servicios/[slug]` | Índice con tabla «si te pasa esto → te recomendamos» y ficha de cada servicio (pestañas, tarjeta de contacto fija, anterior/siguiente) |
+| `/servicios` y `/servicios/[slug]` | Índice con la lista simple de servicios y ficha de cada servicio (cinta automática con todos los servicios, tarjeta de contacto fija, anterior/siguiente) |
 | `/marketing-para-fontaneros`, `/marketing-para-electricistas` | Landings por oficio: «Si eres fontanero, probablemente…», búsqueda de Google simulada, errores habituales, lo que cuesta no tener un sistema y el sistema conectado (`symptoms`, `mistakes`, `costs`, `system` en `lib/sectors-data.ts`), calculadora «Haz la cuenta» (`avgTicket`), «Orgánico y pago» con el reparto de la inversión (el presupuesto de anuncios va aparte) y «Lo que ya hacen los que más trabajan» |
 | `/asesoramiento-gratuito` | Formulario en 3 pasos (acepta `?oficio=`, `?servicio=` y `?situacion=`) |
 | `/guias` y `/guias/[slug]` | Guía destacada + listado; artículos con barra de lectura, índice lateral y llamadas a la acción (`lib/guides-data.ts`) |
