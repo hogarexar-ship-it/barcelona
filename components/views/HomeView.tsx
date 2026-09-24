@@ -5,6 +5,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { Marquee } from "@/components/Marquee";
 import { PainRotator } from "@/components/PainRotator";
 import { PhotoHero } from "@/components/PhotoHero";
+import { PlatformsTrust } from "@/components/PlatformsTrust";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { SectionHeading } from "@/components/SectionHeading";
 import { consultationSteps, ContactSection, GrowthPath, SectorCards } from "@/components/sections";
@@ -116,6 +117,8 @@ export function HomeView({ locale }: { locale: Locale }) {
           ...getExtraServices(locale).map((s) => ({ icon: s.icon, label: s.name })),
         ]}
       />
+
+      <PlatformsTrust locale={locale} />
 
       <section className="py-16 sm:py-24">
         <Container>

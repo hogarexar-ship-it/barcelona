@@ -252,6 +252,13 @@ export function ContactForm({
               value={method}
               onChange={setMethod}
             />
+            <p className="flex items-start gap-2 rounded-md bg-surface-100 p-3 text-sm text-ink-600">
+              <Icon name="chat" className="mt-0.5 h-4 w-4 shrink-0 text-ink-400" />
+              {t(
+                "Por ahora atendemos en castellano. Estamos trabajando para ofrecer también atención en catalán.",
+                "De moment atenem en castellà. Estem treballant per oferir també atenció en català.",
+              )}
+            </p>
             {(method === "llamada" || method === "whatsapp") && (
               <Field label={method === "whatsapp" ? t("Tu WhatsApp", "El teu WhatsApp") : t("Tu teléfono", "El teu telèfon")} htmlFor={`${idPrefix}-phone`}>
                 <input
