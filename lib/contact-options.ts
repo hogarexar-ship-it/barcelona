@@ -32,7 +32,7 @@ export const interestOptions: { value: ServiceSlug | "no-lo-se"; label: Record<L
     label: { es: "Anuncios en Google y Meta (Facebook e Instagram)", ca: "Anuncis a Google i Meta (Facebook i Instagram)" },
   },
   { value: "landing-page-y-web", label: { es: "Landing page o web", ca: "Landing page o web" } },
-  { value: "google-business-profile", label: { es: "Google Business y reseñas", ca: "Google Business i ressenyes" } },
+  { value: "google-business-profile", label: { es: "Google Business (Maps & Reseñas)", ca: "Google Business (Maps i Ressenyes)" } },
   { value: "seo-local", label: { es: "SEO y GEO", ca: "SEO i GEO" } },
   { value: "crm", label: { es: "CRM y seguimiento de clientes", ca: "CRM i seguiment de clients" } },
   { value: "no-lo-se", label: { es: "No lo sé, quiero que me asesoréis", ca: "No ho sé, vull que m'assessoreu" } },
