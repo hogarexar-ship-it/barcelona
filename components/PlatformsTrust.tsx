@@ -1,5 +1,5 @@
 import { WhatsAppIcon } from "./CtaButtons";
-import { FacebookIcon, GoogleIcon, InstagramIcon, MapPinIcon, MetaIcon, TikTokIcon, YouTubeIcon } from "./PlatformIcons";
+import { FacebookIcon, GoogleAdsIcon, InstagramIcon, MapPinIcon, MetaIcon, TikTokIcon, YouTubeIcon } from "./PlatformIcons";
 import type { Locale } from "@/lib/i18n";
 import { translator } from "@/lib/i18n";
 
@@ -12,7 +12,7 @@ import { translator } from "@/lib/i18n";
 export function PlatformsTrust({ locale }: { locale: Locale }) {
   const t = translator(locale);
   const items = [
-    { icon: <GoogleIcon className="h-6 w-6" />, label: "Google Ads" },
+    { icon: <GoogleAdsIcon className="h-6 w-6" />, label: "Google Ads" },
     { icon: <MapPinIcon className="h-6 w-6" />, label: "Google Business Profile" },
     { icon: <MetaIcon className="h-6 w-6" />, label: "Meta Ads" },
     { icon: <FacebookIcon className="h-6 w-6" />, label: "Facebook" },

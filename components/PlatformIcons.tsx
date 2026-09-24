@@ -5,13 +5,15 @@
  * su color de marca fijo: son logotipos reconocibles, no iconos del sistema.
  */
 
-export function GoogleIcon({ className = "h-6 w-6" }: { className?: string }) {
+/** El icono real de Google Ads: tres barras de colores que convergen en diagonal, no la «G» de Google. */
+export function GoogleAdsIcon({ className = "h-6 w-6" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
-      <path fill="#4285F4" d="M21.6 12.23c0-.8-.07-1.56-.2-2.3H12v4.36h5.4c-.24 1.24-.94 2.3-2 3v2.5h3.24c1.9-1.75 3-4.32 3-7.56z" />
-      <path fill="#34A853" d="M12 22c2.7 0 4.96-.9 6.62-2.4l-3.24-2.5c-.9.6-2.05.96-3.38.96-2.6 0-4.8-1.75-5.6-4.12H3.05v2.6A10 10 0 0 0 12 22z" />
-      <path fill="#FBBC05" d="M6.4 13.94a5.99 5.99 0 0 1 0-3.88v-2.6H3.05a10 10 0 0 0 0 9.08l3.35-2.6z" />
-      <path fill="#EA4335" d="M12 6.06c1.47 0 2.8.5 3.83 1.5l2.87-2.87C16.95 2.98 14.7 2 12 2 8.13 2 4.78 4.2 3.05 7.46l3.35 2.6c.8-2.37 3-4 5.6-4z" />
+      <g transform="rotate(-45 12 12)">
+        <rect fill="#4285F4" x="2" y="10" width="12" height="4" rx="1" />
+        <rect fill="#EA4335" x="15" y="10" width="6" height="4" rx="1" />
+        <rect fill="#FBBC05" x="22" y="10.4" width="2" height="3.2" rx="0.8" />
+      </g>
     </svg>
   );
 }
