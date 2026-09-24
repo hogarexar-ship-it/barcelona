@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import Script from "next/script";
 import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { ScrollReveal } from "@/components/ScrollReveal";
@@ -63,6 +64,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {children}
         <ScrollReveal />
       </body>
+      {/* Banner de cookies (CookieYes). strategy="beforeInteractive" es la forma
+          de Next.js de cargarlo en <head> antes que cualquier otro script,
+          que es lo que pide CookieYes para poder bloquear el resto hasta el consentimiento. */}
+      <Script id="cookieyes" strategy="beforeInteractive" src="https://cdn-cookieyes.com/client_data/13b45d68db416c906323a1dc3c48e51b/script.js" />
     </html>
   );
 }

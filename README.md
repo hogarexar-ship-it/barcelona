@@ -184,6 +184,9 @@ npm run typecheck
 - [ ] Licencia de las fotos: varias tienen nombres típicos de Freepik
       (requieren atribución con la licencia gratuita).
 - [ ] Revisión legal de aviso legal, privacidad y cookies (textos modelo).
-- [ ] Banner de consentimiento antes de añadir Google Analytics, Meta Pixel
-      u otras cookies de medición.
+- [x] Banner de consentimiento de cookies: CookieYes, instalado en
+      `app/layout.tsx` con `next/script` (`strategy="beforeInteractive"`).
+      Antes de añadir Google Analytics, Meta Pixel u otras cookies de
+      medición, configurar esos scripts para que solo se carguen tras el
+      consentimiento (CookieYes lo gestiona desde su panel).
 - [ ] Alta en Google Search Console y envío de `/sitemap.xml`.
