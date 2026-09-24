@@ -75,21 +75,18 @@ export function RealProblem({ locale }: { locale: Locale }) {
   return (
     <div className="max-w-3xl" data-reveal>
       <h2 className="font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-ink-900 sm:text-5xl">
-        {t("No te falta oficio.", "No et falta ofici.")}{" "}
-        <span className="text-ink-400">
-          {t("Te falta un solo equipo que lleve tu marketing digital.", "Et falta un sol equip que porti el teu màrqueting digital.")}
-        </span>
+        {t("Deja de perder tiempo en tareas que nosotros podemos llevar por ti.", "Deixa de perdre temps en tasques que nosaltres podem portar per tu.")}
       </h2>
       <p className="mt-6 text-lg text-ink-700 sm:text-xl">
         {t(
-          "Un conocido te hizo la web. Otro te llevó los anuncios unos meses. A la ficha de Google ya no sabe entrar nadie. Cada cosa va por su lado y el teléfono sigue sin sonar como debería.",
-          "Un conegut et va fer la web. Un altre et va portar els anuncis uns mesos. A la fitxa de Google ja no sap entrar ningú. Cada cosa va per la seva banda i el telèfon continua sense sonar com hauria de sonar.",
+          "¿Cuántas veces te has dicho «tengo que organizar esto» y se te ha vuelto a olvidar? Entre los clientes, las obras y los presupuestos, es fácil que la web, las redes o la ficha de Google queden siempre para después.",
+          "Quantes vegades t'has dit «he d'organitzar això» i se t'ha tornat a oblidar? Entre els clients, les obres i els pressupostos, és fàcil que la web, les xarxes o la fitxa de Google quedin sempre per a després.",
         )}
       </p>
       <p className="mt-4 text-lg font-semibold text-ink-900 sm:text-xl">
         {t(
-          "Nosotros lo llevamos todo junto, para que tú vuelvas a lo tuyo.",
-          "Nosaltres ho portem tot junt, perquè tu tornis al que és teu.",
+          "Tú sigue con tu oficio. De tu marketing digital nos encargamos nosotros.",
+          "Tu segueix amb el teu ofici. Del teu màrqueting digital ens n'encarreguem nosaltres.",
         )}
       </p>
     </div>
