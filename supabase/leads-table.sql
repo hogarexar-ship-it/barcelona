@@ -22,12 +22,19 @@ create table if not exists public.leads (
   source text not null default ''
 );
 
+-- Permiso base de Postgres: sin esto, aunque la política de RLS de abajo
+-- permita el insert, Postgres igual lo rechaza con "permission denied for
+-- table leads" (falta el GRANT, es un paso aparte de la política).
+grant usage on schema public to anon;
+grant insert on public.leads to anon;
+
 -- RLS activado: sin políticas de SELECT para nadie salvo el service role,
 -- así que la clave pública (NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY) puede
 -- insertar leads pero no puede leerlos. Para ver los leads hay que entrar
 -- al Table Editor de Supabase con tu cuenta.
 alter table public.leads enable row level security;
 
+drop policy if exists "Cualquiera puede insertar un lead" on public.leads;
 create policy "Cualquiera puede insertar un lead"
   on public.leads
   for insert
