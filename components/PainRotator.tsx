@@ -8,10 +8,14 @@ import type { IconName } from "./Icon";
 export type PainItem = { value: string; icon: IconName; title: string; href: string };
 
 const INTERVAL = 3600;
+// El primer cambio llega rápido, para que se note desde el primer segundo
+// que los botones van rotando, incluso antes de que el usuario haga scroll.
+const FIRST_DELAY = 1400;
 
 /**
  * Dos botones de la portada que van cambiando entre dolores habituales.
- * El segundo cambia a mitad de intervalo que el primero para que no salten a la vez.
+ * Empiezan a rotar nada más cargar la página (primer cambio a 1,4 s) y el
+ * segundo botón va desfasado respecto al primero para que no salten a la vez.
  * Se detienen mientras el usuario tiene el ratón o el foco encima y no se
  * mueven si ha pedido reducir el movimiento.
  */
@@ -25,11 +29,14 @@ export function PainRotator({ items }: { items: PainItem[] }) {
     if (paused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const timers = slots.map((slot, slotIndex) => {
       let interval = 0;
-      const start = window.setTimeout(() => {
-        const tick = () => setIndexes((current) => current.map((value, i) => (i === slotIndex ? (value + 1) % slot.length : value)));
-        tick();
-        interval = window.setInterval(tick, INTERVAL);
-      }, INTERVAL + slotIndex * (INTERVAL / 2));
+      const tick = () => setIndexes((current) => current.map((value, i) => (i === slotIndex ? (value + 1) % slot.length : value)));
+      const start = window.setTimeout(
+        () => {
+          tick();
+          interval = window.setInterval(tick, INTERVAL);
+        },
+        FIRST_DELAY + slotIndex * (FIRST_DELAY / 2),
+      );
       return () => {
         window.clearTimeout(start);
         window.clearInterval(interval);
