@@ -86,7 +86,7 @@
 }
 
 .animate-marquee-fast {
-  animation: marquee 18s linear infinite;
+  animation: marquee 26s linear infinite;
 }
 
 /* Aparición al hacer scroll: solo se oculta cuando ScrollReveal (JS) lo marca como pendiente. */
