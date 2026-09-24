@@ -118,8 +118,6 @@ export function HomeView({ locale }: { locale: Locale }) {
         ]}
       />
 
-      <PlatformsTrust locale={locale} />
-
       <section className="py-16 sm:py-24">
         <Container>
           <RealProblem locale={locale} />
@@ -165,7 +163,9 @@ export function HomeView({ locale }: { locale: Locale }) {
         </Container>
       </section>
 
-      <section className="pb-16 sm:pb-20">
+      <PlatformsTrust locale={locale} />
+
+      <section className="py-16 sm:pb-20">
         <Container className="max-w-3xl">
           <FaqAccordion faqs={faqs} title={t("Preguntas frecuentes", "Preguntes freqüents")} />
         </Container>

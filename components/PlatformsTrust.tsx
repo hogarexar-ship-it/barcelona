@@ -1,37 +1,38 @@
-import { Icon } from "./Icon";
 import { WhatsAppIcon } from "./CtaButtons";
-import { FacebookIcon, GoogleIcon, MetaIcon } from "./PlatformIcons";
+import { FacebookIcon, GoogleIcon, InstagramIcon, MapPinIcon, MetaIcon } from "./PlatformIcons";
 import type { Locale } from "@/lib/i18n";
 import { translator } from "@/lib/i18n";
 
 /**
- * Franja de confianza: las plataformas reales donde trabajamos para el
- * cliente (no son testimonios ni cifras, solo las herramientas que usamos).
+ * Franja de confianza sobre fondo oscuro: las plataformas reales donde
+ * trabajamos para el cliente, con sus colores de marca (a diferencia de la
+ * cinta de servicios, que usa iconos de un solo color con tarjetas). No son
+ * cifras ni testimonios, solo las herramientas que usamos de verdad.
  */
 export function PlatformsTrust({ locale }: { locale: Locale }) {
   const t = translator(locale);
   const items = [
-    { icon: <GoogleIcon className="h-5 w-5 text-accent-600" />, label: "Google Ads" },
-    { icon: <Icon name="mapPin" className="h-5 w-5 text-accent-600" />, label: "Google Business Profile" },
-    { icon: <MetaIcon className="h-5 w-5 text-accent-600" />, label: "Meta Ads" },
-    { icon: <FacebookIcon className="h-5 w-5 text-accent-600" />, label: "Facebook" },
-    { icon: <Icon name="camera" className="h-5 w-5 text-accent-600" />, label: "Instagram" },
-    { icon: <WhatsAppIcon className="h-5 w-5 text-accent-600" />, label: "WhatsApp" },
+    { icon: <GoogleIcon className="h-6 w-6" />, label: "Google Ads" },
+    { icon: <MapPinIcon className="h-6 w-6" />, label: "Google Business Profile" },
+    { icon: <MetaIcon className="h-6 w-6" />, label: "Meta Ads" },
+    { icon: <FacebookIcon className="h-6 w-6" />, label: "Facebook" },
+    { icon: <InstagramIcon className="h-6 w-6" />, label: "Instagram" },
+    { icon: <WhatsAppIcon className="h-6 w-6 text-[#25D366]" />, label: "WhatsApp" },
   ];
   const loop = [...items, ...items];
 
   return (
-    <div className="border-y border-ink-100 bg-white py-6">
-      <p className="text-center text-xs font-semibold uppercase tracking-wide text-ink-400">
+    <div className="bg-ink-900 py-10">
+      <p className="text-center text-xs font-semibold uppercase tracking-[0.15em] text-white/45">
         {t("Trabajamos con estas plataformas", "Treballem amb aquestes plataformes")}
       </p>
-      <div className="mt-3 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-        <ul className="flex w-max animate-marquee gap-3">
+      <div className="mt-6 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+        <ul className="flex w-max animate-marquee items-center gap-12">
           {loop.map((item, index) => (
             <li
               key={`${item.label}-${index}`}
               aria-hidden={index >= items.length ? true : undefined}
-              className="flex shrink-0 items-center gap-2.5 rounded-md border border-ink-200 px-4 py-2 text-sm font-semibold text-ink-700"
+              className="flex shrink-0 items-center gap-2.5 text-base font-semibold text-white/90"
             >
               {item.icon}
               {item.label}
