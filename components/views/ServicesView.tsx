@@ -39,7 +39,10 @@ export function ServicesView({ locale }: { locale: Locale }) {
                 <li key={service.slug}>
                   <Link href={service.path} className="group flex items-center gap-4 py-4 transition-colors hover:text-accent-200">
                     <Icon name={service.icon} className="h-6 w-6 shrink-0 text-accent-300" />
-                    <span className="flex-1 font-display text-lg font-bold">{service.name}</span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block font-display text-lg font-bold">{service.name}</span>
+                      <span className="block truncate text-sm text-white/60">{service.oneLiner}</span>
+                    </span>
                     <Icon name="arrowRight" className="h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </li>

@@ -19,6 +19,8 @@ export type MarketingService = {
   tag: string;
   /** Título explicativo en lenguaje del cliente: lo que consigue. */
   title: string;
+  /** Frase de una sola línea: qué se logra con el servicio (lista simple de /servicios). */
+  oneLiner: string;
   /** Palabras clave técnicas que van debajo del título (SEO, GEO, CRM…). */
   keywords: string;
   short: string;
@@ -34,6 +36,8 @@ export type MarketingService = {
   signs: string[];
   includes: { icon: IconName; title: string; text: string }[];
   faqs: Faq[];
+  /** Solo el CRM: desplegable «¿Qué es un CRM?» junto a su tarjeta. */
+  whatIs?: { question: string; answer: string };
 };
 
 /** Versión en castellano. La catalana está en marketing-services.ca.ts. */
@@ -44,11 +48,16 @@ export const marketingServices: MarketingService[] = [
     icon: "megaphone",
     name: "Anuncios en Google y Meta (Facebook e Instagram)",
     tag: "Anuncios",
-    title: "Consigue llamadas de clientes ya",
+    title: "Consigue más llamadas o consultas de clientes",
+    oneLiner: "Anuncios en Google, Facebook e Instagram que te traen llamadas.",
     keywords: "Google Ads · Meta Ads (Facebook e Instagram)",
     short: "Campañas en Google Ads, Facebook e Instagram para que te llamen clientes de tu zona cuando necesitan tu servicio.",
     pain: "Si hoy no te llaman, mañana no facturas. Los anuncios te ponen delante de quien necesita un fontanero o un electricista justo ahora, en tu zona.",
-    outcomes: ["Llamadas de gente que necesita el servicio ahora", "Solo en tus zonas y en tu horario", "Sabes cuánto te cuesta cada cliente"],
+    outcomes: [
+      "Llamadas de gente que necesita el servicio ahora",
+      "Solo en tus zonas y en tu horario",
+      "Sabes cuánto te cuesta cada cliente",
+    ],
     photo: photos.electricistaLuzTecho,
     metaTitle: "Anuncios en Google y Meta para fontaneros y electricistas en Barcelona",
     metaDescription:
@@ -120,6 +129,7 @@ export const marketingServices: MarketingService[] = [
     name: "Landing page y página web",
     tag: "Web",
     title: "Una web que hace que te llamen",
+    oneLiner: "Una web rápida en el móvil, pensada para que te llamen.",
     keywords: "Landing page · Página web",
     short: "Una página rápida y clara, pensada para que quien entra te llame o te pida presupuesto.",
     pain: "Si tu web es lenta, está anticuada o no existe, el cliente se va con otro en segundos. Aunque te haya encontrado.",
@@ -178,7 +188,8 @@ export const marketingServices: MarketingService[] = [
       },
       {
         question: "¿Cuánto se tarda en tenerla?",
-        answer: "Una landing page suele estar lista en pocos días. Una web completa, en unas semanas, según el contenido que haya que preparar.",
+        answer:
+          "Una landing page suele estar lista en pocos días. Una web completa, en unas semanas, según el contenido que haya que preparar.",
       },
     ],
   },
@@ -189,8 +200,10 @@ export const marketingServices: MarketingService[] = [
     name: "Google Business y reseñas",
     tag: "Google Maps",
     title: "Sal en el mapa de Google con buenas reseñas",
+    oneLiner: "Tu ficha de Google con más reseñas y mejor posición en el mapa.",
     keywords: "Google Business Profile · Reseñas de Google",
-    short: "Tu ficha de Google optimizada y más reseñas de clientes reales para aparecer en el mapa cuando buscan un fontanero o un electricista cerca.",
+    short:
+      "Tu ficha de Google optimizada y más reseñas de clientes reales para aparecer en el mapa cuando buscan un fontanero o un electricista cerca.",
     pain: "Cuando alguien busca «electricista cerca», llama a uno de los primeros del mapa. Si no estás ahí o tienes pocas reseñas, esa llamada es para otro.",
     outcomes: ["Apareces cuando te buscan cerca", "Más reseñas de clientes reales", "Más confianza antes de que te llamen"],
     photo: photos.electricistaCuadro,
@@ -235,11 +248,16 @@ export const marketingServices: MarketingService[] = [
     icon: "search",
     name: "SEO y GEO",
     tag: "SEO y GEO",
-    title: "Aparece en Google sin pagar por cada clic",
+    title: "Aparece en las búsquedas de Google y en los chats de IA",
+    oneLiner: "Que te encuentren en Google y en los asistentes de IA.",
     keywords: "SEO local · GEO (ChatGPT, Gemini y otras IA)",
     short: "SEO local para posicionar tu web en Google y GEO para que asistentes de IA como ChatGPT o Gemini te recomienden en tu zona.",
     pain: "Depender solo de anuncios sale caro: el día que dejas de pagar, dejan de llamarte. Y cada vez más clientes preguntan directamente a ChatGPT.",
-    outcomes: ["Clientes que te encuentran solos, mes a mes", "También te recomiendan ChatGPT y otras IA", "Cada cliente te cuesta menos con el tiempo"],
+    outcomes: [
+      "Clientes que te encuentran solos, mes a mes",
+      "También te recomiendan ChatGPT y otras IA",
+      "Cada cliente te cuesta menos con el tiempo",
+    ],
     photo: photos.fontaneroInstalacionBano,
     metaTitle: "SEO local y GEO para fontaneros y electricistas en Barcelona",
     metaDescription:
@@ -256,8 +274,16 @@ export const marketingServices: MarketingService[] = [
       { icon: "document", title: "Páginas por servicio y zona", text: "Contenido útil para cada trabajo que quieres captar." },
       { icon: "wrench", title: "Parte técnica", text: "Velocidad, móvil, estructura y datos estructurados." },
       { icon: "globe", title: "Directorios y menciones", text: "Nombre, teléfono y zona coherentes en toda la red." },
-      { icon: "chat", title: "GEO: asistentes de IA", text: "Web, ficha y reseñas con información clara para que ChatGPT, Gemini o Perplexity te entiendan y te recomienden." },
-      { icon: "chart", title: "Informe mensual", text: "Posiciones, visitas y contactos que llegan desde Google y desde asistentes de IA." },
+      {
+        icon: "chat",
+        title: "GEO: asistentes de IA",
+        text: "Web, ficha y reseñas con información clara para que ChatGPT, Gemini o Perplexity te entiendan y te recomienden.",
+      },
+      {
+        icon: "chart",
+        title: "Informe mensual",
+        text: "Posiciones, visitas y contactos que llegan desde Google y desde asistentes de IA.",
+      },
     ],
     faqs: [
       {
@@ -282,10 +308,15 @@ export const marketingServices: MarketingService[] = [
     name: "CRM y seguimiento de clientes",
     tag: "CRM",
     title: "Que ningún cliente se te escape",
+    oneLiner: "Organiza tus contactos y presupuestos para no perder ningún cliente.",
     keywords: "CRM · Seguimiento de clientes y presupuestos",
     short: "Todos tus contactos, llamadas y presupuestos en un solo sitio, con avisos para no olvidar ningún seguimiento.",
     pain: "Llamadas que no devuelves, presupuestos sin respuesta y clientes que no vuelven: es dinero que ya habías ganado y se pierde por falta de tiempo.",
-    outcomes: ["Todos tus contactos y presupuestos en un solo sitio", "Avisos para llamar y seguir cada presupuesto", "Sabes de dónde viene cada cliente"],
+    outcomes: [
+      "Todos tus contactos y presupuestos en un solo sitio",
+      "Avisos para llamar y seguir cada presupuesto",
+      "Sabes de dónde viene cada cliente",
+    ],
     photo: photos.electricistaEnchufes,
     metaTitle: "CRM para fontaneros y electricistas en Barcelona: seguimiento de clientes y presupuestos",
     metaDescription:
@@ -297,17 +328,34 @@ export const marketingServices: MarketingService[] = [
       "No sabes qué anuncios o canales te traen trabajo.",
     ],
     includes: [
-      { icon: "inbox", title: "Todos los contactos en un sitio", text: "Llamadas, WhatsApp, formularios de la web y anuncios, ordenados en una sola lista." },
-      { icon: "document", title: "Seguimiento de presupuestos", text: "Recordatorios para llamar a quien no ha contestado y cerrar más trabajos." },
-      { icon: "chat", title: "Respuestas automáticas", text: "Un mensaje de WhatsApp o email al momento cuando no puedes coger el teléfono." },
+      {
+        icon: "inbox",
+        title: "Todos los contactos en un sitio",
+        text: "Llamadas, WhatsApp, formularios de la web y anuncios, ordenados en una sola lista.",
+      },
+      {
+        icon: "document",
+        title: "Seguimiento de presupuestos",
+        text: "Recordatorios para llamar a quien no ha contestado y cerrar más trabajos.",
+      },
+      {
+        icon: "chat",
+        title: "Respuestas automáticas",
+        text: "Un mensaje de WhatsApp o email al momento cuando no puedes coger el teléfono.",
+      },
       { icon: "star", title: "Petición de reseñas", text: "Al cerrar un trabajo, el cliente recibe el enlace para dejar su reseña." },
-      { icon: "calendar", title: "Clientes que repiten", text: "Avisos de revisiones y mantenimientos para volver a trabajar con el mismo cliente." },
+      {
+        icon: "calendar",
+        title: "Clientes que repiten",
+        text: "Avisos de revisiones y mantenimientos para volver a trabajar con el mismo cliente.",
+      },
       { icon: "chart", title: "De dónde viene cada cliente", text: "Qué canal te trae más trabajo, para invertir donde funciona." },
     ],
     faqs: [
       {
         question: "¿Qué es un CRM?",
-        answer: "Es una herramienta para tener todos tus clientes, llamadas y presupuestos en un solo sitio, con avisos para no olvidar ningún seguimiento.",
+        answer:
+          "Es una herramienta para tener todos tus clientes, llamadas y presupuestos en un solo sitio, con avisos para no olvidar ningún seguimiento.",
       },
       {
         question: "¿Es complicado de usar?",
@@ -315,9 +363,15 @@ export const marketingServices: MarketingService[] = [
       },
       {
         question: "¿Qué CRM usáis?",
-        answer: "Elegimos la herramienta según tu tamaño y presupuesto: puede ser muy sencilla si trabajas solo y crecer contigo cuando montes equipo.",
+        answer:
+          "Elegimos la herramienta según tu tamaño y presupuesto: puede ser muy sencilla si trabajas solo y crecer contigo cuando montes equipo.",
       },
     ],
+    whatIs: {
+      question: "¿Qué es un CRM?",
+      answer:
+        "Un CRM (gestor de relación con clientes) es donde quedan guardados todos tus contactos, llamadas y presupuestos en un solo sitio, con avisos para no olvidar ningún seguimiento. En vez de apuntarlo en una libreta o en el WhatsApp, lo tienes todo ordenado y accesible desde el móvil.",
+    },
   },
 ];
 

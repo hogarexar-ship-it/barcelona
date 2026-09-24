@@ -10,11 +10,16 @@ export const marketingServicesCa: MarketingService[] = [
     icon: "megaphone",
     name: "Anuncis a Google i Meta (Facebook i Instagram)",
     tag: "Anuncis",
-    title: "Aconsegueix trucades de clients ja",
+    title: "Aconsegueix més trucades o consultes de clients",
+    oneLiner: "Anuncis a Google, Facebook i Instagram que et porten trucades.",
     keywords: "Google Ads · Meta Ads (Facebook i Instagram)",
     short: "Campanyes a Google Ads, Facebook i Instagram perquè et truquin clients de la teva zona quan necessiten el teu servei.",
     pain: "Si avui no et truquen, demà no factures. Els anuncis et posen davant de qui necessita un lampista o un electricista just ara, a la teva zona.",
-    outcomes: ["Trucades de gent que necessita el servei ara", "Només a les teves zones i en el teu horari", "Saps quant et costa cada client"],
+    outcomes: [
+      "Trucades de gent que necessita el servei ara",
+      "Només a les teves zones i en el teu horari",
+      "Saps quant et costa cada client",
+    ],
     photo: photos.electricistaLuzTecho,
     metaTitle: "Anuncis a Google i Meta per a lampistes i electricistes a Barcelona",
     metaDescription:
@@ -74,10 +79,15 @@ export const marketingServicesCa: MarketingService[] = [
     name: "Landing page i pàgina web",
     tag: "Web",
     title: "Una web que fa que et truquin",
+    oneLiner: "Una web ràpida al mòbil, pensada perquè et truquin.",
     keywords: "Landing page · Pàgina web",
     short: "Una pàgina ràpida i clara, pensada perquè qui hi entra et truqui o et demani pressupost.",
     pain: "Si la teva web és lenta, està antiquada o no existeix, el client se'n va amb un altre en segons. Encara que t'hagi trobat.",
-    outcomes: ["Més visites que acaben en trucada o WhatsApp", "Una imatge professional que dona confiança", "Preparada per sortir a Google"],
+    outcomes: [
+      "Més visites que acaben en trucada o WhatsApp",
+      "Una imatge professional que dona confiança",
+      "Preparada per sortir a Google",
+    ],
     photo: photos.fontaneroGrifo,
     metaTitle: "Landing pages i webs per a lampistes i electricistes a Barcelona",
     metaDescription:
@@ -109,7 +119,8 @@ export const marketingServicesCa: MarketingService[] = [
       { question: "El domini i la web són meus?", answer: "Sí. Tot queda al teu nom." },
       {
         question: "Quant es triga a tenir-la?",
-        answer: "Una landing page sol estar llesta en pocs dies. Una web completa, en unes setmanes, segons el contingut que calgui preparar.",
+        answer:
+          "Una landing page sol estar llesta en pocs dies. Una web completa, en unes setmanes, segons el contingut que calgui preparar.",
       },
     ],
   },
@@ -120,8 +131,10 @@ export const marketingServicesCa: MarketingService[] = [
     name: "Google Business i ressenyes",
     tag: "Google Maps",
     title: "Surt al mapa de Google amb bones ressenyes",
+    oneLiner: "La teva fitxa de Google amb més ressenyes i millor posició al mapa.",
     keywords: "Google Business Profile · Ressenyes de Google",
-    short: "La teva fitxa de Google optimitzada i més ressenyes de clients reals per sortir al mapa quan cerquen un lampista o un electricista a prop.",
+    short:
+      "La teva fitxa de Google optimitzada i més ressenyes de clients reals per sortir al mapa quan cerquen un lampista o un electricista a prop.",
     pain: "Quan algú cerca «electricista a prop», truca a un dels primers del mapa. Si no hi ets o tens poques ressenyes, aquesta trucada és per a un altre.",
     outcomes: ["Apareixes quan et cerquen a prop", "Més ressenyes de clients reals", "Més confiança abans que et truquin"],
     photo: photos.electricistaCuadro,
@@ -165,11 +178,16 @@ export const marketingServicesCa: MarketingService[] = [
     icon: "search",
     name: "SEO i GEO",
     tag: "SEO i GEO",
-    title: "Apareix a Google sense pagar per cada clic",
+    title: "Apareix a les cerques de Google i als xats d'IA",
+    oneLiner: "Que et trobin a Google i als assistents d'IA.",
     keywords: "SEO local · GEO (ChatGPT, Gemini i altres IA)",
     short: "SEO local per posicionar la teva web a Google i GEO perquè assistents d'IA com ChatGPT o Gemini et recomanin a la teva zona.",
     pain: "Dependre només d'anuncis surt car: el dia que deixes de pagar, deixen de trucar-te. I cada cop més clients pregunten directament a ChatGPT.",
-    outcomes: ["Clients que et troben sols, mes a mes", "També et recomanen ChatGPT i altres IA", "Cada client et costa menys amb el temps"],
+    outcomes: [
+      "Clients que et troben sols, mes a mes",
+      "També et recomanen ChatGPT i altres IA",
+      "Cada client et costa menys amb el temps",
+    ],
     photo: photos.fontaneroInstalacionBano,
     metaTitle: "SEO local i GEO per a lampistes i electricistes a Barcelona",
     metaDescription:
@@ -191,7 +209,11 @@ export const marketingServicesCa: MarketingService[] = [
         title: "GEO: assistents d'IA",
         text: "Web, fitxa i ressenyes amb informació clara perquè ChatGPT, Gemini o Perplexity t'entenguin i et recomanin.",
       },
-      { icon: "chart", title: "Informe mensual", text: "Posicions, visites i contactes que arriben des de Google i des d'assistents d'IA." },
+      {
+        icon: "chart",
+        title: "Informe mensual",
+        text: "Posicions, visites i contactes que arriben des de Google i des d'assistents d'IA.",
+      },
     ],
     faqs: [
       {
@@ -213,10 +235,15 @@ export const marketingServicesCa: MarketingService[] = [
     name: "CRM i seguiment de clients",
     tag: "CRM",
     title: "Que no se t'escapi cap client",
+    oneLiner: "Organitza els teus contactes i pressupostos per no perdre cap client.",
     keywords: "CRM · Seguiment de clients i pressupostos",
     short: "Tots els teus contactes, trucades i pressupostos en un sol lloc, amb avisos per no oblidar cap seguiment.",
     pain: "Trucades que no tornes, pressupostos sense resposta i clients que no tornen: són diners que ja havies guanyat i es perden per falta de temps.",
-    outcomes: ["Tots els teus contactes i pressupostos en un sol lloc", "Avisos per trucar i seguir cada pressupost", "Saps d'on ve cada client"],
+    outcomes: [
+      "Tots els teus contactes i pressupostos en un sol lloc",
+      "Avisos per trucar i seguir cada pressupost",
+      "Saps d'on ve cada client",
+    ],
     photo: photos.electricistaEnchufes,
     metaTitle: "CRM per a lampistes i electricistes a Barcelona: seguiment de clients i pressupostos",
     metaDescription:
@@ -228,17 +255,26 @@ export const marketingServicesCa: MarketingService[] = [
       "No saps quins anuncis o canals et porten feina.",
     ],
     includes: [
-      { icon: "inbox", title: "Tots els contactes en un lloc", text: "Trucades, WhatsApp, formularis de la web i anuncis, ordenats en una sola llista." },
+      {
+        icon: "inbox",
+        title: "Tots els contactes en un lloc",
+        text: "Trucades, WhatsApp, formularis de la web i anuncis, ordenats en una sola llista.",
+      },
       { icon: "document", title: "Seguiment de pressupostos", text: "Recordatoris per trucar a qui no ha contestat i tancar més feines." },
       { icon: "chat", title: "Respostes automàtiques", text: "Un missatge de WhatsApp o correu al moment quan no pots agafar el telèfon." },
       { icon: "star", title: "Petició de ressenyes", text: "En tancar una feina, el client rep l'enllaç per deixar la seva ressenya." },
-      { icon: "calendar", title: "Clients que repeteixen", text: "Avisos de revisions i manteniments per tornar a treballar amb el mateix client." },
+      {
+        icon: "calendar",
+        title: "Clients que repeteixen",
+        text: "Avisos de revisions i manteniments per tornar a treballar amb el mateix client.",
+      },
       { icon: "chart", title: "D'on ve cada client", text: "Quin canal et porta més feina, per invertir on funciona." },
     ],
     faqs: [
       {
         question: "Què és un CRM?",
-        answer: "És una eina per tenir tots els teus clients, trucades i pressupostos en un sol lloc, amb avisos per no oblidar cap seguiment.",
+        answer:
+          "És una eina per tenir tots els teus clients, trucades i pressupostos en un sol lloc, amb avisos per no oblidar cap seguiment.",
       },
       {
         question: "És complicat de fer servir?",
@@ -246,9 +282,15 @@ export const marketingServicesCa: MarketingService[] = [
       },
       {
         question: "Quin CRM feu servir?",
-        answer: "Triem l'eina segons la teva mida i el teu pressupost: pot ser molt senzilla si treballes sol i créixer amb tu quan muntis equip.",
+        answer:
+          "Triem l'eina segons la teva mida i el teu pressupost: pot ser molt senzilla si treballes sol i créixer amb tu quan muntis equip.",
       },
     ],
+    whatIs: {
+      question: "Què és un CRM?",
+      answer:
+        "Un CRM (gestor de relació amb clients) és on queden guardats tots els teus contactes, trucades i pressupostos en un sol lloc, amb avisos per no oblidar cap seguiment. En comptes d'apuntar-ho en una llibreta o al WhatsApp, ho tens tot ordenat i accessible des del mòbil.",
+    },
   },
 ];
 

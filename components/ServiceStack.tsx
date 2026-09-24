@@ -48,6 +48,25 @@ export function ServiceStack({ locale }: { locale: Locale }) {
                 <p className={`mt-3 text-sm font-semibold ${dark ? "text-accent-200" : "text-accent-700"}`}>{service.keywords}</p>
                 <p className={`mt-4 max-w-xl text-lg ${dark ? "text-white/75" : "text-ink-600"}`}>{service.short}</p>
                 <p className={`mt-3 max-w-xl text-base ${dark ? "text-white/50" : "text-ink-400"}`}>{service.pain}</p>
+                {service.whatIs && (
+                  <details className={`group/what mt-6 max-w-xl rounded-md border ${dark ? "border-white/20" : "border-ink-200"}`}>
+                    <summary
+                      className={`flex cursor-pointer list-none items-center gap-3 px-4 py-3 font-semibold ${
+                        dark ? "text-white" : "text-ink-900"
+                      }`}
+                    >
+                      <Icon name="question" className={`h-5 w-5 shrink-0 ${dark ? "text-accent-300" : "text-accent-600"}`} />
+                      <span className="flex-1">{service.whatIs.question}</span>
+                      <span
+                        className={`text-lg leading-none transition-transform group-open/what:rotate-45 ${dark ? "text-white/50" : "text-ink-400"}`}
+                        aria-hidden="true"
+                      >
+                        +
+                      </span>
+                    </summary>
+                    <p className={`px-4 pb-4 text-sm ${dark ? "text-white/70" : "text-ink-600"}`}>{service.whatIs.answer}</p>
+                  </details>
+                )}
                 <Link href={service.path} className="group mt-8 inline-flex items-center gap-4 font-display text-lg font-bold">
                   {t("Ver cómo lo hacemos", "Veure com ho fem")}
                   <span
@@ -75,7 +94,10 @@ export function RealProblem({ locale }: { locale: Locale }) {
   return (
     <div className="max-w-3xl" data-reveal>
       <h2 className="font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-ink-900 sm:text-5xl">
-        {t("Deja de perder tiempo en tareas que nosotros podemos llevar por ti.", "Deixa de perdre temps en tasques que nosaltres podem portar per tu.")}
+        {t(
+          "Deja de perder tiempo en tareas que nosotros podemos llevar por ti.",
+          "Deixa de perdre temps en tasques que nosaltres podem portar per tu.",
+        )}
       </h2>
       <p className="mt-6 text-lg text-ink-700 sm:text-xl">
         {t(
