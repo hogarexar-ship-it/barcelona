@@ -167,7 +167,7 @@ export function ContactForm({
         <ol className="grid grid-cols-3 gap-2" aria-label={t("Pasos del formulario", "Passos del formulari")}>
           {stepLabels[locale].map((label, index) => (
             <li key={label} aria-current={index === step ? "step" : undefined}>
-              <div className={`h-1.5 rounded ${index <= step ? "bg-[#EA580C]" : "bg-ink-100"}`} />
+              <div className={`h-1.5 rounded ${index <= step ? "bg-[#CE6A27]" : "bg-ink-100"}`} />
               <p className={`mt-2 text-xs font-semibold ${index === step ? "text-ink-900" : "text-ink-400"}`}>
                 {index + 1}. {label}
               </p>
@@ -328,7 +328,7 @@ export function ContactForm({
                 required
                 checked={consent}
                 onChange={(e) => setConsent(e.target.checked)}
-                className="mt-0.5 h-4 w-4 accent-[#EA580C]"
+                className="mt-0.5 h-4 w-4 accent-[#CE6A27]"
               />
               <span>
                 {t("He leído y acepto la", "He llegit i accepto la")}{" "}

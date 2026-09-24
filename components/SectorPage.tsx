@@ -92,7 +92,7 @@ export function SectorPage({ locale, sector }: { locale: Locale; sector: Sector 
               {t("El problema no es tu trabajo.", "El problema no és la teva feina.")}
             </p>
             <p className="mt-3 flex gap-3 font-display text-2xl font-bold leading-snug text-ink-900 sm:text-3xl">
-              <Icon name="arrowRight" className="mt-1.5 h-7 w-7 shrink-0 text-[#EA580C]" />
+              <Icon name="arrowRight" className="mt-1.5 h-7 w-7 shrink-0 text-[#CE6A27]" />
               {t(
                 "El problema es que no tienes un sistema para conseguir clientes de forma constante.",
                 "El problema és que no tens un sistema per aconseguir clients de manera constant.",
@@ -141,7 +141,7 @@ export function SectorPage({ locale, sector }: { locale: Locale; sector: Sector 
             ))}
           </ol>
           <p className="mt-8 flex gap-3 text-xl font-semibold text-ink-900" data-reveal>
-            <Icon name="arrowRight" className="mt-1 h-6 w-6 shrink-0 text-[#EA580C]" />
+            <Icon name="arrowRight" className="mt-1 h-6 w-6 shrink-0 text-[#CE6A27]" />
             {t(
               "Esto provoca ingresos que suben y bajan y un negocio que crece despacio.",
               "Això provoca ingressos que pugen i baixen i un negoci que creix a poc a poc.",
@@ -168,7 +168,7 @@ export function SectorPage({ locale, sector }: { locale: Locale; sector: Sector 
             ))}
           </ul>
           <p className="mt-10 flex gap-3 text-xl font-semibold" data-reveal>
-            <Icon name="arrowRight" className="mt-1 h-6 w-6 shrink-0 text-[#EA580C]" />
+            <Icon name="arrowRight" className="mt-1 h-6 w-6 shrink-0 text-[#CE6A27]" />
             {t("Y eso se nota directamente en lo que ganas.", "I això es nota directament en el que guanyes.")}
           </p>
         </Container>
@@ -258,7 +258,7 @@ export function SectorPage({ locale, sector }: { locale: Locale; sector: Sector 
             ))}
           </ul>
           <p className="mt-10 flex gap-3 font-display text-2xl font-bold text-ink-900" data-reveal>
-            <Icon name="arrowRight" className="mt-1 h-7 w-7 shrink-0 text-[#EA580C]" />
+            <Icon name="arrowRight" className="mt-1 h-7 w-7 shrink-0 text-[#CE6A27]" />
             {t("No es suerte: es un sistema. Y lo montamos contigo.", "No és sort: és un sistema. I el muntem amb tu.")}
           </p>
         </Container>

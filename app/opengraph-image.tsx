@@ -22,14 +22,14 @@ export default function OpengraphImage() {
         }}
       >
         <div style={{ display: "flex", alignItems: "flex-end", fontSize: 72, fontWeight: 800, color: "#1B1814" }}>
-          <span>oficio</span>
-          <span style={{ color: "#A44A22" }}>pro</span>
-          <div style={{ width: 18, height: 18, borderRadius: 9, backgroundColor: "#C55F2C", marginLeft: 6, marginBottom: 18 }} />
+          <span>oficios</span>
+          <span style={{ color: "#AD5921" }}>pro</span>
+          <div style={{ width: 18, height: 18, borderRadius: 9, backgroundColor: "#CE6A27", marginLeft: 6, marginBottom: 18 }} />
         </div>
         <div style={{ display: "flex", marginTop: 36, fontSize: 60, fontWeight: 800, color: "#1B1814", maxWidth: 1000, lineHeight: 1.1 }}>
           {siteConfig.tagline}
         </div>
-        <div style={{ display: "flex", marginTop: 40, fontSize: 28, color: "#A44A22", fontWeight: 700 }}>
+        <div style={{ display: "flex", marginTop: 40, fontSize: 28, color: "#AD5921", fontWeight: 700 }}>
           Google y Meta Ads (Facebook e Instagram) · Web · Google Business · SEO y GEO
         </div>
       </div>

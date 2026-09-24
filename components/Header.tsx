@@ -75,7 +75,7 @@ export function Header({ menuServices = [] }: { menuServices?: MenuService[] }) 
                 key={link.href}
                 href={link.href}
                 aria-current={active ? "page" : undefined}
-                className={`-mb-px flex items-center border-b-2 ${active ? "border-[#EA580C]" : "border-transparent"} ${linkClass(active)}`}
+                className={`-mb-px flex items-center border-b-2 ${active ? "border-[#CE6A27]" : "border-transparent"} ${linkClass(active)}`}
               >
                 {link.label}
               </Link>

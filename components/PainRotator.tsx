@@ -61,7 +61,7 @@ export function PainRotator({ items }: { items: PainItem[] }) {
           <Link
             key={slotIndex}
             href={item.href}
-            className="group flex min-h-[4.75rem] items-center gap-4 overflow-hidden rounded-md border border-white/30 bg-white/10 p-4 backdrop-blur-md transition-colors hover:border-[#EA580C] hover:bg-white/20"
+            className="group flex min-h-[4.75rem] items-center gap-4 overflow-hidden rounded-md border border-white/30 bg-white/10 p-4 backdrop-blur-md transition-colors hover:border-[#CE6A27] hover:bg-white/20"
           >
             <span key={item.value} className="flex flex-1 animate-pain-in items-center gap-4">
               <Icon name={item.icon} className="h-7 w-7 shrink-0 text-accent-300" />

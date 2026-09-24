@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
 import { routes } from "@/lib/navigation";
@@ -7,14 +8,14 @@ export function Logo({ onDark = false, locale = "es" }: { onDark?: boolean; loca
   return (
     <Link
       href={routes[locale].home}
-      className="inline-flex items-baseline gap-0.5"
+      className="inline-flex items-center gap-2"
       aria-label={`${siteConfig.brand}, ${locale === "ca" ? "anar a l'inici" : "ir al inicio"}`}
     >
+      <Image src="/images/logo-icon.png" alt="" width={32} height={32} className="h-8 w-8 shrink-0" priority />
       <span className={`font-display text-2xl font-extrabold tracking-tight ${onDark ? "text-white" : "text-ink-900"}`}>
-        oficio
+        oficios
         <span className={onDark ? "text-accent-300" : "text-accent-600"}>pro</span>
       </span>
-      <span className="h-2 w-2 rounded-full bg-terracotta-500" aria-hidden="true" />
     </Link>
   );
 }

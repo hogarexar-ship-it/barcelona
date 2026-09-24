@@ -45,7 +45,8 @@ export const metadata: Metadata = {
   authors: [{ name: siteConfig.brand }],
   robots: { index: true, follow: true },
   icons: {
-    icon: "/favicon.svg",
+    icon: [{ url: "/images/logo-icon.png", type: "image/png" }],
+    apple: [{ url: "/images/logo-icon.png", type: "image/png" }],
   },
 };
 

@@ -26,7 +26,7 @@ export function ReadingProgress({ targetId }: { targetId: string }) {
 
   return (
     <div className="sticky top-16 z-30 h-1 bg-transparent" aria-hidden="true">
-      <div className="h-full origin-left bg-[#EA580C]" style={{ transform: `scaleX(${progress})` }} />
+      <div className="h-full origin-left bg-[#CE6A27]" style={{ transform: `scaleX(${progress})` }} />
     </div>
   );
 }

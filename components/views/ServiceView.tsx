@@ -81,8 +81,8 @@ export function ServiceView({ locale, service }: { locale: Locale; service: Mark
             <h2 className="font-display text-2xl font-bold text-ink-900 sm:text-3xl">
               {t("Por qué lo necesitas", "Per què ho necessites")}
             </h2>
-            <p className="mt-4 flex gap-3 rounded-xl2 border-l-4 border-[#EA580C] bg-white p-5 text-lg text-ink-800" data-reveal>
-              <Icon name="alert" className="mt-1 h-5 w-5 shrink-0 text-[#EA580C]" />
+            <p className="mt-4 flex gap-3 rounded-xl2 border-l-4 border-[#CE6A27] bg-white p-5 text-lg text-ink-800" data-reveal>
+              <Icon name="alert" className="mt-1 h-5 w-5 shrink-0 text-[#CE6A27]" />
               {service.pain}
             </p>
             <p className="mt-6 font-semibold text-ink-900">{t("Es para ti si…", "És per a tu si…")}</p>

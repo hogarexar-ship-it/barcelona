@@ -201,14 +201,14 @@ export function GuideArticle({ locale, guide, related }: { locale: Locale; guide
                   )}
                 </section>
                 {index === midpoint - 1 && guide.content.length > 2 && (
-                  <aside className="mt-10 flex flex-col gap-4 rounded-xl2 border-l-4 border-[#EA580C] bg-white p-6 sm:flex-row sm:items-center sm:justify-between">
+                  <aside className="mt-10 flex flex-col gap-4 rounded-xl2 border-l-4 border-[#CE6A27] bg-white p-6 sm:flex-row sm:items-center sm:justify-between">
                     <p className="font-semibold text-ink-900">
                       {t(
                         "¿Prefieres que lo hagamos por ti? Te decimos cómo en el asesoramiento gratuito.",
                         "Prefereixes que ho fem per tu? Et diem com a l'assessorament gratuït.",
                       )}
                     </p>
-                    <Link href={contactHref} className="inline-flex shrink-0 items-center gap-1.5 font-bold text-[#C2410C] hover:text-ink-900">
+                    <Link href={contactHref} className="inline-flex shrink-0 items-center gap-1.5 font-bold text-[#AD5921] hover:text-ink-900">
                       {t("Pedirlo", "Demanar-lo")}
                       <Icon name="arrowRight" className="h-4 w-4" />
                     </Link>

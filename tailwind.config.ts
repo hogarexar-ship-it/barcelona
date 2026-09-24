@@ -13,7 +13,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Colores temáticos: cambian según la zona (particulares / profesionales). Ver app/globals.css.
+        // Naranja de marca (definitivo: #CE6A27). Ver app/globals.css para los valores exactos de cada paso.
         accent: themeScale("accent", [50, 100, 200, 300, 400, 500, 600, 700]),
         surface: themeScale("surface", [50, 100, 200]),
         cream: {
@@ -21,17 +21,10 @@ const config: Config = {
           100: "#FAF5EC",
           200: "#F3E9D8",
         },
-        terracotta: {
-          50: "#FDF3EE",
-          100: "#FAE3D6",
-          200: "#F3C2A4",
-          300: "#E89F72",
-          400: "#DD7C47",
-          500: "#C55F2C",
-          600: "#A44A22",
-          700: "#7E381B",
-          800: "#5A2814",
-          900: "#3B1A0D",
+        // Azul de marca, solo para usos secundarios (nunca botones ni CTA principales).
+        navy: {
+          DEFAULT: "#122865",
+          600: "#0D1D4B",
         },
         ink: {
           50: "#F5F5F4",

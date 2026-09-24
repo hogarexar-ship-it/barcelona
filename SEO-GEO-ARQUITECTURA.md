@@ -1,14 +1,14 @@
-# Arquitectura SEO y GEO de OficioPro
+# Arquitectura SEO y GEO de OficiosPro
 
 Documento vivo. Antes de crear una página, cambiar una URL o tocar los
 datos estructurados, revisa esto. Está pensado para que el sitio sea fácil
 de indexar por buscadores y fácil de citar por asistentes de IA (GEO:
 Generative Engine Optimization), sin inventar datos que no tenemos.
 
-> Este documento adapta al modelo de OficioPro los criterios de arquitectura
+> Este documento adapta al modelo de OficiosPro los criterios de arquitectura
 > usados en otros proyectos del grupo (hogarex-seo, app.hogarex.ar). No es
 > una copia: hogarex es un marketplace C2B con decenas de oficios y barrios,
-> así que usa una matriz de URLs por rubro × zona. OficioPro es una agencia
+> así que usa una matriz de URLs por rubro × zona. OficiosPro es una agencia
 > B2B con dos oficios y una sola ciudad de referencia, así que **no** replica
 > esa matriz — generaría páginas casi vacías o duplicadas. Lo que sí se
 > adapta son los principios: jerarquía de URLs fija, contenido único por
@@ -41,7 +41,7 @@ contenido suficiente para ser único, no se crea la ruta.
 
 ### Por qué no hay páginas por barrio
 
-OficioPro no promete cobertura hiperlocal por barrio (a diferencia de un
+OficiosPro no promete cobertura hiperlocal por barrio (a diferencia de un
 marketplace de oficios a domicilio): trabaja fontanería y electricidad en
 Barcelona y alrededores desde una sola oferta. Crear `/marketing-para-fontaneros/gracia`,
 `/marketing-para-fontaneros/sants`, etc. sin contenido realmente distinto en
@@ -74,7 +74,7 @@ Google pueda enlazar las piezas entre sí:
   las páginas que ya tienen un bloque de FAQ).
 
 **Nunca se añade** `AggregateRating` ni `Review` con datos inventados. El
-día que OficioPro tenga reseñas reales verificables, se añaden con su fecha
+día que OficiosPro tenga reseñas reales verificables, se añaden con su fecha
 y su autor; hasta entonces, no aparece ninguna cifra de valoración.
 
 ## 3. Metadatos y URLs canónicas
@@ -155,7 +155,7 @@ definición, un párrafo, una respuesta) fuera de contexto. Por eso:
 - `sameAs` de `organizationSchema()` apunta a Instagram y LinkedIn
   marcados como `PLACEHOLDER` en `lib/site-config.ts` — hay que sustituirlos
   por los perfiles reales antes de publicar (ver checklist del `README.md`).
-- Cuando existan reseñas reales de clientes de OficioPro (no de fontaneros o
+- Cuando existan reseñas reales de clientes de OficiosPro (no de fontaneros o
   electricistas finales, que no son el cliente de este sitio), valorar un
   `Review`/`AggregateRating` en `organizationSchema()`, siempre con datos
   verificables y fecha.

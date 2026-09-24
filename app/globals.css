@@ -2,17 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Paleta: crema cálido + terracota (accent-*, surface-*). Los botones principales usan un naranja intenso. */
+/* Paleta: crema cálido + naranja de marca (accent-*, surface-*). El naranja definitivo es #CE6A27. */
 @layer base {
   :root {
-    --accent-50: 253 243 238;
-    --accent-100: 250 227 214;
-    --accent-200: 243 194 164;
-    --accent-300: 232 159 114;
-    --accent-400: 221 124 71;
-    --accent-500: 197 95 44;
-    --accent-600: 164 74 34;
-    --accent-700: 126 56 27;
+    --accent-50: 253 249 246;
+    --accent-100: 250 240 233;
+    --accent-200: 243 219 203;
+    --accent-300: 234 192 164;
+    --accent-400: 224 160 117;
+    --accent-500: 206 106 39;
+    --accent-600: 173 89 33;
+    --accent-700: 136 70 26;
     --surface-50: 253 251 247;
     --surface-100: 250 245 236;
     --surface-200: 243 233 216;
@@ -37,7 +37,7 @@
   }
 
   .btn-primary {
-    @apply bg-[#EA580C] font-bold text-white hover:bg-[#C2410C];
+    @apply bg-[#CE6A27] font-bold text-white hover:bg-[#AD5921];
   }
 
   .btn-outline {

@@ -33,7 +33,7 @@ export function EarningsCalculator({ locale, defaultTicket, contactHref }: { loc
             max={20}
             value={jobs}
             onChange={(e) => setJobs(Number(e.target.value))}
-            className="mt-3 w-full accent-[#EA580C]"
+            className="mt-3 w-full accent-[#CE6A27]"
           />
           <p className="mt-1 text-sm text-ink-400">{t("Uno a la semana ya son 4 al mes.", "Una a la setmana ja són 4 al mes.")}</p>
         </div>
@@ -50,7 +50,7 @@ export function EarningsCalculator({ locale, defaultTicket, contactHref }: { loc
             step={10}
             value={ticket}
             onChange={(e) => setTicket(Number(e.target.value))}
-            className="mt-3 w-full accent-[#EA580C]"
+            className="mt-3 w-full accent-[#CE6A27]"
           />
         </div>
       </div>
