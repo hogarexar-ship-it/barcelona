@@ -477,6 +477,598 @@ export const guides: Guide[] = [
       },
     ],
   },
+  {
+    id: "por-que-no-me-llaman-clientes-nuevos-fontanero-barcelona",
+    photo: photos.fontaneroFregadero,
+    title: "Por qué no te llaman clientes nuevos aunque hagas buen trabajo",
+    metaDescription:
+      "Eres buen fontanero y aun así no entran clientes nuevos. Las cuatro razones más habituales por las que un fontanero en Barcelona no aparece cuando alguien lo busca, y cómo comprobar cuál es la tuya.",
+    excerpt:
+      "Currar bien no es el problema. El problema es que, si no te encuentran, da igual lo bien que curres: ese trabajo se lo lleva otro.",
+    summary:
+      "Un fontanero en Barcelona que no recibe clientes nuevos casi siempre tiene uno de estos cuatro problemas: no aparece en el mapa de Google cuando alguien busca «fontanero cerca de mí», tiene pocas reseñas o ninguna, su ficha de Google está incompleta, o depende solo del boca a boca sin ningún canal que traiga gente nueva. Ninguno tiene que ver con la calidad del trabajo: son cosas que se revisan y se arreglan en días, no en meses.",
+    publishedAt: "2026-09-25",
+    updatedAt: "2026-09-25",
+    category: "Conseguir clientes",
+    trade: "fontaneria",
+    content: [
+      {
+        heading: "El trabajo bien hecho no se ve solo",
+        paragraphs: [
+          "Es la queja más habitual de un fontanero autónomo: «llevo años currando bien, mis clientes están contentos, ¿por qué no me llama gente nueva?». La respuesta casi nunca tiene que ver con el oficio. Tiene que ver con que, hoy, la mayoría de la gente que necesita un fontanero no pregunta a un vecino: abre Google en el móvil y llama al primero que le da confianza en diez segundos.",
+          "Si en esos diez segundos no apareces tú, no es que hayas perdido ese cliente por mal trabajo. Es que nunca llegó a saber que existías.",
+        ],
+      },
+      {
+        heading: "1. No apareces en el mapa cuando buscan «fontanero cerca de mí»",
+        paragraphs: [
+          "Es la causa más común y la más fácil de comprobar: busca tú mismo «fontanero» desde el móvil, con la ubicación activada, desde tu barrio. Si no sales entre los primeros resultados del mapa, ese es tu problema número uno, y probablemente no tiene que ver con tu ficha de Google sino con que no está verificada, no tiene categoría correcta o directamente no existe.",
+        ],
+      },
+      {
+        heading: "2. Tienes pocas reseñas, o ninguna",
+        paragraphs: [
+          "Ante una urgencia, la gente no compara presupuestos: compara estrellas. Un fontanero con 4 reseñas gana a otro con 40 aunque el segundo cobre menos, simplemente porque genera más confianza en el momento de decidir. Si nunca has pedido una reseña a un cliente contento, ese es el segundo punto a revisar.",
+        ],
+      },
+      {
+        heading: "3. Tu ficha de Google está a medias",
+        paragraphs: [],
+        list: [
+          "Sin fotos, o con fotos genéricas de internet en vez de tus propios trabajos.",
+          "Sin horario actualizado, o con un horario que no coincide con cuándo realmente coges el teléfono.",
+          "Sin zona de servicio definida, así que Google no sabe si trabajas en tu barrio o en toda Cataluña.",
+          "Sin categoría de «Fontanero» como principal, a veces por error queda como «Contratista general» o algo parecido.",
+        ],
+      },
+      {
+        heading: "4. Dependes solo del boca a boca",
+        paragraphs: [
+          "El boca a boca es el mejor cliente que existe, pero tiene un límite: no lo controlas. No decides cuándo llega ni cuántos llegan. Si es tu único canal, tu agenda sube y baja según la suerte, no según lo que necesitas ese mes.",
+        ],
+      },
+      {
+        heading: "Cómo saber cuál es tu caso",
+        paragraphs: [
+          "Haz la prueba: busca tu oficio desde el móvil como lo haría un cliente. Mira si sales, cuántas reseñas tienes y si las fotos y el horario son reales. En la mayoría de los casos, con eso ya se ve claro por dónde falla.",
+        ],
+      },
+      {
+        heading: `Cómo te ayuda ${brand}`,
+        paragraphs: [
+          "En el asesoramiento gratuito hacemos esa misma prueba contigo: miramos tu ficha de Google, tu posición en el mapa y tus reseñas, y te decimos exactamente qué está fallando y qué haríamos primero en tu caso.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "cuanto-gana-un-fontanero-autonomo-en-barcelona",
+    photo: photos.fontaneroGrifo,
+    title: "Cuánto gana un fontanero autónomo en Barcelona (y qué lo cambia)",
+    metaDescription:
+      "Qué factores hacen que un fontanero autónomo en Barcelona gane más o menos: volumen de avisos, tipo de trabajo, zona y cómo consigue clientes. Rangos orientativos, no una cifra inventada.",
+    excerpt:
+      "No hay una cifra única para «lo que gana un fontanero»: depende de cuatro cosas muy concretas, y las cuatro se pueden trabajar.",
+    summary:
+      "Lo que gana un fontanero autónomo en Barcelona depende sobre todo de cuatro factores: cuántos avisos recibe al mes, si son reparaciones pequeñas o trabajos de más importe (reformas, instalaciones), la zona donde trabaja y si tiene un sistema para conseguir clientes o depende solo del boca a boca. Dos fontaneros con la misma habilidad técnica pueden tener ingresos muy distintos según cómo gestionen estos cuatro puntos, no según lo bien que trabajen con las manos.",
+    publishedAt: "2026-09-26",
+    updatedAt: "2026-09-26",
+    category: "Tu negocio",
+    trade: "fontaneria",
+    content: [
+      {
+        heading: "Por qué no hay una cifra única",
+        paragraphs: [
+          "Es una de las preguntas que más se busca en Google y en asistentes de IA, y la respuesta honesta es que no existe una cifra real y verificable que sirva para todos: no publicamos estadísticas inventadas. Lo que sí se puede explicar son los factores que hacen que un fontanero autónomo en Barcelona gane más o menos, y esos sí son reales y se pueden trabajar uno a uno.",
+        ],
+      },
+      {
+        heading: "1. Cuántos avisos recibe al mes",
+        paragraphs: [
+          "Es el factor más obvio, pero el que menos se controla si el único canal es el boca a boca. Un fontanero que solo depende de que le llamen antiguos clientes tiene meses buenos y meses flojos sin poder hacer nada. Uno que además tiene ficha de Google activa, reseñas y algún anuncio bien acotado puede suavizar esos altibajos.",
+        ],
+      },
+      {
+        heading: "2. El tipo de trabajo: avería o reforma",
+        paragraphs: [
+          "Una reparación pequeña (un grifo, una fuga puntual) tiene un tope de precio bajo, por mucha prisa que corra. Una instalación completa, un cambio de bañera por ducha o una reforma de baño entera mueve un importe muy distinto por cada trabajo. Un fontanero que solo recibe avisos de avería tiene el techo de ingresos más bajo que uno que también capta trabajos de obra.",
+        ],
+      },
+      {
+        heading: "3. La zona donde trabaja",
+        paragraphs: [
+          "No es lo mismo cubrir solo tu barrio que tener capacidad de moverte por Barcelona y el área metropolitana (L'Hospitalet, Badalona, Sant Cugat, Cornellà…). Más zona bien gestionada significa más avisos posibles, aunque también más tiempo de desplazamiento a tener en cuenta.",
+        ],
+      },
+      {
+        heading: "4. Si tiene un sistema o improvisa",
+        paragraphs: [],
+        list: [
+          "Ficha de Google completa y con reseñas: es gratis y es el canal con mejor relación entre esfuerzo y resultado.",
+          "Alguna vía de captación activa (anuncios, web) además del boca a boca, para no depender solo de la suerte.",
+          "Un mínimo de seguimiento de presupuestos: cuántos mandas, cuántos se aceptan, para saber qué está funcionando.",
+        ],
+      },
+      {
+        heading: "Qué puedes cambiar ya",
+        paragraphs: [
+          "De los cuatro factores, el volumen de avisos y el sistema para conseguirlos son los que más rápido se pueden mover: completar la ficha de Google y pedir reseñas no cuesta dinero y ya cambia cuánta gente te encuentra. El tipo de trabajo (ir a por reformas, no solo averías) es un cambio de estrategia a medio plazo.",
+        ],
+      },
+      {
+        heading: `Cómo te ayuda ${brand}`,
+        paragraphs: [
+          "En el asesoramiento gratuito miramos tu situación actual —avisos, zona, tipo de trabajo— y te decimos qué palanca movería más en tu caso: normalmente no es la que se piensa al principio.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "palabras-que-buscan-tus-clientes-en-google-fontanero",
+    photo: photos.fontaneroCajaHerramientas,
+    title: "Las palabras que de verdad buscan tus clientes en Google (y seguro no las usas)",
+    metaDescription:
+      "Qué escribe la gente en Google cuando necesita un fontanero en Barcelona: no es «servicios de fontanería», es mucho más directo. Cómo usar esas palabras en tu ficha y tu web.",
+    excerpt:
+      "Nadie busca «servicios integrales de fontanería». Busca «se me ha roto la cisterna» o «fontanero urgente Gràcia». La diferencia importa más de lo que parece.",
+    summary:
+      "La gente no busca en Google con el lenguaje que usaría un fontanero para describir su propio negocio: busca con el problema que tiene en ese momento («fuga de agua», «atasco wc», «cisterna rota») o con la urgencia del momento («fontanero urgente», «fontanero 24 horas»), casi siempre añadiendo su barrio o municipio. Usar esas palabras, no un lenguaje corporativo, en tu ficha de Google y en tu web es lo que hace que aparezcas cuando de verdad te buscan.",
+    publishedAt: "2026-09-27",
+    updatedAt: "2026-09-27",
+    category: "Google y SEO",
+    trade: "fontaneria",
+    content: [
+      {
+        heading: "El error más habitual: escribir como una empresa, no como busca la gente",
+        paragraphs: [
+          "Muchas fichas de Google y webs de fontaneros están escritas con un lenguaje que nadie busca de verdad: «servicios integrales de fontanería», «soluciones profesionales para el hogar». Suena bien, pero no es lo que alguien escribe en Google cuando se le rompe una tubería a las diez de la noche. Escribe el problema, tal cual lo tiene delante.",
+        ],
+      },
+      {
+        heading: "Lo que la gente escribe de verdad",
+        paragraphs: [],
+        list: [
+          "El problema concreto: «fuga de agua», «atasco en el wc», «grifo que no cierra», «cisterna rota», «no tengo agua caliente».",
+          "La urgencia: «fontanero urgente», «fontanero 24 horas», «fontanero ahora mismo».",
+          "El oficio más el sitio: «fontanero Gràcia», «fontanero cerca de mí», «fontanero L'Hospitalet».",
+          "La duda antes de llamar: «cuánto cuesta arreglar una fuga», «cuánto cobra un fontanero por venir».",
+        ],
+      },
+      {
+        heading: "Dónde usar estas palabras",
+        paragraphs: [
+          "No hace falta un experto en SEO para aplicarlo: en la descripción de tu ficha de Google, en los nombres de los servicios que añades (en vez de «fontanería general», pon «reparación de fugas», «desatascos», «cambio de grifería») y en tu web, si tienes, usando esas mismas frases en los títulos de cada sección.",
+        ],
+      },
+      {
+        heading: "El barrio importa más de lo que parece",
+        paragraphs: [
+          "Google prioriza resultados cercanos a quien busca. Si tu ficha y tu web mencionan explícitamente los barrios y municipios donde trabajas (Gràcia, Sants, Eixample, L'Hospitalet, Badalona…), tienes más opciones de aparecer cuando alguien busca desde esa zona en concreto que si solo pones «Barcelona» en general.",
+        ],
+      },
+      {
+        heading: "Un efecto extra: también ayuda con los asistentes de IA",
+        paragraphs: [
+          "Cuando alguien le pregunta a ChatGPT o Gemini «qué fontanero me recomiendas en Sants», el asistente no inventa la respuesta: la construye a partir de información real y pública, como tu ficha de Google y tu web. Si esa información está escrita con las palabras reales que la gente usa, es más fácil que te mencione.",
+        ],
+      },
+      {
+        heading: `Cómo lo trabajamos en ${brand}`,
+        paragraphs: [
+          "Parte de nuestro trabajo de SEO local es justo esto: encontrar las palabras que de verdad busca tu cliente potencial en tu zona y colocarlas donde Google (y los asistentes de IA) las leen.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "fontanero-urgencias-barcelona-como-aparecer",
+    photo: photos.fontaneroInstalacionBano,
+    title: "Fontanero de urgencias en Barcelona: cómo aparecer cuando de verdad importa",
+    metaDescription:
+      "Cómo prepara un fontanero su ficha de Google y su forma de trabajar para captar avisos urgentes en Barcelona: horario, tiempo de respuesta y lo que de verdad mira quien busca con prisa.",
+    excerpt:
+      "En una urgencia no hay tiempo de comparar diez presupuestos. Se llama al primero que da confianza rápido. Así se trabaja para ser ese primero.",
+    summary:
+      "Para captar avisos urgentes, un fontanero en Barcelona necesita tres cosas: que su ficha de Google refleje con precisión cuándo está disponible de verdad (no un horario genérico), que el teléfono se conteste en los primeros segundos o al menos se devuelva la llamada muy rápido, y reseñas recientes que mencionen rapidez, porque ante una urgencia la gente decide en segundos y sin comparar mucho.",
+    publishedAt: "2026-09-28",
+    updatedAt: "2026-09-28",
+    category: "Google y SEO",
+    trade: "fontaneria",
+    content: [
+      {
+        heading: "Una urgencia se decide distinto a un presupuesto normal",
+        paragraphs: [
+          "Cuando alguien pide presupuesto para una reforma, compara con calma: dos o tres fontaneros, varios días. Cuando tiene una fuga inundando el baño a las once de la noche, no compara nada: llama al primero que parece que va a coger el teléfono y llegar rápido. Si quieres ese tipo de aviso, tienes que estar preparado para ese tipo de decisión.",
+        ],
+      },
+      {
+        heading: "1. Un horario que sea verdad",
+        paragraphs: [
+          "El error más caro es poner en tu ficha de Google un horario de «24 horas» o «urgencias» si en realidad no coges el teléfono a las tres de la madrugada. Genera una mala reseña casi garantizada, justo en el peor momento (alguien con una urgencia real que se siente abandonado). Es mejor poner el horario real, aunque sea más corto, que prometer algo que no vas a cumplir.",
+        ],
+      },
+      {
+        heading: "2. Responder rápido, aunque sea para decir que no puedes",
+        paragraphs: [
+          "Si no puedes coger el teléfono al momento, un mensaje automático de WhatsApp Business («Ahora mismo no puedo atender, te devuelvo la llamada en X minutos») ya marca la diferencia frente a no contestar nada. En una urgencia, el silencio se interpreta como un no.",
+        ],
+      },
+      {
+        heading: "3. Reseñas que mencionen rapidez",
+        paragraphs: [
+          "Cuando pidas una reseña después de una urgencia resuelta, es el momento perfecto para que el cliente mencione lo rápido que llegaste, sin que tengas que pedírselo expresamente: suele salir solo, porque es justo lo que más agradeció. Esas reseñas son las que más pesan para el siguiente cliente con prisa.",
+        ],
+      },
+      {
+        heading: "4. La zona de servicio, ajustada de verdad",
+        paragraphs: [
+          "Si aceptas urgencias solo en ciertos barrios o municipios, dilo claramente en tu ficha de Google. Aparecer como disponible en toda Barcelona y luego no poder llegar a tiempo genera la misma mala experiencia que un horario falso.",
+        ],
+      },
+      {
+        heading: "Urgencias sí, pero no como único ingreso",
+        paragraphs: [
+          "Las urgencias son un canal potente porque decide rápido y compara poco, pero no conviene construir todo el negocio solo sobre ellas: son imprevisibles y agotan si son la única vía. Lo ideal es que sean un complemento, no la base.",
+        ],
+      },
+      {
+        heading: `Cómo te ayuda ${brand}`,
+        paragraphs: [
+          "Ajustamos tu ficha de Google para que el horario, la zona y las categorías reflejen exactamente cómo trabajas, y montamos el sistema de reseñas para que las urgencias resueltas se conviertan en la prueba social que convence al siguiente cliente con prisa.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "reformas-bano-barcelona-como-captar-clientes-obra",
+    photo: photos.fontaneroFregadero,
+    title: "Reformas de baño en Barcelona: cómo captar clientes de obra, no solo de avería",
+    metaDescription:
+      "Cómo un fontanero en Barcelona puede pasar de vivir solo de averías a captar también reformas de baño y cambios de bañera por ducha, con más margen por trabajo.",
+    excerpt:
+      "Una fuga te paga el día. Una reforma de baño te paga el mes. Son clientes distintos y se captan de forma distinta.",
+    summary:
+      "Para captar clientes de reforma de baño (no solo averías), un fontanero necesita mostrar ese tipo de trabajo de forma explícita: fotos de antes y después en su ficha de Google, una categoría o descripción que lo mencione claramente, y presencia donde busca ese cliente concreto, que suele buscar con más antelación y comparando presupuestos, a diferencia del cliente de urgencia que decide en minutos.",
+    publishedAt: "2026-09-29",
+    updatedAt: "2026-09-29",
+    category: "Conseguir clientes",
+    trade: "fontaneria",
+    content: [
+      {
+        heading: "Dos clientes muy distintos",
+        paragraphs: [
+          "El cliente de una fuga decide en minutos y paga un trabajo puntual. El cliente de una reforma de baño se lo piensa durante semanas, pide dos o tres presupuestos y paga un importe muy superior por todo el proyecto: cambiar la bañera por un plato de ducha, renovar la grifería, mover el inodoro. Si tu ficha de Google y tu forma de mostrarte solo hablan de reparaciones urgentes, ese segundo cliente ni te tiene en el radar.",
+        ],
+      },
+      {
+        heading: "1. Que se vea que también haces reformas",
+        paragraphs: [
+          "Si en tu ficha de Google solo hay fotos de reparaciones puntuales o del cuadro de válvulas de una comunidad, nadie va a pensar en ti para renovar un baño entero. Sube fotos de antes y después de las reformas que ya has hecho, aunque sean pocas: es la prueba que busca este tipo de cliente.",
+        ],
+      },
+      {
+        heading: "2. Añade el servicio explícitamente",
+        paragraphs: [
+          "En los servicios de tu ficha de Google, además de «reparación de fugas» o «desatascos», añade específicamente «reforma de baños», «cambio de bañera por ducha» o «instalación de sanitarios». Son búsquedas distintas y Google necesita que se lo digas para enseñarte en esos resultados.",
+        ],
+      },
+      {
+        heading: "3. Este cliente compara más, así que las reseñas pesan doble",
+        paragraphs: [
+          "Como decide con más calma, un cliente de reforma sí que va a leer varias reseñas antes de llamarte, no solo mirar las estrellas por encima. Reseñas que mencionen puntualidad, limpieza al acabar la obra y que el presupuesto se cumplió sin sorpresas son las que más convencen en este tipo de trabajo.",
+        ],
+      },
+      {
+        heading: "4. Un presupuesto claro cierra más que uno barato",
+        paragraphs: [
+          "En una reforma, el cliente teme más los extras sorpresa que el precio en sí. Un presupuesto detallado por escrito (qué incluye, qué no, plazos) transmite más confianza que competir solo por ser el más barato, y evita discusiones a mitad de obra.",
+        ],
+      },
+      {
+        heading: "Por qué merece la pena ir a por este tipo de trabajo",
+        paragraphs: [
+          "Aunque cuesta más captarlo (decide más despacio, compara más), una reforma de baño mueve un importe muy superior a varias reparaciones puntuales juntas, y suele generar buenas reseñas de peso si el trabajo queda bien. Es el tipo de cliente que, además, más fácilmente te recomienda a vecinos con proyectos parecidos.",
+        ],
+      },
+      {
+        heading: `Cómo te ayuda ${brand}`,
+        paragraphs: [
+          "Trabajamos tu ficha de Google y tu web para que muestren también este tipo de trabajo, con las fotos y las palabras que busca quien está pensando en reformar, no solo quien tiene una fuga ahora mismo.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "ficha-google-competencia-fontanero-que-mirar",
+    photo: photos.fontaneroGrifo,
+    title: "Qué mirar en la ficha de Google de tu competencia (y qué copiarle)",
+    metaDescription:
+      "Cómo un fontanero en Barcelona puede analizar la ficha de Google de otros fontaneros de su zona para ver qué están haciendo mejor y qué se puede mejorar en la propia.",
+    excerpt:
+      "No hace falta adivinar qué funciona: los fontaneros que más aparecen en tu zona ya te lo están enseñando, gratis, en su propia ficha de Google.",
+    summary:
+      "Mirar la ficha de Google de los fontaneros que más aparecen en tu zona (buscando «fontanero» desde tu barrio) revela rápidamente qué se puede mejorar en la tuya: cuántas reseñas tienen, qué categorías y servicios han añadido, qué fotos usan y con qué frecuencia publican novedades. No se trata de copiar el negocio de nadie, sino de detectar qué prácticas concretas les están funcionando para aparecer antes que tú.",
+    publishedAt: "2026-09-30",
+    updatedAt: "2026-09-30",
+    category: "Google y SEO",
+    trade: "fontaneria",
+    content: [
+      {
+        heading: "Antes de trabajar tu ficha, mira las que ya funcionan",
+        paragraphs: [
+          "Busca «fontanero» desde el móvil, con la ubicación activada, en tu propio barrio. Los dos o tres primeros que aparecen en el mapa no están ahí por suerte: algo en su ficha de Google está funcionando mejor que en la del resto. Antes de tocar la tuya, merece la pena entender qué es.",
+        ],
+      },
+      {
+        heading: "Qué mirar exactamente",
+        paragraphs: [],
+        list: [
+          "Número de reseñas y nota media: ¿cuántas tienen y cada cuánto reciben una nueva?",
+          "Categorías y servicios añadidos: ¿solo «Fontanero» o también «Reparación de fugas», «Desatascos», «Reforma de baños»?",
+          "Fotos: ¿reales de sus trabajos o genéricas de internet? ¿Cuántas y de qué calidad?",
+          "Respuestas a reseñas: ¿contestan a todas, incluidas las negativas, o dejan la ficha muda?",
+          "Publicaciones recientes: ¿suben novedades cada pocas semanas o la ficha lleva meses sin actividad?",
+        ],
+      },
+      {
+        heading: "Lo que no debes copiar",
+        paragraphs: [
+          "No tiene sentido copiar literalmente su descripción o sus fotos: además de no ser correcto, a Google no le convence el contenido duplicado. Lo que sí puedes «copiar» es la estrategia: si ellos tienen 40 reseñas y tú 4, el aprendizaje no es imitar sus palabras, es empezar a pedir reseñas tú también, de forma sistemática.",
+        ],
+      },
+      {
+        heading: "Un hueco que suele quedar libre",
+        paragraphs: [
+          "Muchas veces, ni siquiera los que mejor aparecen lo hacen todo bien: puede que tengan muchas reseñas pero fotos pobres, o buena ficha pero cero respuesta a reseñas negativas. Ese hueco (lo que ni el líder de tu zona hace bien) es exactamente donde puedes diferenciarte tú.",
+        ],
+      },
+      {
+        heading: "Hazlo también con búsquedas específicas",
+        paragraphs: [
+          "Repite el ejercicio con búsquedas más concretas: «fontanero urgente [tu barrio]», «reforma de baño [tu barrio]». A veces quien gana en «fontanero» general no es el mismo que gana en estas búsquedas más específicas, y ahí puede haber una oportunidad más fácil de conseguir.",
+        ],
+      },
+      {
+        heading: `Cómo te ayuda ${brand}`,
+        paragraphs: [
+          "En el asesoramiento gratuito hacemos este análisis de competencia por ti: te decimos exactamente qué están haciendo mejor los fontaneros que más aparecen en tu zona y qué es lo primero que deberías cambiar en tu ficha.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "presupuesto-whatsapp-cierra-mas-trabajos-fontanero",
+    photo: photos.fontaneroCajaHerramientas,
+    title: "Por qué un presupuesto por WhatsApp cierra más trabajos que una llamada",
+    metaDescription:
+      "Por qué mandar el presupuesto por WhatsApp, con foto y precio claro, convierte más contactos en trabajos reales que decirlo por teléfono. Cómo hacerlo bien como fontanero.",
+    excerpt:
+      "Por teléfono, un precio se olvida en cinco minutos. Por WhatsApp, se queda ahí, se puede releer y enseñar a la pareja antes de decidir.",
+    summary:
+      "Un presupuesto enviado por WhatsApp, por escrito y con foto del trabajo, convierte más contactos en clientes reales que uno dado solo de palabra por teléfono: queda registrado, el cliente puede consultarlo con calma o enseñárselo a otra persona antes de decidir, y evita malentendidos sobre qué incluye. Para un fontanero, es un cambio sencillo con impacto directo en cuántos presupuestos se acaban aceptando.",
+    publishedAt: "2026-10-01",
+    updatedAt: "2026-10-01",
+    category: "Conseguir clientes",
+    trade: "fontaneria",
+    content: [
+      {
+        heading: "Un precio dicho se olvida; un precio escrito se queda",
+        paragraphs: [
+          "Cuando das un precio por teléfono, el cliente lo retiene unos minutos y ya está: no lo tiene delante para pensarlo con calma, ni para comentarlo con su pareja o su comunidad de vecinos antes de decidir. Un presupuesto por WhatsApp, en cambio, se queda ahí. Se puede releer, reenviar, consultar dos días después. Eso, por sí solo, ya hace que más gente acabe diciendo que sí.",
+        ],
+      },
+      {
+        heading: "Qué debe llevar un buen presupuesto por WhatsApp",
+        paragraphs: [],
+        list: [
+          "El precio claro, sin «depende» ni rangos amplios si ya has visto el problema (con foto o en persona).",
+          "Qué incluye exactamente: mano de obra, materiales, desplazamiento si lo cobras aparte.",
+          "Una foto o vídeo corto del problema, si es posible: genera más confianza que solo texto.",
+          "El plazo: cuándo podrías hacerlo, no dejarlo en el aire.",
+        ],
+      },
+      {
+        heading: "Por qué funciona mejor que la llamada",
+        paragraphs: [
+          "No se trata de dejar de hablar por teléfono, sino de rematar por escrito lo que se habló de palabra. El cliente que recibe un mensaje claro con precio y qué incluye tiene mucho menos motivo para «llamar a otro para comparar»: ya tiene la información que necesitaba para decidir sin más vueltas.",
+        ],
+      },
+      {
+        heading: "Evita el problema de los extras sorpresa",
+        paragraphs: [
+          "Uno de los motivos por los que un cliente no cierra, o cierra y luego se queja, es no tener claro qué estaba incluido. Ponerlo por escrito, aunque sea en dos líneas de WhatsApp, evita esa discusión antes de que empiece.",
+        ],
+      },
+      {
+        heading: "Un mensaje tipo para empezar",
+        paragraphs: [
+          "«Hola [nombre], según lo que me has contado/mandado en la foto, sería [trabajo] por [precio], incluye [qué incluye]. Podría hacerlo [día/franja]. Cualquier duda me dices.» Corto, claro, y queda ahí para cuando decida.",
+        ],
+      },
+      {
+        heading: `Cómo lo trabajamos en ${brand}`,
+        paragraphs: [
+          "Parte de montar tu sistema de CRM y seguimiento de clientes es justo esto: tener plantillas de WhatsApp listas para presupuestar rápido y bien, y no perder de vista qué presupuestos están pendientes de respuesta.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "fontanero-anunciarse-toda-barcelona-o-solo-tu-zona",
+    photo: photos.fontaneroInstalacionBano,
+    title: "¿Conviene anunciarte en toda Barcelona o solo en tu zona?",
+    metaDescription:
+      "Si eres fontanero autónomo, anunciarte en toda Barcelona puede salir más caro y traer menos resultado que acotar tus anuncios y tu ficha de Google a tu zona real de trabajo.",
+    excerpt:
+      "Anunciarte en toda la ciudad suena a más oportunidades. En la práctica, suele significar pagar más por clientes que están demasiado lejos.",
+    summary:
+      "Para la mayoría de fontaneros autónomos en Barcelona compensa acotar sus anuncios y su ficha de Google a la zona donde de verdad pueden llegar rápido (su barrio y los colindantes, o un puñado de municipios concretos), en vez de anunciarse en toda la ciudad: cuesta menos por contacto, compite con menos empresas grandes y evita desplazamientos largos que no compensan para trabajos pequeños.",
+    publishedAt: "2026-10-02",
+    updatedAt: "2026-10-02",
+    category: "Publicidad",
+    trade: "fontaneria",
+    content: [
+      {
+        heading: "«Cuanto más grande, mejor» no siempre es verdad",
+        paragraphs: [
+          "Parece lógico pensar que anunciarte en toda Barcelona te da más oportunidades que hacerlo solo en tu barrio. En la práctica, para un autónomo que trabaja solo o con un ayudante, suele pasar lo contrario: acabas compitiendo por palabras muy caras contra empresas grandes de urgencias, y cuando te llaman, es desde zonas a las que tardas cuarenta minutos en llegar.",
+        ],
+      },
+      {
+        heading: "Lo que pasa si te anuncias en toda la ciudad",
+        paragraphs: [],
+        list: [
+          "Pagas el mismo precio por clic que empresas grandes con más margen para pujar alto.",
+          "Recibes avisos de zonas donde tardas demasiado en llegar, sobre todo si es una urgencia.",
+          "Tu ficha de Google compite con muchas más fichas a la vez.",
+          "Es más difícil generar reseñas de vecinos que se conocen entre sí y se recomiendan.",
+        ],
+      },
+      {
+        heading: "Lo que gana quien se acota a su zona",
+        paragraphs: [
+          "Al limitar tus anuncios y tu ficha a tu barrio y los colindantes (o a un grupo concreto de municipios, si trabajas en varios), compites con menos negocios, el coste por contacto suele bajar, y puedes llegar de verdad rápido cuando hace falta. Además, entre vecinos de una misma zona el boca a boca corre más y se refuerza con las reseñas.",
+        ],
+      },
+      {
+        heading: "Cómo decidir tu zona real",
+        paragraphs: [
+          "No la definas por lo que te gustaría cubrir, sino por dónde puedes llegar en un tiempo razonable sin perder rentabilidad en el desplazamiento. Para la mayoría de fontaneros autónomos en Barcelona esto suele ser su barrio, los dos o tres colindantes, y quizás un municipio cercano si ya tiene clientes habituales ahí.",
+        ],
+      },
+      {
+        heading: "Cuándo sí tiene sentido ampliar",
+        paragraphs: [
+          "Si ya tienes equipo (más de una persona trabajando) o te especializas en algo puntual que poca gente ofrece (por ejemplo, un tipo de instalación concreta), ampliar la zona puede compensar. Para el resto, empezar acotado y crecer poco a poco suele dar mejor resultado que abarcar demasiado desde el principio.",
+        ],
+      },
+      {
+        heading: `Cómo lo trabajamos en ${brand}`,
+        paragraphs: [
+          "Cuando gestionamos tus anuncios y tu ficha de Google, empezamos siempre acotando la zona a lo que de verdad puedes atender bien, y la vamos ajustando según los resultados reales, no según lo que «suena mejor».",
+        ],
+      },
+    ],
+  },
+  {
+    id: "por-que-un-cliente-elige-a-un-fontanero-y-no-a-otro",
+    photo: photos.fontaneroFregadero,
+    title: "Por qué un cliente te elige a ti y no a otro fontanero (no es el precio)",
+    metaDescription:
+      "Qué hace que alguien elija a un fontanero en vez de otro en Barcelona cuando hay varios con precios parecidos: confianza, rapidez de respuesta y lo que se ve antes de llamar.",
+    excerpt:
+      "Cuando dos presupuestos son parecidos, el precio deja de decidir. Lo que decide es lo que el cliente vio de ti antes de coger el teléfono.",
+    summary:
+      "Cuando varios fontaneros tienen precios similares, lo que hace que un cliente elija a uno y no a otro suele ser: quién responde antes, quién genera más confianza a través de sus reseñas y fotos, y quién explica con más claridad qué va a hacer. El precio importa, pero deja de ser el factor decisivo en cuanto hay varias opciones parecidas: entonces gana la confianza que el cliente sintió antes de la primera llamada.",
+    publishedAt: "2026-10-03",
+    updatedAt: "2026-10-03",
+    category: "Tu negocio",
+    trade: "fontaneria",
+    content: [
+      {
+        heading: "El precio decide menos de lo que se piensa",
+        paragraphs: [
+          "Muchos fontaneros dan por hecho que, si no consiguen un trabajo, es porque cobraban más caro que otro. A veces es así, pero muchas otras veces el precio era parecido y lo que decidió fue otra cosa: quién respondió antes, quién parecía más de fiar, quién explicó mejor qué iba a hacer.",
+        ],
+      },
+      {
+        heading: "1. Quién responde primero",
+        paragraphs: [
+          "Cuando alguien pide presupuesto a dos o tres fontaneros a la vez (algo muy habitual), el primero que contesta con una respuesta clara arranca con ventaja, incluso antes de hablar de precio. No responder en las primeras horas suele significar quedar directamente fuera de la decisión.",
+        ],
+      },
+      {
+        heading: "2. Lo que se ve antes de llamar",
+        paragraphs: [
+          "Antes de coger el teléfono, el cliente ya se ha hecho una idea de ti a través de tu ficha de Google: tus reseñas, tus fotos, si pareces un negocio serio o uno improvisado. Esa primera impresión, que se forma sin que tú estés presente, pesa mucho en la decisión final.",
+        ],
+      },
+      {
+        heading: "3. Cómo explicas lo que vas a hacer",
+        paragraphs: [
+          "Un presupuesto que solo dice «300 €» genera más dudas que uno que dice «300 €: cambio de la válvula, sellado y prueba de presión, con garantía de X meses». No es cuestión de escribir más, es explicar lo suficiente para que el cliente entienda qué está pagando.",
+        ],
+      },
+      {
+        heading: "4. La sensación de que «te importa» el problema",
+        paragraphs: [
+          "Preguntar un par de cosas concretas sobre el problema (cuándo empezó, si ya lo tocó alguien más) antes de dar un precio genera más confianza que un presupuesto genérico y rápido. Da la sensación de que estás mirando su caso, no repitiendo una tarifa.",
+        ],
+      },
+      {
+        heading: "Lo que puedes trabajar esta semana",
+        paragraphs: [],
+        list: [
+          "Revisa cuánto tardas de media en responder a un presupuesto pedido, y si puedes bajarlo.",
+          "Mira tu ficha de Google como si fueras un cliente que no te conoce: ¿transmite confianza?",
+          "La próxima vez que mandes un presupuesto, añade una frase explicando qué incluye, no solo el número.",
+        ],
+      },
+      {
+        heading: `Cómo te ayuda ${brand}`,
+        paragraphs: [
+          "Trabajamos la parte que el cliente ve antes de llamarte —tu ficha de Google, tus reseñas, tu web si tienes— para que esa primera impresión juegue a tu favor, no en tu contra.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "temporada-alta-baja-fontanero-barcelona-como-no-depender",
+    photo: photos.fontaneroGrifo,
+    title: "Temporada alta y baja para fontaneros: cómo no depender solo de las urgencias",
+    metaDescription:
+      "Cómo suaviza un fontanero en Barcelona los meses flojos combinando avisos de urgencia con reformas y mantenimiento, en vez de depender solo de que haya averías.",
+    excerpt:
+      "Si tu agenda depende de que se rompan cosas, tu agenda no depende de ti. Hay formas de que no sea así.",
+    summary:
+      "Un fontanero que depende solo de avisos de avería tiene una agenda que sube y baja según la suerte, sin ningún control sobre ello. Combinar ese tipo de aviso con trabajos que se pueden planificar (reformas de baño, mantenimiento de comunidades, revisiones preventivas) da una base de ingresos más estable, porque esos trabajos se pueden captar y programar con antelación, no solo esperar a que pase algo.",
+    publishedAt: "2026-10-04",
+    updatedAt: "2026-10-04",
+    category: "Tu negocio",
+    trade: "fontaneria",
+    content: [
+      {
+        heading: "Vivir de que se rompan cosas es vivir sin control",
+        paragraphs: [
+          "Si el negocio depende solo de que haya averías, no hay forma de planificar: unos meses hay muchos avisos, otros casi ninguno, y no depende de nada que puedas decidir tú. La avería es un canal real y rentable, pero no debería ser el único, porque no lo controlas.",
+        ],
+      },
+      {
+        heading: "Trabajos que sí se pueden planificar",
+        paragraphs: [],
+        list: [
+          "Reformas de baño: se deciden con semanas de antelación y se pueden programar en la agenda.",
+          "Mantenimiento de comunidades de vecinos: revisiones periódicas de bajantes, montantes, válvulas.",
+          "Revisiones preventivas para particulares: detectar una fuga pequeña antes de que sea una urgencia cara.",
+          "Instalaciones nuevas: cocinas, baños, locales que se reforman o abren.",
+        ],
+      },
+      {
+        heading: "Por qué esto suaviza los meses flojos",
+        paragraphs: [
+          "A diferencia de una avería, que no sabes cuándo va a llegar, una reforma o un contrato de mantenimiento se agenda con semanas o meses de margen. Tener un par de estos trabajos ya cerrados te da una base de ingresos que no depende de que ese mes haya suerte con las urgencias.",
+        ],
+      },
+      {
+        heading: "Cómo empezar a captar este tipo de trabajo",
+        paragraphs: [
+          "Si nunca has ido a por administradores de fincas o comunidades, es un buen punto de partida: presentarte con una tarjeta y explicar que atiendes bajantes y montantes de zonas comunes abre una vía de trabajo recurrente, distinta a la avería puntual de un particular.",
+        ],
+      },
+      {
+        heading: "No hace falta elegir uno u otro",
+        paragraphs: [
+          "No se trata de dejar de atender urgencias, sino de no depender solo de ellas. Las urgencias siguen siendo un canal válido y rápido; lo que cambia es que dejan de ser tu única fuente de ingresos, así que un mes flojo de averías ya no significa un mes flojo del todo.",
+        ],
+      },
+      {
+        heading: `Cómo te ayuda ${brand}`,
+        paragraphs: [
+          "En el asesoramiento gratuito miramos cómo está repartida hoy tu agenda entre avería y trabajo planificable, y te ayudamos a mostrar en tu ficha de Google y tus anuncios también ese segundo tipo de trabajo, para que no dependa todo de la suerte del mes.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getGuides(locale: Locale): Guide[] {

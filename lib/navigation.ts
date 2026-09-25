@@ -110,11 +110,22 @@ export function pagePairs(): Record<Locale, string>[] {
   ];
 }
 
-/** URL equivalente en otro idioma; si no hay, la portada de ese idioma. */
+/** URL equivalente en otro idioma; si no hay, la portada de ese idioma. Para el selector ES/CA del header. */
 export function alternatePath(pathname: string, target: Locale): string {
   const clean = pathname.length > 1 ? pathname.replace(/\/$/, "") : pathname;
   const match = pagePairs().find((p) => locales.some((l) => p[l] === clean));
   return match ? match[target] : routes[target].home;
+}
+
+/**
+ * Como alternatePath, pero null si no existe página real en ese idioma
+ * (por ejemplo, una guía que todavía solo existe en castellano). Para
+ * hreflang: nunca hay que declarar una equivalencia que no existe.
+ */
+export function realAlternatePath(pathname: string, target: Locale): string | null {
+  const clean = pathname.length > 1 ? pathname.replace(/\/$/, "") : pathname;
+  const match = pagePairs().find((p) => locales.some((l) => p[l] === clean));
+  return match ? match[target] : null;
 }
 
 export type NavLink = { href: string; label: string };

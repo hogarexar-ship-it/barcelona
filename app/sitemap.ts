@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { guides } from "@/lib/guides-data";
 import { htmlLang, locales } from "@/lib/i18n";
-import { guidePath, pagePairs, routes } from "@/lib/navigation";
+import { guidePath, guideSlugs, pagePairs, routes } from "@/lib/navigation";
 import { siteConfig } from "@/lib/site-config";
 
 /** Todas las páginas en castellano y catalán, cada una con su hreflang. */
@@ -21,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return 0.9;
   };
 
-  return pagePairs().flatMap((pair) =>
+  const bilingualEntries = pagePairs().flatMap((pair) =>
     locales.map((locale) => {
       const path = pair[locale];
       return {
@@ -35,4 +35,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       };
     }),
   );
+
+  // Guías que todavía solo existen en castellano (no están en guideSlugs,
+  // así que pagePairs() no las incluye): se listan aparte, sin alternates
+  // en catalán, para no declarar una versión que no existe.
+  const esOnlyEntries = guides
+    .filter((g) => !guideSlugs[g.id])
+    .map((g) => {
+      const path = guidePath("es", g.id);
+      return {
+        url: `${siteConfig.url}${path}`,
+        lastModified: new Date(g.updatedAt),
+        changeFrequency: "monthly" as const,
+        priority: 0.6,
+        alternates: { languages: { [htmlLang.es]: `${siteConfig.url}${path}` } },
+      };
+    });
+
+  return [...bilingualEntries, ...esOnlyEntries];
 }

@@ -39,6 +39,32 @@ contenido propio, o no existe**. No hay páginas «próximamente» ni rutas que
 devuelvan un 404 esperando contenido futuro. Si un nivel no tiene todavía
 contenido suficiente para ser único, no se crea la ruta.
 
+### Guías que todavía solo existen en castellano
+
+Todas las páginas del sitio son bilingües, con una excepción explícita:
+las guías nuevas pueden publicarse primero solo en castellano (por ejemplo,
+para no bloquear la publicación mientras se traduce). Una guía así **no**
+se añade a `guideSlugs` en `lib/navigation.ts` — si se añadiera,
+`pagePairs()` generaría una URL en catalán que no existe, y esa URL
+aparecería tanto en el sitemap como en el `hreflang="ca"` de la página en
+castellano, apuntando a un 404. En vez de eso:
+
+- La guía se añade solo a `guides` (`lib/guides-data.ts`), no a `guidesCa`.
+- `app/sitemap.ts` detecta las guías sin entrada en `guideSlugs` y las
+  incluye aparte, con un único idioma en `alternates.languages` (sin `ca`).
+- `lib/metadata.ts` usa `realAlternatePath()` (no `alternatePath()`) para
+  construir el `hreflang` de cada página: devuelve `null` en vez de
+  inventar una equivalencia, así que esa guía nunca declara un
+  `hreflang="ca"` que no existe.
+- El selector de idioma del header (que sí usa `alternatePath()`, con su
+  fallback a la portada) sigue funcionando igual: si alguien cambia a
+  catalán desde una guía sin traducir, aterriza en la portada catalana, no
+  en un 404.
+
+En cuanto una guía se traduce, se añade su entrada a `guideSlugs` (con el
+slug en cada idioma) y al array `guidesCa`, y pasa a tratarse como
+cualquier otra página bilingüe del punto anterior.
+
 ### Por qué no hay páginas por barrio
 
 OficiosPro no promete cobertura hiperlocal por barrio (a diferencia de un
@@ -162,3 +188,9 @@ definición, un párrafo, una respuesta) fuera de contexto. Por eso:
 - Si se añaden más guías, mantener el mismo patrón: resumen autocontenido,
   categoría, y enlace desde el glosario o la ficha de servicio relacionada
   cuando aplique.
+- Traducir al catalán las 10 guías para fontaneros añadidas el 2026-09-25
+  (de `por-que-no-me-llaman-clientes-nuevos-fontanero-barcelona` a
+  `temporada-alta-baja-fontanero-barcelona-como-no-depender`): hoy solo
+  existen en castellano (ver «Guías que todavía solo existen en
+  castellano» en el punto 1). Al traducirlas, añadir su entrada a
+  `guideSlugs` y su contenido a `guidesCa`.
