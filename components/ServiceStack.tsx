@@ -103,12 +103,12 @@ export function RealProblem({ locale }: { locale: Locale }) {
   const t = translator(locale);
   return (
     <div className="max-w-3xl" data-reveal>
-      <h2 className="font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-ink-900 sm:text-5xl">
+     <h2 className="font-display text-[32px] font-extrabold leading-[1.05] tracking-tight text-ink-900 sm:text-[44px]">
         {t(
-          "Deja de perder tiempo en tareas que nosotros podemos llevar por ti.",
-          "Deixa de perdre temps en tasques que nosaltres podem portar per tu.",
+        "Deja de perder tiempo en tareas que nosotros podemos llevar por ti.",
+        "Deixa de perdre temps en tasques que nosaltres podem portar per tu.",
         )}
-      </h2>
+     </h2>
       <p className="mt-6 text-lg font-semibold text-ink-900 sm:text-xl">
         {t(
           "Tú sigue con tu oficio. De tu marketing digital nos encargamos nosotros.",
