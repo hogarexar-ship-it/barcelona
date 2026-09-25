@@ -118,14 +118,9 @@ export function HomeView({ locale }: { locale: Locale }) {
         ]}
       />
 
-      <section className="py-12 sm:py-16">
+      <section className="bg-surface-100 py-12 sm:py-16">
         <Container>
           <RealProblem locale={locale} />
-        </Container>
-      </section>
-
-      <section className="bg-surface-100 py-16 sm:py-24">
-        <Container>
           <div className="mt-10">
             <ServiceStack locale={locale} />
           </div>
