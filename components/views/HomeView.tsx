@@ -118,7 +118,7 @@ export function HomeView({ locale }: { locale: Locale }) {
         ]}
       />
 
-      <section className="py-16 sm:py-24">
+      <section className="py-12 sm:py-16">
         <Container>
           <RealProblem locale={locale} />
         </Container>

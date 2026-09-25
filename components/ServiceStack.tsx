@@ -109,13 +109,7 @@ export function RealProblem({ locale }: { locale: Locale }) {
           "Deixa de perdre temps en tasques que nosaltres podem portar per tu.",
         )}
       </h2>
-      <p className="mt-6 text-lg text-ink-700 sm:text-xl">
-        {t(
-          "¿Cuántas veces te has dicho «tengo que organizar esto» y se te ha vuelto a olvidar? Entre los clientes, las obras y los presupuestos, es fácil que la web, las redes o la ficha de Google queden siempre para después.",
-          "Quantes vegades t'has dit «he d'organitzar això» i se t'ha tornat a oblidar? Entre els clients, les obres i els pressupostos, és fàcil que la web, les xarxes o la fitxa de Google quedin sempre per a després.",
-        )}
-      </p>
-      <p className="mt-4 text-lg font-semibold text-ink-900 sm:text-xl">
+      <p className="mt-6 text-lg font-semibold text-ink-900 sm:text-xl">
         {t(
           "Tú sigue con tu oficio. De tu marketing digital nos encargamos nosotros.",
           "Tu segueix amb el teu ofici. Del teu màrqueting digital ens n'encarreguem nosaltres.",
