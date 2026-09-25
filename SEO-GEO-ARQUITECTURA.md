@@ -156,7 +156,72 @@ definición, un párrafo, una respuesta) fuera de contexto. Por eso:
   Si un dato no está publicado todavía, no aparece — ni en el sitio ni en
   `llms.txt`.
 
-## 6. Checklist antes de añadir o cambiar una página
+## 6. Reglas de contenido según la guía oficial de Google (IA generativa en la Búsqueda)
+
+Google publicó en 2026 su guía oficial sobre cómo optimizar para las
+funciones de IA generativa de la Búsqueda (vistas creadas con IA, modo IA).
+Punto clave: **para Google, optimizar para búsqueda con IA generativa sigue
+siendo SEO** — no hay un canal ni un formato aparte. Estas son las reglas
+que se aplican a partir de ahora a toda guía, post o página nueva del sitio:
+
+**Qué hacer:**
+
+- **Punto de vista propio, no resumen de lo que ya existe.** Cada guía debe
+  aportar algo que OficiosPro sabe por experiencia real (cómo deciden
+  fontaneros y electricistas de Barcelona, qué falla en sus anuncios, qué
+  preguntan en el asesoramiento), no una lista genérica que cualquiera
+  podría escribir o que generaría un modelo de IA sin más. Preferir títulos
+  como «Por qué renunciamos a X y ahorramos Y» antes que «7 consejos para
+  X».
+- **Contenido no genérico.** Evitar títulos tipo «10 consejos para hacer
+  marketing» sin ángulo propio. Si una guía no dice algo que no esté ya en
+  las primeras páginas de Google, no aporta valor nuevo.
+- **Estructura clara para personas**: párrafos y secciones con encabezados
+  reales, no un muro de texto. Esto ya es el patrón de `lib/guides-data.ts`
+  (resumen + secciones) y hay que mantenerlo.
+- **HTML semántico razonable** (encabezados en orden, listas como listas):
+  no hace falta que sea perfecto, pero ayuda a lectores de pantalla y a que
+  Google entienda la estructura. Ya es el patrón de los componentes de
+  guía existentes.
+- **Rastreo e indexación por encima de todo lo demás**: una guía nueva solo
+  sirve si está en `guideSlugs`/`guides`/`guidesCa`, tiene su URL en el
+  sitemap y pasa `buildMetadata()`. Sin eso, da igual lo bien escrita que
+  esté.
+
+**Qué NO hacer (mitos que la propia guía de Google desmiente — no perder
+tiempo en esto):**
+
+- **No fragmentar contenido en trozos artificiales** pensando que ayuda a
+  que la IA lo entienda mejor. No hay una longitud "ideal" para una guía:
+  se escribe la extensión que necesite el tema, no la que "convendría" para
+  un LLM.
+- **No reescribir para "sonar a IA"** ni perseguir variantes de keywords muy
+  específicas: los sistemas de Google entienden sinónimos y la intención
+  general. Se escribe para la persona que lee, con el lenguaje natural que
+  ya usa el sitio (castellano de España, tú).
+- **No perseguir "menciones" no auténticas** en foros o webs de terceros
+  como truco de posicionamiento.
+- **No obsesionarse con datos estructurados adicionales** más allá de lo que
+  ya hace `lib/schema.ts`: no son obligatorios para aparecer en IA
+  generativa, aunque los que ya tenemos (BlogPosting, DefinedTermSet,
+  FAQPage cuando aplique) siguen siendo útiles para resultados enriquecidos
+  normales.
+- **`llms.txt` no es un mecanismo especial para Google**: la Búsqueda de
+  Google lo ignora por completo, ni ayuda ni perjudica el posicionamiento.
+  `app/llms.txt/route.ts` se mantiene porque puede servir a otros sistemas
+  que sí lo lean, no porque Google lo use — no hay que invertir tiempo
+  ampliándolo pensando en el posicionamiento en Google.
+- **No crear páginas o variantes solo para cubrir más consultas** (contenido
+  a escala pensado para manipular el posicionamiento): esto va contra la
+  política de spam de Google y no ayuda ni a SEO ni a GEO. Cada página
+  nueva debe justificarse por contenido propio y útil, no por "cubrir más
+  búsquedas".
+
+**Regla simple para decidir cualquier duda de contenido**: ¿esto sería
+satisfactorio para un fontanero o electricista real que llega buscando
+respuesta a una duda de negocio? Si sí, va en la línea correcta.
+
+## 7. Checklist antes de añadir o cambiar una página
 
 1. ¿La URL ya está en `lib/navigation.ts` (`routes`, `serviceSlugs`,
    `sectorPaths` o `guideSlugs`)? Si no, añádela ahí primero — el sitemap y
@@ -173,7 +238,7 @@ definición, un párrafo, una respuesta) fuera de contexto. Por eso:
 7. Si es citable por una IA (guía, glosario, FAQ): ¿tiene un resumen o una
    definición que se entienda sola, sin el resto de la página?
 
-## 7. Pendiente (no bloquea, pero queda anotado)
+## 8. Pendiente (no bloquea, pero queda anotado)
 
 - `FAQPage` por guía: hoy las guías usan `BlogPosting`; cuando una guía
   tenga una sección de preguntas frecuentes explícita, añadir también
