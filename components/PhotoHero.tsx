@@ -33,7 +33,7 @@ export function PhotoHero({
           <h1 className={`font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl ${top ? "mt-5" : ""}`}>
             {title}
           </h1>
-          <p className="mt-5 text-lg text-white/85 sm:text-xl">{subtitle}</p>
+          <p className="mt-5 text-lg text-white sm:text-xl">{subtitle}</p>
           {children}
         </div>
       </Container>
