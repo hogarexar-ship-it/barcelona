@@ -126,13 +126,6 @@ export function HomeView({ locale }: { locale: Locale }) {
 
       <section className="bg-surface-100 py-16 sm:py-24">
         <Container>
-          <SectionHeading
-            title={t("Qué hacemos por tu negocio", "Què fem pel teu negoci")}
-            intro={t(
-              "No tienes que contratarlo todo. Empezamos por lo que más te va a traer y construimos desde ahí.",
-              "No cal que ho contractis tot. Comencem pel que més et portarà i construïm a partir d'aquí.",
-            )}
-          />
           <div className="mt-10">
             <ServiceStack locale={locale} />
           </div>
