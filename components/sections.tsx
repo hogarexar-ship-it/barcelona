@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { ContactForm } from "./ContactForm";
 import { Container } from "./Container";
@@ -12,6 +13,20 @@ import { translator } from "@/lib/i18n";
 import { getExtraServices, getMarketingServices } from "@/lib/marketing-services";
 import { getSectors } from "@/lib/sectors-data";
 import { siteConfig, telHref } from "@/lib/site-config";
+
+/**
+ * CTA sutil de cierre de sección: texto + flecha, sin el naranja fuerte del
+ * botón principal del menú. Por defecto lleva al formulario embebido al
+ * final de la home (#asesoramiento), no a la página /asesoramiento-gratuito.
+ */
+export function SectionCta({ href = "#asesoramiento", children }: { href?: string; children: ReactNode }) {
+  return (
+    <Link href={href} className="group mt-8 inline-flex items-center gap-1.5 font-semibold text-ink-900 hover:text-accent-700">
+      {children}
+      <Icon name="arrowRight" className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+    </Link>
+  );
+}
 
 /** Los servicios en tarjetas: título explicativo, palabras clave debajo. */
 export function ServiceGrid({ locale, iconClass = "text-accent-600" }: { locale: Locale; iconClass?: string }) {

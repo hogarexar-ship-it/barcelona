@@ -8,7 +8,7 @@ import { PhotoHero } from "@/components/PhotoHero";
 import { PlatformsTrust } from "@/components/PlatformsTrust";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { SectionHeading } from "@/components/SectionHeading";
-import { consultationSteps, ContactSection, GrowthPath, SectorCards } from "@/components/sections";
+import { consultationSteps, ContactSection, GrowthPath, SectionCta, SectorCards } from "@/components/sections";
 import { RealProblem, ServiceStack } from "@/components/ServiceStack";
 import { situations } from "@/lib/contact-options";
 import type { Locale } from "@/lib/i18n";
@@ -124,6 +124,7 @@ export function HomeView({ locale }: { locale: Locale }) {
           <div className="mt-10">
             <ServiceStack locale={locale} />
           </div>
+          <SectionCta>{t("Cuéntanos qué necesita tu negocio ahora mismo", "Explica'ns què necessita el teu negoci ara mateix")}</SectionCta>
         </Container>
       </section>
 
@@ -132,6 +133,7 @@ export function HomeView({ locale }: { locale: Locale }) {
       <section className="py-16 sm:py-20">
         <Container>
           <GrowthPath locale={locale} />
+          <SectionCta>{t("Empieza por lo que más te hace falta", "Comença pel que més et cal")}</SectionCta>
         </Container>
       </section>
 
@@ -141,6 +143,7 @@ export function HomeView({ locale }: { locale: Locale }) {
           <div className="mt-8">
             <SectorCards locale={locale} />
           </div>
+          <SectionCta>{t("Cuéntanos tu situación, sea cual sea tu oficio", "Explica'ns la teva situació, sigui quin sigui el teu ofici")}</SectionCta>
         </Container>
       </section>
 
@@ -150,12 +153,14 @@ export function HomeView({ locale }: { locale: Locale }) {
           <div className="mt-8">
             <ProcessSteps steps={consultationSteps(locale)} />
           </div>
+          <SectionCta>{t("Empieza tu asesoramiento gratis", "Comença el teu assessorament gratis")}</SectionCta>
         </Container>
       </section>
 
       <section className="pb-16 sm:pb-20">
         <Container className="max-w-3xl">
           <FaqAccordion faqs={faqs} title={t("Preguntas frecuentes", "Preguntes freqüents")} />
+          <SectionCta>{t("¿Tienes otra duda? Escríbenos", "Tens un altre dubte? Escriu-nos")}</SectionCta>
         </Container>
       </section>
 
