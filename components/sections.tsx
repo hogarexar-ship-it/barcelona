@@ -87,8 +87,8 @@ export function GrowthPath({ locale }: { locale: Locale }) {
         </h2>
         <p className="mt-4 text-lg text-ink-600">
           {t(
-            "Empiezas por lo que más falta te hace y sumamos funciones a medida que crece tu negocio. Sin pagar hoy por lo que aún no necesitas.",
-            "Comences pel que més et cal i hi sumem funcions a mesura que creix el teu negoci. Sense pagar avui pel que encara no necessites.",
+            "Empiezas por lo que más falta te hace y sumamos funciones a medida que crece tu negocio.",
+            "Comences pel que més et cal i hi sumem funcions a mesura que creix el teu negoci.",
           )}
         </p>
       </div>

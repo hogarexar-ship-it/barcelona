@@ -128,7 +128,7 @@ export const marketingServices: MarketingService[] = [
     icon: "globe",
     name: "Landing page y página web",
     tag: "Web",
-    title: "Una web que hace que te llamen",
+    title: "Creamos una Web ganadora",
     oneLiner: "La cara visible de tu negocio, optimizada para un rápido acceso y conversión.",
     keywords: "Landing page · Página web",
     short: "Una página rápida y clara, pensada para que quien entra te llame o te pida presupuesto.",
@@ -199,7 +199,7 @@ export const marketingServices: MarketingService[] = [
     icon: "mapPin",
     name: "Google Business (Maps & Reseñas)",
     tag: "Google Maps",
-    title: "Sal en el mapa de Google con buenas reseñas",
+    title: "Posicionamiento en el mapa de Google con buenas reseñas",
     oneLiner: "Posiciónate mejor en el mapa y obtén más reseñas.",
     keywords: "Google Business Profile · Reseñas de Google",
     short:
