@@ -68,6 +68,11 @@ export function Header({ menuServices = [] }: { menuServices?: MenuService[] }) 
         </div>
 
         <nav className="hidden h-full items-stretch gap-7 lg:flex" aria-label="Principal">
+          {pathname !== routes[locale].home && (
+            <Link href={routes[locale].home} className={`-mb-px flex items-center border-b-2 border-transparent ${linkClass(false)}`}>
+              {ca ? "Inici" : "Inicio"}
+            </Link>
+          )}
           {nav.map((link) => {
             const active = isActive(link.href);
             return (
