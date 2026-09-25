@@ -67,7 +67,6 @@ export function ServiceView({ locale, service }: { locale: Locale; service: Mark
             <p className="mt-5 max-w-2xl text-lg text-ink-600 sm:text-xl">{service.heroSubtitle}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:hidden">
               <PrimaryCta locale={locale} href={contactHref} />
-              <WhatsAppButton locale={locale} message={whatsappText} />
             </div>
           </div>
         </Container>

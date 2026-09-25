@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { Container } from "./Container";
-import { PrimaryCta, WhatsAppButton } from "./CtaButtons";
+import { PrimaryCta } from "./CtaButtons";
 import { EarningsCalculator } from "./EarningsCalculator";
 import { OrganicPaid } from "./OrganicPaid";
 import { FaqAccordion } from "./FaqAccordion";
@@ -60,14 +60,6 @@ export function SectorPage({ locale, sector }: { locale: Locale; sector: Sector 
       >
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <PrimaryCta locale={locale} href={`${routes[locale].contact}?oficio=${sector.trade}`} />
-          <WhatsAppButton
-            locale={locale}
-            variant="glass"
-            message={t(
-              `Hola ${siteConfig.brand}, trabajo en ${sector.name.toLowerCase()} en Barcelona y quiero más clientes.`,
-              `Hola ${siteConfig.brand}, treballo en ${sector.name.toLowerCase()} a Barcelona i vull més clients.`,
-            )}
-          />
         </div>
       </PhotoHero>
       <div className={`h-1.5 ${tone.bar}`} aria-hidden="true" />
