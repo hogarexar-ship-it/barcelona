@@ -7,8 +7,8 @@ import type { Locale } from "@/lib/i18n";
 import { translator } from "@/lib/i18n";
 
 /**
- * «Haz la cuenta»: cuánto más ganaría el profesional con unos pocos trabajos
- * extra al mes. Es un ejemplo orientativo con sus propios números.
+ * Cuánto gana el profesional por cada cliente extra que le conseguimos.
+ * Es un ejemplo orientativo con sus propios números.
  */
 export function EarningsCalculator({ locale, defaultTicket, contactHref }: { locale: Locale; defaultTicket: number; contactHref: string }) {
   const t = translator(locale);
@@ -23,7 +23,7 @@ export function EarningsCalculator({ locale, defaultTicket, contactHref }: { loc
       <div className="space-y-8 p-6 sm:p-10">
         <div>
           <label htmlFor="calc-jobs" className="flex items-baseline justify-between gap-4 font-semibold text-ink-900">
-            {t("Trabajos extra al mes", "Feines extra al mes")}
+            {t("Clientes extra al mes gracias a nosotros", "Clients extra al mes gràcies a nosaltres")}
             <span className="font-display text-2xl font-extrabold tabular-nums">{jobs}</span>
           </label>
           <input
@@ -64,7 +64,7 @@ export function EarningsCalculator({ locale, defaultTicket, contactHref }: { loc
           {t(`${money(monthly * 12)} más al año`, `${money(monthly * 12)} més a l'any`)}
         </p>
         <Link href={contactHref} className="btn btn-primary mt-8 self-start">
-          {t("Quiero calcularlo con mis números", "Vull calcular-ho amb els meus números")}
+          {t("Comenzar a ganar más clientes", "Començar a guanyar més clients")}
           <Icon name="arrowRight" className="h-4 w-4" />
         </Link>
         <p className="mt-4 text-xs text-white/50">

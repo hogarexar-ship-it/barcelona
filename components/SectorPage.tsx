@@ -201,10 +201,10 @@ export function SectorPage({ locale, sector }: { locale: Locale; sector: Sector 
       <section className="bg-surface-100 py-16 sm:py-24">
         <Container>
           <SectionHeading
-            title={t("Haz la cuenta: ¿cuánto vale un cliente más?", "Fes el compte: quant val un client més?")}
+            title={t("Mira cuánto puedes ganar por cada cliente extra", "Mira quant pots guanyar per cada client extra")}
             intro={t(
-              "Mueve los números. Con unos pocos trabajos más al mes, la diferencia a final de año es grande.",
-              "Mou els números. Amb unes quantes feines més al mes, la diferència a final d'any és gran.",
+              "Cada cliente nuevo que te consigamos suma directo a tu bolsillo. Calcula cuánto sería.",
+              "Cada client nou que t'aconseguim suma directe a la teva butxaca. Calcula quant seria.",
             )}
           />
           <div className="mt-10" data-reveal>

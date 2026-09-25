@@ -21,7 +21,7 @@ import { siteConfig, telHref } from "@/lib/site-config";
  */
 export function SectionCta({ href = "#asesoramiento", children }: { href?: string; children: ReactNode }) {
   return (
-    <Link href={href} className="group mt-8 inline-flex items-center gap-1.5 font-semibold text-ink-900 hover:text-accent-700">
+    <Link href={href} className="group mt-8 inline-flex items-center gap-1.5 font-semibold text-accent-700 hover:text-accent-600">
       {children}
       <Icon name="arrowRight" className="h-4 w-4 transition-transform group-hover:translate-x-1" />
     </Link>
