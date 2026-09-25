@@ -199,7 +199,7 @@ export const marketingServices: MarketingService[] = [
     icon: "mapPin",
     name: "Google Business (Maps & Reseñas)",
     tag: "Google Maps",
-    title: "Sal en el mapa de Google con buenas reseñas",
+    title: "Posicionamiento en el mapa de Google con buenas reseñas",
     oneLiner: "Posiciónate mejor en el mapa y obtén más reseñas.",
     keywords: "Google Business Profile · Reseñas de Google",
     short:
