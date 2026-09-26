@@ -155,4 +155,14 @@ export const situations: {
       ca: "Depenc del boca-orella i vull clients nous de manera constant.",
     },
   },
+  {
+    value: "no-tengo-web",
+    icon: "panel",
+    service: "landing-page-y-web",
+    title: { es: "No tengo página web", ca: "No tinc pàgina web" },
+    message: {
+      es: "No tengo página web y quiero tener una que me traiga clientes.",
+      ca: "No tinc pàgina web i vull tenir-ne una que em porti clients.",
+    },
+  },
 ];

@@ -41,7 +41,7 @@ export function ServicesView({ locale }: { locale: Locale }) {
                     <Icon name={service.icon} className="h-6 w-6 shrink-0 text-accent-300" />
                     <span className="min-w-0 flex-1">
                       <span className="block font-display text-lg font-bold">{service.name}</span>
-                      <span className="block truncate text-sm text-white/60">{service.oneLiner}</span>
+                      <span className="hidden truncate text-sm text-white/60 sm:block">{service.oneLiner}</span>
                     </span>
                     <Icon name="arrowRight" className="h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
                   </Link>
