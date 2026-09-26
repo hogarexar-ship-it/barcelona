@@ -1148,7 +1148,7 @@ export const guides: Guide[] = [
   {
     id: "por-que-no-me-llaman-clientes-nuevos-electricista-barcelona",
     photo: photos.electricistaEnchufes,
-    title: "Por qué no te llaman clientes nuevos aunque hagas buenas instalaciones",
+    title: "Por qué no te llaman clientes nuevos en Barcelona aunque hagas buenas instalaciones",
     metaDescription:
       "Eres buen electricista y aun así no entran clientes nuevos. Las cuatro razones más habituales por las que un electricista en Barcelona no aparece cuando alguien lo busca.",
     excerpt:
@@ -1261,7 +1261,7 @@ export const guides: Guide[] = [
   {
     id: "palabras-que-buscan-tus-clientes-en-google-electricista",
     photo: photos.electricistaCasco,
-    title: "Las palabras que de verdad buscan tus clientes en Google (electricista)",
+    title: "Las palabras que de verdad buscan en Google los clientes de un electricista en Barcelona",
     metaDescription:
       "Qué escribe la gente en Google cuando tiene un problema eléctrico en Barcelona: no es «servicios eléctricos integrales», es mucho más directo. Cómo usar esas palabras en tu ficha y tu web.",
     excerpt:
@@ -1418,7 +1418,7 @@ export const guides: Guide[] = [
   {
     id: "ficha-google-competencia-electricista-que-mirar",
     photo: photos.electricistaEnchufes,
-    title: "Qué mirar en la ficha de Google de tu competencia (electricista)",
+    title: "Qué mirar en la ficha de Google de tu competencia si eres electricista en Barcelona",
     metaDescription:
       "Cómo un electricista en Barcelona puede analizar la ficha de Google de otros electricistas de su zona para ver qué están haciendo mejor y qué se puede mejorar en la propia.",
     excerpt:
@@ -1470,9 +1470,9 @@ export const guides: Guide[] = [
   {
     id: "presupuesto-whatsapp-cierra-mas-trabajos-electricista",
     photo: photos.electricistaLuzTecho,
-    title: "Por qué un presupuesto por WhatsApp cierra más trabajos que una llamada (electricista)",
+    title: "Presupuesto por WhatsApp: por qué cierra más trabajos que una llamada si eres electricista en Barcelona",
     metaDescription:
-      "Por qué mandar el presupuesto por WhatsApp, con foto y precio claro, convierte más contactos en trabajos reales que decirlo por teléfono. Cómo hacerlo bien como electricista.",
+      "Por qué mandar el presupuesto por WhatsApp, con foto y precio claro, convierte más contactos en trabajos reales que decirlo por teléfono. Cómo hacerlo bien como electricista en Barcelona.",
     excerpt:
       "Por teléfono, un precio se olvida en cinco minutos. Por WhatsApp, se queda ahí, se puede releer y enseñar a la pareja antes de decidir.",
     summary:
@@ -1572,7 +1572,7 @@ export const guides: Guide[] = [
   {
     id: "por-que-un-cliente-elige-a-un-electricista-y-no-a-otro",
     photo: photos.electricistaPlafon,
-    title: "Por qué un cliente te elige a ti y no a otro electricista (no es el precio)",
+    title: "Por qué un cliente de Barcelona te elige a ti y no a otro electricista (no es el precio)",
     metaDescription:
       "Qué hace que alguien elija a un electricista en vez de otro en Barcelona cuando hay varios con precios parecidos: confianza, rapidez de respuesta y lo que se ve antes de llamar.",
     excerpt:
@@ -1628,7 +1628,7 @@ export const guides: Guide[] = [
   {
     id: "temporada-alta-baja-electricista-barcelona-como-no-depender",
     photo: photos.electricistaCuadro,
-    title: "Temporada alta y baja para electricistas: cómo no depender solo de las urgencias",
+    title: "Temporada alta y baja para electricistas en Barcelona: cómo no depender solo de las urgencias",
     metaDescription:
       "Cómo suaviza un electricista en Barcelona los meses flojos combinando avisos de urgencia con boletines, reformas e instalaciones, en vez de depender solo de que haya averías.",
     excerpt:
@@ -1679,7 +1679,7 @@ export const guides: Guide[] = [
   {
     id: "boletin-electrico-cie-via-de-clientes-electricista-barcelona",
     photo: photos.electricistaEnchufes,
-    title: "El boletín eléctrico (CIE): una vía de clientes que muchos electricistas no explotan",
+    title: "El boletín eléctrico (CIE): una vía de clientes que muchos electricistas de Barcelona no explotan",
     metaDescription:
       "Quién necesita un boletín eléctrico (CIE) en Barcelona (venta de piso, alquiler, cambio de potencia, seguro) y cómo un electricista puede captar este tipo de aviso de forma recurrente.",
     excerpt:
@@ -1730,7 +1730,7 @@ export const guides: Guide[] = [
   {
     id: "instagram-no-trae-clientes-fontanero-electricista-que-hacer",
     photo: photos.fontaneroCajaHerramientas,
-    title: "Por qué tu Instagram no te trae clientes (y qué sí funciona)",
+    title: "Por qué tu Instagram no te trae clientes en Barcelona (y qué sí funciona)",
     metaDescription:
       "Por qué tener seguidores en Instagram no se traduce en avisos para un fontanero o electricista en Barcelona, y qué papel real puede cumplir esa red en tu captación de clientes.",
     excerpt:
@@ -1780,7 +1780,7 @@ export const guides: Guide[] = [
   {
     id: "meta-ads-fontaneros-electricistas-cuando-compensa",
     photo: photos.electricistaLuzTecho,
-    title: "Facebook e Instagram Ads para fontaneros y electricistas: cuándo compensan",
+    title: "Facebook e Instagram Ads para fontaneros y electricistas en Barcelona: cuándo compensan",
     metaDescription:
       "Diferencia entre Google Ads y Meta Ads (Facebook e Instagram) para fontaneros y electricistas en Barcelona: qué tipo de trabajo capta cada uno y cuándo tiene sentido invertir en Meta.",
     excerpt:
@@ -1829,7 +1829,7 @@ export const guides: Guide[] = [
   {
     id: "coste-no-responder-rapido-llamadas-perdidas-fontanero-electricista",
     photo: photos.fontaneroGrifo,
-    title: "El coste de no responder rápido: lo que pierdes por cada llamada perdida",
+    title: "El coste de no responder rápido: lo que pierdes por cada llamada perdida en Barcelona",
     metaDescription:
       "Por qué cada llamada que no coges como fontanero o electricista en Barcelona no vuelve a intentarlo: casi siempre acaba llamando al siguiente resultado en Google.",
     excerpt:
@@ -1879,7 +1879,7 @@ export const guides: Guide[] = [
   {
     id: "formulario-contacto-web-no-genera-leads-fontanero-electricista",
     photo: photos.fontaneroInstalacionBano,
-    title: "Formularios de contacto en tu web: por qué la mayoría no genera ni un lead",
+    title: "Formularios de contacto en tu web: por qué la mayoría no genera ni un lead en Barcelona",
     metaDescription:
       "Errores habituales en los formularios de contacto de webs de fontaneros y electricistas en Barcelona, y qué cambiar para que de verdad generen llamadas y mensajes.",
     excerpt:
@@ -1929,7 +1929,7 @@ export const guides: Guide[] = [
   {
     id: "que-preguntar-primera-llamada-fontanero-electricista-barcelona",
     photo: photos.fontaneroCajaHerramientas,
-    title: "Qué preguntar en la primera llamada para no perder tiempo con presupuestos que no cierran",
+    title: "Qué preguntar en la primera llamada para no perder tiempo con presupuestos que no cierran en Barcelona",
     metaDescription:
       "Preguntas clave que un fontanero o electricista en Barcelona puede hacer en la primera llamada para priorizar los avisos que de verdad van a convertirse en trabajo.",
     excerpt:
@@ -1979,7 +1979,7 @@ export const guides: Guide[] = [
   {
     id: "crm-sencillo-no-perder-clientes-fontanero-electricista",
     photo: photos.electricistaCuadro,
-    title: "Cómo un CRM sencillo evita que se te escape un cliente",
+    title: "Cómo un CRM sencillo evita que se te escape un cliente en Barcelona",
     metaDescription:
       "Qué es en la práctica un CRM sencillo para un fontanero o electricista autónomo en Barcelona, sin complicarse con software de empresa grande, y qué problema resuelve de verdad.",
     excerpt:
@@ -2025,7 +2025,7 @@ export const guides: Guide[] = [
   {
     id: "fidelizar-comunidades-vecinos-cliente-recurrente-fontanero-electricista",
     photo: photos.fontaneroFregadero,
-    title: "Fidelizar comunidades de vecinos: el cliente que más rentabilidad da a largo plazo",
+    title: "Fidelizar comunidades de vecinos en Barcelona: el cliente que más rentabilidad da a largo plazo",
     metaDescription:
       "Por qué trabajar de forma recurrente con administradores de fincas y comunidades de vecinos en Barcelona da más estabilidad a un fontanero o electricista que solo captar particulares sueltos.",
     excerpt:
@@ -2075,7 +2075,7 @@ export const guides: Guide[] = [
   {
     id: "diferenciar-negocio-fontanero-electricista-mas-alla-rapido-confianza",
     photo: photos.electricistaPlafon,
-    title: "Cómo diferenciarte cuando todos dicen «servicio rápido y de confianza»",
+    title: "Cómo diferenciarte en Barcelona cuando todos dicen «servicio rápido y de confianza»",
     metaDescription:
       "Por qué frases como «servicio rápido y de confianza» no diferencian a un fontanero o electricista en Barcelona, y qué sí funciona para destacar frente a la competencia.",
     excerpt:

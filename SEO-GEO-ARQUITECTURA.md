@@ -155,6 +155,19 @@ definición, un párrafo, una respuesta) fuera de contexto. Por eso:
 - Nunca se fabrican testimonios, valoraciones ni estadísticas de clientes.
   Si un dato no está publicado todavía, no aparece — ni en el sitio ni en
   `llms.txt`.
+- **Toda guía o post nuevo lleva «Barcelona» en el `title` y en la
+  `metaDescription`**, sin excepción. OficiosPro solo vende en Barcelona y
+  alrededores, así que cada pieza de contenido tiene que dejarlo claro desde
+  el titular: es la señal de posicionamiento local más directa, tanto para
+  Google como para un asistente de IA al que le preguntan «qué [oficio] me
+  recomiendas en Barcelona». Un título genérico sin ciudad compite con
+  cualquier sitio de cualquier lugar; uno con «Barcelona» compite solo con
+  quien de verdad puede atender a ese usuario. Además, cuando tenga sentido
+  en el cuerpo del artículo, se nombra algún barrio o municipio del área
+  metropolitana (L'Hospitalet, Badalona, Sant Cugat, Terrassa, Sabadell,
+  Mataró…) para reforzar también la cercanía, no solo la ciudad. Antes de
+  dar por terminada una guía nueva, comprobar `title` y `metaDescription`
+  contra esta regla.
 
 ## 6. Reglas de contenido según la guía oficial de Google (IA generativa en la Búsqueda)
 
