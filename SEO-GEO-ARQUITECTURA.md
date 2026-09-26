@@ -259,3 +259,9 @@ respuesta a una duda de negocio? Si sí, va en la línea correcta.
   existen en castellano (ver «Guías que todavía solo existen en
   castellano» en el punto 1). Al traducirlas, añadir su entrada a
   `guideSlugs` y su contenido a `guidesCa`.
+- Traducir al catalán las 20 guías añadidas el 2026-09-26, enfocadas en
+  captar clientes de electricistas (12) y en canales de captación
+  aplicables a ambos oficios (8), de `como-conseguir-clientes-electricista-barcelona`
+  a `diferenciar-negocio-fontanero-electricista-mas-alla-rapido-confianza`:
+  hoy solo existen en castellano, siguiendo el mismo patrón de guías
+  ES-only del punto 1.

@@ -1069,6 +1069,1059 @@ export const guides: Guide[] = [
       },
     ],
   },
+  {
+    id: "como-conseguir-clientes-electricista-barcelona",
+    photo: photos.electricistaCuadro,
+    title: "Cómo conseguir más clientes siendo electricista en Barcelona",
+    metaDescription:
+      "Guía práctica para electricistas autónomos en Barcelona: ficha de Google, reseñas, anuncios, boletines eléctricos de comunidades y web para dejar de depender del boca a boca.",
+    excerpt:
+      "El boca a boca funciona, pero no se puede escalar. Estas son las vías que de verdad traen clientes a un electricista en Barcelona.",
+    summary:
+      "Un electricista en Barcelona consigue clientes de forma estable combinando cuatro vías: una ficha de Google Business completa y con reseñas, anuncios de Google acotados a su zona y horario, acuerdos con administradores de fincas para boletines y revisiones de comunidades, y una web que convierta visitas en llamadas. La ficha de Google es la base: es gratis y es lo primero que ve quien busca «electricista cerca de mí».",
+    publishedAt: "2026-10-05",
+    updatedAt: "2026-10-05",
+    category: "Conseguir clientes",
+    trade: "electricidad",
+    content: [
+      {
+        heading: "El límite del boca a boca",
+        paragraphs: [
+          "La mayoría de electricistas autónomos empieza con clientes de confianza: familia, vecinos, antiguos clientes. Es el mejor cliente posible, pero no lo controlas: no decides cuándo llega ni si llega suficiente para llenar la agenda cuando lo necesitas.",
+          "Para crecer hacen falta canales que se puedan activar y ajustar. Estos son los que funcionan en Barcelona.",
+        ],
+      },
+      {
+        heading: "1. Tu ficha de Google Business, lo primero",
+        paragraphs: [
+          "Cuando salta un diferencial o se va la luz de medio piso, la gente busca en el móvil y llama a uno de los negocios del mapa. Tener la ficha completa es gratis y es el canal con mejor relación entre esfuerzo y clientes.",
+        ],
+        list: [
+          "Elige «Electricista» como categoría principal.",
+          "Añade cada servicio con su nombre real: boletín eléctrico (CIE), cambio de cuadro, subida de potencia, averías, domótica, punto de recarga.",
+          "Sube fotos reales de cuadros e instalaciones, nunca imágenes de internet.",
+          "Responde a todas las reseñas, también a las negativas, con educación y sin discutir.",
+          "Mantén el horario actualizado: si a una hora no coges el teléfono, no la pongas.",
+        ],
+      },
+      {
+        heading: "2. Reseñas: lo que más pesa en la decisión",
+        paragraphs: [
+          "Ante un corte de luz, el cliente no lee tu web: mira estrellas y número de opiniones, y llama. Pide la reseña al terminar, cuando el cliente ve la luz encendida de nuevo, con un WhatsApp que incluya el enlace directo a tu ficha.",
+        ],
+      },
+      {
+        heading: "3. Google Ads, solo con campañas bien acotadas",
+        paragraphs: [
+          "Los anuncios de electricidad en Barcelona son caros porque compiten empresas grandes de mantenimiento con presupuestos altos. Para que un autónomo gane dinero con ellos tiene que acotar: solo sus barrios, solo sus horarios, solo los servicios que le dejan margen, y medir llamadas en lugar de clics.",
+        ],
+        list: [
+          "Excluye búsquedas como «curso», «trabajo», «sueldo» o «gratis».",
+          "Programa los anuncios solo en las horas en que puedes atender.",
+          "Usa anuncios de llamada para móvil.",
+          "Revisa cada semana qué búsquedas reales activaron tus anuncios.",
+        ],
+      },
+      {
+        heading: "4. Administradores de fincas y boletines de comunidades",
+        paragraphs: [
+          "En Barcelona hay miles de comunidades que necesitan un electricista de confianza para el boletín periódico del cuadro general, la iluminación de zonas comunes o el mantenimiento del ascensor. Es un cliente recurrente y con facturación estable: preséntate a administradores con una tarjeta y un dossier sencillo con tus tiempos de respuesta.",
+        ],
+      },
+      {
+        heading: "5. Una web que convierta",
+        paragraphs: [
+          "Si haces anuncios o te encuentran en Google, el siguiente paso es tu web. Una página por servicio, rápida en el móvil y con llamada y WhatsApp a la vista convierte muchas más visitas en clientes que un perfil de Facebook.",
+        ],
+      },
+      {
+        heading: "Qué combinación elegir",
+        paragraphs: [],
+        list: [
+          "Si estás empezando: ficha de Google y reseñas.",
+          "Si ya tienes base y quieres crecer: añade Google Ads bien acotado.",
+          "Si quieres ingresos estables: acuerdos con administradores de fincas.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "por-que-no-me-llaman-clientes-nuevos-electricista-barcelona",
+    photo: photos.electricistaEnchufes,
+    title: "Por qué no te llaman clientes nuevos aunque hagas buenas instalaciones",
+    metaDescription:
+      "Eres buen electricista y aun así no entran clientes nuevos. Las cuatro razones más habituales por las que un electricista en Barcelona no aparece cuando alguien lo busca.",
+    excerpt:
+      "Instalar bien no es el problema. El problema es que, si no te encuentran, ese aviso se lo lleva otro electricista.",
+    summary:
+      "Un electricista en Barcelona que no recibe clientes nuevos casi siempre tiene uno de estos cuatro problemas: no aparece en el mapa de Google cuando alguien busca «electricista cerca de mí», tiene pocas reseñas o ninguna, su ficha de Google está incompleta o mal categorizada, o depende solo del boca a boca sin ningún canal que traiga gente nueva. Ninguno tiene que ver con la calidad de tus instalaciones: son cosas que se revisan y se arreglan en días, no en meses.",
+    publishedAt: "2026-10-06",
+    updatedAt: "2026-10-06",
+    category: "Conseguir clientes",
+    trade: "electricidad",
+    content: [
+      {
+        heading: "El trabajo bien hecho no se ve solo",
+        paragraphs: [
+          "«Llevo años instalando bien, mis clientes están contentos, ¿por qué no me llama gente nueva?». La respuesta casi nunca tiene que ver con el oficio. Tiene que ver con que, hoy, quien tiene un problema eléctrico no pregunta a un vecino: abre Google en el móvil y llama al primero que le da confianza en diez segundos.",
+        ],
+      },
+      {
+        heading: "1. No apareces en el mapa cuando buscan «electricista cerca de mí»",
+        paragraphs: [
+          "Es la causa más común y la más fácil de comprobar: busca tú mismo «electricista» desde el móvil, con la ubicación activada, desde tu barrio. Si no sales entre los primeros resultados del mapa, ese es tu problema número uno, y suele deberse a que la ficha no está verificada, tiene una categoría incorrecta o directamente no existe.",
+        ],
+      },
+      {
+        heading: "2. Tienes pocas reseñas, o ninguna",
+        paragraphs: [
+          "Ante un corte de luz, la gente no compara presupuestos: compara estrellas. Un electricista con 4 reseñas gana a otro con 40 aunque el segundo cobre menos, porque genera más confianza en el momento de decidir.",
+        ],
+      },
+      {
+        heading: "3. Tu ficha de Google está a medias",
+        paragraphs: [],
+        list: [
+          "Sin fotos, o con fotos genéricas de internet en vez de tus propios cuadros e instalaciones.",
+          "Sin servicios concretos añadidos: boletín, subida de potencia, domótica.",
+          "Sin zona de servicio definida, así que Google no sabe si trabajas en tu barrio o en toda Cataluña.",
+          "Con «Contratista general» como categoría en vez de «Electricista».",
+        ],
+      },
+      {
+        heading: "4. Dependes solo del boca a boca",
+        paragraphs: [
+          "El boca a boca es el mejor cliente que existe, pero tiene un límite: no lo controlas. Si es tu único canal, tu agenda sube y baja según la suerte, no según lo que necesitas ese mes.",
+        ],
+      },
+      {
+        heading: `Cómo te ayuda ${brand}`,
+        paragraphs: [
+          "En el asesoramiento gratuito hacemos esa misma prueba contigo: miramos tu ficha de Google, tu posición en el mapa y tus reseñas, y te decimos exactamente qué está fallando y qué haríamos primero en tu caso.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "cuanto-gana-un-electricista-autonomo-en-barcelona",
+    photo: photos.electricistaLuzTecho,
+    title: "Cuánto gana un electricista autónomo en Barcelona (y qué lo cambia)",
+    metaDescription:
+      "Qué factores hacen que un electricista autónomo en Barcelona gane más o menos: volumen de avisos, tipo de trabajo, zona y cómo consigue clientes. Rangos orientativos, no una cifra inventada.",
+    excerpt:
+      "No hay una cifra única para «lo que gana un electricista»: depende de cuatro cosas muy concretas, y las cuatro se pueden trabajar.",
+    summary:
+      "Lo que gana un electricista autónomo en Barcelona depende sobre todo de cuatro factores: cuántos avisos recibe al mes, si son averías puntuales o trabajos de más importe (cambios de cuadro, subidas de potencia, puntos de recarga, instalaciones completas), la zona donde trabaja y si tiene un sistema para conseguir clientes o depende solo del boca a boca. No publicamos una cifra inventada: publicamos los factores reales que la mueven.",
+    publishedAt: "2026-10-07",
+    updatedAt: "2026-10-07",
+    category: "Tu negocio",
+    trade: "electricidad",
+    content: [
+      {
+        heading: "Por qué no hay una cifra única",
+        paragraphs: [
+          "Es una de las preguntas que más se busca en Google, y la respuesta honesta es que no existe una cifra real y verificable que sirva para todos. Lo que sí se puede explicar son los factores que hacen que un electricista autónomo en Barcelona gane más o menos, y esos sí son reales y se pueden trabajar uno a uno.",
+        ],
+      },
+      {
+        heading: "1. Cuántos avisos recibe al mes",
+        paragraphs: [
+          "Un electricista que solo depende de que le llamen antiguos clientes tiene meses buenos y meses flojos sin poder hacer nada. Uno que además tiene ficha de Google activa, reseñas y algún anuncio bien acotado puede suavizar esos altibajos.",
+        ],
+      },
+      {
+        heading: "2. El tipo de trabajo: avería o instalación",
+        paragraphs: [
+          "Una avería puntual (un enchufe, un diferencial que salta) tiene un tope de precio bajo. Un cambio de cuadro completo, una subida de potencia, un punto de recarga de coche eléctrico o una instalación nueva mueve un importe muy distinto por cada trabajo. Un electricista que solo recibe avisos de avería tiene el techo de ingresos más bajo que uno que también capta obra.",
+        ],
+      },
+      {
+        heading: "3. La zona donde trabaja",
+        paragraphs: [
+          "No es lo mismo cubrir solo tu barrio que tener capacidad de moverte por Barcelona y el área metropolitana. Más zona bien gestionada significa más avisos posibles, aunque también más desplazamiento a tener en cuenta.",
+        ],
+      },
+      {
+        heading: "4. Si tiene un sistema o improvisa",
+        paragraphs: [],
+        list: [
+          "Ficha de Google completa y con reseñas: es gratis y es el canal con mejor relación entre esfuerzo y resultado.",
+          "Alguna vía de captación activa además del boca a boca.",
+          "Un mínimo de seguimiento de presupuestos: cuántos mandas, cuántos se aceptan.",
+        ],
+      },
+      {
+        heading: `Cómo te ayuda ${brand}`,
+        paragraphs: [
+          "En el asesoramiento gratuito miramos tu situación actual —avisos, zona, tipo de trabajo— y te decimos qué palanca movería más en tu caso.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "palabras-que-buscan-tus-clientes-en-google-electricista",
+    photo: photos.electricistaCasco,
+    title: "Las palabras que de verdad buscan tus clientes en Google (electricista)",
+    metaDescription:
+      "Qué escribe la gente en Google cuando tiene un problema eléctrico en Barcelona: no es «servicios eléctricos integrales», es mucho más directo. Cómo usar esas palabras en tu ficha y tu web.",
+    excerpt:
+      "Nadie busca «soluciones eléctricas profesionales». Busca «se ha ido la luz» o «electricista urgente Sants». La diferencia importa más de lo que parece.",
+    summary:
+      "La gente no busca en Google con el lenguaje que usaría un electricista para describir su propio negocio: busca con el problema que tiene en ese momento («se ha ido la luz», «salta el diferencial», «subir potencia») o con la urgencia del momento («electricista urgente», «electricista 24 horas»), casi siempre añadiendo su barrio. Usar esas palabras, no un lenguaje corporativo, en tu ficha de Google y en tu web es lo que hace que aparezcas cuando de verdad te buscan.",
+    publishedAt: "2026-10-08",
+    updatedAt: "2026-10-08",
+    category: "Google y SEO",
+    trade: "electricidad",
+    content: [
+      {
+        heading: "El error más habitual: escribir como una empresa, no como busca la gente",
+        paragraphs: [
+          "Muchas fichas de Google y webs de electricistas están escritas con un lenguaje que nadie busca de verdad: «soluciones eléctricas integrales», «servicios profesionales para el hogar». Suena bien, pero no es lo que alguien escribe en Google cuando se le va la luz a las diez de la noche. Escribe el problema, tal cual lo tiene delante.",
+        ],
+      },
+      {
+        heading: "Lo que la gente escribe de verdad",
+        paragraphs: [],
+        list: [
+          "El problema concreto: «se ha ido la luz», «salta el diferencial», «no funciona un enchufe», «huele a quemado el cuadro».",
+          "Lo que necesita: «subir potencia», «boletín eléctrico», «instalar punto de recarga coche eléctrico».",
+          "La urgencia: «electricista urgente», «electricista 24 horas», «electricista ahora mismo».",
+          "El oficio más el sitio: «electricista Gràcia», «electricista cerca de mí», «electricista L'Hospitalet».",
+        ],
+      },
+      {
+        heading: "Dónde usar estas palabras",
+        paragraphs: [
+          "No hace falta un experto en SEO para aplicarlo: en la descripción de tu ficha de Google, en los nombres de los servicios que añades (en vez de «electricidad general», pon «boletín eléctrico», «cambio de cuadro», «subida de potencia») y en tu web, si tienes, usando esas mismas frases en los títulos de cada sección.",
+        ],
+      },
+      {
+        heading: "El barrio importa más de lo que parece",
+        paragraphs: [
+          "Google prioriza resultados cercanos a quien busca. Si tu ficha y tu web mencionan explícitamente los barrios y municipios donde trabajas, tienes más opciones de aparecer cuando alguien busca desde esa zona en concreto que si solo pones «Barcelona» en general.",
+        ],
+      },
+      {
+        heading: `Cómo lo trabajamos en ${brand}`,
+        paragraphs: [
+          "Parte de nuestro trabajo de SEO local es justo esto: encontrar las palabras que de verdad busca tu cliente potencial en tu zona y colocarlas donde Google las lee.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "electricista-urgencias-barcelona-como-aparecer",
+    photo: photos.electricistaPlafon,
+    title: "Electricista de urgencias en Barcelona: cómo aparecer cuando de verdad importa",
+    metaDescription:
+      "Cómo prepara un electricista su ficha de Google y su forma de trabajar para captar avisos urgentes en Barcelona: horario, tiempo de respuesta y lo que de verdad mira quien busca con prisa.",
+    excerpt:
+      "Un corte de luz o un cortocircuito no espera. Se llama al primero que da confianza rápido. Así se trabaja para ser ese primero.",
+    summary:
+      "Para captar avisos urgentes, un electricista en Barcelona necesita tres cosas: que su ficha de Google refleje con precisión cuándo está disponible de verdad (no un horario genérico), que el teléfono se conteste en los primeros segundos o al menos se devuelva la llamada muy rápido, y reseñas recientes que mencionen rapidez, porque ante un corte de luz o un riesgo eléctrico la gente decide en segundos.",
+    publishedAt: "2026-10-09",
+    updatedAt: "2026-10-09",
+    category: "Google y SEO",
+    trade: "electricidad",
+    content: [
+      {
+        heading: "Una urgencia eléctrica se decide distinto a un presupuesto normal",
+        paragraphs: [
+          "Cuando alguien pide presupuesto para una reforma, compara con calma. Cuando se queda sin luz o huele a quemado en el cuadro, no compara nada: llama al primero que parece que va a coger el teléfono y llegar rápido. Si quieres ese tipo de aviso, tienes que estar preparado para ese tipo de decisión.",
+        ],
+      },
+      {
+        heading: "1. Un horario que sea verdad",
+        paragraphs: [
+          "El error más caro es poner en tu ficha de Google un horario de «24 horas» si en realidad no coges el teléfono a las tres de la madrugada. Genera una mala reseña casi garantizada, justo en el peor momento. Es mejor poner el horario real, aunque sea más corto.",
+        ],
+      },
+      {
+        heading: "2. Responder rápido, aunque sea para decir que no puedes",
+        paragraphs: [
+          "Si no puedes coger el teléfono al momento, un mensaje automático de WhatsApp Business ya marca la diferencia frente a no contestar nada. En una urgencia, el silencio se interpreta como un no.",
+        ],
+      },
+      {
+        heading: "3. Reseñas que mencionen rapidez y seguridad",
+        paragraphs: [
+          "Cuando pidas una reseña después de una urgencia resuelta, suele salir sola la mención a lo rápido que llegaste y a que dejaste la instalación segura, sin que tengas que pedírselo. Esas reseñas son las que más pesan para el siguiente cliente con prisa.",
+        ],
+      },
+      {
+        heading: "Urgencias sí, pero no como único ingreso",
+        paragraphs: [
+          "Las urgencias son un canal potente porque decide rápido y compara poco, pero no conviene construir todo el negocio solo sobre ellas: son imprevisibles y agotan si son la única vía.",
+        ],
+      },
+      {
+        heading: `Cómo te ayuda ${brand}`,
+        paragraphs: [
+          "Ajustamos tu ficha de Google para que el horario y la zona reflejen exactamente cómo trabajas, y montamos el sistema de reseñas para que las urgencias resueltas se conviertan en la prueba social que convence al siguiente cliente con prisa.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "reformas-electricas-barcelona-como-captar-clientes-obra",
+    photo: photos.electricistaCuadro,
+    title: "Reformas eléctricas en Barcelona: cómo captar instalaciones, no solo averías",
+    metaDescription:
+      "Cómo un electricista en Barcelona puede pasar de vivir solo de averías a captar también cambios de cuadro completos, adaptaciones a normativa y puntos de recarga, con más margen por trabajo.",
+    excerpt:
+      "Una avería te paga el día. Un cambio de cuadro completo o una instalación nueva te paga el mes. Son clientes distintos y se captan de forma distinta.",
+    summary:
+      "Para captar clientes de obra eléctrica (no solo averías), un electricista necesita mostrar ese tipo de trabajo de forma explícita: fotos de antes y después en su ficha de Google, servicios concretos añadidos (cambio de cuadro, adaptación a normativa REBT, puntos de recarga), y presencia donde busca ese cliente concreto, que suele buscar con más antelación y comparando presupuestos, a diferencia del cliente de urgencia que decide en minutos.",
+    publishedAt: "2026-10-10",
+    updatedAt: "2026-10-10",
+    category: "Conseguir clientes",
+    trade: "electricidad",
+    content: [
+      {
+        heading: "Dos clientes muy distintos",
+        paragraphs: [
+          "El cliente de una avería decide en minutos y paga un trabajo puntual. El cliente de una reforma eléctrica se lo piensa durante semanas, pide dos o tres presupuestos y paga un importe muy superior por todo el proyecto: cambiar un cuadro antiguo, adaptar una instalación de aluminio a normativa actual, instalar un punto de recarga. Si tu ficha de Google solo habla de reparaciones urgentes, ese segundo cliente ni te tiene en el radar.",
+        ],
+      },
+      {
+        heading: "1. Que se vea que también haces instalaciones",
+        paragraphs: [
+          "Si en tu ficha de Google solo hay fotos de averías puntuales, nadie va a pensar en ti para renovar un cuadro entero. Sube fotos de antes y después de las instalaciones que ya has hecho, aunque sean pocas: es la prueba que busca este tipo de cliente.",
+        ],
+      },
+      {
+        heading: "2. Añade el servicio explícitamente",
+        paragraphs: [
+          "En los servicios de tu ficha de Google, además de «reparación de averías», añade específicamente «cambio de cuadro eléctrico», «adaptación a normativa» o «instalación de punto de recarga». Son búsquedas distintas y Google necesita que se lo digas para enseñarte en esos resultados.",
+        ],
+      },
+      {
+        heading: "3. Este cliente compara más, así que las reseñas pesan doble",
+        paragraphs: [
+          "Como decide con más calma, un cliente de reforma sí que va a leer varias reseñas antes de llamarte. Reseñas que mencionen cumplimiento de plazos, orden en la obra y que el boletín se entregó sin retrasos son las que más convencen en este tipo de trabajo.",
+        ],
+      },
+      {
+        heading: "4. Un presupuesto claro cierra más que uno barato",
+        paragraphs: [
+          "En una instalación, el cliente teme más los extras sorpresa que el precio en sí. Un presupuesto detallado por escrito (materiales, mano de obra, boletín incluido o aparte, plazos) transmite más confianza que competir solo por ser el más barato.",
+        ],
+      },
+      {
+        heading: `Cómo te ayuda ${brand}`,
+        paragraphs: [
+          "Trabajamos tu ficha de Google y tu web para que muestren también este tipo de trabajo, con las fotos y las palabras que busca quien está pensando en una instalación, no solo quien tiene una avería ahora mismo.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "ficha-google-competencia-electricista-que-mirar",
+    photo: photos.electricistaEnchufes,
+    title: "Qué mirar en la ficha de Google de tu competencia (electricista)",
+    metaDescription:
+      "Cómo un electricista en Barcelona puede analizar la ficha de Google de otros electricistas de su zona para ver qué están haciendo mejor y qué se puede mejorar en la propia.",
+    excerpt:
+      "No hace falta adivinar qué funciona: los electricistas que más aparecen en tu zona ya te lo están enseñando, gratis, en su propia ficha de Google.",
+    summary:
+      "Mirar la ficha de Google de los electricistas que más aparecen en tu zona (buscando «electricista» desde tu barrio) revela rápidamente qué se puede mejorar en la tuya: cuántas reseñas tienen, qué servicios han añadido, qué fotos usan y con qué frecuencia publican novedades. No se trata de copiar el negocio de nadie, sino de detectar qué prácticas concretas les están funcionando para aparecer antes que tú.",
+    publishedAt: "2026-10-11",
+    updatedAt: "2026-10-11",
+    category: "Google y SEO",
+    trade: "electricidad",
+    content: [
+      {
+        heading: "Antes de trabajar tu ficha, mira las que ya funcionan",
+        paragraphs: [
+          "Busca «electricista» desde el móvil, con la ubicación activada, en tu propio barrio. Los dos o tres primeros que aparecen en el mapa no están ahí por suerte: algo en su ficha de Google está funcionando mejor que en la del resto.",
+        ],
+      },
+      {
+        heading: "Qué mirar exactamente",
+        paragraphs: [],
+        list: [
+          "Número de reseñas y nota media: ¿cuántas tienen y cada cuánto reciben una nueva?",
+          "Servicios añadidos: ¿solo «Electricista» o también «Boletín eléctrico», «Domótica», «Puntos de recarga»?",
+          "Fotos: ¿reales de sus cuadros e instalaciones o genéricas de internet?",
+          "Respuestas a reseñas: ¿contestan a todas, incluidas las negativas, o dejan la ficha muda?",
+          "Publicaciones recientes: ¿suben novedades cada pocas semanas o la ficha lleva meses sin actividad?",
+        ],
+      },
+      {
+        heading: "Lo que no debes copiar",
+        paragraphs: [
+          "No tiene sentido copiar literalmente su descripción o sus fotos. Lo que sí puedes «copiar» es la estrategia: si ellos tienen 40 reseñas y tú 4, el aprendizaje no es imitar sus palabras, es empezar a pedir reseñas tú también, de forma sistemática.",
+        ],
+      },
+      {
+        heading: "Hazlo también con búsquedas específicas",
+        paragraphs: [
+          "Repite el ejercicio con búsquedas más concretas: «electricista urgente [tu barrio]», «boletín eléctrico [tu barrio]». A veces quien gana en «electricista» general no es el mismo que gana en estas búsquedas más específicas, y ahí puede haber una oportunidad más fácil de conseguir.",
+        ],
+      },
+      {
+        heading: `Cómo te ayuda ${brand}`,
+        paragraphs: [
+          "En el asesoramiento gratuito hacemos este análisis de competencia por ti: te decimos exactamente qué están haciendo mejor los electricistas que más aparecen en tu zona y qué es lo primero que deberías cambiar en tu ficha.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "presupuesto-whatsapp-cierra-mas-trabajos-electricista",
+    photo: photos.electricistaLuzTecho,
+    title: "Por qué un presupuesto por WhatsApp cierra más trabajos que una llamada (electricista)",
+    metaDescription:
+      "Por qué mandar el presupuesto por WhatsApp, con foto y precio claro, convierte más contactos en trabajos reales que decirlo por teléfono. Cómo hacerlo bien como electricista.",
+    excerpt:
+      "Por teléfono, un precio se olvida en cinco minutos. Por WhatsApp, se queda ahí, se puede releer y enseñar a la pareja antes de decidir.",
+    summary:
+      "Un presupuesto enviado por WhatsApp, por escrito y con foto del cuadro o la instalación, convierte más contactos en clientes reales que uno dado solo de palabra por teléfono: queda registrado, deja claro si el boletín está incluido o aparte, y evita malentendidos sobre qué material se usa. Para un electricista, es un cambio sencillo con impacto directo en cuántos presupuestos se acaban aceptando.",
+    publishedAt: "2026-10-12",
+    updatedAt: "2026-10-12",
+    category: "Conseguir clientes",
+    trade: "electricidad",
+    content: [
+      {
+        heading: "Un precio dicho se olvida; un precio escrito se queda",
+        paragraphs: [
+          "Cuando das un precio por teléfono, el cliente lo retiene unos minutos y ya está. Un presupuesto por WhatsApp, en cambio, se queda ahí: se puede releer, reenviar, consultar dos días después. Eso, por sí solo, ya hace que más gente acabe diciendo que sí.",
+        ],
+      },
+      {
+        heading: "Qué debe llevar un buen presupuesto por WhatsApp",
+        paragraphs: [],
+        list: [
+          "El precio claro, sin «depende» si ya has visto el problema (con foto o en persona).",
+          "Qué incluye exactamente: material (diferencial, magnetotérmicos), mano de obra, boletín incluido o aparte.",
+          "Una foto del cuadro o la avería, si es posible: genera más confianza que solo texto.",
+          "El plazo: cuándo podrías hacerlo, no dejarlo en el aire.",
+        ],
+      },
+      {
+        heading: "Evita el problema de los extras sorpresa",
+        paragraphs: [
+          "Uno de los motivos por los que un cliente no cierra, o cierra y luego se queja, es no tener claro si el boletín o los materiales estaban incluidos. Ponerlo por escrito, aunque sea en dos líneas de WhatsApp, evita esa discusión antes de que empiece.",
+        ],
+      },
+      {
+        heading: "Un mensaje tipo para empezar",
+        paragraphs: [
+          "«Hola [nombre], según lo que me has contado/mandado en la foto, sería [trabajo] por [precio], incluye [material y boletín si aplica]. Podría hacerlo [día/franja]. Cualquier duda me dices.»",
+        ],
+      },
+      {
+        heading: `Cómo lo trabajamos en ${brand}`,
+        paragraphs: [
+          "Parte de montar tu sistema de CRM y seguimiento de clientes es justo esto: tener plantillas de WhatsApp listas para presupuestar rápido y bien.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "electricista-anunciarse-toda-barcelona-o-solo-tu-zona",
+    photo: photos.electricistaCasco,
+    title: "¿Conviene anunciarte en toda Barcelona o solo en tu zona? (electricista)",
+    metaDescription:
+      "Si eres electricista autónomo, anunciarte en toda Barcelona puede salir más caro y traer menos resultado que acotar tus anuncios y tu ficha de Google a tu zona real de trabajo.",
+    excerpt:
+      "Anunciarte en toda la ciudad suena a más oportunidades. En la práctica, suele significar pagar más por clientes que están demasiado lejos.",
+    summary:
+      "Para la mayoría de electricistas autónomos en Barcelona compensa acotar sus anuncios y su ficha de Google a la zona donde de verdad pueden llegar rápido, en vez de anunciarse en toda la ciudad: cuesta menos por contacto, compite con menos empresas grandes de mantenimiento y evita desplazamientos largos que no compensan para trabajos pequeños.",
+    publishedAt: "2026-10-13",
+    updatedAt: "2026-10-13",
+    category: "Publicidad",
+    trade: "electricidad",
+    content: [
+      {
+        heading: "«Cuanto más grande, mejor» no siempre es verdad",
+        paragraphs: [
+          "Parece lógico pensar que anunciarte en toda Barcelona te da más oportunidades que hacerlo solo en tu barrio. En la práctica, para un autónomo que trabaja solo o con un ayudante, suele pasar lo contrario: acabas compitiendo por palabras muy caras contra empresas grandes de mantenimiento, y cuando te llaman, es desde zonas a las que tardas cuarenta minutos en llegar.",
+        ],
+      },
+      {
+        heading: "Lo que pasa si te anuncias en toda la ciudad",
+        paragraphs: [],
+        list: [
+          "Pagas el mismo precio por clic que empresas grandes con más margen para pujar alto.",
+          "Recibes avisos de zonas donde tardas demasiado en llegar, sobre todo si es una urgencia.",
+          "Tu ficha de Google compite con muchas más fichas a la vez.",
+          "Es más difícil generar reseñas de vecinos que se conocen entre sí y se recomiendan.",
+        ],
+      },
+      {
+        heading: "Lo que gana quien se acota a su zona",
+        paragraphs: [
+          "Al limitar tus anuncios y tu ficha a tu barrio y los colindantes, compites con menos negocios, el coste por contacto suele bajar, y puedes llegar de verdad rápido cuando hace falta.",
+        ],
+      },
+      {
+        heading: "Cuándo sí tiene sentido ampliar",
+        paragraphs: [
+          "Si ya tienes equipo o te especializas en algo puntual que poca gente ofrece (por ejemplo, puntos de recarga o domótica), ampliar la zona puede compensar. Para el resto, empezar acotado y crecer poco a poco suele dar mejor resultado.",
+        ],
+      },
+      {
+        heading: `Cómo lo trabajamos en ${brand}`,
+        paragraphs: [
+          "Cuando gestionamos tus anuncios y tu ficha de Google, empezamos siempre acotando la zona a lo que de verdad puedes atender bien, y la vamos ajustando según los resultados reales.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "por-que-un-cliente-elige-a-un-electricista-y-no-a-otro",
+    photo: photos.electricistaPlafon,
+    title: "Por qué un cliente te elige a ti y no a otro electricista (no es el precio)",
+    metaDescription:
+      "Qué hace que alguien elija a un electricista en vez de otro en Barcelona cuando hay varios con precios parecidos: confianza, rapidez de respuesta y lo que se ve antes de llamar.",
+    excerpt:
+      "Cuando dos presupuestos son parecidos, el precio deja de decidir. Lo que decide es lo que el cliente vio de ti antes de coger el teléfono.",
+    summary:
+      "Cuando varios electricistas tienen precios similares, lo que hace que un cliente elija a uno y no a otro suele ser: quién responde antes, quién genera más confianza a través de sus reseñas y fotos, y quién explica con más claridad qué va a hacer y si el boletín está incluido. El precio importa, pero deja de ser el factor decisivo en cuanto hay varias opciones parecidas.",
+    publishedAt: "2026-10-14",
+    updatedAt: "2026-10-14",
+    category: "Tu negocio",
+    trade: "electricidad",
+    content: [
+      {
+        heading: "El precio decide menos de lo que se piensa",
+        paragraphs: [
+          "Muchos electricistas dan por hecho que, si no consiguen un trabajo, es porque cobraban más caro que otro. A veces es así, pero muchas otras veces el precio era parecido y lo que decidió fue otra cosa: quién respondió antes, quién parecía más de fiar, quién explicó mejor qué iba a hacer.",
+        ],
+      },
+      {
+        heading: "1. Quién responde primero",
+        paragraphs: [
+          "Cuando alguien pide presupuesto a dos o tres electricistas a la vez, el primero que contesta con una respuesta clara arranca con ventaja, incluso antes de hablar de precio.",
+        ],
+      },
+      {
+        heading: "2. Lo que se ve antes de llamar",
+        paragraphs: [
+          "Antes de coger el teléfono, el cliente ya se ha hecho una idea de ti a través de tu ficha de Google: tus reseñas, tus fotos de cuadros e instalaciones, si pareces un negocio serio o uno improvisado.",
+        ],
+      },
+      {
+        heading: "3. Cómo explicas lo que vas a hacer",
+        paragraphs: [
+          "Un presupuesto que solo dice «250 €» genera más dudas que uno que dice «250 €: cambio del diferencial, comprobación del cuadro y boletín incluido». No es cuestión de escribir más, es explicar lo suficiente para que el cliente entienda qué está pagando.",
+        ],
+      },
+      {
+        heading: "Lo que puedes trabajar esta semana",
+        paragraphs: [],
+        list: [
+          "Revisa cuánto tardas de media en responder a un presupuesto pedido.",
+          "Mira tu ficha de Google como si fueras un cliente que no te conoce.",
+          "La próxima vez que mandes un presupuesto, aclara si el boletín está incluido.",
+        ],
+      },
+      {
+        heading: `Cómo te ayuda ${brand}`,
+        paragraphs: [
+          "Trabajamos la parte que el cliente ve antes de llamarte —tu ficha de Google, tus reseñas, tu web si tienes— para que esa primera impresión juegue a tu favor.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "temporada-alta-baja-electricista-barcelona-como-no-depender",
+    photo: photos.electricistaCuadro,
+    title: "Temporada alta y baja para electricistas: cómo no depender solo de las urgencias",
+    metaDescription:
+      "Cómo suaviza un electricista en Barcelona los meses flojos combinando avisos de urgencia con boletines, reformas e instalaciones, en vez de depender solo de que haya averías.",
+    excerpt:
+      "Si tu agenda depende de que salte un diferencial, tu agenda no depende de ti. Hay formas de que no sea así.",
+    summary:
+      "Un electricista que depende solo de avisos de avería tiene una agenda que sube y baja según la suerte. Combinar ese tipo de aviso con trabajos que se pueden planificar (boletines de comunidades, cambios de cuadro, instalación de puntos de recarga, reformas eléctricas) da una base de ingresos más estable, porque esos trabajos se pueden captar y programar con antelación.",
+    publishedAt: "2026-10-15",
+    updatedAt: "2026-10-15",
+    category: "Tu negocio",
+    trade: "electricidad",
+    content: [
+      {
+        heading: "Vivir de que salte un diferencial es vivir sin control",
+        paragraphs: [
+          "Si el negocio depende solo de averías, no hay forma de planificar: unos meses hay muchos avisos (por ejemplo con las subidas de potencia del aire acondicionado en verano), otros casi ninguno. La avería es un canal real y rentable, pero no debería ser el único.",
+        ],
+      },
+      {
+        heading: "Trabajos que sí se pueden planificar",
+        paragraphs: [],
+        list: [
+          "Boletines eléctricos de comunidades: se agendan con antelación y son recurrentes.",
+          "Cambios de cuadro completos: se deciden con semanas de margen.",
+          "Puntos de recarga de coche eléctrico: una demanda creciente que se planifica, no una urgencia.",
+          "Reformas eléctricas de vivienda: se agendan junto con la obra general.",
+        ],
+      },
+      {
+        heading: "Por qué esto suaviza los meses flojos",
+        paragraphs: [
+          "A diferencia de una avería, un boletín o una instalación se agenda con semanas de margen. Tener un par de estos trabajos ya cerrados te da una base de ingresos que no depende de que ese mes haya suerte con las urgencias.",
+        ],
+      },
+      {
+        heading: "No hace falta elegir uno u otro",
+        paragraphs: [
+          "No se trata de dejar de atender urgencias, sino de no depender solo de ellas. Las urgencias siguen siendo un canal válido; lo que cambia es que dejan de ser tu única fuente de ingresos.",
+        ],
+      },
+      {
+        heading: `Cómo te ayuda ${brand}`,
+        paragraphs: [
+          "En el asesoramiento gratuito miramos cómo está repartida hoy tu agenda entre avería y trabajo planificable, y te ayudamos a mostrar en tu ficha de Google también ese segundo tipo de trabajo.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "boletin-electrico-cie-via-de-clientes-electricista-barcelona",
+    photo: photos.electricistaEnchufes,
+    title: "El boletín eléctrico (CIE): una vía de clientes que muchos electricistas no explotan",
+    metaDescription:
+      "Quién necesita un boletín eléctrico (CIE) en Barcelona (venta de piso, alquiler, cambio de potencia, seguro) y cómo un electricista puede captar este tipo de aviso de forma recurrente.",
+    excerpt:
+      "No solo lo pide quien reforma. Lo pide quien vende, quien alquila y quien cambia de compañía. Y casi ningún electricista lo pone como servicio explícito.",
+    summary:
+      "El boletín eléctrico o CIE (certificado de instalación eléctrica) no lo piden solo quienes reforman: también lo necesita quien vende o alquila un piso, quien sube la potencia contratada o quien lo exige su seguro o su compañía eléctrica. Es un trabajo rápido y bien pagado que muchos electricistas no muestran como servicio propio en su ficha de Google, perdiendo avisos de gente que ya sabe exactamente lo que necesita y solo busca «boletín eléctrico Barcelona».",
+    publishedAt: "2026-10-16",
+    updatedAt: "2026-10-16",
+    category: "Conseguir clientes",
+    trade: "electricidad",
+    content: [
+      {
+        heading: "Un trabajo que casi nadie anuncia como tal",
+        paragraphs: [
+          "La mayoría de electricistas hace boletines como parte de otro trabajo (una reforma, un cambio de cuadro), pero pocos lo ponen como servicio independiente y buscable en su ficha de Google. Eso significa perder a todo el que busca directamente «boletín eléctrico» sin necesitar ninguna otra obra.",
+        ],
+      },
+      {
+        heading: "Quién necesita un boletín sin estar reformando nada",
+        paragraphs: [],
+        list: [
+          "Quien vende un piso: muchas notarías y compradores lo piden para cerrar la operación.",
+          "Quien alquila: cada vez más agencias inmobiliarias lo exigen antes de publicar el anuncio.",
+          "Quien sube la potencia contratada: la compañía eléctrica pide el boletín actualizado.",
+          "Quien renueva el seguro del hogar: algunas aseguradoras lo solicitan en instalaciones antiguas.",
+        ],
+      },
+      {
+        heading: "Cómo captar este tipo de aviso",
+        paragraphs: [
+          "Añade «boletín eléctrico» o «certificado de instalación eléctrica (CIE)» como servicio explícito en tu ficha de Google, con una frase que diga para qué sirve (venta, alquiler, cambio de potencia). Es exactamente lo que alguien escribe en Google cuando ya sabe qué necesita y solo busca quién se lo haga.",
+        ],
+      },
+      {
+        heading: "Inmobiliarias y gestorías: una fuente recurrente",
+        paragraphs: [
+          "Las inmobiliarias y administradores de fincas gestionan boletines constantemente para sus operaciones. Presentarte a dos o tres agencias de tu zona como el electricista de referencia para boletines rápidos puede convertirse en un goteo constante de avisos cortos y bien pagados.",
+        ],
+      },
+      {
+        heading: `Cómo te ayuda ${brand}`,
+        paragraphs: [
+          "Añadimos este tipo de servicios concretos a tu ficha de Google y a tu web, para que no dependa solo de que alguien te lo pida sabiendo que tú también lo haces.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "instagram-no-trae-clientes-fontanero-electricista-que-hacer",
+    photo: photos.fontaneroCajaHerramientas,
+    title: "Por qué tu Instagram no te trae clientes (y qué sí funciona)",
+    metaDescription:
+      "Por qué tener seguidores en Instagram no se traduce en avisos para un fontanero o electricista en Barcelona, y qué papel real puede cumplir esa red en tu captación de clientes.",
+    excerpt:
+      "Cuando alguien tiene una fuga o se le va la luz, no abre Instagram: abre Google. Eso no significa que Instagram no sirva, significa que sirve para otra cosa.",
+    summary:
+      "Instagram casi nunca es el canal donde un cliente descubre que necesita un fontanero o electricista: ese descubrimiento pasa por Google, en el momento del problema. Donde sí aporta es después, como refuerzo de confianza (alguien que ya te encontró en Google entra a tu perfil para ver más trabajos) y como escaparate de tu trabajo con fotos y vídeos reales. Publicar solo por publicar, sin enlazar a tu ficha de Google, no genera avisos por sí solo.",
+    publishedAt: "2026-10-17",
+    updatedAt: "2026-10-17",
+    category: "Redes sociales",
+    content: [
+      {
+        heading: "El malentendido más habitual",
+        paragraphs: [
+          "Muchos profesionales piensan que si consiguen más seguidores en Instagram, les van a llegar más avisos. Rara vez funciona así en un oficio como fontanería o electricidad: nadie hace scroll en Instagram cuando tiene una fuga a las once de la noche. En ese momento, abre Google y busca «fontanero cerca de mí».",
+        ],
+      },
+      {
+        heading: "Entonces, ¿para qué sirve Instagram?",
+        paragraphs: [
+          "Para lo que pasa después de encontrarte: alguien te encuentra en el mapa de Google, entra a tu ficha, y a veces también busca tu perfil para ver más fotos o vídeos de trabajos antes de decidir. Ahí es donde Instagram aporta, como refuerzo de confianza, no como punto de partida.",
+        ],
+      },
+      {
+        heading: "Qué sí funciona en Instagram para un oficio",
+        paragraphs: [],
+        list: [
+          "Vídeos cortos de trabajos reales, de antes y después: son el contenido que más se entiende sin necesidad de leer nada.",
+          "Enlazar siempre tu ficha de Google o tu WhatsApp en la biografía: sin ese enlace, un interesado no sabe cómo contactarte.",
+          "Etiquetar la ubicación en Barcelona o tu barrio: ayuda a que te encuentre quien busca justo ahí.",
+          "Publicar con constancia moderada (una o dos veces por semana) antes que perseguir viralidad.",
+        ],
+      },
+      {
+        heading: "Lo que no vale la pena perseguir",
+        paragraphs: [
+          "Comprar seguidores o interacción falsa no genera ni un aviso real, y a veces incluso resta credibilidad si se nota. El objetivo no es tener muchos seguidores: es que quien ya te está considerando vea trabajo real y decida con más confianza.",
+        ],
+      },
+      {
+        heading: `Cómo lo enfocamos en ${brand}`,
+        paragraphs: [
+          "Priorizamos siempre tu ficha de Google y tu web, que son donde de verdad se decide un cliente, y usamos Instagram como escaparate que refuerza esa decisión, no como sustituto.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "meta-ads-fontaneros-electricistas-cuando-compensa",
+    photo: photos.electricistaLuzTecho,
+    title: "Facebook e Instagram Ads para fontaneros y electricistas: cuándo compensan",
+    metaDescription:
+      "Diferencia entre Google Ads y Meta Ads (Facebook e Instagram) para fontaneros y electricistas en Barcelona: qué tipo de trabajo capta cada uno y cuándo tiene sentido invertir en Meta.",
+    excerpt:
+      "Google Ads capta a quien ya busca un problema. Meta Ads interrumpe a alguien que no estaba buscando nada. Son herramientas distintas para momentos distintos.",
+    summary:
+      "Google Ads funciona porque capta a alguien que ya está buscando activamente un fontanero o electricista en ese momento. Meta Ads (Facebook e Instagram) interrumpe a alguien que no estaba buscando nada, así que rinde peor para urgencias y mejor para trabajos que se pueden planificar (reformas, instalaciones, mantenimiento de comunidades), donde plantar la idea con tiempo sí puede convertir semanas después.",
+    publishedAt: "2026-10-18",
+    updatedAt: "2026-10-18",
+    category: "Publicidad",
+    content: [
+      {
+        heading: "Dos lógicas distintas",
+        paragraphs: [
+          "En Google Ads, el anuncio aparece cuando alguien ya escribió «fontanero urgente Gràcia»: hay una necesidad ya activa. En Meta Ads, el anuncio aparece mientras alguien mira fotos de amigos, sin que esté buscando nada relacionado con fontanería o electricidad en ese momento. Por eso Meta funciona mucho peor para captar una urgencia y mucho mejor para plantar una idea que se decide con calma.",
+        ],
+      },
+      {
+        heading: "Dónde sí puede compensar Meta Ads",
+        paragraphs: [],
+        list: [
+          "Reformas de baño o instalaciones eléctricas completas: decisiones que se piensan durante semanas.",
+          "Ofertas de temporada dirigidas a un barrio concreto (por ejemplo, revisión de instalación antes del invierno).",
+          "Mantenimiento de comunidades: contenido dirigido a administradores de fincas de tu zona.",
+        ],
+      },
+      {
+        heading: "Dónde casi nunca compensa",
+        paragraphs: [
+          "Para urgencias (fugas, cortes de luz) casi no tiene sentido: nadie decide contratar una urgencia a partir de un anuncio que vio ayer en Instagram. Ese cliente busca en Google en el momento exacto del problema.",
+        ],
+      },
+      {
+        heading: "Qué formato funciona mejor",
+        paragraphs: [
+          "Un vídeo corto de un antes y después real convierte mejor que una foto con texto. Los formularios instantáneos (que se rellenan sin salir de la app) generan más leads que enviar a una web lenta, aunque conviene revisar la calidad de esos contactos, no solo la cantidad.",
+        ],
+      },
+      {
+        heading: `Cómo lo hacemos en ${brand}`,
+        paragraphs: [
+          "Recomendamos Meta Ads solo cuando ya tienes cubierta la captación de urgencias por Google, y como complemento para el tipo de trabajo que se decide con más calma: reformas, instalaciones y comunidades.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "coste-no-responder-rapido-llamadas-perdidas-fontanero-electricista",
+    photo: photos.fontaneroGrifo,
+    title: "El coste de no responder rápido: lo que pierdes por cada llamada perdida",
+    metaDescription:
+      "Por qué cada llamada que no coges como fontanero o electricista en Barcelona no vuelve a intentarlo: casi siempre acaba llamando al siguiente resultado en Google.",
+    excerpt:
+      "Quien te llama y no le coges, no suele insistir. Cuelga y llama al siguiente nombre que ve en el mapa de Google.",
+    summary:
+      "Cuando alguien busca un fontanero o electricista en Google y llama, casi siempre tiene dos o tres opciones más a un clic de distancia. Si no coges esa llamada y no la devuelves rápido, lo habitual no es que espere: es que llame al siguiente de la lista. Cada llamada perdida sin seguimiento es, con mucha probabilidad, un cliente que ya está hablando con otro profesional en ese mismo momento.",
+    publishedAt: "2026-10-19",
+    updatedAt: "2026-10-19",
+    category: "Tu negocio",
+    content: [
+      {
+        heading: "Quien busca en Google tiene alternativas a un clic",
+        paragraphs: [
+          "A diferencia de un cliente que te conoce y te pide explícitamente a ti, quien busca «fontanero cerca de mí» o «electricista urgente» ve un mapa con varios negocios. Si no le coges el teléfono, no tiene que esforzarse para buscar otra opción: la tiene justo debajo, en el mismo resultado de Google.",
+        ],
+      },
+      {
+        heading: "Por qué casi nadie deja mensaje ni vuelve a llamar",
+        paragraphs: [
+          "Con una urgencia (una fuga, un corte de luz), esperar no es una opción cómoda. La reacción más común ante una llamada sin respuesta es colgar y marcar el siguiente número, no dejar un mensaje de voz y esperar a que le devuelvas la llamada horas después.",
+        ],
+      },
+      {
+        heading: "Qué hacer si de verdad no puedes coger el teléfono",
+        paragraphs: [],
+        list: [
+          "Activa un mensaje automático de WhatsApp Business con un tiempo de respuesta realista («Te devuelvo la llamada en menos de 30 minutos»).",
+          "Revisa las llamadas perdidas al menos dos veces al día, no solo cuando puedas atender.",
+          "Si trabajas con alguien más, define quién responde cuando el otro no puede.",
+          "Considera un desvío de llamadas a otro número en tus horas de mayor volumen.",
+        ],
+      },
+      {
+        heading: "Antes de invertir en más anuncios, revisa esto",
+        paragraphs: [
+          "Es habitual pensar que hacen falta más anuncios o más presencia en Google cuando el problema real es que llegan avisos y no se responden a tiempo. Antes de gastar más en captación, merece la pena revisar cuántas llamadas se están perdiendo hoy sin devolver.",
+        ],
+      },
+      {
+        heading: `Cómo te ayuda ${brand}`,
+        paragraphs: [
+          "Dentro del CRM que montamos como parte del servicio, dejamos un sistema para que ninguna llamada o mensaje se quede sin seguimiento, aunque no lo hayas podido coger en el momento.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "formulario-contacto-web-no-genera-leads-fontanero-electricista",
+    photo: photos.fontaneroInstalacionBano,
+    title: "Formularios de contacto en tu web: por qué la mayoría no genera ni un lead",
+    metaDescription:
+      "Errores habituales en los formularios de contacto de webs de fontaneros y electricistas en Barcelona, y qué cambiar para que de verdad generen llamadas y mensajes.",
+    excerpt:
+      "Un formulario con demasiados campos y sin el teléfono a la vista no capta clientes: los espanta antes de que lo rellenen.",
+    summary:
+      "La mayoría de formularios de contacto en webs de oficios fallan por lo mismo: piden demasiados campos, no muestran el teléfono ni el WhatsApp de forma visible, y usan un texto genérico («contacta con nosotros») que no da ninguna razón para escribir ahora. Un formulario que convierte pide solo lo imprescindible, deja el teléfono siempre visible y explica en una frase qué va a pasar después de enviarlo.",
+    publishedAt: "2026-10-20",
+    updatedAt: "2026-10-20",
+    category: "Google y SEO",
+    content: [
+      {
+        heading: "El formulario no es el canal principal, es la red de seguridad",
+        paragraphs: [
+          "Para una urgencia, casi nadie rellena un formulario: llama directamente. El formulario capta a quien prefiere escribir, a quien busca fuera de tu horario, o a quien está comparando presupuestos con calma. Por eso tiene que estar pensado para esos casos, no copiado de una plantilla genérica.",
+        ],
+      },
+      {
+        heading: "Los errores más habituales",
+        paragraphs: [],
+        list: [
+          "Pedir demasiados campos (dirección completa, cómo nos conociste, mensaje largo obligatorio) antes de saber si va a ser un cliente.",
+          "Esconder el teléfono y el WhatsApp, obligando a rellenar el formulario aunque el visitante prefiera llamar.",
+          "Un botón genérico («Enviar») sin ninguna indicación de qué pasa después.",
+          "Ninguna confirmación clara tras enviarlo, así que el visitante no sabe si ha funcionado.",
+        ],
+      },
+      {
+        heading: "Qué debería llevar un formulario que sí convierte",
+        paragraphs: [
+          "Pocos campos (nombre, teléfono, qué necesitas), el teléfono y el WhatsApp visibles por encima del formulario para quien prefiera esa vía, y un mensaje de confirmación con plazo real: «Te contestamos en menos de dos horas en horario laboral».",
+        ],
+      },
+      {
+        heading: "El teléfono siempre gana la primera opción",
+        paragraphs: [
+          "En un oficio como fontanería o electricidad, buena parte del tráfico móvil prefiere pulsar para llamar antes que escribir. Un formulario nunca debería ser la única forma de contacto de la página: siempre debe convivir con un botón de llamada y de WhatsApp visibles.",
+        ],
+      },
+      {
+        heading: `Cómo lo hacemos en ${brand}`,
+        paragraphs: [
+          "Cuando construimos tu landing page, el formulario es siempre lo segundo, nunca lo único: el teléfono y el WhatsApp van primero, y el formulario se queda con los campos justos para no perder a nadie por el camino.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "que-preguntar-primera-llamada-fontanero-electricista-barcelona",
+    photo: photos.fontaneroCajaHerramientas,
+    title: "Qué preguntar en la primera llamada para no perder tiempo con presupuestos que no cierran",
+    metaDescription:
+      "Preguntas clave que un fontanero o electricista en Barcelona puede hacer en la primera llamada para priorizar los avisos que de verdad van a convertirse en trabajo.",
+    excerpt:
+      "No todos los avisos valen lo mismo. Unas preguntas concretas al principio evitan perder horas en presupuestos que ya sabías, en el fondo, que no iban a cerrar.",
+    summary:
+      "No todos los contactos que llegan tienen la misma probabilidad de convertirse en trabajo real: algunos ya han decidido contratar y solo comparan precio final, otros están pidiendo cinco presupuestos por costumbre sin intención real de avanzar pronto. Unas pocas preguntas en la primera llamada (urgencia real, si ya tienen otro profesional mirando el caso, plazo con el que cuentan) ayudan a priorizar el tiempo hacia los avisos que de verdad van a cerrar.",
+    publishedAt: "2026-10-21",
+    updatedAt: "2026-10-21",
+    category: "Conseguir clientes",
+    content: [
+      {
+        heading: "No todos los avisos merecen el mismo tiempo",
+        paragraphs: [
+          "Es habitual pasar la misma media hora preparando un presupuesto detallado para alguien con una urgencia real que para alguien que está pidiendo precio a cinco profesionales sin ninguna prisa por decidir. Ese tiempo no vale lo mismo en los dos casos, y unas pocas preguntas al principio ayudan a saber dónde merece la pena invertirlo.",
+        ],
+      },
+      {
+        heading: "Preguntas que ayudan a priorizar",
+        paragraphs: [],
+        list: [
+          "«¿Es algo urgente o lo estás planificando para las próximas semanas?»: separa una urgencia real de una consulta con calma.",
+          "«¿Ya has hablado con algún otro profesional?»: si ya tiene tres presupuestos, quizás solo falta el tuyo para comparar, y conviene ser directo con el precio.",
+          "«¿Para cuándo necesitarías que estuviera hecho?»: si el plazo no encaja con tu agenda, mejor saberlo antes de invertir tiempo en el presupuesto.",
+          "«¿Sabes más o menos qué presupuesto tenías en mente?»: evita preparar una propuesta muy por encima de lo que la persona está dispuesta a pagar.",
+        ],
+      },
+      {
+        heading: "No es para descartar clientes, es para no perder tiempo",
+        paragraphs: [
+          "El objetivo no es rechazar a nadie: es saber si conviene mandar un presupuesto rápido por WhatsApp o si merece la pena una visita para valorarlo con calma. Un aviso urgente y claro se responde en minutos; una consulta genérica sin prisa puede esperar a un hueco tranquilo del día.",
+        ],
+      },
+      {
+        heading: "El error de tratar todos los avisos igual",
+        paragraphs: [
+          "Sin estas preguntas, es fácil acabar dedicando horas a presupuestos detallados que nunca se van a cerrar, mientras un aviso urgente y real espera más de lo que debería. Priorizar no es cuestión de suerte, es cuestión de preguntar lo justo al principio.",
+        ],
+      },
+      {
+        heading: `Cómo te ayuda ${brand}`,
+        paragraphs: [
+          "En el CRM que montamos como parte del servicio, dejamos un campo simple para marcar la urgencia y el plazo de cada contacto, para que se vea de un vistazo a quién responder primero.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "crm-sencillo-no-perder-clientes-fontanero-electricista",
+    photo: photos.electricistaCuadro,
+    title: "Cómo un CRM sencillo evita que se te escape un cliente",
+    metaDescription:
+      "Qué es en la práctica un CRM sencillo para un fontanero o electricista autónomo en Barcelona, sin complicarse con software de empresa grande, y qué problema resuelve de verdad.",
+    excerpt:
+      "No es un software complicado de empresa grande. Es, simplemente, no perder de vista quién te escribió y qué le respondiste.",
+    summary:
+      "Para un fontanero o electricista autónomo, un CRM no tiene que ser un programa complejo: puede ser tan simple como una lista con cada contacto, cuándo escribió, qué presupuesto se le mandó y si hay que hacer seguimiento. Lo que resuelve es un problema muy concreto: presupuestos que se envían y se olvidan, sin que nadie vuelva a escribir para preguntar «¿al final qué tal, seguimos adelante?», que es justo la pregunta que cierra muchos trabajos que de otro modo se pierden por pura falta de seguimiento.",
+    publishedAt: "2026-10-22",
+    updatedAt: "2026-10-22",
+    category: "Tu negocio",
+    content: [
+      {
+        heading: "El problema no suele ser conseguir contactos, es no perderlos",
+        paragraphs: [
+          "Muchos autónomos ya reciben avisos suficientes al mes, pero pierden trabajos por otra razón: mandan un presupuesto por WhatsApp y, si el cliente no responde enseguida, se olvida de él entre el resto de mensajes del día. Ese cliente, en muchos casos, sí estaba dispuesto a contratar, simplemente necesitaba que alguien retomara la conversación.",
+        ],
+      },
+      {
+        heading: "Qué es un CRM sencillo en la práctica",
+        paragraphs: [
+          "No hace falta un software de empresa grande. Puede ser una lista (en una hoja de cálculo o una herramienta sencilla) con cada contacto: nombre, qué necesitaba, qué presupuesto se le mandó, en qué fecha, y si sigue pendiente de respuesta. Lo importante no es la herramienta, es que exista y se revise.",
+        ],
+      },
+      {
+        heading: "La pregunta que cierra trabajos olvidados",
+        paragraphs: [
+          "Un simple «Hola [nombre], ¿al final qué tal, seguimos adelante con el presupuesto?» a los tres o cuatro días de mandarlo recupera una parte de los presupuestos que, de otro modo, se quedan sin respuesta para siempre. Muchas veces el cliente solo estaba esperando decidir con calma y agradece el recordatorio.",
+        ],
+      },
+      {
+        heading: "Qué automatizar y qué no",
+        paragraphs: [
+          "Recordatorios de seguimiento (a los 3, a los 7 días) sí conviene automatizarlos para no depender de acordarte. La conversación en sí, en cambio, siempre debería sonar personal, con el nombre y el trabajo concreto de esa persona, no un mensaje genérico que se nota que es plantilla.",
+        ],
+      },
+      {
+        heading: `Cómo lo montamos en ${brand}`,
+        paragraphs: [
+          "Como parte del servicio de marketing digital, dejamos montado este sistema de seguimiento para que ningún presupuesto se quede sin respuesta por simple olvido.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "fidelizar-comunidades-vecinos-cliente-recurrente-fontanero-electricista",
+    photo: photos.fontaneroFregadero,
+    title: "Fidelizar comunidades de vecinos: el cliente que más rentabilidad da a largo plazo",
+    metaDescription:
+      "Por qué trabajar de forma recurrente con administradores de fincas y comunidades de vecinos en Barcelona da más estabilidad a un fontanero o electricista que solo captar particulares sueltos.",
+    excerpt:
+      "Un particular te llama una vez y quizás no vuelve en años. Una comunidad de vecinos te puede llamar varias veces al año, si eres su fontanero o electricista de confianza.",
+    summary:
+      "Un administrador de fincas gestiona muchas comunidades a la vez y necesita profesionales de confianza para avisos recurrentes: averías en zonas comunes, mantenimiento preventivo, boletines periódicos. Conseguir ser ese profesional de referencia para varias comunidades da una base de trabajo mucho más estable que depender solo de particulares sueltos que, en su mayoría, no vuelven a necesitarte en mucho tiempo.",
+    publishedAt: "2026-10-23",
+    updatedAt: "2026-10-23",
+    category: "Conseguir clientes",
+    content: [
+      {
+        heading: "Un particular y una comunidad no valen lo mismo a largo plazo",
+        paragraphs: [
+          "Un particular te llama por una avería puntual y, si todo va bien, puede que no vuelva a necesitarte en años. Una comunidad de vecinos, en cambio, tiene averías, revisiones y mantenimiento de forma constante: bajantes, montantes, cuadros generales, zonas comunes. Si te conviertes en su profesional de confianza, ese aviso se repite varias veces al año, no una sola vez.",
+        ],
+      },
+      {
+        heading: "Qué busca un administrador de fincas",
+        paragraphs: [],
+        list: [
+          "Tiempo de respuesta claro: saber cuánto tardas en atender una avería en zona común.",
+          "Facturación ordenada: presupuestos y facturas claras que pueda justificar ante la comunidad.",
+          "Seguro de responsabilidad civil en regla: es habitual que lo pidan antes de trabajar contigo.",
+          "Continuidad: prefieren un profesional fijo antes que buscar uno distinto cada vez.",
+        ],
+      },
+      {
+        heading: "Cómo dar el primer paso",
+        paragraphs: [
+          "No hace falta una gran presentación: una visita breve con una tarjeta, explicando qué haces, tu zona y tu tiempo de respuesta habitual, ya deja constancia. Muchos administradores solo cambian de profesional cuando el actual falla, así que estar en su lista para ese momento ya es un avance.",
+        ],
+      },
+      {
+        heading: "Por qué compensa el esfuerzo inicial",
+        paragraphs: [
+          "El primer contacto con un administrador de fincas no genera un trabajo inmediato, pero una comunidad fija puede convertirse en varios avisos al año durante mucho tiempo. Es una inversión de tiempo que rinde a medio plazo, no un canal de resultado instantáneo como un anuncio.",
+        ],
+      },
+      {
+        heading: `Cómo te ayuda ${brand}`,
+        paragraphs: [
+          "Te ayudamos a preparar el material (dossier, ficha de servicios) para presentarte a administradores de fincas de tu zona, además de tu ficha de Google y tus anuncios orientados a particulares.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "diferenciar-negocio-fontanero-electricista-mas-alla-rapido-confianza",
+    photo: photos.electricistaPlafon,
+    title: "Cómo diferenciarte cuando todos dicen «servicio rápido y de confianza»",
+    metaDescription:
+      "Por qué frases como «servicio rápido y de confianza» no diferencian a un fontanero o electricista en Barcelona, y qué sí funciona para destacar frente a la competencia.",
+    excerpt:
+      "Si en tu ficha de Google pone lo mismo que en la de tus diez competidores, para el cliente eres exactamente igual que ellos.",
+    summary:
+      "Frases como «servicio rápido y de confianza» o «profesional y económico» no diferencian a nadie porque las usa prácticamente todo el sector: para el cliente, todos los negocios parecen iguales. Lo que sí diferencia es lo concreto: un tiempo de respuesta expresado en minutos y no en adjetivos, una especialización real, una garantía por escrito, o fotos y reseñas que muestran trabajos específicos en vez de afirmaciones genéricas sobre lo bueno que eres.",
+    publishedAt: "2026-10-24",
+    updatedAt: "2026-10-24",
+    category: "Tu negocio",
+    content: [
+      {
+        heading: "El problema de decir lo mismo que todos",
+        paragraphs: [
+          "Busca «fontanero» o «electricista» en tu zona y lee las descripciones de las fichas de Google: casi todas dicen algo parecido a «servicio rápido, profesional y de confianza». Si tu ficha dice exactamente lo mismo, no le estás dando al cliente ningún motivo real para elegirte a ti en vez de al de al lado.",
+        ],
+      },
+      {
+        heading: "Lo concreto diferencia; lo genérico no",
+        paragraphs: [
+          "«Rápido» no dice nada. «Respondemos en menos de 30 minutos en horario laboral» sí dice algo, porque es una promesa concreta que se puede cumplir o no. Lo mismo pasa con «de confianza» frente a «con reseñas verificadas de vecinos de tu barrio»: lo segundo se puede comprobar, lo primero es solo una palabra.",
+        ],
+      },
+      {
+        heading: "Formas reales de diferenciarte",
+        paragraphs: [],
+        list: [
+          "Un tiempo de respuesta concreto, no un adjetivo: «te devolvemos la llamada en menos de 20 minutos».",
+          "Una especialización clara: no ser «fontanero general» sino «especialista en reformas de baño» o «electricista especializado en puntos de recarga».",
+          "Una garantía por escrito sobre el trabajo, con su duración exacta.",
+          "Fotos de antes y después de trabajos concretos, no imágenes genéricas de herramientas.",
+        ],
+      },
+      {
+        heading: "No hace falta inventar nada",
+        paragraphs: [
+          "Diferenciarte no significa prometer algo que no vas a cumplir: significa contar con datos concretos lo que ya haces bien, en vez de resumirlo en un adjetivo que usa todo el mundo. Si ya respondes rápido, dilo con un número. Si ya tienes buenas reseñas, que se lean, no que se resuman en «de confianza».",
+        ],
+      },
+      {
+        heading: `Cómo te ayuda ${brand}`,
+        paragraphs: [
+          "En el asesoramiento gratuito te ayudamos a identificar qué haces mejor que tu competencia y a convertirlo en algo concreto y comprobable en tu ficha de Google y tu web, no en una frase que podría llevar cualquiera.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getGuides(locale: Locale): Guide[] {
